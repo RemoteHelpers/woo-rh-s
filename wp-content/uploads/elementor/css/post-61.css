@@ -1,0 +1,48 @@
+.elementor-61 .elementor-element.elementor-element-4a6ddfe > .elementor-container{max-width:350px;min-height:400px;}.elementor-bc-flex-widget .elementor-61 .elementor-element.elementor-element-b6f0288.elementor-column .elementor-widget-wrap{align-items:space-between;}.elementor-61 .elementor-element.elementor-element-b6f0288.elementor-column.elementor-element[data-element_type="column"] > .elementor-widget-wrap.elementor-element-populated{align-content:space-between;align-items:space-between;}.elementor-61 .elementor-element.elementor-element-b6f0288 > .elementor-widget-wrap > .elementor-widget:not(.elementor-widget__width-auto):not(.elementor-widget__width-initial):not(:last-child):not(.elementor-absolute){margin-bottom:0px;}.elementor-61 .elementor-element.elementor-element-b6f0288:not(.elementor-motion-effects-element-type-background) > .elementor-widget-wrap, .elementor-61 .elementor-element.elementor-element-b6f0288 > .elementor-widget-wrap > .elementor-motion-effects-container > .elementor-motion-effects-layer{background-color:#FFFFFF;}.elementor-61 .elementor-element.elementor-element-b6f0288 > .elementor-element-populated, .elementor-61 .elementor-element.elementor-element-b6f0288 > .elementor-element-populated > .elementor-background-overlay, .elementor-61 .elementor-element.elementor-element-b6f0288 > .elementor-background-slideshow{border-radius:8px 8px 8px 8px;}.elementor-61 .elementor-element.elementor-element-b6f0288 > .elementor-element-populated{box-shadow:1px 2px 6px 0px rgba(0, 0, 0, 0.15);transition:background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;margin:0px 0px 0px 0px;padding:0px 0px 0px 0px;}.elementor-61 .elementor-element.elementor-element-b6f0288 > .elementor-element-populated > .elementor-background-overlay{transition:background 0.3s, border-radius 0.3s, opacity 0.3s;}.elementor-61 .elementor-element.elementor-element-8f4631a .elementor-button{background-color:#FF5252;border-radius:0px 08px 0px 08px;}.elementor-61 .elementor-element.elementor-element-eb4e1f8 > .elementor-widget-wrap > .elementor-widget:not(.elementor-widget__width-auto):not(.elementor-widget__width-initial):not(:last-child):not(.elementor-absolute){margin-bottom:0px;}.elementor-61 .elementor-element.elementor-element-d66fc08 .jet-woo-builder-archive-product-thumbnail{border-radius:50% 50% 50% 50%;overflow:hidden;}.elementor-61 .elementor-element.elementor-element-d66fc08 .jet-woo-builder-archive-product-thumbnail__wrapper{text-align:center;}.elementor-61 .elementor-element.elementor-element-0c6aada .jet-woo-builder-archive-product-title{font-family:"Montserrat", Sans-serif;font-size:1.4rem;font-weight:700;line-height:24px;color:var( --e-global-color-secondary );text-align:center;}.elementor-61 .elementor-element.elementor-element-0c6aada .jet-woo-builder-archive-product-title a{color:var( --e-global-color-secondary );}.elementor-61 .elementor-element.elementor-element-0c6aada .jet-woo-builder-archive-product-title:hover{color:#000000;}.elementor-61 .elementor-element.elementor-element-0c6aada .jet-woo-builder-archive-product-title a:hover{color:#000000;}.elementor-61 .elementor-element.elementor-element-0c6aada > .elementor-widget-container{margin:0px 0px 0px 0px;padding:0px 0px 0px 0px;}.elementor-61 .elementor-element.elementor-element-6ee5719{text-align:center;color:var( --e-global-color-secondary );font-family:"Montserrat", Sans-serif;font-weight:400;}.elementor-61 .elementor-element.elementor-element-27eae13{--divider-border-style:solid;--divider-color:#FF5252;--divider-border-width:1px;}.elementor-61 .elementor-element.elementor-element-27eae13 .elementor-divider-separator{width:80%;margin:0 auto;margin-center:0;}.elementor-61 .elementor-element.elementor-element-27eae13 .elementor-divider{text-align:center;padding-top:15px;padding-bottom:15px;}.elementor-61 .elementor-element.elementor-element-54e0bed .jet-listing-dynamic-terms{text-align:center;}.elementor-61 .elementor-element.elementor-element-54e0bed .jet-listing-dynamic-terms__link{font-family:"Montserrat", Sans-serif;font-size:0.9rem;font-weight:500;color:var( --e-global-color-secondary );padding:0% 3% 0% 3%;margin:010px 10px 0px 0px;}.elementor-61 .elementor-element.elementor-element-54e0bed .jet-listing-dynamic-terms__link:hover{color:#FF5252;}.elementor-61 .elementor-element.elementor-element-ee11649 .elementor-button{background-color:#61CE7000;border-radius:0px 0px 08px 08px;}.elementor-61 .elementor-element.elementor-element-ee11649 > .elementor-widget-container{padding:01rem 0rem 0rem 0rem;}.elementor-61 .elementor-element.elementor-element-4a6ddfe{padding:0.5rem 0.5rem 0.5rem 0.5rem;}.woocommerce .jet-woo-builder-layout-61.products.jet-woo-builder-products--columns .product:not(.product-category){padding-left:calc(20px/2);padding-right:calc(20px/2);margin-bottom:25px!important;}.woocommerce .jet-woo-builder-layout-61.products.jet-woo-builder-products--columns{margin-left:calc(-20px/2);margin-right:calc(-20px/2);}/* Start custom CSS for jet-listing-dynamic-terms, class: .elementor-element-54e0bed */.elementor-61 .elementor-element.elementor-element-54e0bed div>a{
+    background-color: #F7F7F7;
+    border-radius: 20px;
+    border: .5px solid transparent;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    border-right-color: #f1f1f1;
+    border-bottom-color: #f1f1f1;
+}
+
+.elementor-61 .elementor-element.elementor-element-54e0bed div>a{
+    padding: .4rem .8rem;
+    font-weight: 500;
+    line-height: 2;
+}
+
+.elementor-61 .elementor-element.elementor-element-54e0bed .jet-listing-dynamic-terms{
+    column-gap: 1%;
+    row-gap: .25rem;
+}/* End custom CSS */
+/* Start custom CSS for column, class: .elementor-element-b6f0288 */.elementor-61 .elementor-element.elementor-element-b6f0288:hover #card-button{
+    background-color: #ff5252;
+    color: #fbfbfd;
+}/* End custom CSS */
+/* Start custom CSS for jet-listing-dynamic-terms, class: .elementor-element-54e0bed */.elementor-61 .elementor-element.elementor-element-54e0bed div>a{
+    background-color: #F7F7F7;
+    border-radius: 20px;
+    border: .5px solid transparent;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    border-right-color: #f1f1f1;
+    border-bottom-color: #f1f1f1;
+}
+
+.elementor-61 .elementor-element.elementor-element-54e0bed div>a{
+    padding: .4rem .8rem;
+    font-weight: 500;
+    line-height: 2;
+}
+
+.elementor-61 .elementor-element.elementor-element-54e0bed .jet-listing-dynamic-terms{
+    column-gap: 1%;
+    row-gap: .25rem;
+}/* End custom CSS */
+/* Start custom CSS for column, class: .elementor-element-b6f0288 */.elementor-61 .elementor-element.elementor-element-b6f0288:hover #card-button{
+    background-color: #ff5252;
+    color: #fbfbfd;
+}/* End custom CSS */
