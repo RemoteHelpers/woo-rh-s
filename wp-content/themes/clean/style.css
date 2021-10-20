@@ -949,14 +949,18 @@ textarea {
 .background-header {
   display: flex;
   justify-content: center;
-  padding: 0 3rem 0 3rem;
+  padding: 0 3% 0 3%;
   height: 70px;
   background-color: #000000;
   opacity: 0.85;
 }
 
 .site-branding {
-  width: 50%;
+  height: 100%;
+  width: 300px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 
 .site-header {
@@ -975,12 +979,12 @@ textarea {
 }
 
 .site-logo {
-  width: 25%;
+  width: 65%;
 }
 
 .main-navigation .menu-testmenu-container li a {
   font-family: "Roboto", serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
   color: white;
 }
