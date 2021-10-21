@@ -1,0 +1,20 @@
+.cptui-product {
+
+	// WooCommerce Variations
+	.variations label {
+		text-transform: capitalize;
+	} // .variations label
+
+} // .cptui-product
+
+.cptui-product-price {
+	font-size: rem(22);
+	line-height: 1.5;
+	margin: rem(12) 0;
+
+	.amount {
+		color: $color-black;
+		font-weight: 700;
+	} // .amount
+
+} // .cptui-product-price

@@ -1,0 +1,27 @@
+.cptui-shortcode-list {
+
+	input[type='number'] {
+		padding: rem(6) rem(12);
+	}
+
+	button,
+	.button {
+		background-color: $color-mineshaft;
+		border: 0;
+		border-radius: 0;
+		color: $color-white;
+		cursor: pointer;
+		font-family: inherit;
+		font-size: rem(20);
+		line-height: 1;
+		margin: rem(12) 0;
+		padding: rem(13) rem(24) rem(12);
+		text-transform: uppercase;
+
+		&:focus,
+		&:hover {
+			background-color: $color-black;
+		}
+	} // button, .button
+
+} // .cptui-shortcode-list

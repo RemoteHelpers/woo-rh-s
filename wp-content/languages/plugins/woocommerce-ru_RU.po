@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - WooCommerce - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-12 18:58:35+0000\n"
+"PO-Revision-Date: 2021-10-19 21:39:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -461,11 +461,6 @@ msgstr "Выберите платёжные системы и способы о�
 msgid "Start by adding the first product to your store. You can add your products manually, via CSV, or import them from another service."
 msgstr "Для начала добавьте в магазин первый товар. Можно добавлять товары вручную, через CSV или импортировать их из другой службы."
 
-#: packages/woocommerce-admin/src/Features/OnboardingTasks.php:590
-#: packages/woocommerce-admin/dist/chunks/task-list.js:1
-msgid "Your store address is required to set the origin country for shipping, currencies, and payment options."
-msgstr "Адрес магазина необходим, чтобы задать страну для настройки доставки, валюты и платежей."
-
 #: packages/woocommerce-admin/src/Features/OnboardingTasks.php:683
 #: packages/woocommerce-admin/dist/chunks/task-list.js:1
 msgid "Set your store location and configure tax rate settings."
@@ -517,6 +512,11 @@ msgstr "Защитите свой магазин WooCommerce с помощью J
 #: packages/woocommerce-admin/src/Notes/Notes.php:454
 msgid "Notes are unavailable because the \"admin-note\" data store cannot be loaded."
 msgstr "Заметки недоступны, поскольку невозможно загрузить данные хранилища «admin-note»."
+
+#: packages/woocommerce-admin/src/Features/OnboardingTasks.php:590
+#: packages/woocommerce-admin/dist/chunks/task-list.js:1
+msgid "Your store address is required to set the origin country for shipping, currencies, and payment options."
+msgstr "Адрес магазина необходим, чтобы установить страну для настройки доставки, валюты и платежей."
 
 #: packages/woocommerce-admin/src/Features/PaymentGatewaySuggestions/DefaultPaymentGateways.php:100
 msgid "Mollie"
@@ -1217,13 +1217,13 @@ msgstr "Мы хотим сделать электронную коммерцию
 msgid "Getting Started in eCommerce - webinar"
 msgstr "Начало работы в электронной коммерции - вебинар"
 
-#: packages/woocommerce-admin/src/Notes/CustomizingProductCatalog.php:67
-msgid "You want your product catalog and images to look great and align with your brand. This guide will give you all the tips you need to get your products looking great in your store."
-msgstr "Вы хотите, чтобы ваш каталог товаров с изображениями выглядели великолепно и соответствовали вашему бренду. Это руководство даст вам все необходимые советы, чтобы ваши товары отлично смотрелись в вашем магазине."
-
 #: packages/woocommerce-admin/src/Notes/LearnMoreAboutVariableProducts.php:66
 msgid "Variable products are a powerful product type that lets you offer a set of variations on a product, with control over prices, stock, image and more for each variation. They can be used for a product like a shirt, where you can offer a large, medium and small and in different colors."
 msgstr "Вариативный товар - это мощный тип товара, который позволяет вам предлагать набор различных вариантов, которые могут отличаться по ценам, иметь разные изображения, учитывать складские остатки каждой вариации. Их можно использовать для таких товаров, как рубашка, которая имеет различные размеры и цвета."
+
+#: packages/woocommerce-admin/src/Notes/CustomizingProductCatalog.php:67
+msgid "You want your product catalog and images to look great and align with your brand. This guide will give you all the tips you need to get your products looking great in your store."
+msgstr "Вы хотите, чтобы ваш каталог товаров с изображениями выглядели великолепно и соответствовали вашему бренду. Это руководство даст вам все необходимые советы, чтобы ваши товары отлично смотрелись в вашем магазине."
 
 #: packages/woocommerce-admin/src/Notes/ChooseNiche.php:68
 msgid "There’s nothing quite like entrepreneurship! We put together a blog post series — titled From Idea to First Customer — with all the tips, resources, and tools to inspire a great idea, empower you to execute it, and lead to your very first sale."
@@ -4924,14 +4924,14 @@ msgstr "Безопасно принимайте кредитные и дебет
 msgid "Limit stats fields to the specified items."
 msgstr "Ограничьте поля статистики определёнными товарами."
 
-#: packages/woocommerce-admin/src/Notes/PersonalizeStore.php:48
-msgid "The homepage is one of the most important entry points in your store. When done right it can lead to higher conversions and engagement. Don't forget to personalize the homepage that we created for your store during the onboarding."
-msgstr "Главная страница — один из самых важных разделов вашего магазина. Правильная настройка может помочь повысить конверсию и интерес посетителей. Не забудьте отредактировать домашнюю страницу, которую мы создали для вашего магазина в процессе адаптации."
-
 #: packages/woocommerce-admin/src/Features/ShippingLabelBanner.php:91
 #: packages/woocommerce-admin/dist/wp-admin-scripts/print-shipping-label-banner.js:1
 msgid "Shipping Label"
 msgstr "Транспортная этикетка"
+
+#: packages/woocommerce-admin/src/Notes/PersonalizeStore.php:48
+msgid "The homepage is one of the most important entry points in your store. When done right it can lead to higher conversions and engagement. Don't forget to personalize the homepage that we created for your store during the onboarding."
+msgstr "Главная страница — один из самых важных разделов вашего магазина. Правильная настройка может помочь повысить конверсию и интерес посетителей. Не забудьте отредактировать домашнюю страницу, которую мы создали для вашего магазина в процессе адаптации."
 
 #: packages/woocommerce-admin/src/Notes/WooCommercePayments.php:102
 msgid "Try the new way to get paid"
@@ -6450,16 +6450,6 @@ msgstr "Данные отчёта, сгруппированные по сост�
 msgid "Reports data grouped by intervals."
 msgstr "Данные отчёта, сгруппированные по интервалам."
 
-#: packages/woocommerce-admin/src/API/Reports/Coupons/Stats/Controller.php:224
-#: packages/woocommerce-admin/src/API/Reports/Downloads/Stats/Controller.php:181
-#: packages/woocommerce-admin/src/API/Reports/Orders/Stats/Controller.php:285
-#: packages/woocommerce-admin/src/API/Reports/Products/Stats/Controller.php:245
-#: packages/woocommerce-admin/src/API/Reports/Revenue/Stats/Controller.php:310
-#: packages/woocommerce-admin/src/API/Reports/Taxes/Stats/Controller.php:261
-#: packages/woocommerce-admin/src/API/Reports/Variations/Stats/Controller.php:242
-msgid "The date the report start, in the site's timezone."
-msgstr "Дата начала формирования отчёта по локальному времени сайта."
-
 #: packages/woocommerce-admin/src/API/Reports/Coupons/Stats/Controller.php:230
 #: packages/woocommerce-admin/src/API/Reports/Downloads/Stats/Controller.php:187
 #: packages/woocommerce-admin/src/API/Reports/Orders/Stats/Controller.php:291
@@ -6469,6 +6459,16 @@ msgstr "Дата начала формирования отчёта по лок�
 #: packages/woocommerce-admin/src/API/Reports/Variations/Stats/Controller.php:248
 msgid "The date the report start, as GMT."
 msgstr "Дата начала формирования отчёта (в формате GMT)."
+
+#: packages/woocommerce-admin/src/API/Reports/Coupons/Stats/Controller.php:224
+#: packages/woocommerce-admin/src/API/Reports/Downloads/Stats/Controller.php:181
+#: packages/woocommerce-admin/src/API/Reports/Orders/Stats/Controller.php:285
+#: packages/woocommerce-admin/src/API/Reports/Products/Stats/Controller.php:245
+#: packages/woocommerce-admin/src/API/Reports/Revenue/Stats/Controller.php:310
+#: packages/woocommerce-admin/src/API/Reports/Taxes/Stats/Controller.php:261
+#: packages/woocommerce-admin/src/API/Reports/Variations/Stats/Controller.php:242
+msgid "The date the report start, in the site's timezone."
+msgstr "Дата начала формирования отчёта по локальному времени сайта."
 
 #: packages/woocommerce-admin/src/API/Reports/Coupons/Stats/Controller.php:236
 #: packages/woocommerce-admin/src/API/Reports/Downloads/Stats/Controller.php:193
@@ -10692,13 +10692,13 @@ msgstr "У каких членов команды магазина есть до
 msgid "Members of our team have access to the information you provide us. For example, both Administrators and Shop Managers can access:"
 msgstr "Члены нашей команды имеют доступ к информации, которую вы нам предоставляете. Так, и администраторы, и менеджеры магазина имеют доступ к следующим данным:"
 
-#: includes/class-wc-privacy.php:114
-msgid "Customer information like your name, email address, and billing and shipping information."
-msgstr "Сведения о покупателе, к которым относятся ваше имя, адрес электронной почты, платёжные реквизиты и информация, связанная с доставкой."
-
 #: includes/class-wc-privacy.php:108
 msgid "We generally store information about you for as long as we need the information for the purposes for which we collect and use it, and we are not legally required to continue to keep it. For example, we will store order information for XXX years for tax and accounting purposes. This includes your name, email address and billing and shipping addresses."
 msgstr "Обычно мы храним данные о вас столько, сколько необходимо для целей, ради которых мы их собираем и используем. Исключение составляют случаи, когда мы обязаны продолжать хранить эту информацию в связи с требованиями законодательства. Так, информация о заказе хранится у нас на протяжении XX лет, согласно правилам налогообложения и бухгалтерского учёта. К этим сведениям относится ваше имя, адрес электронной почты, адрес выставления счёта и адрес доставки."
+
+#: includes/class-wc-privacy.php:114
+msgid "Customer information like your name, email address, and billing and shipping information."
+msgstr "Сведения о покупателе, к которым относятся ваше имя, адрес электронной почты, платёжные реквизиты и информация, связанная с доставкой."
 
 #: includes/class-wc-privacy.php:116
 msgid "Our team members have access to this information to help fulfill orders, process refunds and support you."
@@ -21960,6 +21960,10 @@ msgstr "Искать:"
 msgid "This product is currently out of stock and unavailable."
 msgstr "Этого товара нет в наличии, заказ недоступен."
 
+#: templates/single-product/related.php:27
+msgid "Related products"
+msgstr "Похожие товары"
+
 #: templates/single-product/review-meta.php:27
 msgid "Your review is awaiting approval"
 msgstr "Ваш комментарий ожидает одобрения"
@@ -22127,10 +22131,6 @@ msgstr "Отслеживание"
 #: templates/order/order-details.php:93
 msgid "Note:"
 msgstr "Примечание:"
-
-#: templates/single-product/related.php:27
-msgid "Related products"
-msgstr "Сопутствующие товары"
 
 #: includes/shortcodes/class-wc-shortcode-checkout.php:92
 #: includes/shortcodes/class-wc-shortcode-checkout.php:215

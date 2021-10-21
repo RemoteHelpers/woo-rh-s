@@ -1,0 +1,121 @@
+//--------------------------------------------------------------
+// Grid with Overlay Layout
+//--------------------------------------------------------------
+
+.cptui-shortcode-grid-with-overlay {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	@include breakpoint(tablet) {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	li {
+		background-color: #333333;
+		margin-bottom: rem(15);
+		position: relative;
+
+		@include breakpoint(tablet) {
+			flex: 0 1 48%;
+		}
+
+		&.single-post {
+			flex: 0 1 100%;
+			margin-bottom: 0;
+		} // &.single-post
+
+		&:hover {
+
+			&::after,
+			.content-container {
+				opacity: 1;
+				visibility: visible;
+			} // &::after, .content-container
+		} // &:hover
+
+		&::after {
+			background-color: rgba(0, 0, 0, 0.5);
+			content: '';
+			height: 100%;
+			left: 0;
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			transition: all 0.3s ease-in-out; // required for pseudo elements
+			visibility: hidden;
+			width: 100%;
+			z-index: 0;
+		} // &::after
+
+		&:last-of-type {
+			margin-bottom: 0;
+
+			@include breakpoint(tablet) {
+				margin-bottom: rem(15);
+			}
+		} // &:last-of-type
+
+		.content-container {
+			align-items: center;
+			color: #ffffff;
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			justify-content: center;
+			opacity: 0;
+			padding: rem(30) rem(20);
+			position: relative;
+			transition: all 0.3s ease-in-out; // required for pseudo elements
+			visibility: hidden;
+			width: 100%;
+			z-index: 10;
+
+			// links.
+			a {
+				color: #ffffff;
+			} // a
+		} // .content-container
+
+		.post-date-container {
+			font-size: rem(14);
+			display: block;
+			margin-bottom: rem(5);
+		} // ..post-date-container,
+
+		.cptui-link {
+			box-shadow: none;
+			display: inline-block;
+		} // .cptui-links
+
+		.title-container {
+			color: #ffffff; // target header.
+			margin-bottom: rem(0);
+			text-align: center;
+		} // .title-container
+
+		.cptui-excerpt {
+			font-size: rem(14);
+			line-height: 1.25;
+			margin-top: rem(10);
+			text-align: center;
+		} // .cptui-excerpt
+
+		.read-more-container {
+			margin-top: rem(15);
+		} // .read-more-container
+
+		img {
+			box-shadow: none; // wp override just in case.
+			vertical-align: bottom;
+		}
+	} // li
+
+	button {
+		font-size: rem(16);
+		line-height: 1;
+	}
+} // .cptui-shortcode-grid

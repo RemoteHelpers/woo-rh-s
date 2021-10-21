@@ -1,0 +1,6 @@
+// Affects all shortcode areas
+.cptui-shortcode {
+	@include clearfix;
+
+	margin: 0 0 rem(40);
+} // .cptui-shortcode

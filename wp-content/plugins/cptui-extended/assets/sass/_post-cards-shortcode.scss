@@ -1,0 +1,174 @@
+//--------------------------------------------------------------
+// Post Cards Layout
+//--------------------------------------------------------------
+.cptui-shortcode-post_cards {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	@include breakpoint(tablet) {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	&.option-1,
+	&.option-3 {
+
+		li {
+
+			.thumbnail-container {
+				margin-bottom: rem(5);
+
+				@include breakpoint(phablet) {
+					display: inline-block;
+					overflow: hidden;
+					position: relative;
+					width: 100%;
+				}
+
+				img {
+
+					@include breakpoint(phablet) {
+						height: auto;
+						left: 50%;
+						position: absolute;
+						top: 50%;
+						transform: translate(-50%, -50%);
+						vertical-align: bottom;
+						width: auto;
+					}
+				} // img
+			} // .thumbnail-container
+		} // li
+	} // .option-1, .option-3
+
+	&.option-1 {
+
+		li {
+
+			@include breakpoint(tablet) {
+				flex: 0 1 48%;
+			}
+
+			.thumbnail-container {
+
+				@include breakpoint(phablet) {
+					height: rem(180);
+				}
+
+				img {
+
+					@include breakpoint(phablet) {
+						min-width: rem(285);
+					}
+				} // img
+			} // .thumbnail-container
+		} // li
+	} // .option-1
+
+	&.option-2 {
+
+		li {
+			margin-bottom: rem(24);
+
+			&:last-of-type {
+				margin-bottom: 0;
+
+				@include breakpoint(tablet) {
+					margin-bottom: rem(24);
+				}
+			} // &:last-of-type
+
+			@include breakpoint(tablet) {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: no-wrap;
+			}
+
+			.cptui-category-list {
+				display: none;
+			} // .cptui-category-list
+
+			.thumbnail-container {
+
+				@include breakpoint(tablet) {
+					flex: 1 0 50%;
+				}
+			} // .thumbnail-container
+
+			.content-container {
+
+				@include breakpoint(tablet) {
+					display: flex;
+					flex: 0 1 auto;
+					flex-direction: column;
+					justify-content: center;
+				}
+			} // .content-container
+		} // li
+	} // .option-2
+
+	&.option-3 {
+
+		li {
+
+			@include breakpoint(tablet) {
+				flex: 0 1 32%;
+			}
+
+			.cptui-category-list,
+			.cptui-excerpt {
+				display: none;
+			} // .cptui-category-list, .cptui-excerpt
+
+			.thumbnail-container {
+
+				@include breakpoint(phablet) {
+					height: rem(120);
+				}
+
+				img {
+
+					@include breakpoint(phablet) {
+						min-width: rem(205);
+					}
+				} // img
+			} // .thumbnail-container
+		} // li
+	} // .option-2
+
+	li {
+		border: 1px solid #cccccc;
+		margin-bottom: rem(48);
+
+		&:last-of-type {
+			margin-bottom: 0;
+
+			@include breakpoint(tablet) {
+				margin-bottom: rem(48);
+			}
+		} // &:last-of-type
+
+		.content-container {
+			padding: rem(10) rem(15) 0;
+		} // .content-container
+
+		.cptui-link {
+			box-shadow: none;
+			display: inline-block;
+		} // .cptui-links
+
+		.title-container,
+		.cptui-category-list,
+		.cptui-excerpt {
+			margin-bottom: rem(15);
+		} // .title-container, .cptui-category-list, .cptui-excerpt
+
+		img {
+			box-shadow: none; // wp override just in case.
+			vertical-align: bottom;
+		}
+	} // li
+} // .cptui-shortcode-post_cards

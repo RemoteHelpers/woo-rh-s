@@ -1,0 +1,62 @@
+// Each post in shortcode
+.cptui-entry {
+	@include clearfix;
+
+	margin: 0;
+	padding: 0 0 rem(24);
+} // .cptui-entry
+
+// Each post's header and footer
+.cptui-entry-header,
+.cptui-entry-footer {
+	text-align: left;
+} // .cptui-entry-header, .cptui-entry-footer
+
+// Each post's thumbnail
+// This is where we do two-col
+.cptui-entry-thumbnail {
+	box-sizing: border-box;
+	float: left;
+	margin: 0;
+	padding-top: rem(6);
+	width: 27%;
+
+	img {
+		height: auto;
+	} // img
+
+	& ~ .cptui-entry-header,
+	& ~ .cptui-entry-summary,
+	& ~ .cptui-entry-footer {
+		box-sizing: border-box;
+		float: right;
+		margin-left: 3%;
+		padding: 0;
+		width: 70%;
+	}
+
+} // .cptui-entry-thumbnail
+
+// Each post's excerpt
+.cptui-entry-summary {
+	margin-top: 0;
+
+	p:first-of-type {
+		margin-top: 0;
+	}
+
+} // .cptui-entry-summary
+
+//-----------------------------------------
+// Images
+//-----------------------------------------
+img {
+	vertical-align: bottom;
+}
+
+//-----------------------------------------
+// Links
+//-----------------------------------------
+.thumbnail-container {
+	display: block;
+}

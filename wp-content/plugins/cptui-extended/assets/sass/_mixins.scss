@@ -1,0 +1,144 @@
+// ----------------------------------------------------------------------
+// Clearfix
+// ----------------------------------------------------------------------
+
+/// Automatically clear child elements
+///
+/// @example scss - Basic Usage Sass
+///    .foo {
+///        @include clearfix;
+///    }
+///
+/// @example scss - Basic Usage CSS Output
+///    .foo:after {
+///        content: "";
+///        display: table;
+///        clear: both;
+///    }
+
+@mixin clearfix {
+
+	&::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+// ----------------------------------------------------------------------
+// Simple breakpoints mixin
+// https://css-tricks.com/snippets/sass/mixin-manage-breakpoints/
+// ----------------------------------------------------------------------
+
+/// Mixin to manage responsive breakpoints
+/// @author Hugo Giraudel
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+/// @example scss - Basic Usage Sass
+///    .foo {
+///        color: red;
+///
+///        @include respond-to('small') {
+///            color: blue;
+///        }
+///    }
+///
+/// @example scss - Basic Usage CSS Output
+///    .foo {
+///        color: red;
+///    }
+///
+///    @media (min-width: 767px) {
+///        .foo {
+///            color: blue;
+///        }
+///    }
+
+@mixin respond-to($breakpoint) {
+	// If the key exists in the map
+	@if map-has-key($breakpoints, $breakpoint) {
+		// Prints a media query based on the value
+		@media (min-width: map-get($breakpoints, $breakpoint)) {
+			@content;
+		}
+	} @else { // If the key doesn't exist in the map
+		@warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
+	}
+}
+
+// ----------------------------------------------------------------------
+// Simple REM conversion
+// https://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+// ----------------------------------------------------------------------
+
+/// @example scss - Basic Usage Sass
+///    .foo {
+///        line-height: rem(15px); // Pass a px value.
+///        right: rem(1.5); // Pass a rem, em, or unitless value.
+///        @include rem(font-size 12px, top 1.7);
+///    }
+///
+/// @example scss - Basic Usage CSS Output
+///    .foo {
+///        line-height: 1.06667rem;
+///        right: 10.66667rem;
+///        font-size: 12px;
+///        font-size: 1.33333rem;
+///        top: 27.2px;
+///        top: 9.41176rem;
+///    }
+
+// Remove the unit from a number
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+// Calculate an rem value from px
+// If $px is an rem or em value, it will be returned as-is, with an rem unit.
+// If $px is a px value, it will be converted to an rem.
+@function rem($px) {
+    @if(unit($px) == "rem") {
+        @return $px;
+    }@else if(unit($px) == "em") {
+        //Assume an em value is an rem -- it's all we can do.
+        @return strip-unit($px) + rem;
+    }@else if(unit($px) != "%") {
+        //Must be a px value
+        @return strip-unit($px) / strip-unit($baseline) + rem;
+    }
+    @return null;
+}
+
+// Use rem units with px fallback
+// Specify a px, em, or rem value with each property. Unitless values will be considered an rem.
+@mixin rem($properties...) {
+    @each $property in $properties {
+        $value: nth($property, 2);
+        @if(unit($value) == 'px') {
+            #{nth($property, 1)}: $value;
+            #{nth($property, 1)}: rem($value);
+        } @else {
+            #{nth($property, 1)}: strip-unit($value) * $baseline;
+            #{nth($property, 1)}: rem($value);
+        }
+    }
+}
+
+@mixin breakpoint($point) {
+    @if $point == desktop {
+      @media (min-width: 70em) { @content ; }
+   }
+    @else if $point == laptop {
+      @media (min-width: 64em) { @content ; }
+   }
+     @else if $point == tablet {
+      @media (min-width: 798px) { @content ; }
+   }
+    @else if $point == phablet {
+      @media (min-width: 758px)  { @content ; }
+   }
+   @else if $point == mobileonly {
+      @media (max-width: 37.5em)  { @content ; }
+   }
+ }
+ 

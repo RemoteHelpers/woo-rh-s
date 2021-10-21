@@ -1099,7 +1099,7 @@ ul.nav-menu > .menu-item-has-children > .sub-menu > li > a {
         }
       }
     }
-    .privacy-pol{
+    .privacy-policy{
       display: flex;
       flex-flow: column wrap;
       height: 55%;
@@ -1120,8 +1120,25 @@ ul.nav-menu > .menu-item-has-children > .sub-menu > li > a {
     }
   }
 
-  .footer-icons{
+  .footer-icon{
     width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    a{
+      margin-right: 15px;
+      .fab{
+        font-size: 28px;
+        color: #ffffff;
+        transition: 0.3s;
+        &:hover{
+          color: $accent-color;
+        }
+      }
+
+    }
+
   }
 }
 

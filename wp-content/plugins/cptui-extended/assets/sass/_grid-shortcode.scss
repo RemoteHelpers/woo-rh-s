@@ -1,0 +1,84 @@
+//--------------------------------------------------------------
+// Grid Layout
+//--------------------------------------------------------------
+
+.cptui-shortcode-grid {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	@include breakpoint(tablet) {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	li {
+		margin-bottom: rem(48);
+
+		@include breakpoint(tablet) {
+			flex: 0 1 48%;
+		}
+
+		&:last-of-type {
+			margin-bottom: 0;
+
+			@include breakpoint(tablet) {
+				margin-bottom: rem(48);
+			}
+		} // &:last-of-type
+
+		// always no margin on last item.
+		> div:last-child {
+			margin-bottom: 0;
+		} // > div:last-child
+
+		.cptui-link {
+			box-shadow: none;
+			display: inline-block;
+		} // .cptui-links
+
+		.thumbnail-container {
+
+			@include breakpoint(phablet) {
+				display: inline-block;
+				height: rem(180);
+				overflow: hidden;
+				position: relative;
+				width: 100%;
+			}
+
+			img {
+
+				@include breakpoint(phablet) {
+					height: auto;
+					left: 50%;
+					min-width: rem(285);
+					position: absolute;
+					top: 50%;
+					transform: translate(-50%, -50%);
+					vertical-align: bottom;
+					width: auto;
+				}
+			} // img
+		} // ..thumbnail-container
+
+		.thumbnail-container,
+		.title-container,
+		.cptui-category-list,
+		.cptui-excerpt {
+			margin-bottom: rem(15);
+		} // .thumbnail-container, .title-container, .cptui-excerpt
+
+		img {
+			box-shadow: none; // wp override just in case.
+			vertical-align: bottom;
+		}
+	} // li
+
+	button {
+		font-size: rem(16);
+		line-height: 1;
+	}
+} // .cptui-shortcode-grid

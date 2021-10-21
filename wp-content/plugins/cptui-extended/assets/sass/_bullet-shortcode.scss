@@ -1,0 +1,15 @@
+// Affects the bullet shortcode only
+.bullet-shortcode {
+
+	ul {
+		padding-left: rem(48);
+	}
+
+	li {
+		margin-bottom: rem(24);
+	}
+
+	.entry-summary {
+		margin-top: 0;
+	}
+} // .bullet-shortcode

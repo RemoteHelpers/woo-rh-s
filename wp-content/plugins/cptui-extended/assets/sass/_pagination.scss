@@ -1,0 +1,19 @@
+.pagination {
+	@include clearfix;
+
+	margin: rem(12) 0;
+	text-align: center;
+	width: 100%;
+
+	.page-numbers {
+		padding: rem(8) rem(10);
+	} // .page-numbers
+
+	a {
+
+		&:focus,
+		&:hover {
+			background-color: $color-alto;
+		}
+	}
+} // .pagination
