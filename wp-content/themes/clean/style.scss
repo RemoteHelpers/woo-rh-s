@@ -940,6 +940,8 @@ textarea {
   margin-bottom: 1.5em;
 }
 
+$accent-color: #FF5252;
+
 .wrapper {
   width: 100%;
   max-width: 1220px;
@@ -951,8 +953,7 @@ textarea {
   justify-content: center;
   padding: 0 3% 0 3%;
   height: 70px;
-  background-color: #000000;
-  opacity: 0.85;
+  background-color: rgba(0,0,0,.9);
 }
 
 .site-branding {
@@ -1027,8 +1028,9 @@ ul.nav-menu > .menu-item-has-children > .sub-menu > li {
 }
 
 ul.nav-menu > .menu-item-has-children > .sub-menu > li:hover {
-  background-color: #FF5252;
+  background-color: $accent-color;
 }
+
 
 ul.nav-menu > .menu-item-has-children > .sub-menu > li > a {
   font-size: 0.8rem;
@@ -1045,7 +1047,81 @@ ul.nav-menu > .menu-item-has-children > .sub-menu > li > a {
   z-index: 999999999999999999999999999999;
 }
 
-body{
-  background-color: #FFFFFF;
+
+.site-footer{
+  height: 250px;
+  width: 100%;
+  background-color: #212121;
+  display: flex;
+  justify-content: space-between;
+  .footer-logo{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a{
+      img{
+        width: 200px;
+        height: auto;
+      }
+    }
+  }
+
+  .bottom-menu{
+    width: 50%;
+    .menu{
+      height: 45%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .menu-footer-menu-container{
+        .footer-menu{
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          li:not(:last-child){
+            margin-right: 1.5rem;
+          }
+          li{
+            a{
+              font-family: 'Roboto', serif;
+              font-size: 1.2rem;
+              font-weight: 500;
+              color: #FFFFFF;
+              text-decoration: none;
+              transition: 0.3s;
+              &:hover{
+                color: $accent-color;
+              }
+            }
+          }
+        }
+      }
+    }
+    .privacy-pol{
+      display: flex;
+      flex-flow: column wrap;
+      height: 55%;
+      justify-content: center;
+      align-items: center;
+      p, a{
+        font-family: 'Montserrat', serif;
+        font-size: 1rem;
+        color: #7A7A7A;
+      }
+      p{
+        font-weight: 200;
+      }
+      a{
+        font-weight: 500;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .footer-icons{
+    width: 25%;
+  }
 }
 

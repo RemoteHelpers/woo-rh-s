@@ -105,7 +105,7 @@ const AddToCartButton = () => {
  * Button component for non-purchasable products.
  *
  * @param {Object} props           Incoming props.
- * @param {string} props.className Css classnames.
+ * @param {string} props.className css classnames.
  * @param {string} props.href      Link for button.
  * @param {string} props.text      Text content for button.
  * @param {function():any} props.onClick Callback to execute when button is clicked.
