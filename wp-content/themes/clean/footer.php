@@ -32,10 +32,12 @@
 
     <div class="footer-icon">
 
-        <?php if (have_rows('social_media')): while (have_rows('social_media')) : the_row(); ?>
-            <a href='<?php get_sub_field('social_net_url') ?>' class="icon-link"><i
-                        class='<?php get_sub_field('icon') ?>'></i></a>
+
+        <?php if (have_rows('social_media', 'option')): while (have_rows('social_media', 'option')) : the_row(); ?>
+            <a href='<?php the_sub_field('social_net_url') ?>' class="icon-link"><i
+                        class='<?php the_sub_field('icon') ?>'></i></a>
         <?php endwhile; endif; ?>
+
 
     </div>
 
@@ -46,4 +48,3 @@
 
 </body>
 </html>
-

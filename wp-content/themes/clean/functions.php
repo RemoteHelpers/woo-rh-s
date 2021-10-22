@@ -12,6 +12,20 @@ if ( ! defined( '_S_VERSION' ) ) {
 	define( '_S_VERSION', '1.0.0' );
 }
 
+
+//creating general info option page
+if( function_exists('acf_add_options_page') ) {
+
+    acf_add_options_page(array(
+        'page_title' 	=> 'General information',
+        'menu_title'	=> 'General information',
+        'menu_slug' 	=> 'theme-general-info',
+        'capability'	=> 'edit_posts',
+        'redirect'		=> false
+    ));
+
+}
+
 if ( ! function_exists( 'clean_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.

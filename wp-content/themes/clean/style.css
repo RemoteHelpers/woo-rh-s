@@ -1114,7 +1114,10 @@ ul.nav-menu > .menu-item-has-children > .sub-menu > li > a {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.site-footer .footer-icon p {
   color: white;
+  font-size: 24px;
 }
 .site-footer .footer-icon a {
   margin-right: 15px;

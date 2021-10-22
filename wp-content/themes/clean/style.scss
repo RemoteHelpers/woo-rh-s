@@ -1125,7 +1125,10 @@ ul.nav-menu > .menu-item-has-children > .sub-menu > li > a {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    p{
+      color: white;
+      font-size: 24px;
+    }
     a{
       margin-right: 15px;
       .fab{
@@ -1136,9 +1139,6 @@ ul.nav-menu > .menu-item-has-children > .sub-menu > li > a {
           color: $accent-color;
         }
       }
-
     }
-
   }
 }
-
