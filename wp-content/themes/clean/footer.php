@@ -31,9 +31,12 @@
 
 
     <div class="footer-icon">
-           <?php if(have_rows('social_media'))
-               echo "1"
-               ?>
+
+        <?php if (have_rows('social_media')): while (have_rows('social_media')) : the_row(); ?>
+            <a href='<?php get_sub_field('social_net_url') ?>' class="icon-link"><i
+                        class='<?php get_sub_field('icon') ?>'></i></a>
+        <?php endwhile; endif; ?>
+
     </div>
 
 </footer><!-- #colophon -->
@@ -44,8 +47,3 @@
 </body>
 </html>
 
-
-<?php //if (have_rows('social_media')): while (have_rows('social_media')) : the_row();?>
-<!--    <a href='--><?php //echo get_sub_field('social_net_url') ?><!--' class="icon-link"><i-->
-<!--                class='--><?php //echo get_sub_field('icon') ?><!--'></i></a>-->
-<?php //endwhile; endif; ?>
