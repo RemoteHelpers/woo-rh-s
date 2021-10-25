@@ -1136,8 +1136,54 @@ ul.nav-menu > .menu-item-has-children > .sub-menu > li > a {
   color: #FF5252;
 }
 
-#primary p {
-  color: black;
+main {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 0 3rem 0;
+}
+
+.product-card {
+  min-height: 400px;
+  width: 350px;
+  border-radius: 8px;
+  margin-top: 1rem;
+  box-shadow: 1px 2px 7px 0 rgba(0, 0, 0, 0.15);
+}
+.product-card .top-info {
+  height: 35px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  border-radius: 8px 8px 0 0;
+}
+.product-card .top-info p {
+  height: 100%;
+  border-radius: 0 8px 0 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 8px 0 8px;
+  color: #FFFFFF;
+  margin: 0;
+}
+.product-card .top-info p i {
+  margin-right: 5px;
+}
+.product-card .image-place {
+  display: flex;
+  justify-content: center;
+}
+.product-card .image-place img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+.product-card .title-skills h3 {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-family: "Montserrat", serif;
 }
 
 /*# sourceMappingURL=style.css.map */
