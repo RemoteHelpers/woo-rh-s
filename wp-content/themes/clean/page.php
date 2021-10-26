@@ -39,6 +39,7 @@ get_header();
                 </div>
                 <div class="title-skills">
                     <H3><?php echo get_the_title() ?></H3>
+                    <p>sdfldksj</p>
                     <p><?php
                         $terms = get_terms( 'product_tag');
                         $term_array = array();
