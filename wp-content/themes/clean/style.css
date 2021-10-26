@@ -1187,6 +1187,17 @@ main {
   margin: 0;
   padding-top: 8px;
 }
+.product-card .title-skills .current_pos {
+  padding: 8px;
+}
+.product-card .title-skills .current_pos p {
+  font-family: "Montserrat", serif;
+  color: #54595F;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0;
+  text-align: center;
+}
 .product-card .divider {
   display: flex;
   justify-content: center;

@@ -1220,6 +1220,21 @@ main{
       margin: 0;
       padding-top: 8px;
     }
+    .current_pos{
+      padding: 8px;
+
+      p{
+        font-family: 'Montserrat', serif;
+        color: $text-color;
+        font-size: 1.2rem;
+        font-weight: 400;
+        margin: 0;
+        text-align: center;
+
+
+      }
+
+    }
   }
   .divider{
     display: flex;
@@ -1234,7 +1249,6 @@ main{
      background-color: $accent-color;
    }
   }
-
 
   .tags{
     display: flex;

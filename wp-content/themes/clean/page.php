@@ -40,7 +40,7 @@ get_header();
                 <div class="title-skills">
                     <H3><?php echo get_the_title() ?></H3>
                     <div class="current_pos">
-                        <?php echo get_field('current_position')?>
+                        <p><?php the_field('current_position')?></p>
                     </div>
                 </div>
                 <div class="divider"><div></div></div>
