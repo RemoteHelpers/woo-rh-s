@@ -39,16 +39,12 @@ get_header();
                 </div>
                 <div class="title-skills">
                     <H3><?php echo get_the_title() ?></H3>
-                    <p><?php
-                        $terms = get_terms( 'product_tag');
-                        $term_array = array();
-                        if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-                            foreach ( $terms as $term ) {
-                                echo $term->name;
-                            }
-                        }
-                        ?></p>
+                    <div class="current_pos">
+                        <?php echo get_field('current_position')?>
+                    </div>
                 </div>
+                <div class="divider"><div></div></div>
+                <div class ="tags"><?php echo wc_get_product_tag_list($product->get_id(), ' ')?></div>
 
 
             </div>
