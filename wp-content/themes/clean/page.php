@@ -16,6 +16,20 @@ get_header();
 ?>
     <main>
         <div class="wrapper">
+            <div class="filter">
+                <?php
+
+                $terms = get_terms( 'product_tag' );
+                $term_array = array();
+                if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+                    foreach ( $terms as $term ) {
+                        $term_array[] = $term->name;?>
+                        <a href=""><?php echo $term->name; ?></a><?php
+                    }
+                }
+                ?>
+
+            </div>
             <section class="card-section">
                 <?php
                     $args = array(
