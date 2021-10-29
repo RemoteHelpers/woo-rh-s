@@ -14,49 +14,53 @@
 
 get_header();
 ?>
-<main>
-    <div class="wrapper">
+    <main>
+        <div class="wrapper">
+            <section class="card-section">
+                <?php
+                    $args = array(
+                        'post_type' => 'product',
+                        'posts_per_page' => 10,
+                    );
 
-        <?php
-        $args = array(
-            'post_type'      => 'product',
-            'posts_per_page' => 10,
+                    $loop = new WP_Query($args);
 
-        );
+                    while ($loop->have_posts()) : $loop->the_post(); ?>
+                        <?php global $product; ?>
 
-        $loop = new WP_Query( $args );
+                        <div class="card">
+                            <header>
+                                <div style="background-color: <?php echo get_field('current_work_status') ?>">
+                                    <i class="<?php echo get_field('shifts') ?>"></i>
+                                    <span>#<?php echo $product->get_sku(); ?></span>
+                                </div>
+                            </header>
+                            <main>
+                                <img src="<?php echo wp_get_attachment_url($product->get_image_id()); ?>"
+                                     alt="Product image">
+                                <H3><?php echo get_the_title() ?></H3>
+                                <div><?php the_field('current_position') ?></div>
+                                <!--//TODO: change h5 to div and insert blocks-->
+                                <hr>
+                                <div class="skill-items">
+                                    <?php echo wc_get_product_tag_list($product->get_id(), ' ') ?>
+                                    <!--                <a href="">CSS</a>-->
+                                </div>
+                            </main>
+                            <footer>
+                                <a href="<?php echo get_post_permalink() ?>">Watch Employee cv</a>
+                                <!--FIXME: add link to post-->
+                            </footer>
+                        </div>
 
-        while ( $loop->have_posts() ) : $loop->the_post();?>
-            <?php global $product;?>
+                    <?php endwhile;
 
-            <div class="product-card">
-                <div class="top-info">
-                    <p class ="id-shift" style="background-color: <?php echo get_field('current_work_status')?>"><i class="<?php echo get_field('shifts')?>"></i>#<?php echo $product->get_sku(); ?>
-                    </p>
-                </div>
-                <div class="image-place">
-                    <img src="<?php echo wp_get_attachment_url( $product->get_image_id()); ?>" alt="Product image">
-                </div>
-                <div class="title-skills">
-                    <H3><?php echo get_the_title() ?></H3>
-                    <div class="current_pos">
-                        <p><?php the_field('current_position')?></p>
-                    </div>
-                </div>
-                <div class="divider"><div></div></div>
-                <div class ="tags"><?php echo wc_get_product_tag_list($product->get_id(), ' ')?></div>
+                    wp_reset_query();
+                ?>
+            </section>
+        </div>
 
-
-            </div>
-        <?php endwhile;
-
-        wp_reset_query();
-        ?>
-
-
-    </div>
-
-</main>
+    </main>
 
 
 <?php

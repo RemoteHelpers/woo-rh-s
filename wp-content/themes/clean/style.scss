@@ -1166,111 +1166,154 @@ ul.nav-menu > .menu-item-has-children > .sub-menu > li > a {
   }
 }
 
-main{
+main {
   display: flex;
   justify-content: center;
   padding: 3rem 0 3rem 0;
 }
 
-.product-card{
-  min-height: 400px;
-  width: 350px;
-  border-radius: 8px;
-  margin-top: 1rem;
-  box-shadow: 1px 2px 7px 0 rgba(0, 0, 0, 0.15);
-  .top-info{
-    height: 35px;
+.card-section {
+  display: flex;
+  justify-content: center;
+  //align-items: center;
+  row-gap: 2rem;
+  column-gap: 2rem;
+  flex-flow: row wrap;
+  align-items: stretch;
+
+  font-family: "Montserrat", sans-serif;
+
+  .card {
+    width: clamp(280px, 350px, 50%);
+    border-radius: 8px;
+    box-shadow: 1px 2px 7px 0 rgba(0, 0, 0, 0.15);
+    font-family: sans-serif;
+    display: flex;
+    flex-flow: column;
+
+    &:hover {
+      footer {
+        a {
+          background-color: $accent-color;
+        }
+
+      }
+    }
+  }
+
+  .card header {
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: end;
-    border-radius: 8px 8px 0 0;
-    p{
-      height: 100%;
+    justify-content: flex-end;
+
+    div {
       border-radius: 0 8px 0 8px;
+      padding: .5rem 2rem .5rem 2rem;
+      background-color: green;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0 8px 0 8px;
-      color: #FFFFFF;
-      margin: 0;
+      column-gap: .5rem;
 
-      i{
-        margin-right: 5px;
+      i {
+        color: #ffffff;
+      }
+
+      span {
+        color: #ffffff;
       }
     }
   }
 
-  .image-place{
+  .card main {
+    padding: 1rem 2rem 0 2rem;
     display: flex;
-    justify-content: center;
-  ;
-    img{
-      border-radius: 50%;
-      width: 150px;
+    flex-flow: column;
+    align-items: center;
+    justify-content: flex-start;
+    row-gap: 1rem;
+    flex-grow: 1;
+
+    img {
       height: 150px;
+      width: 150px;
+      border-radius: 50%;
+      object-fit: cover;
     }
-  }
-  .title-skills{
-    h3{
-      text-align: center;
-      font-size: 1.4rem;
-      font-weight: 600;
-      font-family: 'Montserrat', serif;
+
+    H3 {
       margin: 0;
-      padding-top: 8px;
+      color: #54595F;
+      font-size: 1.5rem;
+      font-weight: 700;
     }
-    .current_pos{
-      padding: 8px;
 
-      p{
-        font-family: 'Montserrat', serif;
-        color: $text-color;
-        font-size: 1.2rem;
-        font-weight: 400;
-        margin: 0;
-        text-align: center;
+    div {
+      font-size: 1.1rem;
+      font-weight: 300;
+      margin: 0;
+      color: #54595F;
+      text-align: center;
+
+    }
+
+    hr {
+      width: 100%;
+      margin: 0;
+      border: none;
+      height: 1px;
+      background-color: $accent-color;
+    }
 
 
+    .skill-items {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      column-gap: .5rem;
+      row-gap: .5rem;
+      font-size: 1rem;
+      font-family: "Montserrat", sans-serif;
+
+      a {
+        align-items: center;
+        display: flex;
+        font-weight: 500;
+        text-decoration: none;
+        color: #54595F;
+        transition: 0.3s;
+        background-color: #F7F7F7;
+        border-radius: 2rem;
+        padding: .5em 1em;
+        font-size: .8em;
+
+        &:hover {
+          color: $accent_color;
+        }
       }
-
     }
   }
-  .divider{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-   div{
-     width: 80%;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     height: 1px;
-     background-color: $accent-color;
-   }
-  }
 
-  .tags{
+  .card footer {
+    padding-top: 1rem;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    min-height: 90px;
-    padding: 8px;
-    a{
-      height: 40px;
-      text-decoration: none;
-      margin: 8px 8px 0 0;
-      color: $text-color;
+    align-items: center;
+    background-color: transparent;
+
+    a {
+      font-family: "Roboto", sans-serif;
       transition: 0.3s;
-      background-color: #F7F7F7;
-      border-radius: 20px;
-      padding: 8px;
-      font-size: 0.9rem;
-
-      &:hover{
-        color: $accent_color;
-      }
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0 0 8px 8px;
+      height: 40px;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: 500;
     }
   }
-
 }

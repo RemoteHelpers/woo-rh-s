@@ -1142,95 +1142,125 @@ main {
   padding: 3rem 0 3rem 0;
 }
 
-.product-card {
-  min-height: 400px;
-  width: 350px;
+.card-section {
+  display: flex;
+  justify-content: center;
+  row-gap: 2rem;
+  column-gap: 2rem;
+  flex-flow: row wrap;
+  align-items: stretch;
+  font-family: "Montserrat", sans-serif;
+}
+.card-section .card {
+  width: clamp(280px, 350px, 50%);
   border-radius: 8px;
-  margin-top: 1rem;
   box-shadow: 1px 2px 7px 0 rgba(0, 0, 0, 0.15);
+  font-family: sans-serif;
+  display: flex;
+  flex-flow: column;
 }
-.product-card .top-info {
-  height: 35px;
+.card-section .card:hover footer a {
+  background-color: #FF5252;
+}
+.card-section .card header {
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: end;
-  border-radius: 8px 8px 0 0;
+  justify-content: flex-end;
 }
-.product-card .top-info p {
-  height: 100%;
+.card-section .card header div {
   border-radius: 0 8px 0 8px;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  background-color: green;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 8px 0 8px;
-  color: #FFFFFF;
-  margin: 0;
+  column-gap: 0.5rem;
 }
-.product-card .top-info p i {
-  margin-right: 5px;
+.card-section .card header div i {
+  color: #ffffff;
 }
-.product-card .image-place {
+.card-section .card header div span {
+  color: #ffffff;
+}
+.card-section .card main {
+  padding: 1rem 2rem 0 2rem;
   display: flex;
-  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+  justify-content: flex-start;
+  row-gap: 1rem;
+  flex-grow: 1;
 }
-.product-card .image-place img {
-  border-radius: 50%;
-  width: 150px;
+.card-section .card main img {
   height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  object-fit: cover;
 }
-.product-card .title-skills h3 {
-  text-align: center;
-  font-size: 1.4rem;
-  font-weight: 600;
-  font-family: "Montserrat", serif;
+.card-section .card main H3 {
   margin: 0;
-  padding-top: 8px;
-}
-.product-card .title-skills .current_pos {
-  padding: 8px;
-}
-.product-card .title-skills .current_pos p {
-  font-family: "Montserrat", serif;
   color: #54595F;
-  font-size: 1.2rem;
-  font-weight: 400;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.card-section .card main div {
+  font-size: 1.1rem;
+  font-weight: 300;
   margin: 0;
+  color: #54595F;
   text-align: center;
 }
-.product-card .divider {
-  display: flex;
-  justify-content: center;
+.card-section .card main hr {
   width: 100%;
-}
-.product-card .divider div {
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0;
+  border: none;
   height: 1px;
   background-color: #FF5252;
 }
-.product-card .tags {
+.card-section .card main .skill-items {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  min-height: 90px;
-  padding: 8px;
+  column-gap: 0.5rem;
+  row-gap: 0.5rem;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
 }
-.product-card .tags a {
-  height: 40px;
+.card-section .card main .skill-items a {
+  align-items: center;
+  display: flex;
+  font-weight: 500;
   text-decoration: none;
-  margin: 8px 8px 0 0;
   color: #54595F;
   transition: 0.3s;
   background-color: #F7F7F7;
-  border-radius: 20px;
-  padding: 8px;
-  font-size: 0.9rem;
+  border-radius: 2rem;
+  padding: 0.5em 1em;
+  font-size: 0.8em;
 }
-.product-card .tags a:hover {
+.card-section .card main .skill-items a:hover {
   color: #FF5252;
+}
+.card-section .card footer {
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+}
+.card-section .card footer a {
+  font-family: "Roboto", sans-serif;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 0 8px 8px;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 /*# sourceMappingURL=style.css.map */
