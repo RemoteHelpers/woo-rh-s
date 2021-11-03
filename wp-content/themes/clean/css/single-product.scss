@@ -1,0 +1,40 @@
+.single-product {
+  .site-main {
+    flex-direction: column;
+  }
+
+  .product {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+    'side content content content'
+    'related related related related';
+  }
+
+  .sidebar-content {
+    grid-area: side;
+  }
+
+  .single-product-about {
+    grid-area: content;
+  }
+
+  .related {
+    grid-area: related;
+  }
+
+  //.woocommerce-product-gallery {
+  //  grid-area: gallery;
+  //}
+  //
+  //.summary {
+  //  grid-area: summary;
+  //}
+  //
+  //.single-product-about {
+  //  grid-area: main-content;
+  //}
+  //
+
+}
+

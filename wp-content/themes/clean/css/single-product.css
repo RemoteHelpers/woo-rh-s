@@ -1,0 +1,19 @@
+.single-product .site-main {
+  flex-direction: column;
+}
+.single-product .product {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: "side content content content" "related related related related";
+}
+.single-product .sidebar-content {
+  grid-area: side;
+}
+.single-product .single-product-about {
+  grid-area: content;
+}
+.single-product .related {
+  grid-area: related;
+}
+
+/*# sourceMappingURL=single-product.css.map */

@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?>
 
-<section class="single-product">
+<div class="single-product">
 
 	<?php
 		/**
@@ -61,6 +61,6 @@ get_header( 'shop' ); ?>
 <?php
 get_footer( 'shop' );
 
-printf('</section>');
+printf('</div>');
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */
