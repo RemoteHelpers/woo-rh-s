@@ -1,45 +1,200 @@
-.single-product {
-  .site-main {
-    flex-direction: column;
-  }
+:root {
+  --rh-accent-color: #FF5252;
+}
 
-  .product {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: start;
-    grid-template-areas:
-    'side content content'
-    'related related related';
-    grid-gap: 1em;
+.woocommerce {
 
-    .product_title {
-      font-size: 24px;
-    }
+  .single-product {
+    font-family: 'Montserrat';
+    color: #4d4d4d;
 
-    .sidebar-head {
-      img.wp-post-image {
-        border-radius: 50%;
-        box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
-      }
-    }
-
-    .summary {
-      display: flex;
+    .site-main {
       flex-direction: column;
     }
 
-    .sidebar-content {
-      grid-area: side;
+    .product {
       display: grid;
-      grid-auto-flow: row;
-    }
+      grid-template-columns: repeat(3, 1fr);
+      align-items: start;
+      grid-template-areas:
+      'side content content'
+      'related related related';
+      grid-gap: 1em;
 
-    .single-product-about {
-      grid-area: content;
-    }
+      .sidebar-content {
+        grid-area: side;
+        display: grid;
+        grid-auto-flow: row;
+        padding: 0 1.5em;
 
-    .related {
-      grid-area: related;
+        .sidebar-head {
+        border-bottom: 1px solid gainsboro;
+        padding: 1em 0;
+
+        div.images {
+          margin: 0;
+        }
+
+        img.wp-post-image {
+          border-radius: 50%;
+          box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
+        }
+
+        .summary {
+          display: flex;
+          flex-direction: column;
+
+
+        .product_title {
+          font-size: 24px;
+          font-weight: 800;
+        }
+
+        .current-position {
+          font-size: 14px;
+          margin: 10px 0;
+        }
+
+        .id_and_shifts {
+          display: grid;
+          grid-template-columns: 1fr 2fr;
+          align-items: center;
+          padding: 0 10px;
+
+          .id {
+            font-weight: 500;
+          }
+
+          .shifts-wrap {
+            display: flex;
+            align-items: center;
+            border-radius: 8px;
+            height: 30px;
+            max-width: 80%;
+            padding: 0 5px;
+            color: white;
+          }
+        }
+      }
+      }
+
+
+        .sub-summary {
+          padding: 1em 0;
+          .skills-and-tools_title {
+            font-weight: 500;
+          }
+
+          .skills-and-tools_body {
+            padding: .5em;
+            line-height: 33px;
+            a {
+              color: grey;
+              font-size: 13px;
+              text-decoration: none;
+              background-color: #eaeeef;
+              border-radius: 10px;
+              padding: 5px;
+              margin: 2px;
+
+            }
+          }
+        }
+
+        form.cart {
+          display: grid;
+          grid-auto-flow: row;
+          grid-template-columns: repeat(2, 1fr);
+          margin-top: 1em;
+          border-radius: 8px;
+          box-shadow: -9px 2px 25px -5px rgb(0 0 0 / 20%);
+          &::before {
+            display: none;
+          }
+
+          div.price {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0;
+            height: 65px;
+            color: #7a7a7a;
+
+            .price-num {
+              font-size: 28px;
+              font-weight: 800;
+              .woocommerce-Price-currencySymbol {
+                font-size: 20px;
+                vertical-align: top;
+              }
+            }
+            .price-comment {
+              font-size: 14px;
+              letter-spacing: .8px;
+            }
+          }
+
+          .single_add_to_cart_button {
+            font-size: 18px;
+            font-weight: 400;
+            background-color: var(--rh-accent-color);
+            border-radius: 0 8px 8px 0;
+            padding: 0 45px;          }
+        }
+      }
+
+      .single-product-about {
+        grid-area: content;
+        .about-subtitle {
+          font-size: 32px;
+          color: var(--rh-accent-color);
+          text-decoration: underline;
+          font-weight: 700;
+          margin: 1em 0 0 0;
+        }
+        iframe {
+          -webkit-border-radius: 15px;
+          -moz-border-radius: 15px;
+          border-radius: 15px;
+        }
+
+        .cv-list,
+        .cv-list-inner {
+          list-style: none;
+          margin: 0;
+        }
+
+        .cv-list {
+          padding: 1em 0;
+        }
+
+        .cv-list-inner {
+          margin-bottom: 1em;
+          .title {
+            font-size: 20px;
+            font-weight: 600;
+          }
+          .subtitle {
+            font-weight: 600;
+          }
+          .years {
+            font-weight: 500;
+            font-style: italic;
+          }
+
+        }
+
+      }
+
+      .related {
+        grid-area: related;
+
+        li {
+          display: flex;
+          flex-direction: column;
+        }
+      }
     }
   }
 }
