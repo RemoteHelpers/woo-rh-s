@@ -5,36 +5,42 @@
 
   .product {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
     grid-template-areas:
-    'side content content content'
-    'related related related related';
+    'side content content'
+    'related related related';
+    grid-gap: 1em;
+
+    .product_title {
+      font-size: 24px;
+    }
+
+    .sidebar-head {
+      img.wp-post-image {
+        border-radius: 50%;
+        box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
+      }
+    }
+
+    .summary {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-content {
+      grid-area: side;
+      display: grid;
+      grid-auto-flow: row;
+    }
+
+    .single-product-about {
+      grid-area: content;
+    }
+
+    .related {
+      grid-area: related;
+    }
   }
-
-  .sidebar-content {
-    grid-area: side;
-  }
-
-  .single-product-about {
-    grid-area: content;
-  }
-
-  .related {
-    grid-area: related;
-  }
-
-  //.woocommerce-product-gallery {
-  //  grid-area: gallery;
-  //}
-  //
-  //.summary {
-  //  grid-area: summary;
-  //}
-  //
-  //.single-product-about {
-  //  grid-area: main-content;
-  //}
-  //
-
 }
 

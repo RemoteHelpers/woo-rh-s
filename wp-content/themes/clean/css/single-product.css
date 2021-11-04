@@ -3,16 +3,31 @@
 }
 .single-product .product {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-areas: "side content content content" "related related related related";
+  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
+  grid-template-areas: "side content content" "related related related";
+  grid-gap: 1em;
 }
-.single-product .sidebar-content {
+.single-product .product .product_title {
+  font-size: 24px;
+}
+.single-product .product .sidebar-head img.wp-post-image {
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.single-product .product .summary {
+  display: flex;
+  flex-direction: column;
+}
+.single-product .product .sidebar-content {
   grid-area: side;
+  display: grid;
+  grid-auto-flow: row;
 }
-.single-product .single-product-about {
+.single-product .product .single-product-about {
   grid-area: content;
 }
-.single-product .related {
+.single-product .product .related {
   grid-area: related;
 }
 

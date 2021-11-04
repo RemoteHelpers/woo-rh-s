@@ -198,48 +198,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-// ------------------------------------------------------------------------
-
-add_action('woocommerce_before_single_product_summary', 'rh_add_opening_section', 5);
-add_action('woocommerce_after_single_product_summary', 'rh_add_closing_section', 5);
-
-function rh_add_opening_section() {
-    echo '<section class="sidebar-content">';
-}
-
-function rh_add_closing_section() {
-    echo '</section>';
-}
-
-add_action('woocommerce_after_single_product_summary', 'rh_add_sub_summary', 3);
-
-function rh_add_sub_summary() {
-    echo '<div class="sub-summary">';
-    $id = get_the_id();
-    printf('<br><span>Most used skills and tools: '); echo wc_get_product_tag_list($id, ' '); printf('</span>');
-
-    $interview = get_field('interview_link');
-    if ($interview) {
-        printf('<br><span>Interview(s): </span><a>');
-        foreach ($interview as $int) {
-            printf('<a href="echo $int;">'); echo $int; printf('</a>');
-        }
-    }
-
-    $excerpt = get_field('excerpt');
-    if ($excerpt) {
-        printf('<br><span>Excerpt: </span>'); echo $excerpt;
-    }
-
-    printf('<br><span>Current work status: </span><div style="display:inline-block;border-radius:15px;width:15px;height:15px;background-color:'); echo get_field('current_work_status') . '"></div>';
-
-    $teamleader = get_field('teamleader');
-    if ($teamleader) {
-        printf('<br><span>Teamleader: </span><div style="display:inline-block;width:15px;height:15px;border-radius:15px;background-color:'); echo $teamleader . '"></div>';
-    }
-    echo '</div>';
-}
-
 /**
  * Function for human-readable output.
  */
@@ -249,43 +207,86 @@ function pprint_r($a)
 }
 
 /**
+ * Custom layout begins.
+ */
+
+// ----------------------------------------------------------------------------------------------
+
+add_action('woocommerce_before_single_product_summary', 'rh_add_opening_section', 5);
+
+function rh_add_opening_section() {
+    echo '<section class="sidebar-content"><div class="sidebar-head">';
+}
+
+/**
  * Remove title.
  */
 //remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
 
 /**
- * Replace summary.
+ * Shifts, SKU, current position.
  */
 add_action('woocommerce_single_product_summary',function(){
-    printf('<i style="font-size:22px" class="'); echo get_field('shifts'); printf('"></i><br>');
+    echo'<i style="font-size:22px" class="' . get_field("shifts") . '"></i>';
 
     global $product;
     $sku = $product->get_sku();
     if ($sku) {
-        printf('<br><small>#');
-        echo $sku; printf('</small><br>');
+        echo '<br><small>#' . $sku . '</small><br>';
     }
 
-//    printf('<h1>'); echo get_field('first_name');
-//    printf('&nbsp;'); echo get_field('last_name'); printf('</h1>');
-//
-//    printf('<h2>$'); echo $product->get_price(); printf('</h2>');
+    if ($sku) {
+        echo '<br><small>#' . $sku . '</small><br>';
+    }
 
     $position = get_field('current_position');
     if ($position) {
         foreach ($position as $pos) {
-            printf('<span>'); echo $pos; printf(', </span>');
+            echo '<span>' . $pos . ', </span>';
         }
     }
 });
 
 /**
- * Remove price.
+ * Close sub-header tag, start sub-summary.
  */
-//remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+add_action('woocommerce_after_single_product_summary', 'rh_add_sub_summary', 3);
+
+function rh_add_sub_summary() {
+    echo '</div><div class="sub-summary">';
+    $id = get_the_id();
+    echo '<span>' . wc_get_product_tag_list($id, ' ') . '</span>';
+
+    $interview = get_field('interview_link');
+    if ($interview) {
+        echo '<br><span>Interview(s): </span><a>';
+        foreach ($interview as $int) {
+            echo '<a href="' . $int . '">' . $int . '</a>';
+        }
+    }
+
+    $excerpt = get_field('excerpt');
+    if ($excerpt) {
+        echo '<br><span>Excerpt: </span>' . $excerpt;
+    }
+
+    echo '<br><span>Current work status: </span><div style="display:inline-block;border-radius:15px;width:15px;height:15px;background-color:' . get_field('current_work_status') . '"></div>';
+
+    $teamleader = get_field('teamleader');
+    if ($teamleader) {
+        echo '<br><span>Teamleader: </span><div style="display:inline-block;width:15px;height:15px;border-radius:15px;background-color:' . $teamleader . '"></div>';
+    }
+    echo '</div>';
+}
 
 /**
- * Remove input field from add to cart button.
+ * Rearrange price.
+ */
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+add_action( 'woocommerce_after_single_product_summary', 'woocommerce_template_single_price', 3 );
+
+/**
+ * Add to cart button.
  */
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
 add_action('woocommerce_after_single_product_summary', 'rh_template_single_add_to_cart', 4);
@@ -313,67 +314,53 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
  */
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 
+add_action('woocommerce_after_single_product_summary', 'rh_add_closing_section', 5);
+
+function rh_add_closing_section() {
+    echo '</section>';
+}
+
 /**
- * Replace after summary.
+ * Single product about section.
  */
 
 add_action('woocommerce_after_single_product_summary',function() {
     $about = get_field('about');
     if ($about) {
-        printf('<section class="single-product-about"><span style="font-size:18px;font-weight:600;">About: </span>'); echo $about;
+        echo '<section class="single-product-about"><span style="font-size:18px;font-weight:600;">About: </span>' . $about;
     }
 
     $education = get_field('education');
         if($education) {
-            printf('<span style="font-size:18px;font-weight:600;">Education: </span>');
+            echo '<span style="font-size:18px;font-weight:600;">Education: </span>';
             foreach ($education as $edu) {
                 $vals = array_values($edu);
-                printf('<br><span>');
-                echo $vals[0];
-                printf('</span>');
-                printf('<br><span>');
-                echo $vals[1];
-                printf('</span>');
-                printf('<br><span>');
-                echo $vals[2];
-                printf('</span>');
-                printf('<br><span>');
-                echo $vals[3];
-                printf('</span><br>');
+                echo '<br><span>' . $vals[0] . '</span>';
+                echo '<br><span>' . $vals[1] . '</span>';
+                echo '<br><span>' . $vals[2] . '</span>';
+                echo '<br><span>' . $vals[3] . '</span><br>';
             }
         }
 
     $experience = get_field('work_experience');
     if($experience) {
-        printf('<br><br><span style="font-size:18px;font-weight:600;">Work Experience: </span>');
+        echo '<br><br><span style="font-size:18px;font-weight:600;">Work Experience: </span>';
         foreach ($experience as $exp) {
             $vals = array_values($exp);
-            printf('<br><span>');
-            echo $vals[0];
-            printf('</span>');
-            printf('<br><span>');
-            echo $vals[1];
-            printf('</span>');
-            printf('<br><span>');
-            echo $vals[2];
-            printf('</span>');
-            printf('<br><span>');
-            echo $vals[3];
-            printf('</span><br>');
+            echo '<br><span>' . $vals[0] . '</span>';
+            echo '<br><span>' . $vals[1] . '</span>';
+            echo '<br><span>' . $vals[2] . '</span>';
+            echo '<br><span>' . $vals[3] . '</span><br>';
         }
     }
 
     $devPortfolio = get_field('developer_portfolio');
 
     if ($devPortfolio) {
-        printf('<br><span style="font-size:18px;font-weight:600;">Portfolio: </span><br>');
+        echo '<br><span style="font-size:18px;font-weight:600;">Portfolio: </span><br>';
         foreach ($devPortfolio as $port) {
-            printf('<a href="');
-            echo $port['project_link'];
-            printf('">');
-            echo $port['project_name'];
-            printf('</a><br>');
+            echo '<a href="' . $port['project_link'] . '">' . $port['project_name'] . '</a><br>';
         }
     }
-    printf('</section>');
+    echo '</section>';
 });
