@@ -190,6 +190,16 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * Implement the Custom script feature.
+ */
+if (file_exists('scripts.php')){
+    require get_template_directory() . 'scripts.php';
+}
+
+//require_once(get_template_directory() . 'example.php');
+
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {

@@ -17,6 +17,7 @@ get_header();
     <main>
         <div class="wrapper">
             <div class="filter">
+                <a class="filter-tags" href="<?php home_url();?>">All</a>
                 <?php
 
                 $terms = get_terms( 'product_tag' );
@@ -24,7 +25,7 @@ get_header();
                 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
                     foreach ( $terms as $term ) {
                         $term_array[] = $term->name;?>
-                        <a href=""><?php echo $term->name; ?></a><?php
+                        <a data-category="<?php echo $term -> term_id ?>" class="filter-tags" href="<?php echo get_category_link($term -> term_id)?>"><?php echo $term->name; ?></a><?php
                     }
                 }
                 ?>
