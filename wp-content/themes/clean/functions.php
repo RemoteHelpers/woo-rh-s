@@ -12,7 +12,6 @@ if ( ! defined( '_S_VERSION' ) ) {
 	define( '_S_VERSION', '1.0.0' );
 }
 
-
 //creating general info option page
 if( function_exists('acf_add_options_page') ) {
 
@@ -408,7 +407,13 @@ add_action('woocommerce_after_single_product_summary',function() {
         }
     }
     echo '</section>';
-
 });
 
-
+/**
+ * Remove breadcrumbs from shop page.
+ */
+add_action('template_redirect', 'remove_shop_breadcrumbs' );
+function remove_shop_breadcrumbs(){
+    if (is_shop())
+        remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
+}
