@@ -159,7 +159,9 @@ add_theme_support( 'woocommerce' );
 
 function clean_scripts() {
 	wp_enqueue_style( 'clean-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'clean-style', 'rtl', 'replace' );
+    wp_enqueue_style( 'single-product', get_template_directory_uri() . '/css/single-product.css',false,'1.1','all');
+
+    wp_style_add_data( 'clean-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'clean-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
@@ -205,4 +207,208 @@ if (file_exists('scripts.php')){
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+/**
+ * Function for human-readable output.
+ */
+function pprint_r($a)
+{
+    echo "<pre>", htmlspecialchars(print_r($a, true)), "</pre>";
+}
+
+/**
+ * Custom layout begins.
+ */
+
+// ----------------------------------------------------------------------------------------------
+
+add_action('woocommerce_before_single_product_summary', 'rh_add_opening_section', 5);
+
+function rh_add_opening_section() {
+    echo '<section class="sidebar-content"><div class="sidebar-head">';
+}
+
+/**
+ * Remove title.
+ */
+//remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+
+/**
+ * Shifts, SKU, current position.
+ */
+add_action('woocommerce_single_product_summary',function(){
+    $position = get_field('current_position');
+    echo '<div class="current-position">';
+    if ($position) {
+        foreach ($position as $pos) {
+            echo '<span>' . $pos . ', </span>';
+        }
+    }
+    echo '</div>';
+
+    echo '<div class="id_and_shifts">';
+    global $product;
+    echo '<div class="id"><span># ' . $product->get_id() . '</span></div>';
+    echo '<div class="shifts-wrap" style="background-color: ' . get_field('current_work_status') . '">';
+    echo '<i class="' . get_field("shifts") . '"></i>';
+    echo '</div>';
+    echo '</div>';
+
+//    $sku = $product->get_sku();
+//    if ($sku) {
+//        echo '<br><small>#' . $sku . '</small><br>';
+//    }
+});
+
+/**
+ * Close sub-header tag, start sub-summary.
+ */
+add_action('woocommerce_after_single_product_summary', 'rh_add_sub_summary', 3);
+
+function rh_add_sub_summary() {
+    echo '</div><div class="sub-summary">';
+    $id = get_the_id();
+    echo '<div class="skills-and-tools">';
+    echo '<span class="skills-and-tools_title">Most used skills and tools:</span>';
+    echo '<div class="skills-and-tools_body">';
+    echo '<span>' . wc_get_product_tag_list($id, ' ') . '</span>';
+    echo '</div>';
+    echo '</div>';
+
+//    $interview = get_field('interview_link');
+//    if ($interview) {
+//        echo '<br><span>Interview(s): </span><a>';
+//        foreach ($interview as $int) {
+//            echo '<a href="' . $int . '">' . $int . '</a>';
+//        }
+//    }
+
+//    $excerpt = get_field('excerpt');
+//    if ($excerpt) {
+//        echo '<br><span>Excerpt: </span>' . $excerpt;
+//    }
+//
+//    $teamleader = get_field('teamleader');
+//    if ($teamleader) {
+//        echo '<br><span>Teamleader: </span><div style="display:inline-block;width:15px;height:15px;border-radius:15px;background-color:' . $teamleader . '"></div>';
+//    }
+//    echo '</div>';
+}
+
+/**
+ * Rearrange price.
+ */
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+//add_action( 'woocommerce_after_single_product_summary', 'woocommerce_template_single_price', 3 );
+
+/**
+ * Add to cart button.
+ */
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+add_action('woocommerce_after_single_product_summary', 'rh_template_single_add_to_cart', 4);
+
+function rh_template_single_add_to_cart() {
+    global $product;
+if ( ! $product->is_purchasable() ) {
+    return;
+}
+echo wc_get_stock_html( $product ); // WPCS: XSS ok.
+if ( $product->is_in_stock() ) : ?>
+    <form class="cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data'>
+        <div class="<?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'price' ) ); ?>"><span class="price-num"><?php echo $product->get_price_html(); ?></span><span class="price-comment">full-time price</span></div>
+        <button type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" class="single_add_to_cart_button button alt">Hire Employee</button>
+    </form>
+<?php endif;
+}
+
+/**
+ * Remove meta.
+ */
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+
+/**
+ * Remove tabs.
+ */
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+
+add_action('woocommerce_after_single_product_summary', 'rh_add_closing_section', 5);
+
+function rh_add_closing_section() {
+    echo '</section>';
+}
+
+/**
+ * Single product about section.
+ */
+
+add_action('woocommerce_after_single_product_summary',function() {
+    $about = get_field('about');
+    if ($about) {
+        echo '<section class="single-product-about">';
+        echo '<h4 class="about-subtitle">About:</h4>';
+
+        /**
+         * Make embed link from user link.
+         */
+        $interview = get_field('interview_link');
+        if ($interview) {
+            preg_match(
+                '/[\\?\\&]v=([^\\?\\&]+)/',
+                $interview['url'],
+                $matches
+            );
+            $embedLink = 'https://www.youtube.com/embed/' . $matches[1];
+            echo '<iframe width="560" height="315" src="' . $embedLink . '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+        }
+        echo $about;
+    }
+
+    $experience = get_field('work_experience');
+    if($experience) {
+        echo '<h4 class="about-subtitle">Work Experience:</h4>';
+        echo '<ul class="cv-list">';
+        foreach ($experience as $exp) {
+            $vals = array_values($exp);
+            echo '<li>';
+            echo '<ul class="cv-list-inner">';
+            echo '<li class="title">' . $vals[0] . '</li>';
+            echo '<li class="job">' . $vals[1] . '</li>';
+            echo '<li class="years">' . $vals[2] . '</li>';
+            echo '<li class="comment">' . $vals[3] . '</li>';
+            echo '</ul>';
+            echo '</li>';
+        }
+        echo '</ul>';
+    }
+
+    $education = get_field('education');
+        if($education) {
+            echo '<h4 class="about-subtitle">Education:</h4>';
+            echo '<ul class="cv-list">';
+            foreach ($education as $ed) {
+                $vals = array_values($ed);
+                echo '<li>';
+                echo '<ul class="cv-list-inner">';
+                echo '<li class="title">' . $vals[0] . '</li>';
+                echo '<li class="subtitle">' . $vals[1] . '</li>';
+                echo '<li class="years">' . $vals[2] . '</li>';
+                echo '<li class="degree">' . $vals[3] . '</li>';
+                echo '</ul>';
+                echo '</li>';
+            }
+            echo '</ul>';
+        }
+
+    $devPortfolio = get_field('developer_portfolio');
+
+    if ($devPortfolio) {
+        echo '<h4 class="about-subtitle">Portfolio:</h4>';
+        foreach ($devPortfolio as $port) {
+            echo '<a href="' . $port['project_link'] . '">' . $port['project_name'] . '</a><br>';
+        }
+    }
+    echo '</section>';
+
+});
+
 

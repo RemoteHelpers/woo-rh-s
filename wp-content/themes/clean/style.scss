@@ -1168,6 +1168,7 @@ ul.nav-menu > .menu-item-has-children > .sub-menu > li > a {
 
 main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   padding: 3rem 0 3rem 0;
 }
@@ -1347,3 +1348,5 @@ main {
     }
   }
 }
+
+
