@@ -199,13 +199,14 @@ if (file_exists('scripts.php')){
 
 //require_once(get_template_directory() . 'example.php');
 
-
 /**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+//------------------------------------------------------------------------------------------------
 
 /**
  * Function for human-readable output.
@@ -215,12 +216,11 @@ function pprint_r($a)
     echo "<pre>", htmlspecialchars(print_r($a, true)), "</pre>";
 }
 
+// ----------------------------------------------------------------------------------------------
+
 /**
  * Custom layout begins.
  */
-
-// ----------------------------------------------------------------------------------------------
-
 add_action('woocommerce_before_single_product_summary', 'rh_add_opening_section', 5);
 
 function rh_add_opening_section() {
@@ -298,7 +298,6 @@ function rh_add_sub_summary() {
  * Rearrange price.
  */
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
-//add_action( 'woocommerce_after_single_product_summary', 'woocommerce_template_single_price', 3 );
 
 /**
  * Add to cart button.
@@ -409,11 +408,34 @@ add_action('woocommerce_after_single_product_summary',function() {
     echo '</section>';
 });
 
+//----------------------------------------------------------------------------------------------------------
+
 /**
- * Remove breadcrumbs from shop page.
+ * Shop page.
  */
-add_action('template_redirect', 'remove_shop_breadcrumbs' );
-function remove_shop_breadcrumbs(){
-    if (is_shop())
-        remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
+add_action('template_redirect', 'remove_stuff_from_shop' );
+function remove_stuff_from_shop()
+{
+    if (is_shop()) {
+
+        /**
+         * Remove breadcrumbs.
+         */
+        remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
+
+        /**
+         * Remove title.
+         */
+        add_filter('woocommerce_show_page_title', '__return_false');
+
+        /**
+         * Remove result_count, catalog_ordering.
+         */
+        remove_all_actions('woocommerce_before_shop_loop');
+
+        /**
+         * Remove sidebar.
+         */
+        remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
+    }
 }
