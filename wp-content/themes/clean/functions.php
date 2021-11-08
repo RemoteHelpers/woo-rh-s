@@ -159,6 +159,7 @@ add_theme_support( 'woocommerce' );
 function clean_scripts() {
 	wp_enqueue_style( 'clean-style', get_stylesheet_uri(), array(), _S_VERSION );
     wp_enqueue_style( 'single-product', get_template_directory_uri() . '/css/single-product.css',false,'1.1','all');
+    wp_enqueue_style( 'archive-product', get_template_directory_uri() . '/css/archive-product.css',false,'1.1','all');
 
     wp_style_add_data( 'clean-style', 'rtl', 'replace' );
 
