@@ -217,6 +217,10 @@ function pprint_r($a)
     echo "<pre>", htmlspecialchars(print_r($a, true)), "</pre>";
 }
 
+function filter_projects() {
+    echo 'filter projects is working';
+}
+
 // ----------------------------------------------------------------------------------------------
 
 /**

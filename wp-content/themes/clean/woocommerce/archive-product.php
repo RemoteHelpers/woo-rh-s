@@ -59,20 +59,23 @@ if ( woocommerce_product_loop() ) {
 	 */
 	do_action( 'woocommerce_before_shop_loop' );
 
-//    global $wp_query;
+//    global $product;
 
 
-//    $args = [
-//        'meta_query' => [
-//            [
-//                'key' => 'teamleader',
-//                'value' => 'No'
-//            ]
-//        ]
-//    ];
+    $params = array(
+        'post_type' => array('product', 'product_variation'),
+        'meta_query' => array(
+            array(
+                'key' => 'current_work_status',
+                'value' => '#2ecc71',
+//                'compare' => '<=',
+//                'type' => 'NUMERIC'
+            )
+        )
+    );
 
-    $query = new WP_Query( array( 'page_id' => 7 ) );
-//    echo "<pre>", htmlspecialchars(print_r($query, true)), "</pre>";
+    $query = new WP_Query( $params );
+//    echo "<pre>", htmlspecialchars(print_r($product, true)), "</pre>";
 
 	woocommerce_product_loop_start();
 

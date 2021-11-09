@@ -6,7 +6,7 @@ Version: 1.0
 */
 
 function rh_filter_scripts() {
-    wp_enqueue_script( 'rh-filter',  plugin_dir_url( __FILE__ ) . '/scripts/index.js' );
+    wp_enqueue_script( 'rh-filter',  plugin_dir_url( __FILE__ ) . '/scripts/index.js', array('jquery'), null, false );
 }
 add_action( 'wp_enqueue_scripts', 'rh_filter_scripts' );
 
