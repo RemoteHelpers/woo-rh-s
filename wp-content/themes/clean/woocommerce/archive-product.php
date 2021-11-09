@@ -61,20 +61,19 @@ if ( woocommerce_product_loop() ) {
 
 	woocommerce_product_loop_start();
 
-    do_action('rh_archive_filter_results');
+	if ( wc_get_loop_prop( 'total' ) ) {
+		while ( have_posts() ) {
+			the_post();
 
-//	if ( wc_get_loop_prop( 'total' ) ) {
-//		while ( have_posts() ) {
-//			the_post();
-//
-//			/**
-//			 * Hook: woocommerce_shop_loop.
-//			 */
-//			do_action( 'woocommerce_shop_loop' );
-//
-//			wc_get_template_part( 'content', 'product' );
-//		}
-//	}
+			/**
+			 * Hook: woocommerce_shop_loop.
+			 */
+			do_action( 'woocommerce_shop_loop' );
+
+			wc_get_template_part( 'content', 'product' );
+		}
+	}
+    do_action('rh_archive_filter_results');
 
 	woocommerce_product_loop_end();
 

@@ -5,11 +5,17 @@ Description: Пробуем не использовать сторонние ф�
 Version: 1.0
 */
 
+/**
+ * Enque script(index.js).
+ */
+add_action( 'wp_enqueue_scripts', 'rh_filter_scripts' );
 function rh_filter_scripts() {
     wp_enqueue_script( 'rh-filter',  plugin_dir_url( __FILE__ ) . '/scripts/index.js', array('jquery'), null, false );
 }
-add_action( 'wp_enqueue_scripts', 'rh_filter_scripts' );
 
+/**
+ * Filter markup.
+ */
 add_action('rh_archive_filter', 'rh_add_filter', 10);
 function rh_add_filter() { ?>
 <div class="archive-page">
@@ -30,4 +36,38 @@ function rh_add_filter() { ?>
 add_action('rh_add_closing_div', 'rh_close_filter_div', 10);
 function rh_close_filter_div() { ?>
     </div>
-<?php } ?>
+<?php }
+
+/**
+* Back-end logic.
+*/
+add_action('wp_ajax_shop_filter', 'shop_filter');
+//add_action( 'wp_ajax_nopriv_shop_filter', 'shop_filter' );
+
+function shop_filter() {
+$rh_filter = $_POST['filter'];
+
+$params = array(
+'post_type' => array('product', 'product_variation'),
+'meta_query' => array(
+array(
+'key' => 'current_work_status',
+'value' => $rh_filter,
+)
+)
+);
+
+$query = new WP_Query( $params );
+
+if($query->have_posts()) {
+echo '<div class="rh-filter-res">';
+    while ($query->have_posts()) : $query->the_post();
+    $img = get_the_post_thumbnail();
+    echo $img;
+    endwhile;
+    wp_reset_postdata();
+    echo '</div>';
+}
+wp_die();
+}
+?>

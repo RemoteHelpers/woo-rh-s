@@ -1,6 +1,6 @@
 .archive-page {
   display: grid;
-  grid-template-columns: minmax(350px, 25%) 1fr;
+  grid-template-columns: 25% 75%;
   justify-items: center;
   .rh-filter-res img {
     width: 200px;

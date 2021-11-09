@@ -9,7 +9,11 @@ jQuery( document ).ready(function( $ ) {
             filter: value
          }
          $.post(myajax.url, data, function (res) {
-            console.log('Получено с сервера - ' + res)
+            console.log(res.length)
+            if (res.length < 2){
+               res = "No matching personnel"
+            }
+            $('.products').html(res)
          })
       }
    })

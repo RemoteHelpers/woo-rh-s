@@ -228,42 +228,6 @@ function pprint_r($a)
     echo "<pre>", htmlspecialchars(print_r($a, true)), "</pre>";
 }
 
-//--------------------------------------------------------------------------------------------------------
-
-add_action('wp_ajax_shop_filter', 'shop_filter');
-add_action('rh_archive_filter_results', 'filter_results', 10);
-//add_action( 'wp_ajax_nopriv_shop_filter', 'shop_filter' );
-function shop_filter() {
-    global $rh_filter;
-    $rh_filter = $_POST['filter'];
-//    wp_die();
-}
-
-function filter_results() {
-    global $rh_filter;
-    $params = array(
-        'post_type' => array('product', 'product_variation'),
-        'meta_query' => array(
-            array(
-                'key' => 'current_work_status',
-                'value' => $rh_filter,
-            )
-        )
-    );
-
-    $query = new WP_Query( $params );
-
-    if($query->have_posts()) {
-        echo '<div class="rh-filter-res">';
-        while ($query->have_posts()) : $query->the_post();
-            $img = get_the_post_thumbnail();
-            echo $img;
-        endwhile;
-        wp_reset_postdata();
-        echo '</div>';
-    }
-}
-
 // ----------------------------------------------------------------------------------------------
 
 /**
