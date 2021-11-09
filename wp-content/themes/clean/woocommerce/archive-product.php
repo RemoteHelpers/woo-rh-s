@@ -75,7 +75,7 @@ if ( woocommerce_product_loop() ) {
 		}
 	}
 
-    do_action('rh_archive_filter_results');
+//    do_action('rh_archive_filter_results');
 
 	woocommerce_product_loop_end();
 

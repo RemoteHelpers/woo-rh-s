@@ -1,7 +1,7 @@
 .archive-page {
   display: grid;
   grid-template-columns: 25% 75%;
-  justify-items: center;
+  width: 100%;
 }
 .archive-page .rh-filter-res img {
   width: 200px;

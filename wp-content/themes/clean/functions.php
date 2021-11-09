@@ -150,6 +150,21 @@ function clean_widgets_init() {
 add_action( 'widgets_init', 'clean_widgets_init' );
 
 /**
+ * Register filter sidebar.
+ */
+function filter_sidebar_init() {
+    register_sidebar( array(
+        'name'          => 'Filter sidebar',
+        'id'            => 'filter_sidebar',
+        'before_widget' => '<div>',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="filter-sidebar">',
+        'after_title'   => '</h2>',
+    ) );
+}
+add_action( 'widgets_init', 'filter_sidebar_init' );
+
+/**
  * Enqueue scripts and styles.
  */
 
@@ -451,3 +466,21 @@ function remove_stuff_from_shop()
         remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
     }
 }
+
+/**
+ * Archive layout.
+ */
+add_action('rh_archive_filter', 'rh_open_sidebar_div', 10);
+function rh_open_sidebar_div() { ?>
+    <div class="archive-page">
+        <div class="archive-filter">
+            <?php dynamic_sidebar( 'filter-sidebar' ); ?>
+        </div>
+<?php } ?>
+
+<?php
+add_action('rh_add_closing_div', 'rh_close_sidebar_div', 10);
+function rh_close_sidebar_div() { ?>
+    </div>
+<?php }
+
