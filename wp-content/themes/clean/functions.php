@@ -163,7 +163,18 @@ function clean_scripts() {
 
     wp_style_add_data( 'clean-style', 'rtl', 'replace' );
 
+	wp_enqueue_script( 'clean-script', get_template_directory_uri() . '/js/index.js', array('jquery'), _S_VERSION, true );
 	wp_enqueue_script( 'clean-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+
+    add_action( 'wp_enqueue_scripts', 'myajax_data', 99 );
+    function myajax_data(){
+        wp_localize_script( 'clean-script', 'myajax',
+            array(
+                'url' => admin_url('admin-ajax.php')
+            )
+        );
+
+    }
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -217,8 +228,40 @@ function pprint_r($a)
     echo "<pre>", htmlspecialchars(print_r($a, true)), "</pre>";
 }
 
-function filter_projects() {
-    echo 'filter projects is working';
+//--------------------------------------------------------------------------------------------------------
+
+add_action('wp_ajax_shop_filter', 'shop_filter');
+add_action('rh_archive_filter_results', 'filter_results', 10);
+//add_action( 'wp_ajax_nopriv_shop_filter', 'shop_filter' );
+function shop_filter() {
+    global $rh_filter;
+    $rh_filter = $_POST['filter'];
+//    wp_die();
+}
+
+function filter_results() {
+    global $rh_filter;
+    $params = array(
+        'post_type' => array('product', 'product_variation'),
+        'meta_query' => array(
+            array(
+                'key' => 'current_work_status',
+                'value' => $rh_filter,
+            )
+        )
+    );
+
+    $query = new WP_Query( $params );
+
+    if($query->have_posts()) {
+        echo '<div class="rh-filter-res">';
+        while ($query->have_posts()) : $query->the_post();
+            $img = get_the_post_thumbnail();
+            echo $img;
+        endwhile;
+        wp_reset_postdata();
+        echo '</div>';
+    }
 }
 
 // ----------------------------------------------------------------------------------------------

@@ -1,21 +1,17 @@
 jQuery( document ).ready(function( $ ) {
-   $('#checkbox1').on('click', function() {
-      $.ajax({
-         type: 'POST',
-         url: '/wp-admin/admin-ajax.php',
-         dataType: 'html',
-         data: {
-            action: 'filter_projects',
-            category: 'some category'
-            // category: $(this).data('slug'),
-         },
-         success: function(res) {
-            console.log('success')
-         },
-         error: function(err) {
-            console.log(err)
+   $('input[type=\'checkbox\']').on('change', function() {
+      if (this.checked) {
+         $('input[type=\'checkbox\']').prop('checked', false)
+         $(this).prop('checked', true)
+         let value = $(this).val()
+         let data = {
+            action: 'shop_filter',
+            filter: value
          }
-      })
+         $.post(myajax.url, data, function (res) {
+            console.log('Получено с сервера - ' + res)
+         })
+      }
    })
 });
 

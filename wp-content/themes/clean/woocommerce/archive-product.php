@@ -59,35 +59,9 @@ if ( woocommerce_product_loop() ) {
 	 */
 	do_action( 'woocommerce_before_shop_loop' );
 
-//    global $product;
-
-
-    $params = array(
-        'post_type' => array('product', 'product_variation'),
-        'meta_query' => array(
-            array(
-                'key' => 'current_work_status',
-                'value' => '#2ecc71',
-//                'compare' => '<=',
-//                'type' => 'NUMERIC'
-            )
-        )
-    );
-
-    $query = new WP_Query( $params );
-//    echo "<pre>", htmlspecialchars(print_r($product, true)), "</pre>";
-
 	woocommerce_product_loop_start();
 
-    if($query->have_posts()) {
-        echo '<div class="rh-filter-res">';
-        while ($query->have_posts()) : $query->the_post();
-        $img = get_the_post_thumbnail();
-        echo $img;
-        endwhile;
-        wp_reset_postdata();
-        echo '</div>';
-    }
+    do_action('rh_archive_filter_results');
 
 //	if ( wc_get_loop_prop( 'total' ) ) {
 //		while ( have_posts() ) {

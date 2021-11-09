@@ -16,11 +16,11 @@ function rh_add_filter() { ?>
     <div class="archive-filter">
         <h2>Фильтр:</h2>
         <form>
-            <input type="checkbox" id="checkbox1" name="checkbox1" value="Available">
+            <input type="checkbox" id="checkbox1" name="checkbox1" value="#2ecc71">
             <label for="checkbox1">Available</label><br>
-            <input type="checkbox" id="checkbox2" name="checkbox2" value="Part-Time">
+            <input type="checkbox" id="checkbox2" name="checkbox2" value="#f1c40f">
             <label for="checkbox2">Part-Time</label><br>
-            <input type="checkbox" id="checkbox3" name="checkbox3" value="Busy">
+            <input type="checkbox" id="checkbox3" name="checkbox3" value="#e74c3c">
             <label for="checkbox3">Busy</label><br>
         </form>
     </div>
