@@ -42,7 +42,7 @@ function rh_close_filter_div() { ?>
 * Back-end logic.
 */
 add_action('wp_ajax_shop_filter', 'shop_filter');
-//add_action( 'wp_ajax_nopriv_shop_filter', 'shop_filter' );
+add_action( 'wp_ajax_nopriv_shop_filter', 'shop_filter' );
 
 function shop_filter() {
 $rh_filter = $_POST['filter'];
