@@ -1,0 +1,10 @@
+.archive-page {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  justify-items: center;
+}
+.archive-page .rh-filter-res img {
+  width: 200px;
+}
+
+/*# sourceMappingURL=archive-product.css.map */
