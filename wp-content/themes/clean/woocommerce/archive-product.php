@@ -30,6 +30,10 @@ do_action( 'woocommerce_before_main_content' );
 
 ?>
 <header class="woocommerce-products-header">
+<<<<<<< HEAD
+
+=======
+>>>>>>> 3861d27abd1c308c750aad8a3a96391e0a19162c
 	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 		<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
 	<?php endif; ?>
@@ -44,9 +48,12 @@ do_action( 'woocommerce_before_main_content' );
 	do_action( 'woocommerce_archive_description' );
 	?>
 </header>
+<<<<<<< HEAD
+=======
 
 <?php do_action('rh_archive_filter'); ?>
 
+>>>>>>> 3861d27abd1c308c750aad8a3a96391e0a19162c
 <?php
 if ( woocommerce_product_loop() ) {
 
@@ -73,7 +80,10 @@ if ( woocommerce_product_loop() ) {
 			wc_get_template_part( 'content', 'product' );
 		}
 	}
+<<<<<<< HEAD
+=======
     do_action('rh_archive_filter_results');
+>>>>>>> 3861d27abd1c308c750aad8a3a96391e0a19162c
 
 	woocommerce_product_loop_end();
 
@@ -92,8 +102,11 @@ if ( woocommerce_product_loop() ) {
 	do_action( 'woocommerce_no_products_found' );
 }
 
+<<<<<<< HEAD
+=======
 do_action('rh_add_closing_div');
 
+>>>>>>> 3861d27abd1c308c750aad8a3a96391e0a19162c
 /**
  * Hook: woocommerce_after_main_content.
  *
