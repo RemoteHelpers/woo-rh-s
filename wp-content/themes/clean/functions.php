@@ -156,9 +156,9 @@ function filter_sidebar_init() {
     register_sidebar( array(
         'name'          => 'Filter sidebar',
         'id'            => 'filter_sidebar',
-        'before_widget' => '<div>',
+        'before_widget' => '<div class="filter-outer">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h2 class="filter-sidebar">',
+        'before_title'  => '<h2 class="filter-title">',
         'after_title'   => '</h2>',
     ) );
 }
@@ -473,7 +473,7 @@ function remove_stuff_from_shop()
 add_action('rh_archive_filter', 'rh_open_sidebar_div', 10);
 function rh_open_sidebar_div() { ?>
     <div class="archive-page">
-        <div class="archive-filter">
+        <div class="archive-sidebar">
             <?php dynamic_sidebar( 'filter-sidebar' ); ?>
         </div>
 <?php } ?>
