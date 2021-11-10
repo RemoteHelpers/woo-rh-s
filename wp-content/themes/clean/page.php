@@ -20,37 +20,47 @@ get_header();
         <div class="wrapper">
 
             <section class="card-section">
-<!--                --><?php
-//                    $args = array(
-//                        'post_type' => 'product',
-//                        'posts_per_page' => 10,
-//                    );
-//
-//                    $loop = new WP_Query($args);
-//
-//                    while ($loop->have_posts()) : $loop->the_post(); ?>
-<!---->
-<!--                        --><?php //wc_get_template_part( 'content', 'product' );?>
-<!---->
-<!--                    --><?php //endwhile;
-//
-//                    wp_reset_query();
-//                ?>
+                <!--                --><?php
+                //                    $args = array(
+                //                        'post_type' => 'product',
+                //                        'posts_per_page' => 10,
+                //                    );
+                //
+                //                    $loop = new WP_Query($args);
+                //
+                //                    while ($loop->have_posts()) : $loop->the_post(); ?>
+                <!---->
+                <!--                        --><?php //wc_get_template_part( 'content', 'product' );?>
+                <!---->
+                <!--                    --><?php //endwhile;
+                //
+                //                    wp_reset_query();
+                //                ?>
                 <?php
+
+
                 woocommerce_product_loop_start();
+                $args = array(
+                    'post_type' => 'product',
+                    'posts_per_page' => 10,
+                );
+                $loop = new WP_Query($args);
 
-                if ( wc_get_loop_prop( 'total' ) ) {
-                while ( have_posts() ) {
-                the_post();
+                if ($loop->have_posts()) {
 
-                /**
-                * Hook: woocommerce_shop_loop.
-                */
-                do_action( 'woocommerce_shop_loop' );
+                    while ($loop -> have_posts()) : $loop->the_post(); {
+                        the_post();
 
-                wc_get_template_part( 'content', 'product' );
+                        /**
+                         * Hook: woocommerce_shop_loop.
+                         */
+                        do_action('woocommerce_shop_loop');
 
-                }
+                        wc_get_template_part('content', 'product');
+
+                    }
+                    endwhile;
+                    wp_reset_query();
                 }
 
 
@@ -58,7 +68,7 @@ get_header();
                 ?>
             </section>
         </div>
-    <?php do_action('rh_main_page_closing_div');?>
+        <?php do_action('rh_main_page_closing_div'); ?>
     </main>
 
 
