@@ -20,26 +20,9 @@ get_header();
         <div class="wrapper">
 
             <section class="card-section">
-                <!--                --><?php
-                //                    $args = array(
-                //                        'post_type' => 'product',
-                //                        'posts_per_page' => 10,
-                //                    );
-                //
-                //                    $loop = new WP_Query($args);
-                //
-                //                    while ($loop->have_posts()) : $loop->the_post(); ?>
-                <!---->
-                <!--                        --><?php //wc_get_template_part( 'content', 'product' );?>
-                <!---->
-                <!--                    --><?php //endwhile;
-                //
-                //                    wp_reset_query();
-                //                ?>
                 <?php
-
-
                 woocommerce_product_loop_start();
+
                 $args = array(
                     'post_type' => 'product',
                     'posts_per_page' => 10,
@@ -48,8 +31,7 @@ get_header();
 
                 if ($loop->have_posts()) {
 
-                    while ($loop -> have_posts()) : $loop->the_post(); {
-                        the_post();
+                    while ($loop->have_posts()) : $loop->the_post(); {
 
                         /**
                          * Hook: woocommerce_shop_loop.
@@ -63,14 +45,12 @@ get_header();
                     wp_reset_query();
                 }
 
-
                 woocommerce_product_loop_end();
                 ?>
             </section>
         </div>
         <?php do_action('rh_main_page_closing_div'); ?>
     </main>
-
 
 <?php
 
