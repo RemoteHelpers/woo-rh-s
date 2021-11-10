@@ -17,8 +17,13 @@
 
 defined( 'ABSPATH' ) || exit;
 
-get_header( 'shop' );
+//if (is_archive()) {
+echo 'dddd';
+//    remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
+//}
 
+get_header( 'shop' );
+zzzzz
 /**
  * Hook: woocommerce_before_main_content.
  *

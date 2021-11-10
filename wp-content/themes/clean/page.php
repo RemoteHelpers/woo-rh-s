@@ -16,21 +16,9 @@ get_header();
 ?>
     <main>
         <div class="wrapper">
-            <div class="filter">
-                <a class="filter-tags" href="<?php home_url();?>">All</a>
-                <?php
-
-                $terms = get_terms( 'product_tag' );
-                $term_array = array();
-                if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-                    foreach ( $terms as $term ) {
-                        $term_array[] = $term->name;?>
-                        <a data-category="<?php echo $term -> term_id ?>" class="filter-tags" href="<?php echo get_category_link($term -> term_id)?>"><?php echo $term->name; ?></a><?php
-                    }
-                }
-                ?>
-
-            </div>
+<!--            --><?php
+//            do_action('rh_archive_filter');
+//            ?>
             <section class="card-section">
                 <?php
                     $args = array(
