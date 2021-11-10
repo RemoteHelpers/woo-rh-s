@@ -942,7 +942,7 @@ textarea {
 
 .wrapper {
   width: 100%;
-  max-width: 1220px;
+  max-width: 1320px;
   padding: 0 1rem;
 }
 
@@ -1174,7 +1174,20 @@ main {
   align-items: stretch;
   font-family: "Montserrat", sans-serif;
 }
-.card-section .card {
+.card-section ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  row-gap: 2rem;
+  column-gap: 2rem;
+  flex-flow: row wrap;
+  align-items: stretch;
+}
+.card-section ul li {
+  width: clamp(280px, 350px, 50%);
+  height: 400px;
+}
+.card-section ul li .card {
   width: clamp(280px, 350px, 50%);
   border-radius: 8px;
   box-shadow: 1px 2px 7px 0 rgba(0, 0, 0, 0.15);
@@ -1182,15 +1195,15 @@ main {
   display: flex;
   flex-flow: column;
 }
-.card-section .card:hover footer a {
+.card-section ul li .card:hover footer a {
   background-color: #FF5252;
 }
-.card-section .card header {
+.card-section ul li .card header {
   width: 100%;
   display: flex;
   justify-content: flex-end;
 }
-.card-section .card header div {
+.card-section ul li .card header div {
   border-radius: 0 8px 0 8px;
   padding: 0.5rem 2rem 0.5rem 2rem;
   background-color: green;
@@ -1199,13 +1212,13 @@ main {
   align-items: center;
   column-gap: 0.5rem;
 }
-.card-section .card header div i {
+.card-section ul li .card header div i {
   color: #ffffff;
 }
-.card-section .card header div span {
+.card-section ul li .card header div span {
   color: #ffffff;
 }
-.card-section .card main {
+.card-section ul li .card main {
   padding: 1rem 2rem 0 2rem;
   display: flex;
   flex-flow: column;
@@ -1214,33 +1227,33 @@ main {
   row-gap: 1rem;
   flex-grow: 1;
 }
-.card-section .card main img {
+.card-section ul li .card main img {
   height: 150px;
   width: 150px;
   border-radius: 50%;
   object-fit: cover;
 }
-.card-section .card main H3 {
+.card-section ul li .card main H3 {
   margin: 0;
   color: #54595F;
   font-size: 1.5rem;
   font-weight: 700;
 }
-.card-section .card main div {
+.card-section ul li .card main div {
   font-size: 1.1rem;
   font-weight: 300;
   margin: 0;
   color: #54595F;
   text-align: center;
 }
-.card-section .card main hr {
+.card-section ul li .card main hr {
   width: 100%;
   margin: 0;
   border: none;
   height: 1px;
   background-color: #FF5252;
 }
-.card-section .card main .skill-items {
+.card-section ul li .card main .skill-items {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -1249,7 +1262,7 @@ main {
   font-size: 1rem;
   font-family: "Montserrat", sans-serif;
 }
-.card-section .card main .skill-items a {
+.card-section ul li .card main .skill-items a {
   align-items: center;
   display: flex;
   font-weight: 500;
@@ -1261,16 +1274,16 @@ main {
   padding: 0.5em 1em;
   font-size: 0.8em;
 }
-.card-section .card main .skill-items a:hover {
+.card-section ul li .card main .skill-items a:hover {
   color: #FF5252;
 }
-.card-section .card footer {
+.card-section ul li .card footer {
   padding-top: 1rem;
   display: flex;
   align-items: center;
   background-color: transparent;
 }
-.card-section .card footer a {
+.card-section ul li .card footer a {
   font-family: "Roboto", sans-serif;
   transition: 0.3s;
   display: flex;

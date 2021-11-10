@@ -16,8 +16,9 @@ get_header();
 ?>
     <main>
 
-        <?php do_action('rh_main_page_filter'); ?>
+
         <div class="wrapper">
+            <?php do_action('rh_main_page_filter'); ?>
 
             <section class="card-section">
                 <?php
@@ -31,16 +32,17 @@ get_header();
 
                 if ($loop->have_posts()) {
 
-                    while ($loop->have_posts()) : $loop->the_post(); {
+                    while ($loop->have_posts()) : $loop->the_post();
+                        {
 
-                        /**
-                         * Hook: woocommerce_shop_loop.
-                         */
-                        do_action('woocommerce_shop_loop');
+                            /**
+                             * Hook: woocommerce_shop_loop.
+                             */
+                            do_action('woocommerce_shop_loop');
 
-                        wc_get_template_part('content', 'product');
+                            wc_get_template_part('content', 'product');
 
-                    }
+                        }
                     endwhile;
                     wp_reset_query();
                 }
