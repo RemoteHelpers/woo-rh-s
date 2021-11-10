@@ -15,10 +15,10 @@
 get_header();
 ?>
     <main>
+
+        <?php do_action('rh_archive_filter'); ?>
         <div class="wrapper">
-<!--            --><?php
-//            do_action('rh_archive_filter');
-//            ?>
+
             <section class="card-section">
                 <?php
                     $args = array(
@@ -31,30 +31,7 @@ get_header();
                     while ($loop->have_posts()) : $loop->the_post(); ?>
                         <?php global $product; ?>
 
-                        <div class="card">
-                            <header>
-                                <div style="background-color: <?php echo get_field('current_work_status') ?>">
-                                    <i class="<?php echo get_field('shifts') ?>"></i>
-                                    <span>#<?php echo $product->get_sku(); ?></span>
-                                </div>
-                            </header>
-                            <main>
-                                <img src="<?php echo wp_get_attachment_url($product->get_image_id()); ?>"
-                                     alt="Product image">
-                                <H3><?php echo get_the_title() ?></H3>
-                                <div><?php the_field('current_position') ?></div>
-                                <!--//TODO: change h5 to div and insert blocks-->
-                                <hr>
-                                <div class="skill-items">
-                                    <?php echo wc_get_product_tag_list($product->get_id(), ' ') ?>
-                                    <!--                <a href="">CSS</a>-->
-                                </div>
-                            </main>
-                            <footer>
-                                <a href="<?php echo get_post_permalink() ?>">Watch Employee cv</a>
-                                <!--FIXME: add link to post-->
-                            </footer>
-                        </div>
+                        <?php wc_get_template_part( 'content', 'product' );?>
 
                     <?php endwhile;
 
