@@ -16,30 +16,49 @@ get_header();
 ?>
     <main>
 
-        <?php do_action('rh_archive_filter'); ?>
+        <?php do_action('rh_main_page_filter'); ?>
         <div class="wrapper">
 
             <section class="card-section">
+<!--                --><?php
+//                    $args = array(
+//                        'post_type' => 'product',
+//                        'posts_per_page' => 10,
+//                    );
+//
+//                    $loop = new WP_Query($args);
+//
+//                    while ($loop->have_posts()) : $loop->the_post(); ?>
+<!---->
+<!--                        --><?php //wc_get_template_part( 'content', 'product' );?>
+<!---->
+<!--                    --><?php //endwhile;
+//
+//                    wp_reset_query();
+//                ?>
                 <?php
-                    $args = array(
-                        'post_type' => 'product',
-                        'posts_per_page' => 10,
-                    );
+                woocommerce_product_loop_start();
 
-                    $loop = new WP_Query($args);
+                if ( wc_get_loop_prop( 'total' ) ) {
+                while ( have_posts() ) {
+                the_post();
 
-                    while ($loop->have_posts()) : $loop->the_post(); ?>
-                        <?php global $product; ?>
+                /**
+                * Hook: woocommerce_shop_loop.
+                */
+                do_action( 'woocommerce_shop_loop' );
 
-                        <?php wc_get_template_part( 'content', 'product' );?>
+                wc_get_template_part( 'content', 'product' );
 
-                    <?php endwhile;
+                }
+                }
 
-                    wp_reset_query();
+
+                woocommerce_product_loop_end();
                 ?>
             </section>
         </div>
-
+    <?php do_action('rh_main_page_closing_div');?>
     </main>
 
 
