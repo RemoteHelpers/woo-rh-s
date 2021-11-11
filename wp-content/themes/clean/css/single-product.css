@@ -20,11 +20,15 @@
   grid-area: side;
   display: grid;
   grid-auto-flow: row;
+  grid-auto-rows: min-content;
+  box-shadow: 2px 0 12px 0 rgba(0, 0, 0, 0.2);
   padding: 0 1.5em;
+  height: 100%;
 }
 .woocommerce .single-product .product .sidebar-content .sidebar-head {
   border-bottom: 1px solid gainsboro;
   padding: 1em 0;
+  height: min-content;
 }
 .woocommerce .single-product .product .sidebar-content .sidebar-head div.images {
   margin: 0;

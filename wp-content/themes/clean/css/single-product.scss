@@ -25,11 +25,15 @@
         grid-area: side;
         display: grid;
         grid-auto-flow: row;
+        grid-auto-rows: min-content;
+        box-shadow: 2px 0 12px 0 rgb(0 0 0 / 20%);
         padding: 0 1.5em;
+        height: 100%;
 
         .sidebar-head {
         border-bottom: 1px solid gainsboro;
         padding: 1em 0;
+        height: min-content;
 
         div.images {
           margin: 0;

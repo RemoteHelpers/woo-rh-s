@@ -178,8 +178,8 @@ function clean_scripts() {
 
     wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/fontawesome/fontawesome-free-5.15.4-web/css/all.css',false,'1.1','all');
 
-    wp_enqueue_style( 'roboto', 'https://fonts.googleapis.com/css2?family=Roboto',false,'1.1','all');
-    wp_enqueue_style( 'montserrat', 'href="https://fonts.googleapis.com/css2?family=Montserrat',false,'1.1','all');
+    wp_enqueue_style( 'roboto', 'https://fonts.googleapis.com/css2?family=Roboto:wght@500',false,'1.1','all');
+    wp_enqueue_style( 'montserrat', 'href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700;800',false,'1.1','all');
 
 
     wp_style_add_data( 'clean-style', 'rtl', 'replace' );
@@ -264,6 +264,11 @@ function rh_add_opening_section() {
  * Remove title.
  */
 //remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+
+/**
+ * Remove breadcrumbs.
+ */
+remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
 
 /**
  * Shifts, SKU, current position.
