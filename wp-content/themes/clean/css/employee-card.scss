@@ -1,0 +1,154 @@
+@import "variables";
+
+.products {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  row-gap: 2rem;
+  column-gap: 2rem;
+  flex-flow: row wrap;
+  align-items: stretch;
+
+  li {
+    width: clamp(280px, 350px, 50%);
+    height: 400px;
+
+    .card {
+      width: clamp(280px, 350px, 50%);
+      border-radius: 8px;
+      box-shadow: 1px 2px 7px 0 rgba(0, 0, 0, 0.15);
+      font-family: sans-serif;
+      display: flex;
+      flex-flow: column;
+
+      &:hover {
+        footer {
+          a {
+            background-color: $accent-color;
+          }
+
+        }
+      }
+    }
+
+    .card header {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+
+      div {
+        border-radius: 0 8px 0 8px;
+        padding: .5rem 2rem .5rem 2rem;
+        background-color: green;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: .5rem;
+
+        i {
+          color: #ffffff;
+        }
+
+        span {
+          color: #ffffff;
+        }
+      }
+    }
+
+    .card main {
+      padding: 1rem 2rem 0 2rem;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: flex-start;
+      row-gap: 1rem;
+      flex-grow: 1;
+
+      img {
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      H3 {
+        margin: 0;
+        color: #54595F;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      div {
+        font-size: 1.1rem;
+        font-weight: 300;
+        margin: 0;
+        color: #54595F;
+        text-align: center;
+
+      }
+
+      hr {
+        width: 100%;
+        margin: 0;
+        border: none;
+        height: 1px;
+        background-color: $accent-color;
+      }
+
+
+      .skill-items {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        column-gap: .5rem;
+        row-gap: .5rem;
+        font-size: 1rem;
+        font-family: "Montserrat", sans-serif;
+
+        height: 120px;
+        overflow-y: hidden;
+
+        a {
+          align-items: center;
+          display: flex;
+          font-weight: 500;
+          text-decoration: none;
+          color: #54595F;
+          transition: 0.3s;
+          background-color: #F7F7F7;
+          border-radius: 2rem;
+          padding: 0.4rem;
+          font-size: 0.9rem;
+
+          &:hover {
+            color: $accent_color;
+          }
+        }
+      }
+    }
+
+    .card footer {
+      padding-top: 1rem;
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+
+
+      a {
+        font-family: "Roboto", sans-serif;
+        transition: 0.3s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0 0 8px 8px;
+        height: 40px;
+        width: 100%;
+        text-align: center;
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+    }
+  }
+}

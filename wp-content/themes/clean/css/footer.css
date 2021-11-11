@@ -1,0 +1,88 @@
+.site-footer {
+  height: 250px;
+  width: 100%;
+  background-color: #212121;
+  display: flex;
+  justify-content: space-between;
+}
+.site-footer .footer-logo {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.site-footer .footer-logo a img {
+  width: 200px;
+  height: auto;
+}
+.site-footer .bottom-menu {
+  width: 50%;
+}
+.site-footer .bottom-menu .menu {
+  height: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.site-footer .bottom-menu .menu .menu-footer-menu-container .footer-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.site-footer .bottom-menu .menu .menu-footer-menu-container .footer-menu li:not(:last-child) {
+  margin-right: 1.5rem;
+}
+.site-footer .bottom-menu .menu .menu-footer-menu-container .footer-menu li a {
+  font-family: "Roboto", serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.site-footer .bottom-menu .menu .menu-footer-menu-container .footer-menu li a:hover {
+  color: #FF5252;
+}
+.site-footer .bottom-menu .privacy-policy {
+  display: flex;
+  flex-flow: column wrap;
+  height: 55%;
+  justify-content: center;
+  align-items: center;
+}
+.site-footer .bottom-menu .privacy-policy p, .site-footer .bottom-menu .privacy-policy a {
+  font-family: "Montserrat", serif;
+  font-size: 1rem;
+  color: #7A7A7A;
+}
+.site-footer .bottom-menu .privacy-policy p {
+  font-weight: 200;
+}
+.site-footer .bottom-menu .privacy-policy a {
+  font-weight: 500;
+  text-decoration: none;
+}
+.site-footer .footer-icon {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.site-footer .footer-icon p {
+  color: white;
+  font-size: 24px;
+}
+.site-footer .footer-icon a {
+  margin-right: 15px;
+}
+.site-footer .footer-icon a .fab {
+  font-size: 28px;
+  color: #ffffff;
+  transition: 0.3s;
+}
+.site-footer .footer-icon a .fab:hover {
+  color: #FF5252;
+}
+
+/*# sourceMappingURL=footer.css.map */

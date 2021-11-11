@@ -175,6 +175,10 @@ function clean_scripts() {
 	wp_enqueue_style( 'clean-style', get_stylesheet_uri(), array(), _S_VERSION );
     wp_enqueue_style( 'single-product', get_template_directory_uri() . '/css/single-product.css',false,'1.1','all');
     wp_enqueue_style( 'archive-product', get_template_directory_uri() . '/css/archive-product.css',false,'1.1','all');
+    wp_enqueue_style( 'employee-card', get_template_directory_uri() . '/css/employee-card.css',false,'1.1','all');
+    wp_enqueue_style( 'header-style', get_template_directory_uri() . '/css/header.css',false,'1.1','all');
+    wp_enqueue_style( 'footer-style', get_template_directory_uri() . '/css/footer.css',false,'1.1','all');
+    wp_enqueue_style( 'variables', get_template_directory_uri() . '/css/variables.css',false,'1.1','all');
 
     wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/fontawesome/fontawesome-free-5.15.4-web/css/all.css',false,'1.1','all');
 
