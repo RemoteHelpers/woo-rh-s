@@ -16,7 +16,6 @@ get_header();
 ?>
     <main>
 
-
         <div class="wrapper">
             <?php do_action('rh_main_page_filter'); ?>
 

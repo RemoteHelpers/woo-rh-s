@@ -176,6 +176,11 @@ function clean_scripts() {
     wp_enqueue_style( 'single-product', get_template_directory_uri() . '/css/single-product.css',false,'1.1','all');
     wp_enqueue_style( 'archive-product', get_template_directory_uri() . '/css/archive-product.css',false,'1.1','all');
 
+    wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/fontawesome/fontawesome-free-5.15.4-web/css/all.css',false,'1.1','all');
+
+    wp_enqueue_style( 'roboto', 'https://fonts.googleapis.com/css2?family=Roboto',false,'1.1','all');
+    wp_enqueue_style( 'montserrat', 'href="https://fonts.googleapis.com/css2?family=Montserrat',false,'1.1','all');
+
 
     wp_style_add_data( 'clean-style', 'rtl', 'replace' );
 
