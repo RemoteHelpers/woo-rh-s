@@ -181,6 +181,7 @@ function clean_scripts() {
     wp_enqueue_style( 'footer-style', get_template_directory_uri() . '/css/footer.css',false,'1.1','all');
     wp_enqueue_style( 'variables', get_template_directory_uri() . '/css/variables.css',false,'1.1','all');
 
+//    wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home-style.css',false,'1.1','all');
     wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/fontawesome/fontawesome-free-5.15.4-web/css/all.css',false,'1.1','all');
 
     wp_enqueue_style( 'roboto', 'https://fonts.googleapis.com/css2?family=Roboto:wght@500',false,'1.1','all');
@@ -270,9 +271,9 @@ function rh_add_opening_section() { ?>
 <?php }
 
 add_action('woocommerce_before_single_product_summary', 'rh_close_sidebar_img_div', 30);
-function rh_close_sidebar_img_div() {
-    echo '</div>';
-}
+function rh_close_sidebar_img_div() { ?>
+    </div>
+<?php }
 
 /**
  * Remove title.
@@ -287,29 +288,31 @@ remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
 /**
  * Shifts, SKU, current position.
  */
-add_action('woocommerce_single_product_summary',function(){
-    $position = get_field('current_position');
-    echo '<div class="current-position">';
-    if ($position) {
-        foreach ($position as $pos) {
-            echo '<span>' . $pos . ', </span>';
-        }
-    }
-    echo '</div>';
+add_action('woocommerce_single_product_summary', function() {
+    $position = get_field('current_position'); ?>
+    <div class="current-position">
+    <?php if ($position) {
+        foreach ($position as $pos) { ?>
+            <span><?php echo $pos ?> , </span>
+        <?php }
+    } ?>
+    </div>
 
-    echo '<div class="id-and-shifts">';
-    global $product;
-    echo '<div class="id"><span># ' . $product->get_id() . '</span></div>';
-    echo '<div class="shifts-wrap" style="background-color: ' . get_field('current_work_status') . '">';
-    echo '<i class="' . get_field("shifts") . '"></i>';
-    echo '</div>';
-    echo '</div>';
+    <div class="id-and-shifts">
+    <?php global $product; ?>
+    <div class="id"><span># <?php echo $product->get_id() ?></span></div>
+    <div class="shifts-wrap" style="background-color: <?php echo get_field('current_work_status') ?>">
+
+    <i class="<?php echo get_field("shifts") ?>"></i>
+    </div>
+    <?php echo the_field('current_work_status') ?>
+    </div>
+<?php });
 
 //    $sku = $product->get_sku();
 //    if ($sku) {
 //        echo '<br><small>#' . $sku . '</small><br>';
 //    }
-});
 
 /**
  * Close sub-header tag, start sub-summary.

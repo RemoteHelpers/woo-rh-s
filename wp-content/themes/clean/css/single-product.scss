@@ -2,9 +2,9 @@
     font-family: 'Montserrat';
     color: #4d4d4d;
 
-    .site-main {
-      flex-direction: column;
-    }
+    //.site-main {
+      //flex-direction: column;
+    //}
 
     .product {
       display: grid;
@@ -27,22 +27,16 @@
 
         .sidebar-head {
           display: flex;
-          align-items: center;
+          align-items: stretch;
           gap: 5%;
           border-bottom: 1px solid gainsboro;
           padding: 1em 0;
           height: min-content;
 
-        .sidebar-img {
-          flex-basis: 50%;
-          align-self: center;
-        }
-
-        div.images {
-          float: none;
-          width: 100%;
-          margin: 0;
-        }
+          .sidebar-img {
+            flex-basis: 50%;
+            align-self: center;
+          }
 
         img.wp-post-image {
           border-radius: 50%;
@@ -52,18 +46,18 @@
         .summary {
           display: flex;
           flex-direction: column;
+          justify-content: space-evenly;
           flex-basis: 50%;
           margin: 0;
 
         .product_title {
           font-size: clamp(24px, calc(1.4rem + 1vw), 1.7rem);
           font-weight: 800;
-          margin: .5em 0;
+          margin: 0;
         }
 
         .current-position {
           font-size: clamp(12px, calc(.8rem + 1vw), .9rem);
-          margin: .5em 0;
         }
 
         .id-and-shifts {

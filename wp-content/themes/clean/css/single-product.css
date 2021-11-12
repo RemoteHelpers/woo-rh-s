@@ -2,9 +2,6 @@
   font-family: "Montserrat";
   color: #4d4d4d;
 }
-.single-product .site-main {
-  flex-direction: column;
-}
 .single-product .product {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -24,7 +21,7 @@
 }
 .single-product .product .single-product-sidebar .sidebar-head {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 5%;
   border-bottom: 1px solid gainsboro;
   padding: 1em 0;
@@ -34,11 +31,6 @@
   flex-basis: 50%;
   align-self: center;
 }
-.single-product .product .single-product-sidebar .sidebar-head div.images {
-  float: none;
-  width: 100%;
-  margin: 0;
-}
 .single-product .product .single-product-sidebar .sidebar-head img.wp-post-image {
   border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -46,17 +38,17 @@
 .single-product .product .single-product-sidebar .sidebar-head .summary {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   flex-basis: 50%;
   margin: 0;
 }
 .single-product .product .single-product-sidebar .sidebar-head .summary .product_title {
   font-size: clamp(24px, 1.4rem + 1vw, 1.7rem);
   font-weight: 800;
-  margin: 0.5em 0;
+  margin: 0;
 }
 .single-product .product .single-product-sidebar .sidebar-head .summary .current-position {
   font-size: clamp(12px, 0.8rem + 1vw, 0.9rem);
-  margin: 0.5em 0;
 }
 .single-product .product .single-product-sidebar .sidebar-head .summary .id-and-shifts {
   display: grid;
