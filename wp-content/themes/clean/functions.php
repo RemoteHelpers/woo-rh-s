@@ -261,7 +261,7 @@ function pprint_r($a)
 add_action('woocommerce_before_single_product_summary', 'rh_add_opening_section', 5);
 
 function rh_add_opening_section() {
-    echo '<section class="sidebar-content"><div class="sidebar-head">';
+    echo '<section class="single-product-sidebar"><div class="sidebar-head">';
 }
 
 /**
@@ -287,7 +287,7 @@ add_action('woocommerce_single_product_summary',function(){
     }
     echo '</div>';
 
-    echo '<div class="id_and_shifts">';
+    echo '<div class="id-and-shifts">';
     global $product;
     echo '<div class="id"><span># ' . $product->get_id() . '</span></div>';
     echo '<div class="shifts-wrap" style="background-color: ' . get_field('current_work_status') . '">';
@@ -307,7 +307,7 @@ add_action('woocommerce_single_product_summary',function(){
 add_action('woocommerce_after_single_product_summary', 'rh_add_sub_summary', 3);
 
 function rh_add_sub_summary() {
-    echo '</div><div class="sub-summary">';
+    echo '</div><div class="sidebar-summary">';
     $id = get_the_id();
     echo '<div class="skills-and-tools">';
     echo '<span class="skills-and-tools_title">Most used skills and tools:</span>';
@@ -384,8 +384,8 @@ function rh_add_closing_section() {
 add_action('woocommerce_after_single_product_summary',function() {
     $about = get_field('about');
     if ($about) {
-        echo '<section class="single-product-about">';
-        echo '<h4 class="about-subtitle">About:</h4>';
+        echo '<section class="single-product-content">';
+        echo '<h4 class="content-subtitle">About:</h4>';
 
         /**
          * Make embed link from user link.
@@ -405,7 +405,7 @@ add_action('woocommerce_after_single_product_summary',function() {
 
     $experience = get_field('work_experience');
     if($experience) {
-        echo '<h4 class="about-subtitle">Work Experience:</h4>';
+        echo '<h4 class="content-subtitle">Work Experience:</h4>';
         echo '<ul class="cv-list">';
         foreach ($experience as $exp) {
             $vals = array_values($exp);
@@ -423,7 +423,7 @@ add_action('woocommerce_after_single_product_summary',function() {
 
     $education = get_field('education');
         if($education) {
-            echo '<h4 class="about-subtitle">Education:</h4>';
+            echo '<h4 class="content-subtitle">Education:</h4>';
             echo '<ul class="cv-list">';
             foreach ($education as $ed) {
                 $vals = array_values($ed);
@@ -442,7 +442,7 @@ add_action('woocommerce_after_single_product_summary',function() {
     $devPortfolio = get_field('developer_portfolio');
 
     if ($devPortfolio) {
-        echo '<h4 class="about-subtitle">Portfolio:</h4>';
+        echo '<h4 class="content-subtitle">Portfolio:</h4>';
         foreach ($devPortfolio as $port) {
             echo '<a href="' . $port['project_link'] . '">' . $port['project_name'] . '</a><br>';
         }

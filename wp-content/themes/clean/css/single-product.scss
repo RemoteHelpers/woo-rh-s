@@ -21,7 +21,7 @@
       'related related related';
       grid-gap: 1em;
 
-      .sidebar-content {
+      .single-product-sidebar {
         grid-area: side;
         display: grid;
         grid-auto-flow: row;
@@ -29,6 +29,7 @@
         box-shadow: 2px 0 12px 0 rgb(0 0 0 / 20%);
         padding: 0 1.5em;
         height: 100%;
+        clip-path: inset(0 -15px 0 0);
 
         .sidebar-head {
         border-bottom: 1px solid gainsboro;
@@ -59,7 +60,7 @@
           margin: 10px 0;
         }
 
-        .id_and_shifts {
+        .id-and-shifts {
           display: grid;
           grid-template-columns: 1fr 2fr;
           align-items: center;
@@ -83,7 +84,7 @@
       }
 
 
-        .sub-summary {
+        .sidebar-summary {
           padding: 1em 0;
           .skills-and-tools_title {
             font-weight: 500;
@@ -148,9 +149,9 @@
         }
       }
 
-      .single-product-about {
+      .single-product-content {
         grid-area: content;
-        .about-subtitle {
+        .content-subtitle {
           font-size: 32px;
           color: var(--rh-accent-color);
           text-decoration: underline;

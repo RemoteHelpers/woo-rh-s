@@ -63,7 +63,7 @@ do_action('woocommerce_before_main_content');
 
         ?>
 
-<!--        <section class="card-section">-->
+        <section class="card-section">
             <?php
             woocommerce_product_loop_start();
 
@@ -101,8 +101,8 @@ do_action('woocommerce_before_main_content');
 
             do_action('rh_add_closing_div');
             ?>
-<!--        </section>-->
-<!--    </div>-->
+        </section>
+    </div>
 
 <?php
 /**
