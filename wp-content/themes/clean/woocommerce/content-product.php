@@ -28,7 +28,6 @@ if (empty($product) || !$product->is_visible()) {
 <li>
     <div class="card" id="card">
         <header>
-            <h1>dsfgksd;gjkfd</h1>
             <div style="background-color: <?php echo get_field('current_work_status') ?>">
                 <i class="<?php echo get_field('shifts') ?>"></i>
                 <span>#<?php echo $product->get_sku(); ?></span>
