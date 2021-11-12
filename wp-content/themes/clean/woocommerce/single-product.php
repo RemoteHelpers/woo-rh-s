@@ -60,10 +60,11 @@ get_header( 'shop' ); ?>
 //		do_action( 'woocommerce_sidebar' );
 //	?>
 
+</div>
+</div>
+
 <?php
 get_footer( 'shop' );
 
-echo '</div>';
-echo '</div>';
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */

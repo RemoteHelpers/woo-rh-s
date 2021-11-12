@@ -170,6 +170,7 @@ add_action( 'widgets_init', 'filter_sidebar_init' );
 
 add_theme_support( 'woocommerce' );
 
+add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
 function clean_scripts() {
 	wp_enqueue_style( 'clean-style', get_stylesheet_uri(), array(), _S_VERSION );
@@ -260,8 +261,17 @@ function pprint_r($a)
  */
 add_action('woocommerce_before_single_product_summary', 'rh_add_opening_section', 5);
 
-function rh_add_opening_section() {
-    echo '<section class="single-product-sidebar"><div class="sidebar-head">';
+function rh_add_opening_section() { ?>
+
+    <section class="single-product-sidebar">
+        <div class="sidebar-head">
+            <div class="sidebar-img">
+
+<?php }
+
+add_action('woocommerce_before_single_product_summary', 'rh_close_sidebar_img_div', 30);
+function rh_close_sidebar_img_div() {
+    echo '</div>';
 }
 
 /**

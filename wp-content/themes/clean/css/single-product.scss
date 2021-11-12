@@ -1,9 +1,3 @@
-:root {
-  --rh-accent-color: #FF5252;
-}
-
-.woocommerce {
-
   .single-product {
     font-family: 'Montserrat';
     color: #4d4d4d;
@@ -27,16 +21,26 @@
         grid-auto-flow: row;
         grid-auto-rows: min-content;
         box-shadow: 2px 0 12px 0 rgb(0 0 0 / 20%);
-        padding: 0 1.5em;
+        padding: 0 1.5rem;
         height: 100%;
         clip-path: inset(0 -15px 0 0);
 
         .sidebar-head {
-        border-bottom: 1px solid gainsboro;
-        padding: 1em 0;
-        height: min-content;
+          display: flex;
+          align-items: center;
+          gap: 5%;
+          border-bottom: 1px solid gainsboro;
+          padding: 1em 0;
+          height: min-content;
+
+        .sidebar-img {
+          flex-basis: 50%;
+          align-self: center;
+        }
 
         div.images {
+          float: none;
+          width: 100%;
           margin: 0;
         }
 
@@ -48,23 +52,25 @@
         .summary {
           display: flex;
           flex-direction: column;
-
+          flex-basis: 50%;
+          margin: 0;
 
         .product_title {
-          font-size: 24px;
+          font-size: clamp(24px, calc(1.4rem + 1vw), 1.7rem);
           font-weight: 800;
+          margin: .5em 0;
         }
 
         .current-position {
-          font-size: 14px;
-          margin: 10px 0;
+          font-size: clamp(12px, calc(.8rem + 1vw), .9rem);
+          margin: .5em 0;
         }
 
         .id-and-shifts {
           display: grid;
           grid-template-columns: 1fr 2fr;
           align-items: center;
-          padding: 0 10px;
+          padding: 0 .5em;
 
           .id {
             font-weight: 500;
@@ -83,9 +89,9 @@
       }
       }
 
-
         .sidebar-summary {
           padding: 1em 0;
+
           .skills-and-tools_title {
             font-weight: 500;
           }
@@ -151,6 +157,8 @@
 
       .single-product-content {
         grid-area: content;
+        padding: 0 5%;
+
         .content-subtitle {
           font-size: 32px;
           color: var(--rh-accent-color);
@@ -199,6 +207,23 @@
           display: flex;
           flex-direction: column;
         }
+      }
+    }
+  }
+
+/* media queries */
+
+@media screen and (max-width: 768px) {
+  .single-product {
+    .product {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+    'side'
+    'content'
+    'related';
+      .single-product-sidebar {
+        box-shadow: none;
+        clip-path: none;
       }
     }
   }

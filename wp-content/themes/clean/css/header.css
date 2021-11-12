@@ -1,4 +1,8 @@
 @charset "UTF-8";
+* {
+  --rh-accent-color: #FF5252;
+}
+
 .background-header {
   display: flex;
   justify-content: space-between;

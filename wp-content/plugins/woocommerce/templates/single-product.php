@@ -21,11 +21,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?>
 
-<<<<<<< HEAD
-
-=======
-<section class="single-product">
->>>>>>> aa8aeccb110a5be5e48658c6f63e389f03fdefc9
 
 	<?php
 		/**
@@ -53,18 +48,16 @@ get_header( 'shop' ); ?>
 		do_action( 'woocommerce_after_main_content' );
 	?>
 
-<!--    --><?php
-//		/**
-//		 * woocommerce_sidebar hook.
-//		 *
-//		 * @hooked woocommerce_get_sidebar - 10
-//		 */
-//		do_action( 'woocommerce_sidebar' );
-//	?>
+    <?php
+		/**
+		 * woocommerce_sidebar hook.
+		 *
+		 * @hooked woocommerce_get_sidebar - 10
+		 */
+		do_action( 'woocommerce_sidebar' );
+	?>
 
 <?php
 get_footer( 'shop' );
-
-printf('</section>');
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */

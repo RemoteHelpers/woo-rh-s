@@ -1,3 +1,7 @@
+* {
+  --rh-accent-color: #FF5252;
+}
+
 .products {
   list-style: none;
   display: flex;
