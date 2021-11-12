@@ -170,6 +170,9 @@ add_action( 'widgets_init', 'filter_sidebar_init' );
 
 add_theme_support( 'woocommerce' );
 
+/**
+ * Disable all Woocommerce (three) stylesheets.
+ */
 add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
 function clean_scripts() {
@@ -301,11 +304,15 @@ add_action('woocommerce_single_product_summary', function() {
     <div class="id-and-shifts">
     <?php global $product; ?>
     <div class="id"><span># <?php echo $product->get_id() ?></span></div>
-    <div class="shifts-wrap" style="background-color: <?php echo get_field('current_work_status') ?>">
 
-    <i class="<?php echo get_field("shifts") ?>"></i>
+    <?php $field = get_field_object('current_work_status');
+    $value = $field['value'];
+    $choice = $field['choices'][$value];
+    ?>
+    <div class="shifts-wrap" style="background-color: <?php echo $value ?>">
+    <i class="<?php the_field("shifts") ?>"></i>
+    <span class="availability"><?php echo $choice ?></span>
     </div>
-    <?php echo the_field('current_work_status') ?>
     </div>
 <?php });
 

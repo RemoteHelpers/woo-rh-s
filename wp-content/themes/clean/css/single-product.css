@@ -7,7 +7,7 @@
   grid-template-columns: repeat(3, 1fr);
   align-items: start;
   grid-template-areas: "side content content" "related related related";
-  grid-gap: 1em;
+  grid-gap: 1rem;
 }
 .single-product .product .single-product-sidebar {
   grid-area: side;
@@ -24,7 +24,7 @@
   align-items: stretch;
   gap: 5%;
   border-bottom: 1px solid gainsboro;
-  padding: 1em 0;
+  padding: 1rem 0;
   height: min-content;
 }
 .single-product .product .single-product-sidebar .sidebar-head .sidebar-img {
@@ -54,7 +54,7 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   align-items: center;
-  padding: 0 0.5em;
+  padding: 0 0.5rem;
 }
 .single-product .product .single-product-sidebar .sidebar-head .summary .id-and-shifts .id {
   font-weight: 500;
@@ -62,11 +62,14 @@
 .single-product .product .single-product-sidebar .sidebar-head .summary .id-and-shifts .shifts-wrap {
   display: flex;
   align-items: center;
+  gap: 5px;
   border-radius: 8px;
-  height: 30px;
-  max-width: 80%;
-  padding: 0 5px;
+  padding: 4px 8px;
   color: white;
+}
+.single-product .product .single-product-sidebar .sidebar-head .summary .id-and-shifts .shifts-wrap .availability {
+  width: 100%;
+  text-align: center;
 }
 .single-product .product .single-product-sidebar .sidebar-summary {
   padding: 1em 0;
@@ -91,20 +94,15 @@
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: repeat(2, 1fr);
-  margin-top: 1em;
+  min-width: 18.75rem;
+  margin-top: 1rem;
   border-radius: 8px;
   box-shadow: -9px 2px 25px -5px rgba(0, 0, 0, 0.2);
-}
-.single-product .product .single-product-sidebar form.cart::before {
-  display: none;
 }
 .single-product .product .single-product-sidebar form.cart div.price {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0;
-  height: 65px;
+  place-items: center;
   color: #7a7a7a;
 }
 .single-product .product .single-product-sidebar form.cart div.price .price-num {
@@ -112,7 +110,7 @@
   font-weight: 800;
 }
 .single-product .product .single-product-sidebar form.cart div.price .price-num .woocommerce-Price-currencySymbol {
-  font-size: 20px;
+  font-size: 18px;
   vertical-align: top;
 }
 .single-product .product .single-product-sidebar form.cart div.price .price-comment {
@@ -124,7 +122,7 @@
   font-weight: 400;
   background-color: var(--rh-accent-color);
   border-radius: 0 8px 8px 0;
-  padding: 0 45px;
+  color: white;
 }
 .single-product .product .single-product-content {
   grid-area: content;

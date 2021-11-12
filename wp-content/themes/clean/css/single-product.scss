@@ -13,7 +13,7 @@
       grid-template-areas:
       'side content content'
       'related related related';
-      grid-gap: 1em;
+      grid-gap: 1rem;
 
       .single-product-sidebar {
         grid-area: side;
@@ -30,7 +30,7 @@
           align-items: stretch;
           gap: 5%;
           border-bottom: 1px solid gainsboro;
-          padding: 1em 0;
+          padding: 1rem 0;
           height: min-content;
 
           .sidebar-img {
@@ -64,7 +64,7 @@
           display: grid;
           grid-template-columns: 1fr 2fr;
           align-items: center;
-          padding: 0 .5em;
+          padding: 0 .5rem;
 
           .id {
             font-weight: 500;
@@ -73,11 +73,17 @@
           .shifts-wrap {
             display: flex;
             align-items: center;
+            gap: 5px;
             border-radius: 8px;
-            height: 30px;
-            max-width: 80%;
-            padding: 0 5px;
+            //height: 30px;
+            //max-width: 80%;
+            padding: 4px 8px;
             color: white;
+
+            .availability {
+              width: 100%;
+              text-align: center;
+            }
           }
         }
       }
@@ -110,27 +116,29 @@
           display: grid;
           grid-auto-flow: row;
           grid-template-columns: repeat(2, 1fr);
-          margin-top: 1em;
+          min-width: 18.75rem;
+          margin-top: 1rem;
           border-radius: 8px;
           box-shadow: -9px 2px 25px -5px rgb(0 0 0 / 20%);
-          &::before {
-            display: none;
-          }
+          //&::before {
+          //  display: none;
+          //}
 
           div.price {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 0;
-            height: 65px;
+            //align-items: center;
+            //justify-content: center;
+            place-items: center;
+            //margin-bottom: 0;
+            //height: 65px;
             color: #7a7a7a;
 
             .price-num {
               font-size: 28px;
               font-weight: 800;
               .woocommerce-Price-currencySymbol {
-                font-size: 20px;
+                font-size: 18px;
                 vertical-align: top;
               }
             }
@@ -145,7 +153,9 @@
             font-weight: 400;
             background-color: var(--rh-accent-color);
             border-radius: 0 8px 8px 0;
-            padding: 0 45px;          }
+            color: white;
+            //padding: 0 45px;
+          }
         }
       }
 
