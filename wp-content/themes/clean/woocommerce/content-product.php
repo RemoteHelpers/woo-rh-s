@@ -25,7 +25,6 @@ if (empty($product) || !$product->is_visible()) {
 }
 ?>
 
-
 <li>
     <div class="card" id="card">
         <header>

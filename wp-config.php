@@ -84,7 +84,7 @@ define('WP_MEMORY_LIMIT', '2000M');
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-
+define('WP_CACHE', false);
 
 /* That's all, stop editing! Happy publishing. */
 
