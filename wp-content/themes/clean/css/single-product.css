@@ -43,12 +43,12 @@
   margin: 0;
 }
 .single-product .product .single-product-sidebar .sidebar-head .summary .product_title {
-  font-size: clamp(24px, 1.4rem + 1vw, 1.7rem);
+  font-size: clamp(24px, calc(1.4rem + 1vw), 1.7rem);
   font-weight: 800;
   margin: 0;
 }
 .single-product .product .single-product-sidebar .sidebar-head .summary .current-position {
-  font-size: clamp(12px, 0.8rem + 1vw, 0.9rem);
+  font-size: clamp(12px, calc(.8rem + 1vw), .9rem);
 }
 .single-product .product .single-product-sidebar .sidebar-head .summary .id-and-shifts {
   display: grid;
