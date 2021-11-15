@@ -180,6 +180,7 @@ function clean_scripts() {
     wp_enqueue_style( 'single-product', get_template_directory_uri() . '/css/single-product.css',false,'1.1','all');
     wp_enqueue_style( 'archive-product', get_template_directory_uri() . '/css/archive-product.css',false,'1.1','all');
     wp_enqueue_style( 'employee-card', get_template_directory_uri() . '/css/employee-card.css',false,'1.1','all');
+    wp_enqueue_style( 'slick-styles', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css',false,'1.1','all');
     wp_enqueue_style( 'header-style', get_template_directory_uri() . '/css/header.css',false,'1.1','all');
     wp_enqueue_style( 'footer-style', get_template_directory_uri() . '/css/footer.css',false,'1.1','all');
     wp_enqueue_style( 'variables', get_template_directory_uri() . '/css/variables.css',false,'1.1','all');
@@ -188,7 +189,8 @@ function clean_scripts() {
 
     wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/fontawesome/fontawesome-free-5.15.4-web/css/all.css',false,'1.1','all');
 
-    wp_enqueue_style( 'roboto', 'https://fonts.googleapis.com/css2?family=Roboto:wght@500',false,'1.1','all');
+    wp_enqueue_style( 'roboto', 'https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap',false,'1.1','all');
+    wp_enqueue_style( 'fira-sans', 'https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@300&display=swap',false,'1.1','all');
     wp_enqueue_style( 'montserrat', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700;800;900&display=swap',false,null,'all');
 
 
@@ -196,6 +198,7 @@ function clean_scripts() {
 
 	wp_enqueue_script( 'clean-script', get_template_directory_uri() . '/js/index.js', array('jquery'), _S_VERSION, true );
 	wp_enqueue_script( 'clean-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'slick-script', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array(), _S_VERSION, true );
 
 //    add_action( 'wp_enqueue_scripts', 'myajax_data', 99 );
 //    function myajax_data(){
@@ -259,7 +262,7 @@ function pprint_r($a)
     echo "<pre>", htmlspecialchars(print_r($a, true)), "</pre>";
 }
 
-// ----------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------
 
 /**
  * Custom layout begins.
@@ -269,8 +272,9 @@ add_action('woocommerce_before_single_product_summary', 'rh_add_opening_section'
 function rh_add_opening_section() { ?>
 
     <section class="single-product-sidebar">
-        <div class="sidebar-head">
-            <div class="sidebar-img">
+        <div class="sticky-sidebar">
+            <div class="sidebar-head">
+                <div class="sidebar-img">
 
 <?php }
 
@@ -306,57 +310,67 @@ add_action('woocommerce_single_product_summary', function() {
     <?php global $product; ?>
     <div class="id"><span># <?php echo $product->get_id() ?></span></div>
 
-    <?php $field = get_field_object('current_work_status');
-    $value = $field['value'];
-    $choice = $field['choices'][$value];
+    <?php $status = get_field_object('current_work_status');
+    $value = $status['value'];
+    $choice = $status['choices'][$value];
     ?>
     <div class="shifts-wrap" style="background-color: <?php echo $value ?>">
     <i class="<?php the_field("shifts") ?>"></i>
     <span class="availability"><?php echo $choice ?></span>
     </div>
     </div>
-<?php });
+<?php }); ?>
 
-//    $sku = $product->get_sku();
-//    if ($sku) {
-//        echo '<br><small>#' . $sku . '</small><br>';
-//    }
+<!--    $sku = $product->get_sku();-->
+<!--    if ($sku) {-->
+<!--        echo '<br><small>#' . $sku . '</small><br>';-->
+<!--    }-->
 
+<?php
 /**
  * Close sub-header tag, start sub-summary.
  */
 add_action('woocommerce_after_single_product_summary', 'rh_add_sub_summary', 3);
+function rh_add_sub_summary() { ?>
+    </div>
+    <div class="sidebar-summary">
+    <div class="skills-and-tools">
+    <span class="skills-and-tools_title">Most used skills and tools:</span>
+    <ul class="skills-and-tools_body">
+    <?php
+    global $product;
+    $id = $product->get_id();
+    $skill_string = wc_get_product_tag_list($id, '|');
+    $skills = explode('|', $skill_string);
+    foreach ($skills as $skill) {
+        echo '<li>' . $skill . '</li>';
+    }
+    ?>
+    </ul>
+    </div>
+    </div>
+<?php } ?>
 
-function rh_add_sub_summary() {
-    echo '</div><div class="sidebar-summary">';
-    $id = get_the_id();
-    echo '<div class="skills-and-tools">';
-    echo '<span class="skills-and-tools_title">Most used skills and tools:</span>';
-    echo '<div class="skills-and-tools_body">';
-    echo '<span>' . wc_get_product_tag_list($id, ' ') . '</span>';
-    echo '</div>';
-    echo '</div>';
+<!--//    $interview = get_field('interview_link');-->
+<!--//    if ($interview) {-->
+<!--//        echo '<br><span>Interview(s): </span><a>';-->
+<!--//        foreach ($interview as $int) {-->
+<!--//            echo '<a href="' . $int . '">' . $int . '</a>';-->
+<!--//        }-->
+<!--//    }-->
+<!---->
+<!--//    $excerpt = get_field('excerpt');-->
+<!--//    if ($excerpt) {-->
+<!--//        echo '<br><span>Excerpt: </span>' . $excerpt;-->
+<!--//    }-->
+<!--//-->
+<!--//    $teamleader = get_field('teamleader');-->
+<!--//    if ($teamleader) {-->
+<!--//        echo '<br><span>Teamleader: </span><div style="display:inline-block;width:15px;height:15px;border-radius:15px;background-color:' . $teamleader . '"></div>';-->
+<!--//    }-->
+<!--//    echo '</div>';-->
 
-//    $interview = get_field('interview_link');
-//    if ($interview) {
-//        echo '<br><span>Interview(s): </span><a>';
-//        foreach ($interview as $int) {
-//            echo '<a href="' . $int . '">' . $int . '</a>';
-//        }
-//    }
-
-//    $excerpt = get_field('excerpt');
-//    if ($excerpt) {
-//        echo '<br><span>Excerpt: </span>' . $excerpt;
-//    }
-//
-//    $teamleader = get_field('teamleader');
-//    if ($teamleader) {
-//        echo '<br><span>Teamleader: </span><div style="display:inline-block;width:15px;height:15px;border-radius:15px;background-color:' . $teamleader . '"></div>';
-//    }
-//    echo '</div>';
-}
-
+<?php
 /**
  * Rearrange price.
  */
@@ -401,13 +415,18 @@ function rh_add_closing_section() {
 /**
  * Single product about section.
  */
-
-add_action('woocommerce_after_single_product_summary',function() {
+add_action('woocommerce_after_single_product_summary', 'rh_single_product_content', 10);
+function rh_single_product_content() { ?>
+    <section class="single-product-content">
+    <?php
     $about = get_field('about');
-    if ($about) {
-        echo '<section class="single-product-content">';
-        echo '<h4 class="content-subtitle">About:</h4>';
+    if ($about) : ?>
+        <?php woocommerce_breadcrumb(); ?>
 
+        <div class="content-section">
+        <h4 class="content-subtitle">About:</h4>
+
+        <?php
         /**
          * Make embed link from user link.
          */
@@ -418,61 +437,116 @@ add_action('woocommerce_after_single_product_summary',function() {
                 $interview['url'],
                 $matches
             );
-            $embedLink = 'https://www.youtube.com/embed/' . $matches[1];
-            echo '<iframe width="560" height="315" src="' . $embedLink . '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-        }
-        echo $about;
-    }
+            $embedLink = 'https://www.youtube.com/embed/' . $matches[1]; ?>
+            <div class="iframe-container">
+            <iframe class="about-video" src="<?php echo $embedLink ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        <?php }
+        echo $about;?>
+        </div>
+    <?php endif; ?>
 
-    $experience = get_field('work_experience');
-    if($experience) {
-        echo '<h4 class="content-subtitle">Work Experience:</h4>';
-        echo '<ul class="cv-list">';
-        foreach ($experience as $exp) {
-            $vals = array_values($exp);
-            echo '<li>';
-            echo '<ul class="cv-list-inner">';
-            echo '<li class="title">' . $vals[0] . '</li>';
-            echo '<li class="job">' . $vals[1] . '</li>';
-            echo '<li class="years">' . $vals[2] . '</li>';
-            echo '<li class="comment">' . $vals[3] . '</li>';
-            echo '</ul>';
-            echo '</li>';
-        }
-        echo '</ul>';
-    }
+    <?php if (have_rows('work_experience')) : ?>
+        <div class="content-section">
+        <h4 class="content-subtitle">Work Experience:</h4>
+        <ul class="cv-list">
+        <?php while (have_rows('work_experience')) : the_row(); ?>
+            <li>
+            <ul class="cv-list-inner">
+                <li class="title"><?php echo get_sub_field('organization_name'); ?></li>
+                <li class="job"><?php echo get_sub_field('work_position'); ?></li>
+                <li class="years"><?php echo get_sub_field('years_of_work'); ?></li>
+                <li class="comment"><?php echo get_sub_field('short_description'); ?></li>
+            </ul>
+            </li>
+        <?php endwhile; ?>
+        </ul>
+        </div>
+    <?php endif; ?>
 
-    $education = get_field('education');
-        if($education) {
-            echo '<h4 class="content-subtitle">Education:</h4>';
-            echo '<ul class="cv-list">';
-            foreach ($education as $ed) {
-                $vals = array_values($ed);
-                echo '<li>';
-                echo '<ul class="cv-list-inner">';
-                echo '<li class="title">' . $vals[0] . '</li>';
-                echo '<li class="subtitle">' . $vals[1] . '</li>';
-                echo '<li class="years">' . $vals[2] . '</li>';
-                echo '<li class="degree">' . $vals[3] . '</li>';
-                echo '</ul>';
-                echo '</li>';
-            }
-            echo '</ul>';
-        }
+    <?php if (have_rows('education')) : ?>
+        <div class="content-section">
+        <h4 class="content-subtitle">Education:</h4>
+        <ul class="cv-list">
+        <?php while (have_rows('education')) : the_row(); ?>
+            <li>
+            <ul class="cv-list-inner">
+                <li class="title"><?php echo get_sub_field('institution_name'); ?></li>
+                <li class="subtitle"><?php echo get_sub_field('specialization'); ?></li>
+                <li class="years"><?php echo get_sub_field('years_of_education'); ?></li>
+                <li class="degree"><?php echo get_sub_field('degree'); ?></li>
+            </ul>
+            </li>
+        <?php endwhile; ?>
+        </ul>
+        </div>
+    <?php endif; ?>
 
-    $devPortfolio = get_field('developer_portfolio');
+    <?php
+        $devPortfolio = get_field('developer_portfolio');
+        $designerPortfolio = get_field('designer_portfolio');
+        $videoPortfolio = get_field('videograph_portfolio');
+        ?>
+        <div class="content-section">
+        <h4 class="content-subtitle">Portfolio:</h4>
+        <?php
+        if (have_rows('developer_portfolio')) : ?>
+            <ul class="dev-portfolio">
+            <?php while (have_rows('developer_portfolio')) : the_row();?>
+                    <a href="<?php the_sub_field('project_link');?>">
+                    <li class="dev-portfolio-pill">
+                    <?php the_sub_field('project_name');?>
+                    </li>
+                    </a>
+            <?php endwhile; ?>
+            </ul>
+        <?php endif;
 
-    if ($devPortfolio) {
-        echo '<h4 class="content-subtitle">Portfolio:</h4>';
-        foreach ($devPortfolio as $port) {
-            echo '<a href="' . $port['project_link'] . '">' . $port['project_name'] . '</a><br>';
-        }
-    }
-    echo '</section>';
-});
+        if (have_rows('designer_portfolio')) : ?>
+            <ul class="designer-portfolio">
+            <?php while (have_rows('designer_portfolio')) : the_row();?>
+                    <a href="<?php the_sub_field('desing_project_description');?>">
+                    <li class="designer-portfolio-img">
+                    <?php the_sub_field('designer_project_name');?>
+                    </li>
+                    </a>
+            <?php endwhile; ?>
+            </ul>
+        <?php endif;
 
-//----------------------------------------------------------------------------------------------------------
+        if (have_rows('videograph_portfolio')) : ?>
+            <ul class="video-portfolio">
+            <?php while (have_rows('videograph_portfolio')) : the_row();?>
+                    <?php $vid_link = get_sub_field('video_link'); ?>
+                    <a href="<?php the_sub_field('video_link'); ?>">
+                        <li class="video-portfolio-vid">
+                        <?php
+                        /**
+                         * Make embed link from user link.
+                         */
 
+                        preg_match('/[\\?\\&]v=([^\\?\\&]+)/',
+                            $vid_link,
+                            $matches_);
+
+                        $embedLink = 'https://www.youtube.com/embed/' . $matches[1]; ?>
+                            <div class="iframe-container">
+                            <iframe src="<?php echo $embedLink ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        <?php the_sub_field('video_name');?>
+                        </li>
+                    </a>
+            <?php endwhile; ?>
+            </ul>
+        <?php endif;
+        ?>
+        </div>
+        </section>
+    <?php }; ?>
+
+<!-------------------------------------------------------------------------------------------------------------->
+
+<?php
 /**
  * Shop page.
  */
