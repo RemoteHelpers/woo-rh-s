@@ -5,7 +5,12 @@
   justify-content: space-between;
   padding: 0 3% 0 3%;
   height: 70px;
-  background-color: rgba(0, 0, 0, .9);
+  background-color: rgba(255, 255, 255, 0.9);
+  top: 0;
+  position: sticky;
+  width: 100%;
+  z-index: 999999999999999999999999999999;
+  box-shadow: 2px 0 12px 0 rgb(0 0 0 / 30%);
 }
 
 .site-branding {
@@ -46,7 +51,7 @@
   font-family: "Roboto", serif;
   font-size: 1rem;
   font-weight: 500;
-  color: white;
+  color: #000000;
 }
 
 ul.nav-menu > .menu-item-has-children > a {
@@ -63,7 +68,7 @@ ul.nav-menu > .menu-item-has-children > a:hover {
 
 ul.nav-menu > .menu-item-has-children > a::after {
   content: "▼";
-  color: #FFFFFF;
+  color: #000000;
   padding-left: 5px;
   font-size: 12px;
 }
@@ -71,7 +76,7 @@ ul.nav-menu > .menu-item-has-children > a::after {
 ul.nav-menu > .menu-item-has-children > .sub-menu {
   display: flex;
   flex-flow: wrap row;
-  background-color: #000000;
+  background-color: #ffffff;
   padding: 1rem;
   z-index: 6666;
 }
@@ -99,12 +104,19 @@ ul.nav-menu > .menu-item-has-children > .sub-menu > li > a {
   padding: 1rem;
 }
 
-.background-header {
-  top: 0;
-  position: sticky;
-  width: 100%;
-  z-index: 999999999999999999999999999999;
+.black-header {
+  background-color: black;
+  a {
+    color: white!important;
+    &::after {
+      color: white!important;
+    }
+  }
+  .sub-menu {
+    background-color: black!important;
+  }
 }
+
 
 
 

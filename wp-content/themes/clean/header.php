@@ -24,7 +24,7 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
     <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'clean'); ?></a>
-    <div class="background-header ">
+    <div class="background-header <?php if (is_front_page()) echo 'black-header'; ?>">
         <header id="masthead" class="site-header">
             <div class="site-branding">
                 <div class="site-logo">
