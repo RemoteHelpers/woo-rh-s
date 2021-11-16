@@ -321,11 +321,6 @@ add_action('woocommerce_single_product_summary', function() {
     </div>
 <?php }); ?>
 
-<!--    $sku = $product->get_sku();-->
-<!--    if ($sku) {-->
-<!--        echo '<br><small>#' . $sku . '</small><br>';-->
-<!--    }-->
-
 <?php
 /**
  * Close sub-header tag, start sub-summary.
@@ -350,25 +345,6 @@ function rh_add_sub_summary() { ?>
     </div>
     </div>
 <?php } ?>
-
-<!--//    $interview = get_field('interview_link');-->
-<!--//    if ($interview) {-->
-<!--//        echo '<br><span>Interview(s): </span><a>';-->
-<!--//        foreach ($interview as $int) {-->
-<!--//            echo '<a href="' . $int . '">' . $int . '</a>';-->
-<!--//        }-->
-<!--//    }-->
-<!---->
-<!--//    $excerpt = get_field('excerpt');-->
-<!--//    if ($excerpt) {-->
-<!--//        echo '<br><span>Excerpt: </span>' . $excerpt;-->
-<!--//    }-->
-<!--//-->
-<!--//    $teamleader = get_field('teamleader');-->
-<!--//    if ($teamleader) {-->
-<!--//        echo '<br><span>Teamleader: </span><div style="display:inline-block;width:15px;height:15px;border-radius:15px;background-color:' . $teamleader . '"></div>';-->
-<!--//    }-->
-<!--//    echo '</div>';-->
 
 <?php
 /**
@@ -542,11 +518,11 @@ function rh_single_product_content() { ?>
         ?>
         </div>
         </section>
-    <?php }; ?>
+    <?php };
 
-<!-------------------------------------------------------------------------------------------------------------->
+//--------------------------------------------------------------------------------------------------------------
 
-<?php
+
 /**
  * Shop page.
  */
@@ -569,6 +545,8 @@ function remove_stuff_from_shop()
          * Remove result_count, catalog_ordering.
          */
         remove_all_actions('woocommerce_before_shop_loop');
+
+        add_filter( 'wc_add_to_cart_message_html', '__return_false' );
 
         /**
          * Remove sidebar.

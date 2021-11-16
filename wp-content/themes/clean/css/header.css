@@ -1,6 +1,7 @@
 @charset "UTF-8";
 * {
   --rh-accent-color: #FF5252;
+  --rh-green-color: #2ecc71;
 }
 
 .background-header {
@@ -103,7 +104,7 @@ ul.nav-menu > .menu-item-has-children > .sub-menu > li > a {
   top: 0;
   position: sticky;
   width: 100%;
-  z-index: 5076944270305263615;
+  z-index: 1000000000000000000000000000000;
 }
 
 /*# sourceMappingURL=header.css.map */

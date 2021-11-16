@@ -9,10 +9,6 @@
       text-decoration: none;
     }
 
-    //.site-main {
-      //flex-direction: column;
-    //}
-
     .product {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -20,7 +16,7 @@
       grid-template-areas:
       'side content content'
       'related related related';
-      grid-gap: 1rem;
+      //grid-gap: 1rem;
 
       .single-product-sidebar {
         grid-area: side;
@@ -28,7 +24,7 @@
         grid-auto-flow: row;
         grid-auto-rows: min-content;
         box-shadow: 2px 0 12px 0 rgb(0 0 0 / 20%);
-        padding: 0 1.5rem 1.5rem;
+        padding: 0 calc((100vw - 8px)/20) 1.5rem;
         height: 100%;
         clip-path: inset(0 -15px -15px 0);
         border-bottom-right-radius: 1rem;
@@ -48,7 +44,7 @@
           height: min-content;
 
           .sidebar-img {
-            flex-basis: 50%;
+            width: 200px;
             align-self: center;
             pointer-events: none;
           }
@@ -62,13 +58,15 @@
           display: flex;
           flex-direction: column;
           justify-content: space-evenly;
-          flex-basis: 50%;
+          width: 200px;
           margin: 0;
 
         .product_title {
-          font-size: clamp(24px, calc(1.4rem + 1vw), 1.7rem);
+          //font-size: clamp(24px, calc(1.4rem + 1vw), 1.7rem);
+          //font-size: clamp(16px, 4vw, 22px);
           font-weight: 800;
           margin: 0;
+          white-space: nowrap;
         }
 
         .current-position {
@@ -79,7 +77,6 @@
           display: grid;
           grid-template-columns: 1fr 2fr;
           align-items: center;
-          padding: 0 .5rem;
 
           .id {
             font-weight: 500;
@@ -88,10 +85,11 @@
           .shifts-wrap {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
             border-radius: 8px;
             padding: 4px 8px;
             color: white;
+            max-width: 8rem;
 
             .availability {
               width: 100%;
@@ -103,7 +101,7 @@
       }
 
         .sidebar-summary {
-          padding: 1em 0;
+          padding: 1rem 0;
 
           .skills-and-tools_title {
             font-weight: 500;
@@ -123,7 +121,7 @@
               background-color: #eaeeef;
               border-radius: 10px;
               padding: 4px;
-              margin: 2px;
+              margin: 4px;
               word-break: break-word;
             }
           }
@@ -136,9 +134,10 @@
           min-width: 18.75rem;
           margin-top: 1rem;
           border-radius: 8px;
-          box-shadow: -9px 2px 25px -5px rgb(0 0 0 / 20%);
+          box-shadow: 9px 4px 15px 0 rgb(0 0 0 / 30%);
 
-          div.price {
+
+        div.price {
             display: flex;
             flex-direction: column;
             place-items: center;
@@ -163,15 +162,21 @@
             font-weight: 400;
             background-color: var(--rh-accent-color);
             border-radius: 0 8px 8px 0;
+            border: none;
             color: white;
             padding: 0;
+            cursor: pointer;
+            transition: background-color .5s ease;
+            &:hover {
+              background-color: var(--rh-green-color);
+            }
           }
         }
       }
 
       .single-product-content {
         grid-area: content;
-        padding: 0 5%;
+        padding: 0 calc((100vw - 8px)/20);
         .woocommerce-breadcrumb {
           margin: 2rem 0 1rem;
           a {
@@ -190,7 +195,7 @@
         }
 
         .content-subtitle {
-          font-size: 2rem;
+          font-size: clamp(2rem, calc(20% + 5vw), 2.75rem);
           color: var(--rh-accent-color);
           text-decoration: underline;
           font-weight: 700;
@@ -205,9 +210,9 @@
         }
 
         iframe {
-          -webkit-border-radius: 15px;
-          -moz-border-radius: 15px;
-          border-radius: 15px;
+          -webkit-border-radius: 16px;
+          -moz-border-radius: 16px;
+          border-radius: 16px;
           position: absolute;
           top: 0;
           left: 0;
@@ -217,14 +222,18 @@
           height: 100%;
         }
 
-        .cv-list,
+        .cv-list {
+          margin: 0;
+          padding: 0;
+        }
+
         .cv-list-inner {
           margin: 0;
           padding-left: calc(5vw / 3);
         }
 
         .cv-list-inner {
-          margin-bottom: 1em;
+          margin-bottom: 1rem;
           .title {
             font-size: 20px;
             font-weight: 600;

@@ -13,7 +13,6 @@
   grid-template-columns: repeat(3, 1fr);
   align-items: start;
   grid-template-areas: "side content content" "related related related";
-  grid-gap: 1rem;
 }
 .single-product .product .single-product-sidebar {
   grid-area: side;
@@ -21,7 +20,7 @@
   grid-auto-flow: row;
   grid-auto-rows: min-content;
   box-shadow: 2px 0 12px 0 rgba(0, 0, 0, 0.2);
-  padding: 0 1.5rem 1.5rem;
+  padding: 0 calc((100vw - 8px) / 20) 1.5rem;
   height: 100%;
   clip-path: inset(0 -15px -15px 0);
   border-bottom-right-radius: 1rem;
@@ -40,7 +39,7 @@
   height: min-content;
 }
 .single-product .product .single-product-sidebar .sidebar-head .sidebar-img {
-  flex-basis: 50%;
+  width: 200px;
   align-self: center;
   pointer-events: none;
 }
@@ -52,13 +51,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  flex-basis: 50%;
+  width: 200px;
   margin: 0;
 }
 .single-product .product .single-product-sidebar .sidebar-head .summary .product_title {
-  font-size: clamp(24px, 1.4rem + 1vw, 1.7rem);
   font-weight: 800;
   margin: 0;
+  white-space: nowrap;
 }
 .single-product .product .single-product-sidebar .sidebar-head .summary .current-position {
   font-size: clamp(12px, 0.8rem + 1vw, 0.9rem);
@@ -67,7 +66,6 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   align-items: center;
-  padding: 0 0.5rem;
 }
 .single-product .product .single-product-sidebar .sidebar-head .summary .id-and-shifts .id {
   font-weight: 500;
@@ -75,17 +73,18 @@
 .single-product .product .single-product-sidebar .sidebar-head .summary .id-and-shifts .shifts-wrap {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
   border-radius: 8px;
   padding: 4px 8px;
   color: white;
+  max-width: 8rem;
 }
 .single-product .product .single-product-sidebar .sidebar-head .summary .id-and-shifts .shifts-wrap .availability {
   width: 100%;
   text-align: center;
 }
 .single-product .product .single-product-sidebar .sidebar-summary {
-  padding: 1em 0;
+  padding: 1rem 0;
 }
 .single-product .product .single-product-sidebar .sidebar-summary .skills-and-tools_title {
   font-weight: 500;
@@ -105,7 +104,7 @@
   background-color: #eaeeef;
   border-radius: 10px;
   padding: 4px;
-  margin: 2px;
+  margin: 4px;
   word-break: break-word;
 }
 .single-product .product .single-product-sidebar form.cart {
@@ -115,7 +114,7 @@
   min-width: 18.75rem;
   margin-top: 1rem;
   border-radius: 8px;
-  box-shadow: -9px 2px 25px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: 9px 4px 15px 0 rgba(0, 0, 0, 0.3);
 }
 .single-product .product .single-product-sidebar form.cart div.price {
   display: flex;
@@ -140,12 +139,18 @@
   font-weight: 400;
   background-color: var(--rh-accent-color);
   border-radius: 0 8px 8px 0;
+  border: none;
   color: white;
   padding: 0;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+.single-product .product .single-product-sidebar form.cart .single_add_to_cart_button:hover {
+  background-color: var(--rh-green-color);
 }
 .single-product .product .single-product-content {
   grid-area: content;
-  padding: 0 5%;
+  padding: 0 calc((100vw - 8px) / 20);
 }
 .single-product .product .single-product-content .woocommerce-breadcrumb {
   margin: 2rem 0 1rem;
@@ -163,7 +168,7 @@
   margin-top: 0;
 }
 .single-product .product .single-product-content .content-subtitle {
-  font-size: 2rem;
+  font-size: clamp(2rem, 20% + 5vw, 2.75rem);
   color: var(--rh-accent-color);
   text-decoration: underline;
   font-weight: 700;
@@ -176,9 +181,9 @@
   padding-top: 56.25%;
 }
 .single-product .product .single-product-content iframe {
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  border-radius: 16px;
   position: absolute;
   top: 0;
   left: 0;
@@ -187,13 +192,16 @@
   width: 100%;
   height: 100%;
 }
-.single-product .product .single-product-content .cv-list,
+.single-product .product .single-product-content .cv-list {
+  margin: 0;
+  padding: 0;
+}
 .single-product .product .single-product-content .cv-list-inner {
   margin: 0;
   padding-left: 1.6666666667vw;
 }
 .single-product .product .single-product-content .cv-list-inner {
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 .single-product .product .single-product-content .cv-list-inner .title {
   font-size: 20px;
