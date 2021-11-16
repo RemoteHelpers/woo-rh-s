@@ -14,7 +14,6 @@
 }
 .products li {
   width: clamp(280px, 350px, 50%);
-  height: 400px;
 }
 .products li .card {
   width: clamp(280px, 350px, 50%);
