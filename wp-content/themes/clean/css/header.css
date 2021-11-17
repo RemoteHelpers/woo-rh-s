@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   --rh-accent-color: #FF5252;
   --rh-green-color: #2ecc71;
@@ -93,7 +94,7 @@ ul.nav-menu > .menu-item-has-children > a::before {
   background-color: var(--menu-hover-underline);
 }
 ul.nav-menu > .menu-item-has-children > a::after {
-  content: "\f0d7";
+  content: "";
   font-family: "Font Awesome 5 Free", "sans-serif";
   color: var(--menu-link-color);
   padding-left: 0.8rem;
