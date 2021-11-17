@@ -2,10 +2,19 @@
 
 *
 {
+  /* WHITE THEME COLORS */
   --menu-bg: rgba(255, 255, 255, 0.9);
   --sub-menu-bg: #fff;
   --menu-link-color: #54595f;
-  --menu-link-hover: #55595c;
+  --menu-link-hover: #7a7a7a;
+  --menu-hover-underline: var(--rh-accent-color);
+
+  /* BLACK THEME COLORS */
+  --black-menu-bg: black;
+  --black-sub-menu-bg: #000000CC;
+  --black-menu-link-color: white;
+  --black-menu-link-hover: var(--rh-accent-color);
+  --black-menu-hover-underline: #7a7a7a;
 }
 
 .background-header {
@@ -84,7 +93,7 @@ ul.nav-menu {
         height: 3px;
         transition: 0.3s;
         opacity: 0;
-        background-color: var(--rh-accent-color);
+        background-color: var(--menu-hover-underline);
       }
       &::after {
         content: "\f0d7";
@@ -132,15 +141,28 @@ ul.nav-menu {
 /* BLACK HEADER THEME */
 
 .black-header {
-  background-color: black;
-  a {
-    color: white!important;
+  background-color: var(--black-menu-bg);
+
+  .main-navigation .menu-testmenu-container li a {
+    color: var(--black-menu-link-color);
+
     &::after {
-      color: white!important;
+      color: var(--black-menu-link-color);
     }
   }
-  .sub-menu {
-    background-color: black!important;
+
+  ul.nav-menu >.menu-item-has-children {
+    >a {
+      &::before {
+        background-color: var(--black-menu-hover-underline);
+      }
+    }
+    >.sub-menu {
+      background-color: var(--black-sub-menu-bg);
+      >li:hover {
+        background-color: var(--black-menu-link-hover);
+      }
+    }
   }
 }
 
