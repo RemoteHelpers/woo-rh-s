@@ -965,7 +965,8 @@ textarea {
   background-color: #171717;
 }
 
-body {
+.post,
+.page {
   margin: 0;
 }
 
