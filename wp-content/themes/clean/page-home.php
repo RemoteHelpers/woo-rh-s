@@ -15,12 +15,16 @@
 get_header();
 ?>
 
-<main class="home-page">
-    <section class="first-section">
-
-    </section>
-</main>
-
+    <main class="home-page">
+        <section class="first-section">
+            <div class="video-container">
+                <video autoplay muted loop id="backgroundVideo">
+                    <source src="https://new.rh-s.com/wp-content/uploads/2021/11/Offices-Tour-Remote-helpers-short.mp4"
+                            type="video/mp4">
+                </video>
+            </div>
+        </section>
+    </main>
 
 <?php
 get_footer();
