@@ -15,5 +15,12 @@
 get_header();
 ?>
 
+<main class="home-page">
+    <section class="first-section">
+
+    </section>
+</main>
+
+
 <?php
 get_footer();
