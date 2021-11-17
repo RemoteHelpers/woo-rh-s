@@ -42,9 +42,10 @@
           border-bottom: 1px solid gainsboro;
           padding: 1rem 0;
           height: min-content;
+          justify-content: center;
 
           .sidebar-img {
-            width: 200px;
+            width: calc(100vw/6);
             align-self: center;
             pointer-events: none;
           }
@@ -74,8 +75,8 @@
         }
 
         .id-and-shifts {
-          display: grid;
-          grid-template-columns: 1fr 2fr;
+          display: flex;
+          gap: 1rem;
           align-items: center;
 
           .id {
@@ -144,11 +145,23 @@
             color: #7a7a7a;
 
             .price-num {
+              display: flex;
+              align-items: center;
+              gap: .5rem;
               font-size: 28px;
               font-weight: 800;
               .woocommerce-Price-currencySymbol {
                 font-size: 18px;
                 vertical-align: top;
+              }
+              ins {
+                background-color: transparent;
+              }
+              del {
+                font-size: 14px;
+                .woocommerce-Price-currencySymbol {
+                  font-size: 10px;
+                }
               }
             }
             .price-comment {
@@ -179,6 +192,7 @@
         padding: 0 calc((100vw - 8px)/20);
         .woocommerce-breadcrumb {
           margin: 2rem 0 1rem;
+          word-break: break-word;
           a {
             color: grey;
             &:hover {
@@ -222,6 +236,7 @@
           height: 100%;
         }
 
+        .dev-portfolio,
         .cv-list {
           margin: 0;
           padding: 0;
@@ -265,6 +280,12 @@
             }
           }
         }
+
+        .designer-portfolio {
+          margin: 2rem 0;
+          padding: 0;
+        }
+
         .video-portfolio {
           display: flex;
           flex-wrap: wrap;
@@ -323,6 +344,16 @@
 
 /* MEDIA QUERIES */
 
+@media screen and (max-width: 1200px) {
+  .single-product {
+    .product {
+      .dev-portfolio {
+        justify-content: center;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 768px) {
   .single-product {
     .product {
@@ -334,6 +365,13 @@
       .single-product-sidebar {
         box-shadow: none;
         clip-path: none;
+        .sidebar-head {
+          //flex-direction: column;
+          //align-items: center;
+          .sidebar-img {
+            width: 50%;
+          }
+        }
       }
     }
   }
