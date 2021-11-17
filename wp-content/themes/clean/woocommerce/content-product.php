@@ -36,7 +36,8 @@ if (empty($product) || !$product->is_visible()) {
         <main>
             <img src="<?php echo wp_get_attachment_url($product->get_image_id()); ?>"
                  alt="Product image">
-            <H3><?php echo get_the_title() ?></H3>
+            <?php $name = get_field('last_name') ?>
+            <H3><?php the_field('first_name'); ?> <?php echo $name[0]?>.</H3>
             <div><?php the_field('current_position') ?></div>
             <!--//TODO: change h5 to div and insert blocks-->
             <hr>

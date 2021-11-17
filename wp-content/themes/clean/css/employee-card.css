@@ -94,6 +94,7 @@
   overflow-y: hidden;
 }
 .products li .card main .skill-items a {
+  max-height: 40px;
   align-items: center;
   display: flex;
   font-weight: 500;
