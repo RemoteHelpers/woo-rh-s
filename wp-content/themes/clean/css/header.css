@@ -4,16 +4,29 @@
   --rh-green-color: #2ecc71;
 }
 
+* {
+  --menu-bg: rgba(255, 255, 255, 0.9);
+  --sub-menu-bg: #fff;
+  --menu-link-color: #54595f;
+  --menu-link-hover: #55595c;
+}
+
 .background-header {
   display: flex;
   justify-content: space-between;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
   padding: 0 3% 0 3%;
   height: 70px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: var(--menu-bg);
   top: 0;
   position: sticky;
   width: 100%;
+<<<<<<< HEAD
   z-index: 5076944270305263615;
+=======
+  z-index: 10;
+>>>>>>> b2256037dd2221a1c212a15f34888b2f1c3c1e9e
   box-shadow: 2px 0 12px 0 rgba(0, 0, 0, 0.3);
 }
 
@@ -50,10 +63,7 @@
 }
 
 .main-navigation .menu-testmenu-container li a {
-  font-family: "Roboto", serif;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #000000;
+  color: var(--menu-link-color);
 }
 
 ul.nav-menu > .menu-item-has-children > a {
@@ -63,40 +73,39 @@ ul.nav-menu > .menu-item-has-children > a {
   border-bottom: solid 3px transparent;
   height: 50px;
 }
-
 ul.nav-menu > .menu-item-has-children > a:hover {
-  border-bottom: solid 3px #7A7A7A;
+  border-bottom: solid 3px var(--rh-accent-color);
 }
-
 ul.nav-menu > .menu-item-has-children > a::after {
   content: "▼";
-  color: #000000;
+  color: var(--menu-link-color);
   padding-left: 5px;
   font-size: 12px;
 }
-
 ul.nav-menu > .menu-item-has-children > .sub-menu {
   display: flex;
   flex-flow: wrap row;
-  background-color: #ffffff;
-  padding: 1rem;
-  z-index: 6666;
-}
-
-ul.nav-menu > .menu-item-has-children > .sub-menu {
+  background-color: var(--sub-menu-bg);
   padding: 0;
+  z-index: 15;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
-
 ul.nav-menu > .menu-item-has-children > .sub-menu > li {
   transition: 0.2s;
   margin: 0;
   width: 180px;
 }
-
 ul.nav-menu > .menu-item-has-children > .sub-menu > li:hover {
-  background-color: #FF5252;
+  background-color: var(--menu-link-hover);
 }
-
+ul.nav-menu > .menu-item-has-children > .sub-menu > li:hover a {
+  color: white;
+}
+ul.nav-menu > .menu-item-has-children > .sub-menu > li:last-child:hover {
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
 ul.nav-menu > .menu-item-has-children > .sub-menu > li > a {
   font-size: 0.8rem;
   font-weight: 500;
@@ -105,6 +114,7 @@ ul.nav-menu > .menu-item-has-children > .sub-menu > li > a {
   padding: 1rem;
 }
 
+/* BLACK HEADER THEME */
 .black-header {
   background-color: black;
 }
