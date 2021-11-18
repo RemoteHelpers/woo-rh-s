@@ -965,4 +965,9 @@ textarea {
   background-color: #171717;
 }
 
+.post,
+.page {
+  margin: 0;
+}
+
 /*# sourceMappingURL=style.css.map */
