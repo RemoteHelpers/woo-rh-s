@@ -3,7 +3,7 @@
 
 .home-page {
     .first-section {
-      display: flex;
+      display: grid;
       justify-content: center;
       height: 90vh;
       position: relative;
@@ -17,12 +17,11 @@
       H1{
         position: relative;
         margin: 0;
-        top: 25%;
 
         text-transform: uppercase;
         color: #FFFFFF;
         font-weight: 800;
-        font-size: 3.5rem;
+        font-size: 5.4vw;
         font-family: 'Montserrat', sans-serif;
 
         text-shadow: 0 8px 10px rgba(0,0,0,0.3);
