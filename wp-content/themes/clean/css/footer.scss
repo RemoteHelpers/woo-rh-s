@@ -9,12 +9,10 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   min-height: 280px;
-  padding: 2.5rem 5% 1rem;
-  //width: 100%;
+  padding: 1rem 5%;
   background-color: var(--footer-bg);
 
   .footer-logo {
-    //width: 25%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -23,7 +21,6 @@
     a {
       img {
         width: 200px;
-        //height: auto;
       }
     }
   }
@@ -32,10 +29,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    //width: 50%;
 
     .menu {
-      //height: 45%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -48,20 +43,12 @@
           row-gap: .6rem;
           align-items: center;
           justify-content: center;
-          //list-style-type: none;
           font-size: 16px;
-          margin: 0;
+          margin: 3.5rem 0;
           padding: 0;
 
-          li:not(:last-child) {
-            //margin-right: 1.5rem;
-          }
-
           li {
-            //margin-right: 0;
             a {
-
-              //font-size: 1.2rem;
               font-weight: 500;
               color: #FFFFFF;
               text-decoration: none;
@@ -80,7 +67,6 @@
     .privacy-policy {
       display: flex;
       flex-direction: column;
-      //height: 55%;
       justify-content: center;
       align-items: center;
 
@@ -117,8 +103,6 @@
     }
 
     a {
-      //margin-right: 15px;
-
       .fab {
         font-size: 28px;
         color: #ffffff;
@@ -137,6 +121,9 @@
     grid-template-columns: 1fr;
     .footer-logo {
       justify-content: center;
+    }
+    .bottom-menu .menu .menu-footer-menu-container .footer-menu {
+      flex-direction: column;
     }
     .footer-icon {
       justify-content: center;
