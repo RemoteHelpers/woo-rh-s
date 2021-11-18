@@ -261,6 +261,66 @@
 .single-product .product .single-product-content .video-portfolio .iframe-container {
   width: 300px;
 }
+.single-product .product .woocommerce-Reviews ol.commentlist {
+  margin: 0;
+  padding: 0;
+}
+.single-product .product .woocommerce-Reviews ol.commentlist li {
+  border: 2px solid var(--rh-accent-color);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+}
+.single-product .product .woocommerce-Reviews ol.commentlist li .comment-info {
+  display: flex;
+  justify-content: space-between;
+}
+.single-product .product .woocommerce-Reviews ol.commentlist li .comment-info .star-rating {
+  float: right;
+  overflow: hidden;
+  position: relative;
+  height: 1em;
+  line-height: 1;
+  font-size: 1em;
+  width: 5.4em;
+  font-family: star;
+}
+.single-product .product .woocommerce-Reviews ol.commentlist li .comment-info .star-rating::before {
+  content: "sssss";
+  color: #d3ced2;
+  float: left;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+.single-product .product .woocommerce-Reviews ol.commentlist li .comment-info .star-rating span {
+  overflow: hidden;
+  float: left;
+  top: 0;
+  left: 0;
+  position: absolute;
+  padding-top: 1.5em;
+}
+.single-product .product .woocommerce-Reviews ol.commentlist li .comment-info .star-rating span::before {
+  content: "SSSSS";
+  top: 0;
+  position: absolute;
+  left: 0;
+}
+.single-product .product .woocommerce-Reviews ol.commentlist li .comment-info .avatar-and-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.single-product .product .woocommerce-Reviews ol.commentlist li .comment-info .avatar-and-meta .meta {
+  display: flex;
+  flex-direction: column;
+}
+.single-product .product .woocommerce-Reviews ol.commentlist li img.avatar {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
 .single-product .product .related {
   grid-area: related;
   overflow-x: hidden;
