@@ -2,8 +2,9 @@
 @import "variables";
 
 .home-page {
-  .first-section {
-    .video-container {
+    .first-section {
+      display: flex;
+      justify-content: center;
       height: 90vh;
       position: relative;
       #backgroundVideo {
@@ -13,7 +14,21 @@
         height: 100%;
         object-fit: cover;
       }
-    }
+      H1{
+        position: relative;
+        margin: 0;
+        top: 25%;
+
+        text-transform: uppercase;
+        color: #FFFFFF;
+        font-weight: 800;
+        font-size: 3.5rem;
+        font-family: 'Montserrat', sans-serif;
+
+        text-shadow: 0 8px 10px rgba(0,0,0,0.3);
+      }
+
   }
 }
+
 
