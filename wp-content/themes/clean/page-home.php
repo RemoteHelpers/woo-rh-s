@@ -22,6 +22,7 @@ get_header();
                         type="video/mp4">
             </video>
             <H1><?php echo get_field('first_section_heading')?></H1>
+            <H2>Full-time virtual <span class="text-transformer"></span></H2>
         </section>
     </main>
 
