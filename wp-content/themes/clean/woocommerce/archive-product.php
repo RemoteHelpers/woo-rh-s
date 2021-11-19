@@ -81,7 +81,6 @@ do_action('woocommerce_before_main_content');
                 }
             }
 
-
             woocommerce_product_loop_end();
 
             /**
