@@ -31,7 +31,6 @@ do_action('woocommerce_before_main_content');
 ?>
     <div class="wrapper">
         <header class="woocommerce-products-header">
-
             <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
                 <h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
             <?php endif; ?>
@@ -100,6 +99,19 @@ do_action('woocommerce_before_main_content');
 
             do_action('rh_add_closing_div');
             ?>
+        </section>
+        <section class="form">
+            <div class="contact__form">
+                <div class="form__text">
+                    <div class="form__title">Set a call with us</div>
+                    <div class="form__subtitle">In order to book a meeting please choose on the calendar and leave  your contact details. Looking forward to speak to you!</div>
+                </div>
+                <div class="form__cf7">
+                    <?php
+                       echo do_shortcode('[contact-form-7 id="411" title="Contact form 1"]')
+                    ?>
+                </div>
+            </div>
         </section>
     </div>
 
