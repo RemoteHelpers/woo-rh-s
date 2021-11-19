@@ -1,7 +1,6 @@
 @import "variables";
 
-*
-{
+* {
   --footer-bg: #212121;
 }
 
@@ -46,6 +45,7 @@
           font-size: 16px;
           margin: 3.5rem 0;
           padding: 0;
+          list-style: none;
 
           li {
             a {
@@ -119,12 +119,15 @@
 @media screen and (max-width: 768px) {
   .site-footer {
     grid-template-columns: 1fr;
+
     .footer-logo {
       justify-content: center;
     }
+
     .bottom-menu .menu .menu-footer-menu-container .footer-menu {
-      flex-direction: column;
+      //flex-direction: column;
     }
+
     .footer-icon {
       justify-content: center;
     }
