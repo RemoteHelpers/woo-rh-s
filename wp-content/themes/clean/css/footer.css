@@ -43,6 +43,7 @@
   font-size: 16px;
   margin: 3.5rem 0;
   padding: 0;
+  list-style: none;
 }
 .site-footer .bottom-menu .menu .menu-footer-menu-container .footer-menu li a {
   font-weight: 500;
@@ -101,9 +102,6 @@
   }
   .site-footer .footer-logo {
     justify-content: center;
-  }
-  .site-footer .bottom-menu .menu .menu-footer-menu-container .footer-menu {
-    flex-direction: column;
   }
   .site-footer .footer-icon {
     justify-content: center;
