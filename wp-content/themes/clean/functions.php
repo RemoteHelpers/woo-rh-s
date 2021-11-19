@@ -7,6 +7,11 @@
  * @package clean
  */
 
+/**
+ * Includes.
+ */
+include_once __DIR__ . '/inc/rh-gallery.php';
+
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '1.0.0' );
@@ -196,8 +201,9 @@ function clean_scripts() {
 
     wp_style_add_data( 'clean-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'clean-script', get_template_directory_uri() . '/js/index.js', array('jquery'), _S_VERSION, true );
-	wp_enqueue_script( 'clean-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'clean-script', get_template_directory_uri() . '/js/index.js', array('jquery', 'acf-input'), _S_VERSION, true );
+	acf_enqueue_script('clean-script');
+    wp_enqueue_script( 'clean-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'home-page', get_template_directory_uri() . '/js/home-page.js', array(), _S_VERSION, true );
     wp_enqueue_script( 'slick-script', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array(), _S_VERSION, true );
 
@@ -268,6 +274,18 @@ function pprint_r($a)
 /**
  * Custom layout begins.
  */
+add_action('woocommerce_before_single_product_summary', 'rh_add_gallery_backdrop', 3);
+
+function rh_add_gallery_backdrop() { ?>
+    <div class="gallery-backdrop">
+        <i class="fas fa-times gallery-close"></i>
+        <img class="gallery-image" src="">
+        <i class="fas fa-arrow-left gallery-back"></i>
+        <i class="fas fa-arrow-right gallery-next"></i>
+    </div>
+<?php
+}
+
 add_action('woocommerce_before_single_product_summary', 'rh_add_opening_section', 5);
 
 function rh_add_opening_section() { ?>
@@ -479,14 +497,19 @@ function rh_single_product_content() { ?>
             </ul>
         <?php endif;
 
-        if (have_rows('designer_portfolio')) : ?>
+        if (have_rows('designer_portfolio')) :
+            $designer_portfolio = get_field('designer_portfolio');
+            acf_localize_data(array('designerPortfolio'=>$designer_portfolio));
+            ?>
             <ul class="designer-portfolio">
             <?php while (have_rows('designer_portfolio')) : the_row();?>
-                    <a href="<?php the_sub_field('desing_project_description');?>">
-                    <li class="designer-portfolio-img">
-                    <?php the_sub_field('designer_project_name');?>
+                    <li class="designer-portfolio-item">
+                    <?php
+                    $image = get_sub_field('cover_image');
+                    ?>
+                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                    <span><?php the_sub_field('designer_project_name'); ?></span>
                     </li>
-                    </a>
             <?php endwhile; ?>
             </ul>
         <?php endif;
