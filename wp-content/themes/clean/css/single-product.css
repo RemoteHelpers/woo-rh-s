@@ -300,6 +300,7 @@
   left: 0;
   position: absolute;
   padding-top: 1.5em;
+  color: #dbbe1f;
 }
 .single-product .product .woocommerce-Reviews ol.commentlist li .comment-info .star-rating span::before {
   content: "SSSSS";

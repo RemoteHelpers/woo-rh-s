@@ -360,6 +360,7 @@
                 left: 0;
                 position: absolute;
                 padding-top: 1.5em;
+                color: #dbbe1f;
 
                 &::before {
                   content: "\53\53\53\53\53";
@@ -466,8 +467,6 @@
         clip-path: none;
 
         .sidebar-head {
-          //flex-direction: column;
-          //align-items: center;
           .sidebar-img {
             width: 50%;
           }
