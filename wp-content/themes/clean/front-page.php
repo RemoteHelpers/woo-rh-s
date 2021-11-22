@@ -43,23 +43,41 @@ get_header();
         </section>
         <section class="employee-counter">
             <div>
-                <div class="counter-numb"><?php echo get_field('remote_employees_counter')?>+</div>
+                <div class="counter-numb" data-target="<?php echo get_field('remote_employees_counter')?>"><?php echo get_field('remote_employees_counter')?>+</div>
                 <div class="counter-text">Remote Employees</div>
             </div>
             <div>
-                <div class="counter-numb"><?php echo get_field('employees_placement')?>+</div>
+                <div class="counter-numb" data-target="<?php echo get_field('employees_placement')?>"><?php echo get_field('employees_placement')?>+</div>
                 <div class="counter-text">Cities of employees placement</div>
             </div>
             <div>
-                <div class="counter-numb"><?php echo get_field('years_in_business')?>+</div>
+                <div class="counter-numb" data-target="<?php echo get_field('years_in_business')?>"><?php echo get_field('years_in_business')?>+</div>
                 <div class="counter-text">Years in business</div>
             </div>
             <div>
-                <div class="counter-numb"><?php echo get_field('companies_work_with')?>+</div>
+                <div class="counter-numb" data-target="<?php echo get_field('companies_work_with')?>"><?php echo get_field('companies_work_with')?>+</div>
                 <div class="counter-text">Companies we work with</div>
+            </div>
+        </section>
+        <section class="short-description">
+            <p><?php echo get_field('short_description') ?></p>
+        </section>
+
+        <section class="special-offer">
+            <div class="sale-descr">
+                <H1>Christmas Sale</H1>
+                <p>5-20% OFF</p>
+                <p>Special Offer</p>
+            </div>
+            <div class="divider"></div>
+            <div class="sale-counter">
+                <p>Off ends:</p>
+                <div class="sale-counter-date"></div>
+                <a href="#" class="sale-link"></a>
             </div>
 
         </section>
+
     </main>
 
 <?php
