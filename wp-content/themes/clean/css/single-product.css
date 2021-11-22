@@ -1,3 +1,50 @@
+.gallery-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100vw - 8px);
+  height: 100vh;
+  background-color: black;
+  z-index: 15;
+  display: none;
+}
+.gallery-backdrop .gallery-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.gallery-backdrop .fas {
+  position: absolute;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  padding: 0.8rem;
+  background-color: rgba(1, 1, 1, 0.3);
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  z-index: 15;
+}
+.gallery-backdrop .fas:hover {
+  background-color: rgba(1, 1, 1, 0.5);
+}
+.gallery-backdrop .gallery-close {
+  top: 1rem;
+  right: 1rem;
+  padding: 0.8rem 0.9rem;
+}
+.gallery-backdrop .gallery-back,
+.gallery-backdrop .gallery-next {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.gallery-backdrop .gallery-back {
+  left: 1rem;
+}
+.gallery-backdrop .gallery-next {
+  right: 1rem;
+}
+
 .single-product {
   font-family: "Montserrat";
   color: #4d4d4d;
@@ -247,8 +294,36 @@
   box-shadow: 3px 5px 6px 0px rgba(0, 0, 0, 0.3);
 }
 .single-product .product .single-product-content .designer-portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
   margin: 2rem 0;
   padding: 0;
+}
+.single-product .product .single-product-content .designer-portfolio li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
+  background-color: #f5f5f5;
+  font-weight: 600;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+.single-product .product .single-product-content .designer-portfolio li:hover {
+  box-shadow: 3px 5px 6px 0px rgba(0, 0, 0, 0.3);
+}
+.single-product .product .single-product-content .designer-portfolio li img {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+.single-product .product .single-product-content .designer-portfolio li span {
+  padding: 0.5rem 0;
 }
 .single-product .product .single-product-content .video-portfolio {
   display: flex;

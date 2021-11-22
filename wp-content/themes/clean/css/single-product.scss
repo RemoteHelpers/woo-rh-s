@@ -1,3 +1,55 @@
+.gallery-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100vw - 8px);
+  height: 100vh;
+  background-color: black;
+  z-index: 15;
+  display: none;
+
+  .gallery-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .fas {
+    position: absolute;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    padding: 0.8rem;
+    background-color: rgba(1, 1, 1, .3);
+    border-radius: 5px;
+    transition: background-color .3s ease;
+    z-index: 15;
+    &:hover {
+      background-color: rgba(1, 1, 1, .5);
+    }
+  }
+
+  .gallery-close {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.8rem 0.9rem;
+  }
+
+  .gallery-back,
+  .gallery-next {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .gallery-back {
+    left: 1rem;
+  }
+
+  .gallery-next {
+    right: 1rem;
+  }
+}
 
 .single-product {
   font-family: 'Montserrat';
@@ -164,6 +216,7 @@
               background-color: transparent;
             }
 
+
             del {
               font-size: 14px;
 
@@ -261,6 +314,7 @@
         padding-left: calc(5vw / 3);
       }
 
+
       .cv-list-inner {
         margin-bottom: 1rem;
 
@@ -301,9 +355,45 @@
       }
 
       .designer-portfolio {
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
         margin: 2rem 0;
         padding: 0;
+
+        li {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          border-radius: 8px;
+          box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
+          background-color: #f5f5f5;
+          font-weight: 600;
+          cursor: pointer;
+          transition: box-shadow .3s;
+
+          &:hover {
+            box-shadow: 3px 5px 6px 0px rgba(0, 0, 0, 0.3);
+          }
+
+          img {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+          }
+
+          span {
+            padding: .5rem 0;
+
+          }
+        }
       }
+    }
+
 
       .video-portfolio {
         display: flex;
@@ -315,79 +405,6 @@
 
         .iframe-container {
           width: 300px;
-        }
-      }
-    }
-
-    .woocommerce-Reviews {
-      ol.commentlist {
-        margin: 0;
-        padding: 0;
-
-        li {
-          border: 2px solid var(--rh-accent-color);
-          border-radius: 1rem;
-          padding: 1.25rem;
-          margin-bottom: 2rem;
-
-          .comment-info {
-            display: flex;
-            justify-content: space-between;
-
-            .star-rating {
-              float: right;
-              overflow: hidden;
-              position: relative;
-              height: 1em;
-              line-height: 1;
-              font-size: 1em;
-              width: 5.4em;
-              font-family: star;
-
-              &::before {
-                content: "\73\73\73\73\73";
-                color: #d3ced2;
-                float: left;
-                top: 0;
-                left: 0;
-                position: absolute;
-              }
-
-              span {
-                overflow: hidden;
-                float: left;
-                top: 0;
-                left: 0;
-                position: absolute;
-                padding-top: 1.5em;
-                color: #dbbe1f;
-
-                &::before {
-                  content: "\53\53\53\53\53";
-                  top: 0;
-                  position: absolute;
-                  left: 0;
-                }
-              }
-            }
-
-            .avatar-and-meta {
-              display: flex;
-              align-items: center;
-              gap: 1rem;
-
-              .meta {
-                display: flex;
-                flex-direction: column;
-              }
-            }
-          }
-
-          img.avatar {
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            border-radius: 50%;
-          }
         }
       }
     }
