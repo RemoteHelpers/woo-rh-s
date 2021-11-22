@@ -216,6 +216,7 @@
               background-color: transparent;
             }
 
+
             del {
               font-size: 14px;
 
@@ -313,6 +314,7 @@
         padding-left: calc(5vw / 3);
       }
 
+
       .cv-list-inner {
         margin-bottom: 1rem;
 
@@ -353,6 +355,7 @@
       }
 
       .designer-portfolio {
+
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -385,9 +388,12 @@
 
           span {
             padding: .5rem 0;
+
           }
         }
       }
+    }
+
 
       .video-portfolio {
         display: flex;
@@ -478,8 +484,6 @@
         clip-path: none;
 
         .sidebar-head {
-          //flex-direction: column;
-          //align-items: center;
           .sidebar-img {
             width: 50%;
           }

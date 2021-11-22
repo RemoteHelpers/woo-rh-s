@@ -5,8 +5,8 @@
 }
 
 .home-page .first-section {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  align-content: center;
   height: 90vh;
   position: relative;
 }
@@ -20,13 +20,22 @@
 .home-page .first-section H1 {
   position: relative;
   margin: 0;
-  top: 25%;
+  text-align: center;
   text-transform: uppercase;
   color: #FFFFFF;
   font-weight: 800;
-  font-size: 3.5rem;
+  font-size: 5.4vw;
   font-family: "Montserrat", sans-serif;
   text-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
+}
+.home-page .first-section H2 {
+  font-size: 3.4vw;
+  font-weight: 400;
+  font-family: "montserrat", sans-serif;
+  text-align: center;
+  color: #FFFFFF;
+  z-index: 2;
+  position: relative;
 }
 
 /*# sourceMappingURL=home-style.css.map */
