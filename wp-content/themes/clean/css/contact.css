@@ -1,0 +1,126 @@
+.form {
+  background-image: linear-gradient(180deg, #F1F1F1 55%, #F1F1F1 100%);
+  padding: 130px 0px;
+}
+
+.contact__form {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (max-width: 1250px) {
+  .contact__form {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.form__text {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  padding-right: 100px;
+}
+@media (max-width: 1250px) {
+  .form__text {
+    padding-right: 0;
+  }
+}
+
+.form__cf7 {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+@media (max-width: 1250px) {
+  .form__cf7 {
+    max-width: 100%;
+  }
+}
+
+.form__title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: #54595f;
+}
+@media (max-width: 1250px) {
+  .form__title {
+    text-align: center;
+  }
+}
+
+.form__subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #7a7a7a;
+  margin-top: 24px;
+}
+@media (max-width: 1250px) {
+  .form__subtitle {
+    text-align: center;
+    margin-bottom: 24px;
+    margin-top: 10px;
+  }
+}
+
+.form .form__cf7 input[type=text], .form .form__cf7 input[type=email], .form .form__cf7 input[type=url], .form .form__cf7 input[type=password], .form .form__cf7 input[type=search], .form .form__cf7 input[type=number], .form .form__cf7 input[type=tel], .form .form__cf7 input[type=range], .form .form__cf7 input[type=date], .form .form__cf7 input[type=month], .form .form__cf7 input[type=week], .form .form__cf7 input[type=time], .form .form__cf7 input[type=datetime], .form .form__cf7 input[type=datetime-local], .form .form__cf7 input[type=color], .form .form__cf7 textarea {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-size: 16px;
+  min-height: 47px;
+  padding: 6px 16px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid #818a91;
+  background-color: #fffff;
+  color: #373a3c;
+  vertical-align: middle;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  resize: none;
+  width: 600px;
+  opacity: 0.8;
+}
+@media (max-width: 1250px) {
+  .form .form__cf7 input[type=text], .form .form__cf7 input[type=email], .form .form__cf7 input[type=url], .form .form__cf7 input[type=password], .form .form__cf7 input[type=search], .form .form__cf7 input[type=number], .form .form__cf7 input[type=tel], .form .form__cf7 input[type=range], .form .form__cf7 input[type=date], .form .form__cf7 input[type=month], .form .form__cf7 input[type=week], .form .form__cf7 input[type=time], .form .form__cf7 input[type=datetime], .form .form__cf7 input[type=datetime-local], .form .form__cf7 input[type=color], .form .form__cf7 textarea {
+    width: 100%;
+  }
+}
+.form .form__cf7 .wpcf7-submit {
+  width: 600px;
+  display: inline-flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background: #FF5252;
+  color: #fff;
+  border-radius: 3px 3px 6px 6px;
+  border: none;
+  padding: 15px 30px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+.form .form__cf7 .wpcf7-submit:hover {
+  background: #61CE70;
+}
+@media (max-width: 1250px) {
+  .form .form__cf7 .wpcf7-submit {
+    width: 100%;
+  }
+}
+.form .form__cf7 textarea {
+  max-height: 100px;
+}
+.form .form__cf7 p {
+  margin: 0;
+  line-height: 1;
+}
+
+/*# sourceMappingURL=contact.css.map */
