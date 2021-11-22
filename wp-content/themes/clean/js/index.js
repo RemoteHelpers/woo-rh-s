@@ -1,5 +1,7 @@
+const singleProductPage = document.querySelector('.single-product')
+const backdrop = document.querySelector('.gallery-backdrop')
+
 onload = () => {
-    const singleProductPage = document.querySelector('.single-product')
 
     if (singleProductPage) {
         console.log('CV page')
@@ -64,7 +66,7 @@ function portfolioGallery() {
 
     portfolioItem.forEach((item , index) => {
         item.addEventListener('click', (e) => {
-            const backdrop = document.querySelector('.gallery-backdrop') // backdrop
+
             const close = document.querySelector('.gallery-close')
             const scrollY = window.scrollY
             const arrowBack = document.querySelector('.gallery-back')
@@ -81,18 +83,18 @@ function portfolioGallery() {
             img.setAttribute('src', field[index]['design_project_gallery'][imgIndex].url)
             document.addEventListener('wheel', preventScroll,  {passive: false}) // listeners
             document.addEventListener('keydown', preventKeyScroll,  {passive: false})
+            document.addEventListener('keydown', closeOnEsc,  {passive: false})
+
             close.addEventListener('click', () => {
-                backdrop.style.display = 'none'
-                document.removeEventListener('wheel', preventScroll,  {passive: false})
-                document.removeEventListener('keydown', preventKeyScroll,  {passive: false})
+                closeGallery()
             })
+
             arrowBack.addEventListener('click', () => {
                 if ((imgIndex - 1) >= indexArr[0]) {
                     imgIndex -= 1
                 } else {
                     imgIndex = indexArr.length - 1
                 }
-                console.log(imgIndex)
                 img.setAttribute('src', field[index]['design_project_gallery'][imgIndex].url)
             })
             arrowNext.addEventListener('click', () => {
@@ -101,7 +103,6 @@ function portfolioGallery() {
                 } else {
                     imgIndex = 0
                 }
-                console.log(imgIndex)
                 img.setAttribute('src', field[index]['design_project_gallery'][imgIndex].url)
             })
         })
@@ -120,6 +121,19 @@ function preventKeyScroll(e) {
         e.preventDefault();
         return false;
     }
+}
+
+function closeOnEsc(e) {
+    if (e.keyCode === 27) {
+        closeGallery()
+        return false;
+    }
+}
+
+function closeGallery() {
+    backdrop.style.display = 'none'
+    document.removeEventListener('wheel', preventScroll,  {passive: false})
+    document.removeEventListener('keydown', preventKeyScroll,  {passive: false})
 }
 
 
