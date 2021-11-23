@@ -656,19 +656,8 @@ textarea {
   top: 0;
 }
 
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
-  display: block;
-  left: auto;
-}
-
 .main-navigation ul ul a {
   width: 200px;
-}
-
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-  left: auto;
 }
 
 .main-navigation li {
@@ -686,13 +675,24 @@ textarea {
   display: block;
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 768px) {
   .menu-toggle {
     display: none;
   }
 
   .main-navigation ul {
     display: flex;
+  }
+
+  .main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+    display: block;
+    left: auto;
+  }
+
+  .main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+    left: auto;
   }
 }
 .site-main .comment-navigation,
