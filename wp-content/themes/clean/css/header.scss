@@ -29,6 +29,7 @@
   width: 100%;
   z-index: 10;
   box-shadow: 2px 0 12px 0 rgb(0 0 0 / 30%);
+  backdrop-filter: blur(18px) saturate(162%);
 
   .site-header {
     display: flex;
@@ -80,7 +81,9 @@
     > a {
       display: flex;
       align-items: center;
-      height: 50px;
+      height: 70px;
+      font-size: clamp(14px, calc(1.5vw), 16px);
+      white-space: nowrap;
 
       &::before {
         content: '';
@@ -88,7 +91,7 @@
         left: 0;
         bottom: 0;
         right: 0;
-        height: 3px;
+        height: 2px;
         transition: 0.3s;
         opacity: 0;
         background-color: var(--menu-hover-underline);
@@ -213,6 +216,16 @@
 }
 
 /* MEDIA */
+
+@media screen and (max-width: 980px) and (min-width: 768px) {
+  .background-header .site-header {
+    justify-content: center;
+
+    .site-branding {
+      display: none;
+    }
+  }
+}
 
 @media screen and (max-width: 768px) {
   .main-menu {
