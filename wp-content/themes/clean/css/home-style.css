@@ -51,7 +51,7 @@
 }
 .home-page .first-section .slider-text-cont .scroller .inner {
   position: relative;
-  z-index: 33333;
+  z-index: 3;
 }
 .home-page .first-section .slider-text-cont .scroller .inner p {
   font-weight: 800;
@@ -104,7 +104,7 @@
 .home-page .first-section .first-button-cont {
   display: flex;
   justify-content: center;
-  z-index: 33;
+  z-index: 4;
   padding-top: 2rem;
 }
 .home-page .first-section .first-button-cont a {
@@ -136,7 +136,7 @@
   font-weight: 300;
   font-size: 1.2rem;
   color: #FFFFFF;
-  z-index: 11;
+  z-index: 3;
   margin: 0;
   line-height: 2em;
   padding-top: 2rem;
@@ -180,7 +180,7 @@
 }
 .home-page .special-offer {
   height: 300px;
-  margin: 0 5%;
+  margin: 0 10%;
   padding: 0 3%;
   display: flex;
   justify-content: space-between;
@@ -193,6 +193,8 @@
 .home-page .special-offer .sale-descr {
   text-align: center;
   text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  width: 45%;
 }
 .home-page .special-offer .sale-descr H1 {
   color: #ffffff;
@@ -202,9 +204,27 @@
 }
 .home-page .special-offer .sale-descr p {
   color: #FF5252;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0;
   font-size: 3vw;
+}
+.home-page .special-offer .divider {
+  height: 65%;
+  width: 2px;
+  background: #FF5252;
+  z-index: 3;
+  position: relative;
+}
+.home-page .special-offer .sale-counter {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  width: 45%;
+}
+.home-page .special-offer .sale-counter p {
+  font-weight: 800;
+  font-size: 2.5vw;
 }
 
 /*# sourceMappingURL=home-style.css.map */

@@ -65,11 +65,11 @@ get_header();
 
         <section class="special-offer">
             <div class="sale-descr">
-                <H1>Christmas Sale</H1>
+                <H1>Christmas Sale!</H1>
                 <p>5-20% OFF</p>
                 <p>Special Offer</p>
             </div>
-            <div class="divider"></div>
+            <span class="divider"></span>
             <div class="sale-counter">
                 <p>Off ends:</p>
                 <div class="sale-counter-date"></div>
