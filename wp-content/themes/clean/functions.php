@@ -10,7 +10,8 @@
 /**
  * Includes.
  */
-include_once __DIR__ . '/inc/rh-gallery.php';
+
+//include_once __DIR__ . '/inc/rh-gallery.php';
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
@@ -168,6 +169,17 @@ function filter_sidebar_init() {
     ) );
 }
 add_action( 'widgets_init', 'filter_sidebar_init' );
+
+/**
+ * Allow to upload SVG-s.
+ */
+function add_file_types_to_uploads($file_types) {
+    $new_filetypes = array();
+    $new_filetypes['svg'] = 'image/svg+xml';
+    return array_merge($file_types, $new_filetypes );
+}
+
+add_filter('upload_mimes', 'add_file_types_to_uploads');
 
 /**
  * Enqueue scripts and styles.

@@ -14,6 +14,19 @@ function clean_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+    $wp_customize->add_setting( 'dark_logo');
+    $wp_customize->add_control(
+        new WP_Customize_Image_Control(
+            $wp_customize,
+            'dark_logo',
+            array(
+                'label'      => __( 'Second logo', 'clean' ),
+                'section'    => 'title_tagline',
+//                'settings'   => 'dark_logo',
+                'priority'   => 8,
+            )
+        )
+    );
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial(
