@@ -73,7 +73,7 @@ get_header();
             <div class="sale-counter">
                 <p>Off ends:</p>
                 <div class="sale-counter-date"></div>
-                <a href="#" class="sale-link"></a>
+                <a href="#" class="sale-link">Watch here</a>
             </div>
 
         </section>
