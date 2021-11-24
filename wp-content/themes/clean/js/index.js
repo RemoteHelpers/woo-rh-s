@@ -63,7 +63,6 @@ function autoFontScale() {
 /* PORTFOLIO GALLERY */
 function portfolioGallery() {
     const portfolioItem = document.querySelectorAll('.designer-portfolio-item')
-
     portfolioItem.forEach((item , index) => {
         item.addEventListener('click', (e) => {
 
@@ -81,14 +80,12 @@ function portfolioGallery() {
             const indexArr = Object.keys(field[index]['design_project_gallery'])
             let img = document.querySelector('.gallery-image')
             img.setAttribute('src', field[index]['design_project_gallery'][imgIndex].url)
-            document.addEventListener('wheel', preventScroll,  {passive: false}) // listeners
-            document.addEventListener('keydown', preventKeyScroll,  {passive: false})
-            document.addEventListener('keydown', closeOnEsc,  {passive: false})
 
-            close.addEventListener('click', () => {
-                closeGallery()
-            })
-
+            // listeners
+            document.addEventListener('wheel', preventScroll,  {passive: false})
+            document.addEventListener('keydown', preventKeyScroll)
+            document.addEventListener('keydown', closeOnEsc)
+            close.addEventListener('click', closeGallery)
             arrowBack.addEventListener('click', () => {
                 if ((imgIndex - 1) >= indexArr[0]) {
                     imgIndex -= 1
