@@ -116,11 +116,13 @@ get_header();
 
             woocommerce_product_loop_end(); ?>
         </section>
-        <section class="price-cards">
+        <section class="price-card-section">
 
             <H1>Full-Time Remote Employees <span>Prices</span></H1>
+            <div class="cards">
+            <?php if (have_rows('pricing_cards_home')): while (have_rows('pricing_cards_home')) :
+            the_row(); ?>
 
-            <?php if (have_rows('pricing_cards_home')): while (have_rows('pricing_cards_home')) : the_row(); ?>
 
                 <div class="pricing-card-home">
                     <section class="pricing-card-header">
@@ -128,9 +130,10 @@ get_header();
 
                     </section>
                     <main>
-                        <span class="card-price"><span class=""><sup>€</sup></span><span><?php the_sub_field('price_card_home'); ?></span></span>
+                        <span class="card-price"><span
+                                    class=""><sup>€</sup></span><span><?php the_sub_field('price_card_home'); ?></span></span>
                         <div class="card-positions"><?php if (have_rows('positions_card_repeater')): while (have_rows('positions_card_repeater')) : the_row(); ?>
-                            <span><?php the_sub_field('position_pricing_cards');?></span>
+                                <span><?php the_sub_field('position_pricing_cards'); ?></span>
                             <?php endwhile; endif; ?>
                         </div>
 
@@ -141,8 +144,9 @@ get_header();
                     </section>
                 </div>
 
-            <?php endwhile; endif; ?>
-
+                <?php endwhile;
+                endif; ?>
+            </div>
         </section>
 
     </main>
