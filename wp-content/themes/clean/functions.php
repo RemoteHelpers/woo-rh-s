@@ -389,6 +389,7 @@ function rh_add_closing_section() {
     echo '</section>';
 }
 
+
 /**
  * Single product about section.
  */
@@ -592,4 +593,7 @@ add_action('rh_main_page_closing_div', 'rh_close_sidebar1_div', 10);
 function rh_close_sidebar1_div() { ?>
     </div>
 <?php }
+
+
+
 

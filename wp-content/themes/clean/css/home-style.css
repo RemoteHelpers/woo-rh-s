@@ -4,11 +4,16 @@
   --rh-green-color: #2ecc71;
 }
 
+.home-page {
+  display: grid;
+  justify-items: center;
+}
 .home-page .first-section {
   display: grid;
   align-content: center;
   justify-content: center;
   height: 90vh;
+  width: 100%;
   position: relative;
 }
 .home-page .first-section #backgroundVideo {
@@ -179,9 +184,9 @@
   text-align: center;
 }
 .home-page .special-offer {
-  height: 300px;
-  margin: 0 10%;
-  padding: 0 3%;
+  width: clamp(1150px, 1250px, 1300px);
+  height: 250px;
+  padding: 1rem 3%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -200,17 +205,17 @@
   color: #ffffff;
   font-weight: 800;
   margin: 0;
-  font-size: 3.2vw;
+  font-size: 3rem;
 }
 .home-page .special-offer .sale-descr p {
   color: #FF5252;
   font-weight: 700;
   margin: 0;
-  font-size: 3vw;
+  font-size: 3rem;
 }
 .home-page .special-offer .divider {
-  height: 65%;
-  width: 2px;
+  height: 6rem;
+  width: 5px;
   background: #FF5252;
   z-index: 3;
   position: relative;
@@ -220,11 +225,119 @@
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   color: #FFFFFF;
+  display: grid;
+  justify-content: center;
   width: 45%;
 }
 .home-page .special-offer .sale-counter p {
   font-weight: 800;
-  font-size: 2.5vw;
+  font-size: 2.5rem;
+  margin: 0;
+}
+.home-page .special-offer .sale-counter .sale-link {
+  text-transform: uppercase;
+  color: #FFFFFF;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  background-color: #FF5252;
+  border-radius: 4px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 220px;
+  transition: 0.3s;
+}
+.home-page .special-offer .sale-counter .sale-link:hover {
+  background-color: #61CE70;
+}
+.home-page .employees-card {
+  padding-top: 3rem;
+}
+.home-page .employees-card .products {
+  margin: 0;
+  padding: 0;
+}
+.home-page .price-cards {
+  width: 100%;
+  padding: 3rem 5%;
+  display: flex;
+  flex-flow: column;
+}
+.home-page .price-cards H1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.6vw;
+  font-weight: 900;
+  color: #54595F;
+  margin: 0;
+  text-align: center;
+}
+.home-page .price-cards H1 span {
+  color: #FF5252;
+}
+.home-page .price-cards .pricing-card-home {
+  height: 408px;
+  width: clamp(200px, 256px, 300px);
+  display: flex;
+  flex-flow: column;
+  border-radius: 8px;
+  box-shadow: 1px 2px 7px 0 rgba(0, 0, 0, 0.15);
+  background-color: #F7F7F7;
+}
+.home-page .price-cards .pricing-card-home span {
+  margin: 0;
+  text-align: center;
+}
+.home-page .price-cards .pricing-card-home H3 {
+  margin: 0;
+  text-align: center;
+}
+.home-page .price-cards .pricing-card-home .pricing-card-header {
+  background-color: #54595F;
+  width: 100%;
+  height: 50px;
+  border-radius: 8px 8px 0 0;
+  display: grid;
+  align-content: center;
+}
+.home-page .price-cards .pricing-card-home .pricing-card-header H3 {
+  color: #ffffff;
+  font-weight: 700;
+}
+.home-page .price-cards .pricing-card-home main {
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+}
+.home-page .price-cards .pricing-card-home main .card-price {
+  font-size: 3rem;
+  font-weight: 800;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.home-page .price-cards .pricing-card-home main .card-positions {
+  flex-grow: 1.2;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
+  column-gap: 1rem;
+}
+.home-page .price-cards .pricing-card-home main .card-positions span {
+  font-size: 1.2rem;
+  line-height: 1;
+  font-weight: 400;
+}
+.home-page .price-cards .pricing-card-home .pricing-card-footer {
+  text-align: center;
+}
+.home-page .price-cards .pricing-card-home .pricing-card-footer .work-hours {
+  color: #FF5252;
+  font-weight: 300;
 }
 
 /*# sourceMappingURL=home-style.css.map */
