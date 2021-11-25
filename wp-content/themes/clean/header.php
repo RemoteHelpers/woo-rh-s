@@ -90,6 +90,18 @@
                     )
                 );
                 ?>
+                <li id="header-social-icons">
+                    <?php
+                    if (have_rows('soc_media', 'option')) :
+                        while (have_rows('soc_media', 'option')) : the_row();
+                            ?>
+                            <a href="<?php the_sub_field('contact_link'); ?>">
+                                <i class="<?php the_sub_field('icon'); ?>"></i></a>
+                        <?php
+                        endwhile;
+                    endif;
+                    ?>
+                </li>
             </nav><!-- #site-navigation -->
         </header>
     </div><!-- #masthead -->

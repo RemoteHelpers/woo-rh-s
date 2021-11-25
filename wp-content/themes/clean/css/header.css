@@ -18,6 +18,18 @@
   --black-menu-hover-underline: #7a7a7a;
 }
 
+#header-social-icons {
+  display: none;
+  gap: 1rem;
+  font-size: 2.25rem;
+  justify-content: center;
+  padding-block: 1rem;
+}
+
+.menu-testmenu-container {
+  display: flex;
+}
+
 .background-header {
   display: flex;
   justify-content: space-between;
@@ -92,8 +104,8 @@
   content: "\f0d7";
   font-family: "Font Awesome 5 Free", "sans-serif";
   color: var(--menu-link-color);
-  padding-left: 0.8rem;
-  font-size: 16px;
+  padding-left: clamp(5px, 0.5vw, 10px);
+  font-size: 1rem;
 }
 .main-menu > .menu-item > a:focus {
   outline: none;
@@ -119,7 +131,7 @@
 .main-menu > .menu-item > .sub-menu > li:hover a {
   color: white;
 }
-.main-menu > .menu-item > .sub-menu > li:last-child:hover {
+.main-menu > .menu-item > .sub-menu > li:last-child, .main-menu > .menu-item > .sub-menu > li:last-child:hover {
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
 }
@@ -149,19 +161,19 @@
 .black-header .main-navigation .menu-toggle {
   color: white;
 }
-.black-header .nav-menu {
+.black-header .main-menu {
   background-color: black;
 }
-.black-header .nav-menu > .menu-item > a::before {
+.black-header .main-menu > .menu-item > a::before {
   background-color: var(--black-menu-hover-underline);
 }
-.black-header .nav-menu > .menu-item > .sub-menu {
+.black-header .main-menu > .menu-item > .sub-menu {
   background-color: var(--black-sub-menu-bg);
 }
-.black-header .nav-menu > .menu-item > .sub-menu > li {
+.black-header .main-menu > .menu-item > .sub-menu > li {
   background-color: #363636;
 }
-.black-header .nav-menu > .menu-item > .sub-menu > li:hover {
+.black-header .main-menu > .menu-item > .sub-menu > li:hover {
   background-color: var(--black-menu-link-hover);
 }
 
@@ -177,28 +189,19 @@
   }
 }
 /* MEDIA */
-@media screen and (max-width: 980px) and (min-width: 768px) {
-  .background-header .site-header {
-    justify-content: center;
-  }
-  .background-header .site-header .site-branding {
-    display: none;
-  }
-}
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 980px) {
   .main-menu {
     position: absolute;
     top: 72px;
-    bottom: 0;
     left: 0;
     right: 0;
     z-index: 15;
-    padding-top: 3rem;
+    padding-block: 3rem;
     background-color: white;
-    width: calc(100vw - 8px);
-    height: 100vh;
+    height: calc(100vh - 72px);
   }
   .main-menu .menu-item > a {
+    font-size: 1.5rem;
     justify-content: center;
   }
   .main-menu .menu-item:hover > a::before {
@@ -217,10 +220,14 @@
   .main-menu .menu-item > .sub-menu li {
     width: 100%;
     background-color: #efefef;
+    font-size: 1.5rem;
   }
-  .main-menu .menu-item > .sub-menu li:last-child:hover {
+  .main-menu .menu-item > .sub-menu li:last-child, .main-menu .menu-item > .sub-menu li:last-child:hover {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+  }
+  .main-menu .menu-item > .sub-menu li a {
+    font-size: 1.25rem;
   }
 }
 

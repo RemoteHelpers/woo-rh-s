@@ -16,6 +16,18 @@
   --black-menu-hover-underline: #7a7a7a;
 }
 
+#header-social-icons {
+  display: none;
+  gap: 1rem;
+  font-size: 2.25rem;
+  justify-content: center;
+  padding-block: 1rem;
+}
+
+.menu-testmenu-container {
+  display: flex;
+}
+
 .background-header {
   display: flex;
   justify-content: space-between;
@@ -101,8 +113,8 @@
         content: "\f0d7";
         font-family: 'Font Awesome 5 Free', 'sans-serif';
         color: var(--menu-link-color);
-        padding-left: .8rem;
-        font-size: 16px;
+        padding-left: clamp(5px, .5vw, 10px);
+        font-size: 1rem;
       }
 
       &:focus {
@@ -133,6 +145,7 @@
           }
         }
 
+        &:last-child,
         &:last-child:hover {
           border-bottom-right-radius: 8px;
           border-bottom-left-radius: 8px;
@@ -142,7 +155,6 @@
           font-size: 0.8rem;
           font-weight: 500;
           width: 100%;
-          //height: 100%;
           padding: 1rem;
         }
       }
@@ -177,7 +189,7 @@
     }
   }
 
-  .nav-menu {
+  .main-menu {
     background-color: black;
 
     > .menu-item {
@@ -217,31 +229,22 @@
 
 /* MEDIA */
 
-@media screen and (max-width: 980px) and (min-width: 768px) {
-  .background-header .site-header {
-    justify-content: center;
-
-    .site-branding {
-      display: none;
-    }
-  }
-}
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 980px) {
   .main-menu {
     position: absolute;
     top: 72px;
-    bottom: 0;
+    //bottom: 0;
     left: 0;
     right: 0;
     z-index: 15;
-    padding-top: 3rem;
+    padding-block: 3rem;
     background-color: white;
-    width: calc(100vw - 8px);
-    height: 100vh;
+    //width: calc(100vw - 8px);
+    height: calc(100vh - 72px);
 
     .menu-item {
       > a {
+        font-size: 1.5rem;
         justify-content: center;
       }
 
@@ -265,10 +268,16 @@
         li {
           width: 100%;
           background-color: #efefef;
+          font-size: 1.5rem;
 
+          &:last-child,
           &:last-child:hover {
             border-bottom-right-radius: 0;
             border-bottom-left-radius: 0;
+          }
+
+          a {
+            font-size: 1.25rem;
           }
         }
       }

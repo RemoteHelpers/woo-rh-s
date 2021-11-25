@@ -18,7 +18,6 @@
     if ('undefined' === typeof button) {
         return;
     }
-
     const menu = siteNavigation.getElementsByTagName('ul')[0];
 
     // Hide menu toggle button if menu is empty and return early.
@@ -37,8 +36,14 @@
 
         if (button.getAttribute('aria-expanded') === 'true') {
             button.setAttribute('aria-expanded', 'false');
+
+            // disable body scroll. enable menu scroll. show social icons
+            document.body.style.overflowY = 'initial'
+            menu.style.overflowY = 'initial'
         } else {
             button.setAttribute('aria-expanded', 'true');
+            document.body.style.overflowY = 'hidden'
+            menu.style.overflowY = 'scroll'
         }
     });
 
@@ -72,14 +77,16 @@
     // Toggle accordeon on mobile
     for (const parentLink of linksWithChildren) {
         parentLink.addEventListener('click', (e) => {
-            if (window.innerWidth > 768) return
+            if (window.innerWidth > 980) return
             e.preventDefault()
 
+            // close all other submenus
             const submenus = menu.querySelectorAll('.sub-menu')
             submenus.forEach(item => {
                 jQuery(item).slideUp()
             })
 
+            // if class 'sub-menu' is present - toggle submenu
             const submenu = e.target.nextElementSibling
             if (submenu.classList.contains('sub-menu')) {
                 if (submenu.style.display === 'block') return
@@ -117,4 +124,23 @@
             menuItem.classList.toggle('focus');
         }
     }
+
+    showSocial()
+
 }());
+
+onresize = showSocial
+
+function showSocial() {
+
+    // add social icons to mobile menu if < 980
+    const siteNavigation = document.getElementById('site-navigation');
+    const menu = siteNavigation.getElementsByTagName('ul')[0];
+    const social = document.querySelector('#header-social-icons')
+    if (window.innerWidth <= 980) {
+        menu.append(social)
+        social.style.display = 'flex'
+    } else {
+        social.style.display = 'none'
+    }
+}
