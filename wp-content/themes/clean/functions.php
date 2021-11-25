@@ -203,6 +203,7 @@ function clean_scripts() {
     wp_enqueue_style( 'variables', get_template_directory_uri() . '/css/variables.css',false,'1.1','all');
     wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home-style.css',false,'1.1','all');
     wp_enqueue_style( 'form-style', get_template_directory_uri() . '/css/contact.css',false,'1.1','all');
+    wp_enqueue_style( 'contacts-style', get_template_directory_uri() . '/css/contacts.css',false,'1.1','all');
 
 
     wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/fontawesome/fontawesome-free-5.15.4-web/css/all.css',false,'1.1','all');

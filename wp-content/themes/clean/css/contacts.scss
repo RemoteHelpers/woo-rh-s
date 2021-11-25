@@ -1,0 +1,160 @@
+.contacts-page {
+  padding: 6vw 0;
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  h1,
+  .subheader {
+    text-align: center;
+    margin: 0;
+  }
+
+  h1 {
+    font-size: clamp(24px, 5vw, 48px);
+  }
+
+  .subheader {
+    font-size: clamp(16px, 2vw, 18px);
+  }
+
+  .contacts-body {
+    padding: 5vw 0;
+  }
+
+  .book-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block: 3rem;
+    box-shadow: 10px 9px 16px 4px rgb(0 0 0 / 20%);
+
+    h2 {
+      font-size: clamp(24px, 4vw, 40px);
+      width: min(90%, 350px);
+      line-height: 1;
+      margin-top: 0;
+    }
+
+    .calendar-placeholder {
+      width: min(90%, 350px);
+      height: 600px;
+      background-color: #eaeaea;
+      box-shadow: 2px 0 12px 0 rgb(0 0 0 / 20%);
+    }
+  }
+
+  .global-contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+
+    h2 {
+      font-size: 32px;
+      font-weight: 800;
+    }
+
+    .social-grid {
+      display: grid;
+      justify-items: center;
+      grid-gap: 5vw;
+      margin: 2vw;
+      font-size: 18px;
+
+
+      li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      i {
+        font-size: 50px;
+        margin-bottom: .7rem;
+        transition: color .3s ease;
+      }
+
+      .social-name {
+        font-weight: 500;
+      }
+
+      .social-info {
+        font-weight: 400;
+      }
+    }
+
+    hr {
+      width: 70%;
+      background-color: #d5d5d5;
+      margin-block: 4rem;
+    }
+
+    .departments {
+      li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .department-title {
+        font-size: 20px;
+        font-weight: 700;
+
+        i {
+          color: var(--rh-accent-color);
+          font-size: 22px;
+        }
+      }
+
+      .info-box {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        font-size: 20px;
+        font-weight: 500;
+
+        .department-pill {
+          border-radius: 15px;
+          padding: .5rem;
+          box-shadow: 5px 5px 11px 0px rgb(0 0 0 / 20%);
+          transition: box-shadow, color .3s ease;
+          &:hover {
+            box-shadow: 5px 5px 11px 3px rgb(0 0 0 / 20%);
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media (min-width: 768px) {
+  .contacts-page {
+    .contacts-body {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .global-contacts {
+      .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 3vw;
+      }
+
+      .departments {
+        .info-box {
+          flex-direction: row;
+        }
+      }
+    }
+  }
+}
