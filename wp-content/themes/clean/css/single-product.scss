@@ -25,6 +25,7 @@
     border-radius: 5px;
     transition: background-color .3s ease;
     z-index: 15;
+
     &:hover {
       background-color: rgba(1, 1, 1, .5);
     }
@@ -52,12 +53,10 @@
 }
 
 .single-product {
-  font-family: 'Montserrat';
   color: #4d4d4d;
 
   ul {
     list-style: none;
-    //margin: 0;
   }
 
   a {
@@ -71,7 +70,6 @@
     grid-template-areas:
       'side content content'
       'related related related';
-    //grid-gap: 1rem;
 
     .single-product-sidebar {
       grid-area: side;
@@ -392,8 +390,6 @@
           }
         }
       }
-    }
-
 
       .video-portfolio {
         display: flex;
@@ -405,6 +401,81 @@
 
         .iframe-container {
           width: 300px;
+        }
+      }
+
+      .woocommerce-Reviews {
+        .commentlist {
+          margin: 2rem 0;
+          padding: 0;
+
+          li {
+            border: 2px solid var(--rh-accent-color);
+            border-radius: 1rem;
+            padding: 1.25rem;
+            margin-bottom: 2rem;
+
+            .comment-info {
+              display: flex;
+              justify-content: space-between;
+
+              .star-rating {
+                float: right;
+                overflow: hidden;
+                position: relative;
+                height: 1em;
+                line-height: 1;
+                font-size: 1em;
+                width: 5.4em;
+                font-family: star;
+
+                &::before {
+                  content: "\73\73\73\73\73";
+                  color: #d3ced2;
+                  float: left;
+                  top: 0;
+                  left: 0;
+                  position: absolute;
+                }
+
+                span {
+                  overflow: hidden;
+                  float: left;
+                  top: 0;
+                  left: 0;
+                  position: absolute;
+                  padding-top: 1.5em;
+                  color: #dbbe1f;
+
+                  &::before {
+                    content: "\53\53\53\53\53";
+                    top: 0;
+                    position: absolute;
+                    left: 0;
+                  }
+                }
+              }
+
+              .avatar-and-meta {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                img.avatar {
+                  border-radius: 50%;
+                }
+
+                span {
+                  padding: .5rem 0;
+
+                  .meta {
+                    display: flex;
+                    flex-direction: column;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -456,6 +527,7 @@
       }
     }
   }
+
 }
 
 /* MEDIA QUERIES */
