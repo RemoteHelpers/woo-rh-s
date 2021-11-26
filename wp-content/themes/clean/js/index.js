@@ -1,5 +1,7 @@
 const singleProductPage = document.querySelector('.single-product')
 const backdrop = document.querySelector('.gallery-backdrop')
+const img = document.querySelector('.gallery-image')
+const thumbnailGallery = document.querySelector('.gallery-thumbnails')
 
 onload = () => {
 
@@ -63,26 +65,28 @@ function autoFontScale() {
 /* PORTFOLIO GALLERY */
 function portfolioGallery() {
     const portfolioItem = document.querySelectorAll('.designer-portfolio-item')
-    portfolioItem.forEach((item , index) => {
+    portfolioItem.forEach((item, index) => {
         item.addEventListener('click', (e) => {
 
+            // gallery opens
             const close = document.querySelector('.gallery-close')
-            const scrollY = window.scrollY
-            const arrowBack = document.querySelector('.gallery-back')
+            const arrowBack = document.querySelector('.gallery-prev')
             const arrowNext = document.querySelector('.gallery-next')
+
             let imgIndex = 0
 
-            document.body.style.position = 'relative'
-            backdrop.style.top = scrollY + 'px'
-            backdrop.style.display = 'block'
+            openGallery()
 
-            const field = acf.get('designerPortfolio') // image
+            const field = acf.get('designerPortfolio') // get image array from acf
             const indexArr = Object.keys(field[index]['design_project_gallery'])
-            let img = document.querySelector('.gallery-image')
-            img.setAttribute('src', field[index]['design_project_gallery'][imgIndex].url)
+            const thumbnailArr = field[index]['design_project_gallery']
+
+            generateThumbnails(thumbnailArr)
+
+            img.setAttribute('src', field[index]['design_project_gallery'][imgIndex].url) // set src for image
 
             // listeners
-            document.addEventListener('wheel', preventScroll,  {passive: false})
+            document.addEventListener('wheel', preventScroll, {passive: false})
             document.addEventListener('keydown', preventKeyScroll)
             document.addEventListener('keydown', closeOnEsc)
             close.addEventListener('click', closeGallery)
@@ -102,8 +106,41 @@ function portfolioGallery() {
                 }
                 img.setAttribute('src', field[index]['design_project_gallery'][imgIndex].url)
             })
+
+            // put a timed listener on close, so that it doesn't close immediately on open
+            setTimeout(() => {
+                document.addEventListener('click', closeOnClick)
+            }, 200)
         })
     })
+}
+
+function generateThumbnails(thumbnails) {
+
+    thumbnails.forEach((item, index) => {
+        const thumb = document.createElement('img')
+        thumb.setAttribute('src', thumbnails[index].url)
+        thumbnailGallery.append(thumb)
+        thumb.addEventListener('click', (e) => {
+            img.setAttribute('src', e.target.src)
+        })
+    })
+}
+
+function openGallery() {
+    const scrollY = window.scrollY
+    document.body.style.position = 'relative'
+    document.body.style.overflowY = 'hidden'
+    backdrop.style.top = scrollY + 'px'
+    backdrop.style.display = 'grid'
+}
+
+function closeGallery() {
+    backdrop.style.display = 'none'
+    document.body.style.overflowY = 'visible'
+    document.removeEventListener('wheel', preventScroll, {passive: false})
+    document.removeEventListener('keydown', preventKeyScroll, {passive: false})
+    thumbnailGallery.innerHTML = ''
 }
 
 function preventScroll(e) {
@@ -127,10 +164,12 @@ function closeOnEsc(e) {
     }
 }
 
-function closeGallery() {
-    backdrop.style.display = 'none'
-    document.removeEventListener('wheel', preventScroll,  {passive: false})
-    document.removeEventListener('keydown', preventKeyScroll,  {passive: false})
+function closeOnClick(e) {
+    if (e.target.classList.contains('gallery-backdrop')) {
+        // console.log(e.target)
+        closeGallery()
+        document.removeEventListener('click', closeOnClick)
+    }
 }
 
 

@@ -2,19 +2,23 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: calc(100vw - 8px);
+  width: 100vw;
   height: 100vh;
   background-color: black;
   z-index: 15;
   display: none;
+  place-items: center;
 }
-.gallery-backdrop .gallery-image {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.gallery-backdrop .gallery-container {
+  max-width: 90vw;
+  max-height: 75vh;
+  display: flex;
+  justify-content: center;
 }
-.gallery-backdrop .fas {
+.gallery-backdrop .gallery-container .gallery-image {
+  object-fit: contain;
+}
+.gallery-backdrop i {
   position: absolute;
   font-size: 1rem;
   color: white;
@@ -25,7 +29,7 @@
   transition: background-color 0.3s ease;
   z-index: 15;
 }
-.gallery-backdrop .fas:hover {
+.gallery-backdrop i:hover {
   background-color: rgba(1, 1, 1, 0.5);
 }
 .gallery-backdrop .gallery-close {
@@ -33,16 +37,34 @@
   right: 1rem;
   padding: 0.8rem 0.9rem;
 }
-.gallery-backdrop .gallery-back,
+.gallery-backdrop .gallery-prev,
 .gallery-backdrop .gallery-next {
   top: 50%;
   transform: translateY(-50%);
 }
-.gallery-backdrop .gallery-back {
+.gallery-backdrop .gallery-prev {
   left: 1rem;
 }
 .gallery-backdrop .gallery-next {
   right: 1rem;
+}
+.gallery-backdrop .gallery-thumbnails {
+  position: absolute;
+  bottom: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  max-height: 3rem;
+}
+.gallery-backdrop .gallery-thumbnails img {
+  object-fit: contain;
+  width: 100px;
+  height: auto;
+  border: 1px solid white;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
 .single-product {

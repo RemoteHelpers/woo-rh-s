@@ -2,20 +2,25 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: calc(100vw - 8px);
+  width: 100vw;
   height: 100vh;
   background-color: black;
   z-index: 15;
   display: none;
+  place-items: center;
 
-  .gallery-image {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  .gallery-container {
+    max-width: 90vw;
+    max-height: 75vh;
+    display: flex;
+    justify-content: center;
+
+    .gallery-image {
+      object-fit: contain;
+    }
   }
 
-  .fas {
+  i {
     position: absolute;
     font-size: 1rem;
     color: white;
@@ -37,18 +42,38 @@
     padding: 0.8rem 0.9rem;
   }
 
-  .gallery-back,
+  .gallery-prev,
   .gallery-next {
     top: 50%;
     transform: translateY(-50%);
   }
 
-  .gallery-back {
+  .gallery-prev {
     left: 1rem;
   }
 
   .gallery-next {
     right: 1rem;
+  }
+
+  .gallery-thumbnails {
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    max-height: 3rem;
+
+    img {
+      object-fit: contain;
+      width: 100px;
+      height: auto;
+      border: 1px solid white;
+      border-radius: 3px;
+      cursor: pointer;
+    }
   }
 }
 

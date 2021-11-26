@@ -293,9 +293,12 @@ add_action('woocommerce_before_single_product_summary', 'rh_add_gallery_backdrop
 function rh_add_gallery_backdrop() { ?>
     <div class="gallery-backdrop">
         <i class="fas fa-times gallery-close"></i>
-        <img class="gallery-image" src="">
-        <i class="fas fa-arrow-left gallery-back"></i>
+        <i class="fas fa-arrow-left gallery-prev"></i>
         <i class="fas fa-arrow-right gallery-next"></i>
+        <div class="gallery-container">
+            <img class="gallery-image" src="">
+        </div>
+        <div class="gallery-thumbnails"></div>
     </div>
 <?php
 }
