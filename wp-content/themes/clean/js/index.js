@@ -1,5 +1,8 @@
 const singleProductPage = document.querySelector('.single-product')
 const faqPage = document.querySelector('.faq')
+const privacyPage = document.querySelector('.privacy')
+
+
 const backdrop = document.querySelector('.gallery-backdrop')
 const img = document.querySelector('.gallery-image')
 const thumbnailGallery = document.querySelector('.gallery-thumbnails')
@@ -16,6 +19,11 @@ onload = () => {
     if (faqPage) {
         console.log('faq page')
         faqAccordion()
+    }
+
+    if (privacyPage) {
+        console.log('privacy page')
+        privacyTabs()
     }
 }
 
@@ -203,6 +211,33 @@ function faqAccordion() {
             const arrow = e.target.firstElementChild
             arrow.classList.toggle('rotate')
             jQuery(body).slideToggle('fast')
+        })
+    })
+}
+
+/* PRIVACY */
+function privacyTabs() {
+    const tabs = document.querySelectorAll('.privacy-tab')
+    const contents = document.querySelectorAll('.content')
+
+    tabs.forEach(item => {
+
+        item.addEventListener('click', e => {
+            const content = Array.from(contents)
+
+            tabs.forEach(item => {
+                item.classList.remove('active')
+            })
+            e.target.classList.add('active')
+
+            content.forEach(item => {
+                item.classList.remove('shown')
+            })
+
+            const found = content.find(item => {
+                return item.dataset.content === e.target.dataset.tab
+            })
+            found.classList.add('shown')
         })
     })
 }

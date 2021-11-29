@@ -1,0 +1,82 @@
+.privacy {
+  ol {
+    margin: 0 0 1.5rem 3rem;
+    padding-left: 2.5rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+    text-decoration: underline;
+    color: var(--rh-accent-color);
+    text-align: center;
+  }
+
+  .important {
+    color: #FF5252;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .privacy-body {
+    background-color: #FBFBFD;
+    border-radius: 8px;
+    margin: 2rem 2vw;
+    padding: 1rem;
+    box-shadow: 0 1px 15px 0 rgb(0 0 0 / 30%);
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 900;
+    }
+  }
+
+  .tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .privacy-tab {
+    background-color: white;
+    cursor: pointer;
+    padding: 1rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-weight: 600;
+
+    &:hover {
+      color: var(--rh-accent-color);
+    }
+
+    &.active {
+      background-color: #FBFBFD;
+      color: var(--rh-accent-color);
+    }
+  }
+
+  .content {
+    display: none;
+
+    &.shown {
+      display: block;
+    }
+  }
+
+  @media (min-width: 650px) {
+    .tabs {
+      flex-direction: row;
+      align-items: initial;
+    }
+
+    .privacy-tab {
+      &.active {
+        background-color: #FBFBFD;
+        position: relative;
+        top: 1px;
+        color: var(--rh-accent-color);
+      }
+    }
+  }
+}
