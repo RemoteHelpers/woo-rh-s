@@ -193,6 +193,7 @@ add_theme_support( 'woocommerce' );
 add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
 function clean_scripts() {
+    wp_enqueue_style( 'variables', get_template_directory_uri() . '/css/variables.css',false,'1.1','all');
 	wp_enqueue_style( 'clean-style', get_stylesheet_uri(), array(), _S_VERSION );
     wp_enqueue_style( 'single-product', get_template_directory_uri() . '/css/single-product.css',false,'1.1','all');
     wp_enqueue_style( 'archive-product', get_template_directory_uri() . '/css/archive-product.css',false,'1.1','all');
@@ -200,10 +201,10 @@ function clean_scripts() {
     wp_enqueue_style( 'slick-styles', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css',false,'1.1','all');
     wp_enqueue_style( 'header-style', get_template_directory_uri() . '/css/header.css',false,'1.1','all');
     wp_enqueue_style( 'footer-style', get_template_directory_uri() . '/css/footer.css',false,'1.1','all');
-    wp_enqueue_style( 'variables', get_template_directory_uri() . '/css/variables.css',false,'1.1','all');
     wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home-style.css',false,'1.1','all');
     wp_enqueue_style( 'form-style', get_template_directory_uri() . '/css/contact.css',false,'1.1','all');
     wp_enqueue_style( 'contacts-style', get_template_directory_uri() . '/css/contacts.css',false,'1.1','all');
+    wp_enqueue_style( 'faq-style', get_template_directory_uri() . '/css/faq.css',false,'1.1','all');
 
 
     wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/fontawesome/fontawesome-free-5.15.4-web/css/all.css',false,'1.1','all');

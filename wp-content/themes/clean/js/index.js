@@ -1,4 +1,5 @@
 const singleProductPage = document.querySelector('.single-product')
+const faqPage = document.querySelector('.faq')
 const backdrop = document.querySelector('.gallery-backdrop')
 const img = document.querySelector('.gallery-image')
 const thumbnailGallery = document.querySelector('.gallery-thumbnails')
@@ -10,6 +11,11 @@ onload = () => {
         autoFontScale()
         startSlick()
         portfolioGallery()
+    }
+
+    if (faqPage) {
+        console.log('faq page')
+        faqAccordion()
     }
 }
 
@@ -172,6 +178,31 @@ function closeOnClick(e) {
     }
 }
 
+/* FAQ */
+function faqAccordion() {
+    const accordionHeaders = document.querySelectorAll('.accordion-header')
+    const accordionBodies = document.querySelectorAll('.accordion-body')
 
+    accordionHeaders.forEach(item => {
+        item.addEventListener('click', (e) => {
 
+            //close all items
+            const accordionBody = e.target.nextElementSibling
+            const accordionOpen = getComputedStyle(accordionBody, null).getPropertyValue('display')
+            if (accordionOpen === 'none') {
+                accordionHeaders.forEach(item => {
+                    item.firstElementChild.classList.remove('rotate')
+                })
+                accordionBodies.forEach(item => {
+                    jQuery(item).slideUp('fast')
+                })
+            }
 
+            // toggle current item
+            const body = e.target.nextElementSibling
+            const arrow = e.target.firstElementChild
+            arrow.classList.toggle('rotate')
+            jQuery(body).slideToggle('fast')
+        })
+    })
+}
