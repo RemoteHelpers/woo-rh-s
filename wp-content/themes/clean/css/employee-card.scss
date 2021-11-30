@@ -32,7 +32,7 @@
       }
     }
 
-    .card header {
+    .card .employee-card-header {
       width: 100%;
       display: flex;
       justify-content: flex-end;
@@ -129,7 +129,7 @@
       }
     }
 
-    .card footer {
+    .card .employee-card-footer {
       padding-top: 1rem;
       display: flex;
       align-items: center;

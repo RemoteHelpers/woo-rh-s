@@ -27,12 +27,12 @@
 .products li .card:hover footer a {
   background-color: #FF5252;
 }
-.products li .card header {
+.products li .card .employee-card-header {
   width: 100%;
   display: flex;
   justify-content: flex-end;
 }
-.products li .card header div {
+.products li .card .employee-card-header div {
   border-radius: 0 8px 0 8px;
   padding: 0.5rem 2rem 0.5rem 2rem;
   background-color: green;
@@ -41,10 +41,10 @@
   align-items: center;
   column-gap: 0.5rem;
 }
-.products li .card header div i {
+.products li .card .employee-card-header div i {
   color: #ffffff;
 }
-.products li .card header div span {
+.products li .card .employee-card-header div span {
   color: #ffffff;
 }
 .products li .card main {
@@ -109,13 +109,13 @@
 .products li .card main .skill-items a:hover {
   color: #FF5252;
 }
-.products li .card footer {
+.products li .card .employee-card-footer {
   padding-top: 1rem;
   display: flex;
   align-items: center;
   background-color: transparent;
 }
-.products li .card footer a {
+.products li .card .employee-card-footer a {
   font-family: "Roboto", sans-serif;
   transition: 0.3s;
   display: flex;
