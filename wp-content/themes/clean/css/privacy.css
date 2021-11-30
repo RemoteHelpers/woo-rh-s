@@ -1,0 +1,68 @@
+.privacy ol {
+  margin: 0 0 1.5rem 3rem;
+  padding-left: 2.5rem;
+}
+.privacy h1 {
+  font-size: clamp(2rem, 8vw, 3rem);
+  text-decoration: underline;
+  color: var(--rh-accent-color);
+  text-align: center;
+}
+.privacy .important {
+  color: #FF5252;
+  font-style: italic;
+  font-weight: 400;
+}
+.privacy .privacy-body {
+  background-color: #FBFBFD;
+  border-radius: 8px;
+  margin: 2rem 2vw;
+  padding: 1rem;
+  box-shadow: 0 1px 15px 0 rgba(0, 0, 0, 0.3);
+}
+.privacy .privacy-body h2 {
+  font-size: 2rem;
+  font-weight: 900;
+}
+.privacy .tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+.privacy .privacy-tab {
+  background-color: white;
+  cursor: pointer;
+  padding: 1rem;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  font-weight: 600;
+}
+.privacy .privacy-tab:hover {
+  color: var(--rh-accent-color);
+}
+.privacy .privacy-tab.active {
+  background-color: #FBFBFD;
+  color: var(--rh-accent-color);
+}
+.privacy .content {
+  display: none;
+}
+.privacy .content.shown {
+  display: block;
+}
+@media (min-width: 650px) {
+  .privacy .tabs {
+    flex-direction: row;
+    align-items: initial;
+  }
+  .privacy .privacy-tab.active {
+    background-color: #FBFBFD;
+    position: relative;
+    top: 1px;
+    color: var(--rh-accent-color);
+  }
+}
+
+/*# sourceMappingURL=privacy.css.map */

@@ -1,0 +1,103 @@
+.faq {
+  padding-inline: calc((100vw - var(--scrollbar-width)) / 20);
+
+  h1,
+  .subtitle {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: clamp(24px, 5vw, 48px);
+    font-weight: 900;
+    text-decoration: underline;
+    margin-block: 4rem 0;
+  }
+
+  .subtitle {
+    font-size: 19px;
+    margin-top: .5rem;
+  }
+
+  section {
+    padding-block: 1rem;
+
+    &:last-child {
+      padding-bottom: 6rem;
+    }
+  }
+
+  .split {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    gap: 1rem;
+
+    img {
+      width: clamp(300px, 50%, 500px);
+    }
+  }
+
+  .block-title {
+    font-size: clamp(24px, 3.5vw, 32px);
+    margin-bottom: 0;
+  }
+
+  .block-subtitle {
+    font-size: 19px;
+    font-weight: 600;
+    margin-top: 0;
+  }
+
+  .faq-accordion {
+    border-left: 1px solid #c2c2c2;
+    border-top: 1px solid #c2c2c2;
+    border-right: 1px solid #c2c2c2;
+
+    li {
+      > * {
+        padding: 1rem;
+      }
+
+      .accordion-header,
+      .accordion-body {
+        border-bottom: 1px solid #c2c2c2;
+      }
+    }
+
+    .accordion-header {
+      cursor: pointer;
+
+      i {
+        transition: transform .3s ease;
+
+        &.rotate {
+          transform: rotate(180deg);
+        }
+      }
+
+      i,
+      span {
+        pointer-events: none;
+      }
+    }
+
+    .accordion-body {
+      display: none;
+    }
+  }
+
+
+  @media (min-width: 980px) {
+    .split {
+      grid-template-columns: repeat(2, 1fr);
+
+      img {
+        width: clamp(300px, 100%, 600px);
+
+        &.reverse {
+          order: 2;
+        }
+      }
+    }
+  }
+}

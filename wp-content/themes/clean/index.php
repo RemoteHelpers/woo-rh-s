@@ -1,4 +1,4 @@
-ß<?php
+<?php
 /**
  * The main template file
  *

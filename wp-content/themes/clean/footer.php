@@ -23,12 +23,11 @@
             ) ?>
         </div>
         <div class="privacy-policy">
-            <p>Remote Helpers 2018-<?php echo date("Y"); ?>
+            <p>2018-<?php echo date("Y"); ?>
                 © All rights reserved</p>
             <a href="<?php echo get_permalink(3) ?>" class="privacy-page">Privacy Policy</a>
         </div>
     </div>
-
 
     <div class="footer-icon">
 
