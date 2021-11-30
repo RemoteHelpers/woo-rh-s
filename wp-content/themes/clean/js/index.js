@@ -1,6 +1,7 @@
 const singleProductPage = document.querySelector('.single-product')
 const faqPage = document.querySelector('.faq')
 const privacyPage = document.querySelector('.privacy')
+const pricingPage = document.querySelector('.pricing')
 
 
 const backdrop = document.querySelector('.gallery-backdrop')
@@ -24,6 +25,11 @@ onload = () => {
     if (privacyPage) {
         console.log('privacy page')
         privacyTabs()
+    }
+
+    if (pricingPage) {
+        console.log('pricing page')
+        pricingSwitch()
     }
 }
 
@@ -186,6 +192,8 @@ function closeOnClick(e) {
     }
 }
 
+/* END PORTFOLIO GALLERY */
+
 /* FAQ */
 function faqAccordion() {
     const accordionHeaders = document.querySelectorAll('.accordion-header')
@@ -240,4 +248,60 @@ function privacyTabs() {
             found.classList.add('shown')
         })
     })
+}
+
+/* PRICING */
+function pricingSwitch() {
+    const pricingSwitch = document.querySelector('.switch')
+    // const spans = document.querySelectorAll('.pricing-switch>span')
+    // const desc = document.querySelectorAll('.switch-desc')
+
+
+    showCurrentData()
+
+    pricingSwitch.addEventListener('click', e => {
+        let switchPos = e.target.dataset.switch
+        e.target.dataset.switch = getNextSwitchPos(switchPos)
+        showCurrentData()
+    })
+}
+
+function getNextSwitchPos(pos) {
+    const switchPos = ['fullTime', 'partTime']
+    const idx = switchPos.indexOf(pos)
+    if (switchPos[idx + 1]) {
+        return switchPos[idx + 1]
+    } else {
+        return switchPos[idx - 1]
+    }
+}
+
+function showCurrentData() {
+    const pricingSwitch = document.querySelector('.switch')
+    const switchPosition = pricingSwitch.dataset.switch
+    const spans = document.querySelectorAll('.pricing-switch>span')
+    const desc = document.querySelectorAll('.switch-desc')
+
+    spans.forEach(item => {
+        item.classList.remove('active')
+    })
+
+    const spanArr = Array.from(spans)
+    const activeSpan = spanArr.find(item => {
+        return item.dataset.switch === switchPosition
+    })
+    activeSpan.classList.add('active')
+
+    const descArr = Array.from(desc)
+    const description = descArr.find(item => {
+        return item.dataset.desc === switchPosition
+    })
+
+    descArr.forEach(item => {
+        jQuery(item).fadeOut('fast')
+    })
+    setTimeout(function () {
+        jQuery(description).fadeIn()
+    }, 300)
+
 }

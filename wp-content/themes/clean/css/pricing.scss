@@ -1,0 +1,279 @@
+@import 'variables';
+
+.pricing {
+  padding-inline: calc((100vw - var(--scrollbar-width)) / 30);
+  text-align: center;
+
+  section {
+    padding-block: 4rem;
+  }
+
+  .pricing-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5vw;
+    font-size: clamp(11px, 5vw, 24px);
+    font-weight: 700;
+
+    span {
+      text-align: center;
+      transition: color .5s ease;
+    }
+
+    .active {
+      color: red;
+    }
+
+    .switch {
+      position: relative;
+      appearance: none;
+      background-color: var(--rh-accent-color);
+      border-radius: 1.8rem;
+      box-shadow: inset 0px 0px 8px 1px rgb(0 0 0 / 30%);
+      height: 20px;
+      min-width: 48px;
+      cursor: pointer;
+      outline: 0;
+      transition: .3s ease;
+
+      &:checked {
+        background-color: grey;
+      }
+
+      &:before {
+        content: '';
+        background-color: white;
+        border-radius: 1.8rem;
+        box-shadow: 3px 3px 20px 0px rgb(0 0 0 / 30%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        transform: scale(1.1);
+        transition: .5s ease;
+      }
+
+      &:checked:before {
+        left: 28px;
+      }
+    }
+  }
+
+  .switch-desc {
+    display: none;
+
+    p {
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+
+  .pricing-cards {
+    display: grid;
+    gap: 5vw;
+    justify-items: center;
+
+    .card {
+      border-radius: .5rem;
+      box-shadow: 3px 3px 20px 0px rgb(0 0 0 / 30%);
+      width: min(100%, 325px);
+    }
+
+    h3 {
+      background-color: #54595f;
+      border-top-left-radius: .5rem;
+      border-top-right-radius: .5rem;
+      color: white;
+      font-size: 19px;
+      margin: 0;
+      padding-block: 1rem;
+    }
+
+    .card-props {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      padding: 1rem;
+
+      li {
+        font-size: 19px;
+      }
+
+      .card-price {
+        font-size: 3rem;
+        font-weight: 800;
+
+        sup {
+          font-size: 2.25rem;
+        }
+      }
+    }
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+  }
+
+  .offer-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10vw;
+    align-items: center;
+
+    .card {
+      border-radius: .5rem;
+      box-shadow: 3px 3px 20px 0px rgb(0 0 0 / 30%);
+      padding: 2rem;
+      width: min(100%, 325px);
+
+      h3 {
+        font-size: 1.5rem;
+        margin-block: 0 1.5rem;
+      }
+
+      .price {
+        font-size: 3rem;
+        font-weight: 700;
+      }
+
+      &.center {
+        background-color: var(--rh-accent-color);
+        color: white;
+        transform: scale(1.1);
+
+        button {
+          background-color: white;
+          color: var(--rh-accent-color);
+
+          &:hover {
+            background-color: #61ce70;
+            color: white;
+          }
+        }
+      }
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      font-size: 1.75rem;
+      line-height: 1.3;
+    }
+
+    button {
+      background-color: var(--rh-accent-color);
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 1.125rem;
+      font-weight: 700;
+      padding: .8em 2em;
+      margin-top: 1rem;
+      transition: background-color .3s ease, color .3s ease;
+
+      &:hover {
+        background-color: #61ce70;
+      }
+    }
+  }
+
+  table {
+    border-collapse: collapse;
+
+    tr {
+      border-bottom: 1px solid #444444;
+
+      > th {
+        font-size: clamp(0.875rem, 3vw, 1rem);
+        font-weight: 400;
+        padding-block: 1rem;
+      }
+    }
+
+    td {
+      padding-block: 1rem;
+    }
+
+    th:first-child,
+    td:first-child {
+      font-size: clamp(0.875rem, 4vw, 1rem);
+      font-weight: 600;
+      text-align: left;
+    }
+
+    th.table-header {
+      font-size: clamp(1rem, 4vw, 1.5rem);
+      font-weight: 700;
+    }
+
+    .plus {
+      background-color: #F5F5F5;
+      color: #61ce70;
+      font-size: 1.375rem;
+      font-weight: 700;
+    }
+
+    .minus {
+      color: var(--rh-accent-color);
+      font-size: 1.375rem;
+      font-weight: 700;
+    }
+  }
+
+  @media (min-width: 450px) {
+    .pricing-switch {
+      .switch {
+        height: 32px;
+        min-width: 64px;
+
+        &:before {
+          width: 32px;
+          height: 32px;
+        }
+
+        &:checked:before {
+          left: 32px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .pricing-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .offer-cards {
+      gap: 5vw;
+    }
+  }
+
+  @media (min-width: 1050px) {
+    .pricing-cards {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .offer-cards {
+      flex-direction: row;
+    }
+
+    table {
+      margin-inline: auto;
+      max-width: 80%;
+
+      tr {
+        border-bottom: 1px solid #444444;
+
+        > th {
+          padding-inline: 1rem;
+        }
+      }
+    }
+  }
+}
