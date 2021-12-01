@@ -49,7 +49,7 @@ if (empty($product) || !$product->is_visible()) {
                 </div>
             </div>
 
-            <H3 class="product__first_name"><?php the_field('first_name'); ?> <?php echo $name[0]?>.</H3>
+            <H3 class="product__first_name"><?php the_field('first_name'); ?></H3>
 
             <div class="product__position"><?php the_field('current_position') ?></div>
             <!--//TODO: change h5 to div and insert blocks-->
