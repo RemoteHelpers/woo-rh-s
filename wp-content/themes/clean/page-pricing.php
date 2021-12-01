@@ -7,7 +7,7 @@ get_header(); ?>
 
     <div class="pricing">
 
-        <section>
+        <section class="swappable-elements-container">
             <div class="pricing-switch">
                 <span class="active" data-switch="fullTime">FULL TIME EMPLOYEES</span>
                 <input class="switch" data-switch="fullTime" type="checkbox">

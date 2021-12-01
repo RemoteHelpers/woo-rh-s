@@ -1,4 +1,4 @@
-* {
+:root {
   --rh-accent-color: #FF5252;
   --rh-green-color: #2ecc71;
   --scrollbar-width: 8px;
@@ -10,6 +10,9 @@
 }
 .pricing section {
   padding-block: 4rem;
+}
+.pricing .swappable-elements-container {
+  min-height: 64vh;
 }
 .pricing .pricing-switch {
   display: flex;
