@@ -281,6 +281,10 @@ function showCurrentData() {
     const switchPosition = pricingSwitch.dataset.switch
     const spans = document.querySelectorAll('.pricing-switch>span')
     const desc = document.querySelectorAll('.switch-desc')
+    const elContainer = document.querySelector('.swappable-elements-container')
+    const computedHeight = getComputedStyle(elContainer).height
+    elContainer.style.minHeight = computedHeight
+    // console.log(getComputedStyle(elContainer).height)
 
     spans.forEach(item => {
         item.classList.remove('active')
