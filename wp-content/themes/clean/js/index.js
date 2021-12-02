@@ -2,6 +2,7 @@ const singleProductPage = document.querySelector('.single-product')
 const faqPage = document.querySelector('.faq')
 const privacyPage = document.querySelector('.privacy')
 const pricingPage = document.querySelector('.pricing')
+const affiliatePage = document.querySelector('.affiliate-page')
 
 
 const backdrop = document.querySelector('.gallery-backdrop')
@@ -30,6 +31,17 @@ onload = () => {
     if (pricingPage) {
         console.log('pricing page')
         pricingSwitch()
+    }
+
+    if (affiliatePage) {
+        console.log('affiliate page')
+        affiliateSlider()
+    }
+}
+
+onresize = () => {
+    if (affiliatePage) {
+        affiliateSlider()
     }
 }
 
@@ -308,4 +320,21 @@ function showCurrentData() {
         jQuery(description).fadeIn()
     }, 300)
 
+}
+
+/* AFFILIATE PAGE SLIDER */
+function affiliateSlider() {
+    jQuery('.affiliate-cards').slick({
+        arrows: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+        mobileFirst: true,
+        responsive: [
+            {
+                breakpoint: 767,
+                settings: "unslick"
+            }
+        ]
+    });
 }

@@ -46,6 +46,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Utilities
 	- Accessibility
 	- Alignments
+# Custom
+    - Custom styles
+    - Custom elements
+    - Custom fonts
 
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
@@ -941,6 +945,9 @@ textarea {
   margin-bottom: 1.5em;
 }
 
+/*--------------------------------------------------------------
+# Custom
+--------------------------------------------------------------*/
 /* Custom styles
 --------------------------------------------- */
 .main-page {
@@ -948,7 +955,14 @@ textarea {
   grid-template-columns: 1fr 4fr;
 }
 
-/* CUSTOM SCROLLBAR */
+.post,
+.page {
+  margin: 0;
+}
+
+/* Custom elements
+--------------------------------------------- */
+/* SCROLLBAR */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -967,11 +981,24 @@ textarea {
   background-color: #171717;
 }
 
-.post,
-.page {
-  margin: 0;
+/* RH RED BUTTON */
+.rh-button {
+  background-color: var(--rh-accent-color);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.125rem;
+  font-weight: 700;
+  padding: 0.8em 2em;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.rh-button:hover {
+  background-color: #61ce70;
 }
 
+/* Custom fonts
+--------------------------------------------- */
 @font-face {
   font-family: "star";
   src: url("fonts/star.eot");

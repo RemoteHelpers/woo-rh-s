@@ -207,6 +207,7 @@ function clean_scripts() {
     wp_enqueue_style( 'faq-style', get_template_directory_uri() . '/css/faq.css',false,'1.1','all');
     wp_enqueue_style( 'privacy-style', get_template_directory_uri() . '/css/privacy.css',false,'1.1','all');
     wp_enqueue_style( 'pricing-style', get_template_directory_uri() . '/css/pricing.css',false,'1.1','all');
+    wp_enqueue_style( 'affiliate-page-style', get_template_directory_uri() . '/css/affiliate-page.css',false,'1.1','all');
 
 
     wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/fontawesome/fontawesome-free-5.15.4-web/css/all.css',false,'1.1','all');
