@@ -54,6 +54,8 @@
         if (!isClickInside) {
             siteNavigation.classList.remove('toggled');
             button.setAttribute('aria-expanded', 'false');
+            document.body.style.overflowY = 'initial'
+            menu.style.overflowY = 'initial'
         }
     });
 

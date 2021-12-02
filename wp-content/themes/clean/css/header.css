@@ -1,7 +1,7 @@
-@charset "UTF-8";
-* {
+:root {
   --rh-accent-color: #FF5252;
   --rh-green-color: #2ecc71;
+  --scrollbar-width: 8px;
 }
 
 * {
@@ -77,6 +77,12 @@
   cursor: pointer;
 }
 
+.main-menu {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
 .main-menu > .menu-item a {
   color: var(--menu-link-color);
 }
@@ -101,11 +107,8 @@
   opacity: 0;
   background-color: var(--menu-hover-underline);
 }
-
-
-
 .main-menu > .menu-item > a::after {
-  content: "";
+  content: "\f0d7";
   font-family: "Font Awesome 5 Free", "sans-serif";
   color: var(--menu-link-color);
   padding-left: clamp(5px, 0.5vw, 10px);
@@ -150,6 +153,9 @@
   -o-animation: menu-link-hover 0.3s ease-in-out;
   animation: menu-link-hover 0.3s ease-in-out;
   animation-fill-mode: forwards;
+}
+.main-menu::-webkit-scrollbar {
+  display: none;
 }
 
 /* BLACK HEADER THEME */

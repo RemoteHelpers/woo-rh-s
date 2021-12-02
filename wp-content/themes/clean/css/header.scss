@@ -81,6 +81,9 @@
 }
 
 .main-menu {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
   > .menu-item {
     a {
       color: var(--menu-link-color);
@@ -166,7 +169,10 @@
       animation: menu-link-hover .3s ease-in-out;
       animation-fill-mode: forwards;
     }
+  }
 
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
