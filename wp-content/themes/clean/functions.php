@@ -7,6 +7,12 @@
  * @package clean
  */
 
+/**
+ * Includes.
+ */
+
+//include_once __DIR__ . '/inc/rh-gallery.php';
+
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '1.0.0' );
@@ -165,6 +171,17 @@ function filter_sidebar_init() {
 add_action( 'widgets_init', 'filter_sidebar_init' );
 
 /**
+ * Allow to upload SVG-s.
+ */
+function add_file_types_to_uploads($file_types) {
+    $new_filetypes = array();
+    $new_filetypes['svg'] = 'image/svg+xml';
+    return array_merge($file_types, $new_filetypes );
+}
+
+add_filter('upload_mimes', 'add_file_types_to_uploads');
+
+/**
  * Enqueue scripts and styles.
  */
 
@@ -176,6 +193,7 @@ add_theme_support( 'woocommerce' );
 add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
 function clean_scripts() {
+    wp_enqueue_style( 'variables', get_template_directory_uri() . '/css/variables.css',false,'1.1','all');
 	wp_enqueue_style( 'clean-style', get_stylesheet_uri(), array(), _S_VERSION );
     wp_enqueue_style( 'single-product', get_template_directory_uri() . '/css/single-product.css',false,'1.1','all');
     wp_enqueue_style( 'archive-product', get_template_directory_uri() . '/css/archive-product.css',false,'1.1','all');
@@ -183,9 +201,13 @@ function clean_scripts() {
     wp_enqueue_style( 'slick-styles', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css',false,'1.1','all');
     wp_enqueue_style( 'header-style', get_template_directory_uri() . '/css/header.css',false,'1.1','all');
     wp_enqueue_style( 'footer-style', get_template_directory_uri() . '/css/footer.css',false,'1.1','all');
-    wp_enqueue_style( 'variables', get_template_directory_uri() . '/css/variables.css',false,'1.1','all');
     wp_enqueue_style( 'home-style', get_template_directory_uri() . '/css/home-style.css',false,'1.1','all');
     wp_enqueue_style( 'form-style', get_template_directory_uri() . '/css/contact.css',false,'1.1','all');
+    wp_enqueue_style( 'contacts-style', get_template_directory_uri() . '/css/contacts.css',false,'1.1','all');
+    wp_enqueue_style( 'faq-style', get_template_directory_uri() . '/css/faq.css',false,'1.1','all');
+    wp_enqueue_style( 'privacy-style', get_template_directory_uri() . '/css/privacy.css',false,'1.1','all');
+    wp_enqueue_style( 'pricing-style', get_template_directory_uri() . '/css/pricing.css',false,'1.1','all');
+    wp_enqueue_style( 'affiliate-page-style', get_template_directory_uri() . '/css/affiliate-page.css',false,'1.1','all');
 
 
     wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/fontawesome/fontawesome-free-5.15.4-web/css/all.css',false,'1.1','all');
@@ -197,8 +219,9 @@ function clean_scripts() {
 
     wp_style_add_data( 'clean-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'clean-script', get_template_directory_uri() . '/js/index.js', array('jquery'), _S_VERSION, true );
-	wp_enqueue_script( 'clean-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'clean-script', get_template_directory_uri() . '/js/index.js', array('jquery', 'acf-input'), _S_VERSION, true );
+	acf_enqueue_script('clean-script');
+    wp_enqueue_script( 'clean-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), _S_VERSION, true );
 	wp_enqueue_script( 'home-page', get_template_directory_uri() . '/js/home-page.js', array(), _S_VERSION, true );
     wp_enqueue_script( 'slick-script', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array(), _S_VERSION, true );
 
@@ -269,6 +292,61 @@ function pprint_r($a)
 /**
  * Custom layout begins.
  */
+add_action('woocommerce_before_single_product_summary', 'rh_add_gallery_backdrop', 3);
+
+function rh_add_gallery_backdrop() { ?>
+    <div class="gallery-backdrop">
+        <i class="fas fa-times gallery-close"></i>
+        <i class="fas fa-arrow-left gallery-prev"></i>
+        <i class="fas fa-arrow-right gallery-next"></i>
+        <div class="gallery-container">
+            <img class="gallery-image" src="">
+        </div>
+        <div class="gallery-thumbnails"></div>
+    </div>
+<?php
+}
+add_action( 'woocommerce_sale_flash', 'pancode_echo_sale_percent' );
+
+/**
+ * Echo discount percent badge html.
+ *
+ * @param string $html Default sale html.
+ *
+ * @return string
+ */
+function pancode_echo_sale_percent( $html ) {
+  global $product;
+
+  /**
+   * @var WC_Product $product
+   */
+
+  $regular_max = 0;
+  $sale_min    = 0;
+  $discount    = 0;
+
+  if ( 'variable' === $product->get_type() ) {
+    $prices      = $product->get_variation_prices();
+    $regular_max = max( $prices['regular_price'] );
+    $sale_min    = min( $prices['sale_price'] );
+  } else {
+    $regular_max = $product->get_regular_price();
+    $sale_min    = $product->get_sale_price();
+  }
+
+  if ( ! $regular_max && $product instanceof WC_Product_Bundle ) {
+    $bndl_price_data = $product->get_bundle_price_data();
+    $regular_max     = max( $bndl_price_data['regular_prices'] );
+    $sale_min        = max( $bndl_price_data['prices'] );
+  }
+
+  if ( floatval( $regular_max ) ) {
+    $discount = round( 100 * ( $regular_max - $sale_min ) / $regular_max );
+  }
+
+  return '<span class="onsale">-&nbsp;' . esc_html( $discount ) . '%</span>';
+}
 add_action('woocommerce_before_single_product_summary', 'rh_add_opening_section', 5);
 
 function rh_add_opening_section() { ?>
@@ -391,6 +469,7 @@ function rh_add_closing_section() {
     echo '</section>';
 }
 
+
 /**
  * Single product about section.
  */
@@ -481,14 +560,19 @@ function rh_single_product_content() { ?>
             </ul>
         <?php endif;
 
-        if (have_rows('designer_portfolio')) : ?>
+        if (have_rows('designer_portfolio')) :
+            $designer_portfolio = get_field('designer_portfolio');
+            acf_localize_data(array('designerPortfolio'=>$designer_portfolio));
+            ?>
             <ul class="designer-portfolio">
             <?php while (have_rows('designer_portfolio')) : the_row();?>
-                    <a href="<?php the_sub_field('desing_project_description');?>">
-                    <li class="designer-portfolio-img">
-                    <?php the_sub_field('designer_project_name');?>
+                    <li class="designer-portfolio-item">
+                    <?php
+                    $image = get_sub_field('cover_image');
+                    ?>
+                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                    <span><?php the_sub_field('designer_project_name'); ?></span>
                     </li>
-                    </a>
             <?php endwhile; ?>
             </ul>
         <?php endif;
@@ -594,4 +678,7 @@ add_action('rh_main_page_closing_div', 'rh_close_sidebar1_div', 10);
 function rh_close_sidebar1_div() { ?>
     </div>
 <?php }
+
+
+
 

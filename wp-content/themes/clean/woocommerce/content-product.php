@@ -29,9 +29,17 @@ if (empty($product) || !$product->is_visible()) {
     <div class="card" id="card">
         <a href="<?php echo get_post_permalink() ?>">
         <header>
-            <div style="background-color: <?php echo get_field('current_work_status') ?>">
-                <span>%<?php echo $product->get_sku(); ?></span>
-            </div>
+            <?php if ( $product->is_on_sale() ) : ?>
+                <div style="background-color: <?php echo get_field('current_work_status') ?>">
+
+
+                    <?php echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( '%', 'woocommerce' ) . '</span>', $post, $product ); ?>
+
+
+                </div>
+            <?php
+            endif;
+            ?>
             <div class="woocommerce-product-rating">
                 <?php
 
@@ -43,13 +51,13 @@ if (empty($product) || !$product->is_visible()) {
             <img src="<?php echo wp_get_attachment_url($product->get_image_id()); ?>"
                  alt="Product image">
             <div class="product__id">
-                <div class="product__id_name">ID: <?php echo $id = $product->get_id();?></div>
-                <div class="product__id_time"><span class="tooltip" data-title="Employee working hours"><i class="<?php echo get_field('shifts') ?>" > </i></span>
+                <div class="product__id_name">ID: <?php echo $product->get_sku(); ?></div>
+                <div class="product__id_time"><span class="tooltip" data-title="Employee Work Shift"><i class="<?php echo get_field('shifts') ?>" > </i></span>
 
                 </div>
             </div>
 
-            <H3 class="product__first_name"><?php the_field('first_name'); ?></H3>
+            <?php the_title( '<h3 class="product__first_name" >', '</h3>' ); ?>
 
             <div class="product__position"><?php the_field('current_position') ?></div>
             <!--//TODO: change h5 to div and insert blocks-->
