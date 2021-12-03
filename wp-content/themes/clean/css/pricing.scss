@@ -8,10 +8,6 @@
     padding-block: 4rem;
   }
 
-  .swappable-elements-container {
-    min-height: 64vh;
-  }
-
   .pricing-switch {
     display: flex;
     align-items: center;
@@ -23,11 +19,12 @@
     span {
       text-align: center;
       transition: color .5s ease;
+      &.active {
+        color: red;
+      }
     }
 
-    .active {
-      color: red;
-    }
+
 
     .switch {
       position: relative;
@@ -67,10 +64,15 @@
 
   .switch-desc {
     display: none;
+    transition: display .3s ease;
 
     p {
       font-size: 18px;
       font-weight: 700;
+    }
+
+    &.active {
+      display: block;
     }
   }
 

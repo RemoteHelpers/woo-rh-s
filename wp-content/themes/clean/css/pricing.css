@@ -11,9 +11,6 @@
 .pricing section {
   padding-block: 4rem;
 }
-.pricing .swappable-elements-container {
-  min-height: 64vh;
-}
 .pricing .pricing-switch {
   display: flex;
   align-items: center;
@@ -26,7 +23,7 @@
   text-align: center;
   transition: color 0.5s ease;
 }
-.pricing .pricing-switch .active {
+.pricing .pricing-switch span.active {
   color: red;
 }
 .pricing .pricing-switch .switch {
@@ -62,10 +59,14 @@
 }
 .pricing .switch-desc {
   display: none;
+  transition: display 0.3s ease;
 }
 .pricing .switch-desc p {
   font-size: 18px;
   font-weight: 700;
+}
+.pricing .switch-desc.active {
+  display: block;
 }
 .pricing .pricing-cards {
   display: grid;

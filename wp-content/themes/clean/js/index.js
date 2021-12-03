@@ -264,62 +264,18 @@ function privacyTabs() {
 
 /* PRICING */
 function pricingSwitch() {
-    const pricingSwitch = document.querySelector('.switch')
-    // const spans = document.querySelectorAll('.pricing-switch>span')
-    // const desc = document.querySelectorAll('.switch-desc')
-
-
-    showCurrentData()
-
-    pricingSwitch.addEventListener('click', e => {
-        let switchPos = e.target.dataset.switch
-        e.target.dataset.switch = getNextSwitchPos(switchPos)
-        showCurrentData()
-    })
-}
-
-function getNextSwitchPos(pos) {
-    const switchPos = ['fullTime', 'partTime']
-    const idx = switchPos.indexOf(pos)
-    if (switchPos[idx + 1]) {
-        return switchPos[idx + 1]
-    } else {
-        return switchPos[idx - 1]
-    }
-}
-
-function showCurrentData() {
-    const pricingSwitch = document.querySelector('.switch')
-    const switchPosition = pricingSwitch.dataset.switch
+    const priceSwitch = document.querySelector('.switch')
+    const switchDesc = document.querySelectorAll('.switch-desc')
     const spans = document.querySelectorAll('.pricing-switch>span')
-    const desc = document.querySelectorAll('.switch-desc')
-    const elContainer = document.querySelector('.swappable-elements-container')
-    const computedHeight = getComputedStyle(elContainer).height
-    elContainer.style.minHeight = computedHeight
-    // console.log(getComputedStyle(elContainer).height)
 
-    spans.forEach(item => {
-        item.classList.remove('active')
+    priceSwitch.addEventListener('click', () => {
+        switchDesc.forEach(item => {
+            item.classList.toggle('active')
+        })
+        spans.forEach(item => {
+            item.classList.toggle('active')
+        })
     })
-
-    const spanArr = Array.from(spans)
-    const activeSpan = spanArr.find(item => {
-        return item.dataset.switch === switchPosition
-    })
-    activeSpan.classList.add('active')
-
-    const descArr = Array.from(desc)
-    const description = descArr.find(item => {
-        return item.dataset.desc === switchPosition
-    })
-
-    descArr.forEach(item => {
-        jQuery(item).fadeOut('fast')
-    })
-    setTimeout(function () {
-        jQuery(description).fadeIn()
-    }, 300)
-
 }
 
 /* AFFILIATE PAGE SLIDER */

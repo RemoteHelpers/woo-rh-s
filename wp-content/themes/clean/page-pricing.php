@@ -7,7 +7,7 @@ get_header(); ?>
 
     <div class="pricing">
 
-        <section class="swappable-elements-container">
+        <section>
             <div class="pricing-switch">
                 <span class="active" data-switch="fullTime">FULL TIME EMPLOYEES</span>
                 <input class="switch" data-switch="fullTime" type="checkbox">
@@ -18,54 +18,27 @@ get_header(); ?>
                     the client’s time zone. The price depends on the specific type of work and the kind of provided
                     services.</p>
                 <div class="pricing-cards">
-                    <div class="card">
-                        <h3>Assistants</h3>
-                        <ul class="card-props">
-                            <li class="card-price">
-                                <sup>€</sup>800
-                            </li>
-                            <li>Lead generation</li>
-                            <li>Personal assistants</li>
-                            <li>Customer support</li>
-                            <li>Recruiter</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Marketers</h3>
-                        <ul class="card-props">
-                            <li class="card-price">
-                                <sup>€</sup>1000
-                            </li>
-                            <li>SEO/PPC/SMM</li>
-                            <li>Content manager</li>
-                            <li>Copywriter</li>
-                            <li>Media buyer</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Designers</h3>
-                        <ul class="card-props">
-                            <li class="card-price">
-                                <sup>€</sup>1200
-                            </li>
-                            <li>Web designer</li>
-                            <li>Illustrator</li>
-                            <li>Video editor</li>
-                            <li>Graphic designer</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Developers</h3>
-                        <ul class="card-props">
-                            <li class="card-price">
-                                <sup>€</sup>1400
-                            </li>
-                            <li>Front-end</li>
-                            <li>Back-end</li>
-                            <li>Full-stack</li>
-                            <li>QA</li>
-                        </ul>
-                    </div>
+                    <?php
+                    if (have_rows('employee_group_card')) :
+                        while (have_rows('employee_group_card')) : the_row(); ?>
+                            <div class="card">
+                                <h3><?php the_sub_field('employee_group_name'); ?></h3>
+                                <ul class="card-props">
+                                    <li class="card-price">
+                                        <sup>€</sup><?php the_sub_field('employee_group_full-time_price'); ?>
+                                    </li>
+                                    <?php
+                                    $skills_field = get_sub_field('employee_group_skills');
+                                    $skills_array = explode(';', $skills_field);
+                                    foreach ($skills_array as $skill) : ?>
+                                        <li><?php echo $skill; ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        <?php
+                        endwhile;
+                    endif;
+                    ?>
                 </div>
             </div>
             <div class="switch-desc" data-desc="partTime">
@@ -73,54 +46,27 @@ get_header(); ?>
                     client’s time zone. The price depends on the specific type of work and the kind of provided
                     services.</p>
                 <div class="pricing-cards">
-                    <div class="card">
-                        <h3>Assistants</h3>
-                        <ul class="card-props">
-                            <li class="card-price">
-                                <sup>€</sup>500
-                            </li>
-                            <li>Lead generation</li>
-                            <li>Personal assistants</li>
-                            <li>Customer support</li>
-                            <li>Recruiter</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Marketers</h3>
-                        <ul class="card-props">
-                            <li class="card-price">
-                                <sup>€</sup>700
-                            </li>
-                            <li>SEO/PPC/SMM</li>
-                            <li>Content manager</li>
-                            <li>Copywriter</li>
-                            <li>Media buyer</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Designers</h3>
-                        <ul class="card-props">
-                            <li class="card-price">
-                                <sup>€</sup>900
-                            </li>
-                            <li>Web designer</li>
-                            <li>Illustrator</li>
-                            <li>Video editor</li>
-                            <li>Graphic designer</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Developers</h3>
-                        <ul class="card-props">
-                            <li class="card-price">
-                                <sup>€</sup>1100
-                            </li>
-                            <li>Front-end</li>
-                            <li>Back-end</li>
-                            <li>Full-stack</li>
-                            <li>QA</li>
-                        </ul>
-                    </div>
+                    <?php
+                    if (have_rows('employee_group_card')) :
+                        while (have_rows('employee_group_card')) : the_row(); ?>
+                            <div class="card">
+                                <h3><?php the_sub_field('employee_group_name'); ?></h3>
+                                <ul class="card-props">
+                                    <li class="card-price">
+                                        <sup>€</sup><?php the_sub_field('employee_group_part-time_price'); ?>
+                                    </li>
+                                    <?php
+                                    $skills_field = get_sub_field('employee_group_skills');
+                                    $skills_array = explode(';', $skills_field);
+                                    foreach ($skills_array as $skill) : ?>
+                                        <li><?php echo $skill; ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        <?php
+                        endwhile;
+                    endif;
+                    ?>
                 </div>
             </div>
         </section>
