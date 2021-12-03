@@ -4,10 +4,11 @@ const privacyPage = document.querySelector('.privacy')
 const pricingPage = document.querySelector('.pricing')
 const affiliatePage = document.querySelector('.affiliate-page')
 
-
 const backdrop = document.querySelector('.gallery-backdrop')
 const img = document.querySelector('.gallery-image')
 const thumbnailGallery = document.querySelector('.gallery-thumbnails')
+
+let imgIndex = 0
 
 onload = () => {
 
@@ -97,6 +98,7 @@ function autoFontScale() {
 /* PORTFOLIO GALLERY */
 function portfolioGallery() {
     const portfolioItem = document.querySelectorAll('.designer-portfolio-item')
+
     portfolioItem.forEach((item, index) => {
         item.addEventListener('click', (e) => {
 
@@ -105,73 +107,148 @@ function portfolioGallery() {
             const arrowBack = document.querySelector('.gallery-prev')
             const arrowNext = document.querySelector('.gallery-next')
 
-            let imgIndex = 0
-
-            openGallery()
-
-            const field = acf.get('designerPortfolio') // get image array from acf
+            // get image array from acf
+            const field = acf.get('designerPortfolio')
             const indexArr = Object.keys(field[index]['design_project_gallery'])
             const thumbnailArr = field[index]['design_project_gallery']
 
+
+            image = new imageObject()
+
+            image.field = field[index]
+            image.indexArr = indexArr
+            image.thumbnailArr = thumbnailArr
+
+            openGallery()
+
             generateThumbnails(thumbnailArr)
 
-            img.setAttribute('src', field[index]['design_project_gallery'][imgIndex].url) // set src for image
+            image.thumbImages = Array.from(thumbnailGallery.children)
+
+            selectThumbnail(image.thumbImages[0])
+
+            // set src for image from retrieved acf data
+            img.setAttribute('src', field[index]['design_project_gallery'][imgIndex].url)
 
             // listeners
             document.addEventListener('wheel', preventScroll, {passive: false})
-            document.addEventListener('keydown', preventKeyScroll)
-            document.addEventListener('keydown', closeOnEsc)
+            document.addEventListener('keydown', handleKeypress)
             close.addEventListener('click', closeGallery)
-            arrowBack.addEventListener('click', () => {
-                if ((imgIndex - 1) >= indexArr[0]) {
-                    imgIndex -= 1
-                } else {
-                    imgIndex = indexArr.length - 1
-                }
-                img.setAttribute('src', field[index]['design_project_gallery'][imgIndex].url)
-            })
-            arrowNext.addEventListener('click', () => {
-                if ((imgIndex + 1) <= indexArr[indexArr.length - 1]) {
-                    imgIndex += 1
-                } else {
-                    imgIndex = 0
-                }
-                img.setAttribute('src', field[index]['design_project_gallery'][imgIndex].url)
-            })
+            document.addEventListener('touchstart', handleTouchStart)
+            document.addEventListener('touchend', handleTouchEnd)
+
+
+            arrowBack.addEventListener('click', prevSlide)
+            arrowNext.addEventListener('click', nextSlide)
 
             // put a timed listener on close, so that it doesn't close immediately on open
             setTimeout(() => {
                 document.addEventListener('click', closeOnClick)
-            }, 200)
+            }, 100)
         })
     })
+}
+
+function handleTouchStart(e) {
+    image.touchStart = e.changedTouches[0].screenX
+}
+
+function handleTouchEnd(e) {
+    image.touchEnd = e.changedTouches[0].screenX
+    if ((image.touchStart - image.touchEnd) > 0) {
+        prevSlide()
+    } else if ((image.touchStart - image.touchEnd) < 0) {
+        nextSlide()
+    }
+}
+
+class imageObject {
+    constructor() {
+        this.imgIdx = 0
+    }
+}
+
+function nextSlide() {
+    if (image.field['design_project_gallery'][image.imgIdx + 1]) {
+        image.imgIdx += 1
+    } else {
+        image.imgIdx = 0
+    }
+    fadeToImg(image.field['design_project_gallery'][image.imgIdx].url)
+    selectThumbnail(image.thumbImages[image.imgIdx])
+}
+
+function prevSlide() {
+    if (image.field['design_project_gallery'][image.imgIdx - 1]) {
+        image.imgIdx -= 1
+    } else {
+        image.imgIdx = image.indexArr.length - 1
+    }
+    fadeToImg(image.field['design_project_gallery'][image.imgIdx].url)
+    selectThumbnail(image.thumbImages[image.imgIdx])
 }
 
 function generateThumbnails(thumbnails) {
 
     thumbnails.forEach((item, index) => {
+
+        // for each item in "thumbnails" generate an imb element, set it's src to item[url],
+        // add to thumbnailGallery and set an event listener
         const thumb = document.createElement('img')
         thumb.setAttribute('src', thumbnails[index].url)
         thumbnailGallery.append(thumb)
+
+        // listener
         thumb.addEventListener('click', (e) => {
-            img.setAttribute('src', e.target.src)
+            if (index === image.imgIdx) return
+            fadeToImg(e.target.src)
+            image.imgIdx = index
+            selectThumbnail(e.target)
+
         })
     })
 }
 
+function selectThumbnail(nextThumbnail) {
+
+    // remove class "selected" from all thumbnails
+    // const imgArray = Array.from(thumbnailGallery.children)
+    image.thumbImages.forEach(item => {
+        item.classList.remove('selected')
+    })
+
+    // add class "selected" to selected thumbnail
+    nextThumbnail.classList.add('selected')
+}
+
+function fadeToImg(src) {
+
+    img.classList.toggle('fade')
+    setTimeout(() => {
+        img.setAttribute('src', src)
+        setTimeout(() => {
+            img.classList.toggle('fade')
+        }, 150)
+
+    }, 100)
+}
+
 function openGallery() {
     const scrollY = window.scrollY
-    document.body.style.position = 'relative'
-    document.body.style.overflowY = 'hidden'
+    document.body.classList.toggle('modal-gallery-open')
     backdrop.style.top = scrollY + 'px'
     backdrop.style.display = 'grid'
 }
 
 function closeGallery() {
     backdrop.style.display = 'none'
-    document.body.style.overflowY = 'visible'
+    document.body.classList.toggle('modal-gallery-open')
     document.removeEventListener('wheel', preventScroll, {passive: false})
-    document.removeEventListener('keydown', preventKeyScroll, {passive: false})
+    document.removeEventListener('keydown', handleKeypress, {passive: false})
+    document.removeEventListener('touchstart', handleTouchStart)
+    document.removeEventListener('touchend', handleTouchEnd)
+    // arrowBack.removeEventListener('click', prevSlide)
+    // arrowNext.removeEventListener('click', nextSlide)
     thumbnailGallery.innerHTML = ''
 }
 
@@ -181,15 +258,22 @@ function preventScroll(e) {
     return false;
 }
 
-function preventKeyScroll(e) {
+function handleKeypress(e) {
+
+    if (e.keyCode === 37 ) {
+        prevSlide()
+    }
+
+    if (e.keyCode === 39) {
+        nextSlide()
+    }
+
     let keys = [32, 33, 34, 35, 37, 38, 39, 40];
     if (keys.includes(e.keyCode)) {
         e.preventDefault();
         return false;
     }
-}
 
-function closeOnEsc(e) {
     if (e.keyCode === 27) {
         closeGallery()
         return false;
