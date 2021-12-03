@@ -11,7 +11,7 @@ get_header(); ?>
         <p class="subtitle">Have a query? Please check these questions and answers</p>
 
         <section class="split">
-            <img src="https://rh-s.com/wp-content/uploads/2021/07/faqsvg1.svg">
+            <img src="<?php the_field('faq_hiring_process'); ?>">
             <div class="faq-block">
                 <h2 class="block-title">Hiring process & further work</h2>
                 <p class="block-subtitle">Why do you need Remote Helpers?</p>
@@ -96,7 +96,7 @@ get_header(); ?>
         </section>
 
         <section class="split">
-            <img class="reverse" src="https://rh-s.com/wp-content/uploads/2021/07/ds-01.svg">
+            <img class="reverse" src="<?php the_field('faq_staff_management'); ?>">
             <div class="faq-block">
                 <h2 class="block-title">Staff management</h2>
                 <p class="block-subtitle">How can I communicate with my remote employees during the workday?</p>
@@ -110,7 +110,7 @@ get_header(); ?>
         </section>
 
         <section class="split">
-            <img src="https://rh-s.com/wp-content/uploads/2021/07/ds-02.svg">
+            <img src="<?php the_field('faq_billing_&_invoicing'); ?>">
             <div class="faq-block">
                 <h2 class="block-title">Billing & Invoicing</h2>
                 <p class="block-subtitle">How does invoicing work?</p>
