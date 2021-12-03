@@ -306,6 +306,7 @@ function rh_add_gallery_backdrop() { ?>
     </div>
 <?php
 }
+
 add_action( 'woocommerce_sale_flash', 'pancode_echo_sale_percent' );
 
 /**
@@ -347,6 +348,7 @@ function pancode_echo_sale_percent( $html ) {
 
   return '<span class="onsale">-&nbsp;' . esc_html( $discount ) . '%</span>';
 }
+
 add_action('woocommerce_before_single_product_summary', 'rh_add_opening_section', 5);
 
 function rh_add_opening_section() { ?>

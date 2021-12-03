@@ -1,7 +1,10 @@
-* {
+:root {
   --rh-accent-color: #FF5252;
   --rh-green-color: #2ecc71;
+
+  --scrollbar-width: 8px;
 }
 
 $accent-color: #FF5252;
 $text-color: #54595F;
+$hover-accent: #61CE70;

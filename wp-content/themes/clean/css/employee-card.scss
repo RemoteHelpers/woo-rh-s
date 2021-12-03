@@ -35,7 +35,7 @@
       }
     }
 
-    .card header {
+    .card .employee-card-header {
       width: 100%;
       display: flex;
       justify-content: space-between;
@@ -133,6 +133,7 @@
       }
     }
 
+
     .card footer {
       text-align: center;
       padding: 23px 0;
@@ -181,6 +182,9 @@
       font-weight: normal;
       font-size: 16px;
       line-height: 20px;
+
+    .card .employee-card-footer {
+
       display: flex;
       align-items: center;
 

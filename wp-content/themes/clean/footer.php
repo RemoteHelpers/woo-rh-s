@@ -23,21 +23,18 @@
             ) ?>
         </div>
         <div class="privacy-policy">
-            <p>Remote Helpers 2018-<?php echo date("Y"); ?>
+            <p>2018-<?php echo date("Y"); ?>
                 © All rights reserved</p>
             <a href="<?php echo get_permalink(3) ?>" class="privacy-page">Privacy Policy</a>
         </div>
     </div>
 
-
     <div class="footer-icon">
-
 
         <?php if (have_rows('social_media', 'option')): while (have_rows('social_media', 'option')) : the_row(); ?>
             <a href='<?php the_sub_field('social_net_url') ?>' class="icon-link"><i
                         class='<?php the_sub_field('icon') ?>'></i></a>
         <?php endwhile; endif; ?>
-
 
     </div>
 

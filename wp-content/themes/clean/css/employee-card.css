@@ -245,26 +245,32 @@ li .card footer a::after {
 .product__id_time.product__id_alert::after li .card:hover footer a::before {
   background-color: #FF5252;
 }
+
 .product__id_time.product__id_alert::after li .card:hover footer a::after {
   background-color: #FF5252;
 }
 .product__id_time.product__id_alert::after li .card header {
+
   width: 100%;
   display: flex;
   justify-content: flex-start;
 }
+
 .product__id_time.product__id_alert::after li .card header div {
   border-radius: 8px 0 8px 0;
+
   padding: 0.5rem 2rem 0.5rem 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   column-gap: 0.5rem;
 }
+
 .product__id_time.product__id_alert::after li .card header div i {
   color: #ffffff;
 }
 .product__id_time.product__id_alert::after li .card header div span {
+
   color: #ffffff;
 }
 .product__id_time.product__id_alert::after li .card main {
@@ -329,13 +335,17 @@ li .card footer a::after {
 .product__id_time.product__id_alert::after li .card main .skill-items a:hover {
   color: #FF5252;
 }
+
 .product__id_time.product__id_alert::after li .card footer {
+
   padding-top: 1rem;
   display: flex;
   align-items: center;
   background-color: transparent;
 }
+
 .product__id_time.product__id_alert::after li .card footer a {
+
   font-family: "Roboto", sans-serif;
   transition: 0.3s;
   display: flex;

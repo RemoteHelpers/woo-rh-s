@@ -47,6 +47,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Utilities
 	- Accessibility
 	- Alignments
+# Custom
+    - Custom styles
+    - Custom elements
+    - Custom fonts
 
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
@@ -388,8 +392,9 @@ input,
 select,
 optgroup,
 textarea {
-  color: #404040;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: #54595f;
+  //font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -470,11 +475,13 @@ hr {
 
 ul,
 ol {
-  margin: 0 0 1.5em 3em;
+  //margin: 0 0 1.5em 3em;
+  margin: 0;
+  padding: 0;
 }
 
 ul {
-  list-style: disc;
+  list-style: none;
 }
 
 ol {
@@ -519,17 +526,21 @@ table {
 /* Links
 --------------------------------------------- */
 a {
-  color: #4169e1;
+  //color: #4169e1;
+  color: #54595f;
+  text-decoration: none;
 }
 
 a:visited {
-  color: #800080;
+  //color: #800080;
+  color: #54595f;
 }
 
 a:hover,
 a:focus,
 a:active {
-  color: #191970;
+  //color: #191970;
+  color: black;
 }
 
 a:focus {
@@ -647,7 +658,7 @@ textarea {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
   float: left;
   position: absolute;
-  top: 100%;
+  top: 70px;
   left: -999em;
   z-index: 99999;
 }
@@ -657,19 +668,8 @@ textarea {
   top: 0;
 }
 
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
-  display: block;
-  left: auto;
-}
-
 .main-navigation ul ul a {
   width: 200px;
-}
-
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-  left: auto;
 }
 
 .main-navigation li {
@@ -687,13 +687,24 @@ textarea {
   display: block;
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 981px) {
   .menu-toggle {
     display: none;
   }
 
   .main-navigation ul {
     display: flex;
+  }
+
+  .main-navigation ul ul li:hover > ul,
+  .main-navigation ul ul li.focus > ul {
+    display: block;
+    left: auto;
+  }
+
+  .main-navigation ul li:hover > ul,
+  .main-navigation ul li.focus > ul {
+    left: auto;
   }
 }
 
@@ -941,22 +952,29 @@ textarea {
   margin-bottom: 1.5em;
 }
 
+/*--------------------------------------------------------------
+# Custom
+--------------------------------------------------------------*/
 /* Custom styles
 --------------------------------------------- */
 
 $accent-color: #FF5252;
 $text-color: #54595F;
 
-//.container {
-//  margin: 0 5%;
-//}
-
 .main-page {
   display: grid;
   grid-template-columns: 1fr 4fr;
 }
 
-/* CUSTOM SCROLLBAR */
+.post,
+.page {
+  margin: 0;
+}
+
+/* Custom elements
+--------------------------------------------- */
+
+/* SCROLLBAR */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -967,18 +985,49 @@ $text-color: #54595F;
 
 ::-webkit-scrollbar-thumb {
   background: rgb(58, 58, 58);
+
   &:hover {
     background-color: rgb(90, 90, 90);
   }
+
   &:active {
     background-color: rgb(23, 23, 23);
   }
 }
 
-.post,
-.page {
-  margin: 0;
+/* RH RED BUTTON */
+
+.rh-button {
+  background-color: var(--rh-accent-color);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.125rem;
+  font-weight: 700;
+  padding: .8em 2em;
+  margin-top: 1rem;
+  transition: background-color .3s ease, color .3s ease;
+
+  &:hover {
+    background-color: #61ce70;
+  }
 }
+
+/* Custom fonts
+--------------------------------------------- */
+
+@font-face {
+  font-family: 'star';
+  src: url('fonts/star.eot');
+  src: url('fonts/star.eot?#iefix') format('embedded-opentype'),
+  url('fonts/star.woff') format('woff'),
+  url('fonts/star.ttf') format('truetype'),
+  url('fonts/star.svg#star') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 
 
 
