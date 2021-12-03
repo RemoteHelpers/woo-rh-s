@@ -1,6 +1,7 @@
-* {
+:root {
   --rh-accent-color: #FF5252;
   --rh-green-color: #2ecc71;
+  --scrollbar-width: 8px;
 }
 
 * {
@@ -88,12 +89,12 @@
   color: white;
   font-size: 24px;
 }
-.site-footer .footer-icon a .fab {
+.site-footer .footer-icon a i {
   font-size: 28px;
   color: #ffffff;
   transition: 0.3s;
 }
-.site-footer .footer-icon a .fab:hover {
+.site-footer .footer-icon a i:hover {
   color: #FF5252;
 }
 
