@@ -27,29 +27,50 @@ if (empty($product) || !$product->is_visible()) {
 
 <li>
     <div class="card" id="card">
-        <section class="employee-card-header">
-            <div style="background-color: <?php echo get_field('current_work_status') ?>">
-                <i class="<?php echo get_field('shifts') ?>"></i>
-                <span>#<?php echo $product->get_sku(); ?></span>
+        <a href="<?php echo get_post_permalink() ?>">
+        <header>
+            <?php if ( $product->is_on_sale() ) : ?>
+                <div style="background-color: <?php echo get_field('current_work_status') ?>">
+
+
+                    <?php echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( '%', 'woocommerce' ) . '</span>', $post, $product ); ?>
+
+
+                </div>
+            <?php
+            endif;
+            ?>
+            <div class="woocommerce-product-rating">
+                <?php
+
+                ?>
             </div>
-        </section>
+
+        </header>
         <main>
             <img src="<?php echo wp_get_attachment_url($product->get_image_id()); ?>"
                  alt="Product image">
-            <?php $name = get_field('last_name') ?>
-            <H3><?php the_field('first_name'); ?> <?php echo $name[0]?>.</H3>
-            <div><?php the_field('current_position') ?></div>
+            <div class="product__id">
+                <div class="product__id_name">ID: <?php echo $product->get_sku(); ?></div>
+                <div class="product__id_time"><span class="tooltip" data-title="Employee Work Shift"><i class="<?php echo get_field('shifts') ?>" > </i></span>
+
+                </div>
+            </div>
+
+            <?php the_title( '<h3 class="product__first_name" >', '</h3>' ); ?>
+
+            <div class="product__position"><?php the_field('current_position') ?></div>
             <!--//TODO: change h5 to div and insert blocks-->
-            <hr>
             <div class="skill-items">
                 <?php echo wc_get_product_tag_list($product->get_id(), ' ') ?>
                 <!--                <a href="">CSS</a>-->
             </div>
         </main>
-        <section class="employee-card-footer">
-            <a href="<?php echo get_post_permalink() ?>">Watch Employee cv</a>
+        <footer>
+            <a href="<?php echo get_post_permalink() ?>">View Profile</a>
             <!--FIXME: add link to post-->
-        </section>
+        </footer>
+        </a>
     </div>
 </li>
 

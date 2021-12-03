@@ -307,6 +307,48 @@ function rh_add_gallery_backdrop() { ?>
 <?php
 }
 
+add_action( 'woocommerce_sale_flash', 'pancode_echo_sale_percent' );
+
+/**
+ * Echo discount percent badge html.
+ *
+ * @param string $html Default sale html.
+ *
+ * @return string
+ */
+function pancode_echo_sale_percent( $html ) {
+  global $product;
+
+  /**
+   * @var WC_Product $product
+   */
+
+  $regular_max = 0;
+  $sale_min    = 0;
+  $discount    = 0;
+
+  if ( 'variable' === $product->get_type() ) {
+    $prices      = $product->get_variation_prices();
+    $regular_max = max( $prices['regular_price'] );
+    $sale_min    = min( $prices['sale_price'] );
+  } else {
+    $regular_max = $product->get_regular_price();
+    $sale_min    = $product->get_sale_price();
+  }
+
+  if ( ! $regular_max && $product instanceof WC_Product_Bundle ) {
+    $bndl_price_data = $product->get_bundle_price_data();
+    $regular_max     = max( $bndl_price_data['regular_prices'] );
+    $sale_min        = max( $bndl_price_data['prices'] );
+  }
+
+  if ( floatval( $regular_max ) ) {
+    $discount = round( 100 * ( $regular_max - $sale_min ) / $regular_max );
+  }
+
+  return '<span class="onsale">-&nbsp;' . esc_html( $discount ) . '%</span>';
+}
+
 add_action('woocommerce_before_single_product_summary', 'rh_add_opening_section', 5);
 
 function rh_add_opening_section() { ?>
