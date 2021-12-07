@@ -3,6 +3,7 @@ const faqPage = document.querySelector('.faq')
 const privacyPage = document.querySelector('.privacy')
 const pricingPage = document.querySelector('.pricing')
 const affiliatePage = document.querySelector('.affiliate-page')
+const aboutPage = document.querySelector('.about-us-page')
 
 const backdrop = document.querySelector('.gallery-backdrop')
 const img = document.querySelector('.gallery-image')
@@ -37,6 +38,11 @@ onload = () => {
     if (affiliatePage) {
         console.log('affiliate page')
         affiliateSlider()
+    }
+
+    if (aboutPage) {
+        console.log('about us page')
+        aboutSlider()
     }
 }
 
@@ -266,7 +272,7 @@ function preventScroll(e) {
 
 function handleKeypress(e) {
 
-    if (e.keyCode === 37 ) {
+    if (e.keyCode === 37) {
         prevSlide()
     }
 
@@ -382,5 +388,44 @@ function affiliateSlider() {
                 settings: "unslick"
             }
         ]
+    });
+}
+
+/* ABOUT US SLIDER */
+function aboutSlider() {
+    jQuery('.gallery-viewport').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.about-gallery'
+    });
+    jQuery('.about-gallery').slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        asNavFor: '.gallery-viewport',
+        dots: true,
+        arrows: false,
+        centerMode: true,
+        focusOnSelect: true,
+        variableWidth: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        responsive: [
+            {
+                breakpoint: 1000,
+                settings: {
+                    slidesToShow: 3
+                }
+            }
+        ]
+    });
+    jQuery('.gallery-gallery-mobile').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+        arrows: false,
+        mobileFirst: true,
+        adaptiveHeight: true
     });
 }

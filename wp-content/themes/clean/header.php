@@ -38,7 +38,7 @@ wp_head(); ?>
                     if (is_front_page()) { ?>
                         <img src="<?php echo $custom_logo_id ?>">
                     <?php } else {
-                        the_custom_logo();
+                        echo get_custom_logo();
                     } ?>
                 </div>
 

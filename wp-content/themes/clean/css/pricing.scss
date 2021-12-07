@@ -4,10 +4,6 @@
   padding-inline: calc((100vw - var(--scrollbar-width)) / 30);
   text-align: center;
 
-  section {
-    padding-block: 4rem;
-  }
-
   .pricing-switch {
     display: flex;
     align-items: center;
@@ -19,12 +15,11 @@
     span {
       text-align: center;
       transition: color .5s ease;
+
       &.active {
         color: red;
       }
     }
-
-
 
     .switch {
       position: relative;
@@ -219,17 +214,20 @@
       font-weight: 700;
     }
 
+    .plus,
+    .minus {
+      font-weight: 700;
+      text-align: center;
+      font-size: 1.375rem;
+    }
+
     .plus {
       background-color: #F5F5F5;
       color: #61ce70;
-      font-size: 1.375rem;
-      font-weight: 700;
     }
 
     .minus {
       color: var(--rh-accent-color);
-      font-size: 1.375rem;
-      font-weight: 700;
     }
   }
 
