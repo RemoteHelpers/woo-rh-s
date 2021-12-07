@@ -408,6 +408,15 @@ h6 {
   clear: both;
 }
 
+h2 {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 800;
+}
+
+h3 {
+  font-size: clamp(1.8rem, 3.5vw, 2rem);
+}
+
 p {
   margin-bottom: 1.5em;
 }
@@ -969,6 +978,10 @@ $text-color: #54595F;
 .post,
 .page {
   margin: 0;
+}
+
+section {
+  padding-block: 3vw;
 }
 
 /* Custom elements

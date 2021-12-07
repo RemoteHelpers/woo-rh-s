@@ -8,9 +8,6 @@
   padding-inline: calc((100vw - var(--scrollbar-width)) / 30);
   text-align: center;
 }
-.pricing section {
-  padding-block: 4rem;
-}
 .pricing .pricing-switch {
   display: flex;
   align-items: center;
@@ -188,16 +185,18 @@
   font-size: clamp(1rem, 4vw, 1.5rem);
   font-weight: 700;
 }
+.pricing table .plus,
+.pricing table .minus {
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.375rem;
+}
 .pricing table .plus {
   background-color: #F5F5F5;
   color: #61ce70;
-  font-size: 1.375rem;
-  font-weight: 700;
 }
 .pricing table .minus {
   color: var(--rh-accent-color);
-  font-size: 1.375rem;
-  font-weight: 700;
 }
 @media (min-width: 450px) {
   .pricing .pricing-switch .switch {
