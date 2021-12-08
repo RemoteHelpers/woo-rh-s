@@ -1,4 +1,4 @@
-woocommerce-products-header<?php
+<?php
 /**
  * The Template for displaying all single products
  *
