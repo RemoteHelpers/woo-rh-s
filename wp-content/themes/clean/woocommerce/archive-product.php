@@ -33,60 +33,135 @@ do_action('woocommerce_before_main_content');
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
     <div class="wrapper">
-<!--        <header class="woocommerce-products-header">-->
-<!--            --><?php //if (apply_filters('woocommerce_show_page_title', true)) : ?>
-<!--                <h1 class="woocommerce-products-header__title page-title">--><?php //woocommerce_page_title(); ?><!--</h1>-->
-<!--            --><?php //endif; ?>
-<!---->
-<!--            --><?php
-//            /**
-//             * Hook: woocommerce_archive_description.
-//             *
-//             * @hooked woocommerce_taxonomy_archive_description - 10
-//             * @hooked woocommerce_product_archive_description - 10
-//             */
-//            do_action('woocommerce_archive_description');
-//            ?>
-<!---->
-<!--        </header>-->
         <section class="category">
-            <div class="main__category">
-                <div class="category__hero">
-                    <div class="category__text">
-                        <div class="category__title">
-                            <?php
-                            $term = get_queried_object();
-                            $heading = get_field('heading', $term);
-                            echo $heading
-                            ?>
-                        </div>
-                        <div class="category__subtitle">
-                            <?php
-                            $term = get_queried_object();
-                            $description = get_field('description', $term);
-                            echo $description
-                            ?>
-                        </div>
-                        <a href="#contact-form" class="category__btn">Contact Us</a>
-                    </div>
-                    <div class="category__video"><iframe  src="<?php
-                        $term = get_queried_object();
-                        $heading_video = get_field('heading_video', $term);
-                        echo $heading_video
-                        ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-                </div>
-                <div class="category__candidate">
-                    <div class="candidate__title"><span style="color: #ff5252;">Choose</span> your candidate skills!</div>
-                    <div class="candidate__subtitle">
+            <div class="category__section header_block">
+                <div class="category__block category__text">
+                    <div class="category__title">
                         <?php
                         $term = get_queried_object();
-                        $cards_heading = get_field('cards_heading', $term);
-                        echo $cards_heading
+                        $heading = get_field('heading', $term);
+                        echo $heading
+                        ?>
+                    </div>
+                    <div class="category__subtitle">
+                        <?php
+                        $term = get_queried_object();
+                        $description = get_field('description', $term);
+                        echo $description
+                        ?>
+                    </div>
+                    <div class="category__btn">
+                        Download presentation
+                    </div>
+                </div>
+                <div class="category__block category__video">
+                    <iframe src="
+                    <?php
+                    $term = get_queried_object();
+                    $heading_video = get_field('heading_video', $term);
+                    echo $heading_video
+                    ?>
+                    ">
+                    </iframe>
+
+                </div>
+            </div>
+            <div class="category__main_text">
+                <?php
+                $term = get_queried_object();
+                $main_text = get_field('main_text', $term);
+                echo $main_text
+                ?>
+            </div>
+            <div class="category__section first__block">
+                <div class="category__block category__text">
+                    <div class="text__title">
+                        <img src="<?php
+                        $term = get_queried_object();
+                        $block_image = get_field('block_image', $term);
+                        echo $block_image
+                        ?>" alt="">
+                        <p>
+                            <?php
+                            $term = get_queried_object();
+                            $block_title = get_field('block_title', $term);
+                            echo $block_title
+                            ?>
+                        </p>
+                    </div>
+                    <div class="text__subtitle">
+                        <?php
+                        $term = get_queried_object();
+                        $block_subtitle = get_field('block_subtitle', $term);
+                        echo $block_subtitle
+                        ?>
+                    </div>
+                    <div class="text__btn_grey">Choose available {Employee}</div>
+                </div>
+                <div class="category__block category__slider_block">
+                    <div class="category__slider">
+                        <img src="<?php
+                        $term = get_queried_object();
+                        $img_slider = get_field('img_slider', $term);
+                        echo $img_slider
+                        ?>" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <div class="category__section first__block reverce__block">
+                <div class="category__block category__text">
+                    <div class="text__title">
+                        <img src="<?php
+                        $term = get_queried_object();
+                        $block_image_copy = get_field('block_image_copy', $term);
+                        echo $block_image_copy
+                        ?>" alt="">
+                        <p>
+                            <?php
+                            $term = get_queried_object();
+                            $block_title_copy = get_field('block_title_copy', $term);
+                            echo $block_title_copy
+                            ?>
+                        </p>
+                    </div>
+                    <div class="text__subtitle">
+                        <?php
+                        $term = get_queried_object();
+                        $block_subtitle_copy = get_field('block_subtitle_copy', $term);
+                        echo $block_subtitle_copy
+                        ?>
+                    </div>
+                    <div class="text__btn_red">Choose available {Employee}</div>
+                </div>
+                <div class="category__block category__slider_block">
+                    <div class="category__slider">
+                        <?php
+                        $term = get_queried_object();
+                        $img_slider_copy = get_field('img_slider_copy', $term);
+
+                        echo '<img src="'.$img_slider_copy.'">';
                         ?>
                     </div>
                 </div>
 
             </div>
+            <div class="category__related">
+                <div class="category__related_title">
+                    <?php
+                    $term = get_queried_object();
+                    $main_text_related = get_field('main_text_related', $term);
+                    echo $main_text_related
+                    ?>
+                </div>
+                <div class="category__related_cards">
+
+
+
+                </div>
+            </div>
+
+
 
         </section>
         <?php do_action('rh_archive_filter'); ?>
@@ -144,83 +219,6 @@ do_action('woocommerce_before_main_content');
             do_action('rh_add_closing_div');
             ?>
         </section>
-        <div class="category__candidate">
-            <div class="candidate__title">
-                <?php
-                $term = get_queried_object();
-                $position_heading = get_field('position_heading', $term);
-                echo $position_heading
-                ?>
-            </div>
-            <div class="candidate__subtitle">
-                <?php
-                $term = get_queried_object();
-                $position_small_description = get_field('position_small_description', $term);
-                echo $position_small_description
-                ?>
-            </div>
-        </div>
-        <script>
-            $(document).ready(function(){
-                $('.candidate__servises_block').slick({
-                    mobileFirst: true,
-                    responsive: [
-                        {
-                            breakpoint: 1100,
-                            settings: 'unslick'
-                        }
-                    ]
-                });
-            });
-        </script>
-        <div class="canditate__servises">
-            <div class="candidate__servises_block">
-                <?php
-                // name of repeater field
-                $repeater = 'positions';
-
-                // get taxonomy id
-                $taxonomy_id = get_queried_object_id();
-
-                // get repeater data from term meta
-                $post_meta = get_term_meta($taxonomy_id, $repeater, true);
-
-                // count items in repeater
-                $count = intval(get_term_meta($taxonomy_id, $repeater, true));
-
-                // loop + apply filter the_content to preserve html formatting
-                for ($i=0; $i<$count; $i++) {
-                    echo '<div class="candidate__servises_content">';
-                    echo '<div class="candidate__servises_icon">';
-                    echo apply_filters('the_content', get_term_meta($taxonomy_id, $repeater.'_'.$i.'_'.'icon', true));
-                    echo '</div>';
-                    echo '<div class="candidate__servises_title">';
-                    echo apply_filters('the_content', get_term_meta($taxonomy_id, $repeater.'_'.$i.'_'.'title_rep', true));
-                    echo '</div>';
-                    echo '<div class="candidate__servises_subtitle">';
-                    echo apply_filters('the_content', get_term_meta($taxonomy_id, $repeater.'_'.$i.'_'.'description_repeater', true));
-                    echo '</div>';
-                    echo '</div>';
-                }
-                ?>
-            </div>
-            <div class="category__candidate">
-                <div class="candidate__title">
-                    <?php
-                    $term = get_queried_object();
-                    $position_heading = get_field('title_portfolio', $term);
-                    echo $position_heading
-                    ?>
-                </div>
-                <div class="candidate__subtitle">
-                    <?php
-                    $term = get_queried_object();
-                    $position_small_description = get_field('description_portfio_txt', $term);
-                    echo $position_small_description
-                    ?>
-                </div>
-            </div>
-        </div>
         <section class="form">
             <div class="contact__form">
                 <div class="form__text">
@@ -235,6 +233,14 @@ do_action('woocommerce_before_main_content');
             </div>
         </section>
     </div>
+    <script>
+        jQuery(document).ready(function(){
+            jQuery('.category__slider').slick({
+                dots: true,
+                arrows: true,
+            });
+        });
+    </script>
 
 
 <?php
