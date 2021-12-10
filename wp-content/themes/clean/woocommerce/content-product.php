@@ -24,6 +24,9 @@ if (empty($product) || !$product->is_visible()) {
     return;
 }
 ?>
+<?php
+    add_action("related_cards", "cards", 20 );
+    function cards () { ?>
 
 <li>
     <div class="card" id="card">
@@ -73,4 +76,6 @@ if (empty($product) || !$product->is_visible()) {
         </a>
     </div>
 </li>
+
+<?php } ?>
 

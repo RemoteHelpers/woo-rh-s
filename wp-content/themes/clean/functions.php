@@ -7,9 +7,11 @@
  * @package clean
  */
 
+
 /**
  * Includes.
  */
+
 
 if (!defined('_S_VERSION')) {
     // Replace the version number of the theme on each release.
@@ -175,6 +177,7 @@ function filter_sidebar_init()
 
 add_action('widgets_init', 'filter_sidebar_init');
 
+
 /**
  * Allow to upload SVG-s.
  */
@@ -186,6 +189,7 @@ function add_file_types_to_uploads($file_types)
 }
 
 add_filter('upload_mimes', 'add_file_types_to_uploads');
+
 
 /**
  * Enqueue scripts and styles.
@@ -236,6 +240,7 @@ function clean_scripts()
         wp_enqueue_style('contact-form-component', get_template_directory_uri() . '/css/contact-form-component.css', false, '1.1', 'all');
     }
 
+
     if (is_page('about-us')) {
         wp_enqueue_style('about-us-style', get_template_directory_uri() . '/css/about-us.css', false, '1.1', 'all');
         wp_enqueue_style('contact-form-component', get_template_directory_uri() . '/css/contact-form-component.css', false, '1.1', 'all');
@@ -252,9 +257,10 @@ function clean_scripts()
 
     wp_style_add_data('clean-style', 'rtl', 'replace');
 
-    wp_enqueue_script('clean-script', get_template_directory_uri() . '/js/index.js', array('jquery', 'acf-input'), _S_VERSION, true);
-    acf_enqueue_script('clean-script');
-    wp_enqueue_script('clean-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), _S_VERSION, true);
+
+    wp_enqueue_script('clean-script', get_template_directory_uri() . '/js/index.js', array('jquery'), _S_VERSION, true);
+    wp_enqueue_script('clean-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+
     wp_enqueue_script('home-page', get_template_directory_uri() . '/js/home-page.js', array(), _S_VERSION, true);
     wp_enqueue_script('slick-script', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array(), _S_VERSION, true);
 
@@ -319,9 +325,12 @@ function pprint_r($a)
     echo "<pre>", htmlspecialchars(print_r($a, true)), "</pre>";
 }
 
+
 add_action('woocommerce_sale_flash', 'pancode_echo_sale_percent');
 
+
 /**
+
  * Echo discount percent badge html.
  *
  * @param string $html Default sale html.
@@ -355,17 +364,23 @@ function pancode_echo_sale_percent($html)
         $sale_min = max($bndl_price_data['prices']);
     }
 
+
     if (floatval($regular_max)) {
         $discount = round(100 * ($regular_max - $sale_min) / $regular_max);
     }
 
+
     return '<span class="onsale">-&nbsp;' . esc_html($discount) . '%</span>';
+
 }
 
 /**
  * Single-page layout.
  */
+
+
 require_once('inc/rh-single-page.php');
+
 
 /**
  * Shop page layout.
@@ -407,8 +422,10 @@ function rh_open_sidebar_div()
 { ?>
     <div class="archive-page">
     <div class="archive-sidebar">
+
         <!--            --><?php //dynamic_sidebar( 'filter-sidebar' );
         ?>
+
         <?php echo do_shortcode('[pwf_filter id="323"]') ?>
     </div>
 <?php } ?>
@@ -423,8 +440,10 @@ function rh_close_sidebar_div()
 //--------------------
 
 add_action('rh_main_page_filter', 'rh_open_sidebar1_div', 10);
+
 function rh_open_sidebar1_div()
 { ?>
+
     <div class="main-page">
     <div class="main-sidebar">
         <!--            --><?php //dynamic_sidebar( 'filter-sidebar' );
@@ -476,3 +495,58 @@ function printStars($quantity, $max) : string
 
 
 
+//------------- Related Cards
+
+function getProductsByAcf($key, $value) {
+    $args = array(
+        'numberposts'	=> -1,
+        'post_type'		=> 'product',
+        'meta_query' => [ [
+        'key' => $key,
+        'value' => $value
+] ],
+    );
+
+    $the_query = new WP_Query( $args );
+
+?>
+<?php if( $the_query->have_posts() ): ?>
+	<ul>
+	<?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+		<li><?php the_field('first_name'); ?></li>
+		<li><?php the_field('last_name'); ?></li>
+		<li><?php the_field('current_position'); ?></li>
+		<li>
+            <div class="card" id="card">
+                <header>
+                    <div style="background-color: <?php echo get_field('current_work_status') ?>">
+                        <i class="<?php echo get_field('shifts') ?>"></i>
+
+                    </div>
+                </header>
+                <main>
+                    <img src="<?php echo wp_get_attachment_url($product->get_image_id()); ?>"
+                         alt="Product image">
+                    <?php the_field('last_name'); ?>
+                    <H3><?php the_field('first_name'); ?>.</H3>
+                    <div><?php the_field('current_position'); ?> </div>
+                    <!--//TODO: change h5 to div and insert blocks-->
+                    <hr>
+                    <div class="skill-items">
+                        <?php echo wc_get_product_tag_list($product->get_id(), ' ') ?>
+                        <!--                <a href="">CSS</a>-->
+                    </div>
+                </main>
+                <footer>
+                    <a href="<?php echo get_post_permalink() ?>">Watch Employee cv</a>
+                    <!--FIXME: add link to post-->
+                </footer>
+            </div>
+        </li>
+	<?php endwhile; ?>
+	</ul>
+<?php endif; ?>
+
+
+
+      <?php  } ?>
