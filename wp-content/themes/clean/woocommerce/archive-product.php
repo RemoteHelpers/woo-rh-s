@@ -155,9 +155,9 @@ do_action('woocommerce_before_main_content');
                     ?>
                 </div>
                 <div class="category__related_cards">
-
-
-
+                    <?php
+                      echo getProductsByAcf("Analyst");
+                    ?>
                 </div>
             </div>
 
