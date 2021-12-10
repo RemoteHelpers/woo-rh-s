@@ -1,3 +1,6 @@
+.single-product {
+  background: rgba(251, 251, 252, 0.9);
+}
 .single-product .fa-star.score {
   color: #FFC444;
 }
@@ -5,25 +8,79 @@
   display: grid;
   grid-template-columns: 1fr;
 }
+.single-product .woocommerce-breadcrumb {
+  border: 1px solid #d5d5d5;
+  border-radius: 1.5rem;
+  padding: 5px 1rem;
+  text-align: center;
+}
+.single-product .product-sidebar {
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  box-shadow: inset -6px 0px 9px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(24px);
+}
 .single-product .product-sidebar .sticky-sidebar {
+  display: grid;
+  gap: 2rem;
   position: -webkit-sticky;
   position: sticky;
   top: 10rem;
+}
+.single-product .product-sidebar .avatar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
 }
 .single-product .product-sidebar .avatar img {
   border-radius: 0.5rem;
   width: 100%;
   max-height: 20rem;
   object-fit: cover;
+  border: 2px solid white;
+}
+.single-product .product-sidebar .avatar .plaque {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: white;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 40px;
+  position: absolute;
+  bottom: 0;
+  padding-inline: 13px;
 }
 .single-product .product-sidebar .product-meta {
   display: flex;
   flex-direction: column;
+  gap: 1vw;
   border-bottom: 1px solid #dbdbdb;
+  align-items: center;
+  padding-bottom: 2rem;
 }
 .single-product .product-sidebar .summary p,
 .single-product .product-sidebar .summary h3 {
   margin: 0;
+}
+.single-product .product-sidebar .summary h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 17px;
+}
+.single-product .product-sidebar .summary p {
+  line-height: 17px;
+}
+.single-product .product-sidebar .summary .summary-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-block: 1rem;
+}
+.single-product .product-sidebar .summary .summary-rating-info p {
+  font-size: 0.875rem;
 }
 .single-product .product-sidebar .product-price-and-buttons .price {
   text-align: center;

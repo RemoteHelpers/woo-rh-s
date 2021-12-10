@@ -31,17 +31,21 @@ global $product;
                 </div>
             </div>
             <div class="summary">
-                <div class="summary-body">
-                    <h3><?php echo $product->get_name(); ?></h3>
-                    <p><?php the_field('current_position'); ?></p>
-                    <?php
-                    $average_rating = $product->get_average_rating();
-                    $rating = round($average_rating);
-//                    echo printStars($rating, 5);
-                    ?>
-                    <p><?php echo $product->get_rating_count(); ?> customer <a href="#"
-                                                                               style="text-decoration: underline;">reviews</a>
-                    </p>
+                <div class="summary-info">
+                    <div class="name-and-position">
+                        <h3><?php echo $product->get_name(); ?></h3>
+                        <p><?php the_field('current_position'); ?></p>
+                    </div>
+                    <div class="summary-rating-info">
+                        <?php
+                        $average_rating = $product->get_average_rating();
+                        $rating = round($average_rating);
+                        echo printStars($rating, 5);
+                        ?>
+                        <p><?php echo $product->get_rating_count(); ?> customer <a href="#"
+                                                                                   style="text-decoration: underline;">reviews</a>
+                        </p>
+                    </div>
                 </div>
                 <div class="summary-links">
                     <a href="#"><i class="fas fa-share-alt"></i>Share CV</a>

@@ -245,7 +245,7 @@ function clean_scripts()
 
     wp_enqueue_style('font-awesome', get_template_directory_uri() . '/fontawesome/fontawesome-free-5.15.4-web/css/all.css', false, '1.1', 'all');
 
-    wp_enqueue_style('roboto', 'https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap', false, '1.1', 'all');
+    wp_enqueue_style('roboto', 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap', false, '1.1', 'all');
     wp_enqueue_style('fira-sans', 'https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@300&display=swap', false, '1.1', 'all');
     wp_enqueue_style('montserrat', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700;800;900&display=swap', false, null, 'all');
 

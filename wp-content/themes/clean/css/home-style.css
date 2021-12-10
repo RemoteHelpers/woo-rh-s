@@ -1,7 +1,10 @@
 /*# sourceMappingURL=home-style.css.map */
-* {
+:root {
   --rh-accent-color: #FF5252;
+  --rh-accent-color-lighten: #ff8080;
   --rh-green-color: #2ecc71;
+  --scrollbar-width: 8px;
+  --zen-padding: calc((100vw - var(--scrollbar-width)) / 20);
 }
 
 .home-page {
@@ -184,7 +187,7 @@
   text-align: center;
 }
 .home-page .special-offer {
-  width: clamp(1150px, 1250px, 1300px);
+  width: 1250px;
   height: 250px;
   padding: 1rem 3%;
   display: flex;
@@ -283,7 +286,7 @@
 }
 .home-page .price-card-section .cards .pricing-card-home {
   height: 408px;
-  width: clamp(250px, 300px, 330px);
+  width: 300px;
   display: flex;
   flex-flow: column;
   border-radius: 8px;
