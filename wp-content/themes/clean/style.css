@@ -412,7 +412,7 @@ h2 {
 }
 
 h3 {
-  font-size: clamp(1.8rem, 3.5vw, 2rem);
+  font-size: clamp(1.6rem, 3.5vw, 2rem);
 }
 
 p {
@@ -959,14 +959,17 @@ textarea {
 --------------------------------------------------------------*/
 /* Custom styles
 --------------------------------------------- */
-.main-page {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-}
-
 .post,
 .page {
   margin: 0;
+}
+
+.container {
+  margin-inline: var(--zen-padding);
+}
+
+.accent-highlight {
+  color: var(--rh-accent-color);
 }
 
 section {

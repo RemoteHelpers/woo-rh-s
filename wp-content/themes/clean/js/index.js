@@ -15,7 +15,8 @@ onload = () => {
 
     if (singleProductPage) {
         console.log('CV page')
-        autoFontScale()
+        // autoFontScale()
+        coverIframe()
         startSlick()
         portfolioGallery()
     }
@@ -50,6 +51,18 @@ onresize = () => {
     if (affiliatePage) {
         affiliateSlider()
     }
+}
+
+/* COVER IFRAME */
+function coverIframe() {
+    const cover = document.querySelector('.iframe-cover')
+    const iframe = document.querySelector('.iframe-container > iframe')
+    cover.addEventListener('click', () => {
+        iframe.src += '?autoplay=1'
+        setTimeout(() => {
+            cover.classList.add('hide')
+        }, 1000)
+    })
 }
 
 /* RELATED PRODUCTS SLIDER */

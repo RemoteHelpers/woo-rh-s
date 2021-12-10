@@ -1,7 +1,9 @@
 :root {
   --rh-accent-color: #FF5252;
+  --rh-accent-color-lighten: #ff8080;
   --rh-green-color: #2ecc71;
   --scrollbar-width: 8px;
+  --zen-padding: calc((100vw - var(--scrollbar-width)) / 20);
 }
 
 * {
