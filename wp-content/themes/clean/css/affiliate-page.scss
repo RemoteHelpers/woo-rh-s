@@ -1,0 +1,200 @@
+.affiliate-page {
+  margin: calc((100vw - var(--scrollbar-width)) / 20);
+
+  // margins around a slide (top, bottom and sides)
+  .slick-list .card {
+    border-radius: 15px;
+    margin-inline: 2% !important;
+    margin-block: 1rem 8vw !important;
+  }
+
+  .slick-next,
+  .slick-prev {
+    position: absolute;
+    bottom: -7vw;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--rh-accent-color);
+    cursor: pointer;
+    width: 9vw;
+    height: 9vw;
+    font-size: 0px;
+  }
+
+  .slick-prev:after,
+  .slick-next:after {
+    font-family: "Font Awesome 5 Free", 'sans-serif';
+    -webkit-font-smoothing: antialiased;
+    font-size: 20px;
+    color: white;
+    font-weight: 900;
+  }
+
+  .slick-prev {
+    left: 35%;
+
+    &:after {
+      content: "";
+
+    }
+  }
+
+  .slick-next {
+    right: 35%;
+
+    &:after {
+      content: "";
+    }
+  }
+
+  //section {
+  //  padding-block: 3vw;
+  //}
+
+  .bold-text {
+    font-weight: 900;
+  }
+
+  .split {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    gap: 2rem;
+  }
+
+  h1 {
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    grid-area: h1;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    text-align: center;
+  }
+
+  .hero {
+    display: grid;
+    grid-template:
+    "h1" auto
+    "img" auto
+    "text" auto / 1fr;
+    justify-items: center;
+
+    .img {
+      grid-area: img;
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      grid-area: text;
+      text-align: center;
+    }
+
+    .rh-button {
+      display: flex;
+      gap: .5rem;
+    }
+
+  }
+
+  .affiliate-marketing {
+    text-align: center;
+
+    .affiliate-cards {
+      display: flex;
+      align-items: center;
+      gap: 4vw;
+      //width: max(80%, 300px);
+      margin-inline: auto;
+
+      .card {
+        border-radius: 1rem;
+        box-shadow: 2px 3px 20px 0px rgb(0 0 0 / 30%);
+        padding: 2rem 1rem 1rem;
+        position: relative;
+        width: min(90%, 400px);
+
+        img {
+          display: block;
+          margin-inline: auto;
+        }
+
+        .age {
+          display: flex;
+          justify-content: center;
+          gap: 1rem;
+        }
+
+        .header {
+          background-color: var(--rh-green-color);
+          border-top-right-radius: 1rem;
+          border-bottom-left-radius: 1rem;
+          color: white;
+          font-weight: 700;
+          padding: .5em 1em;
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+      }
+    }
+  }
+
+  .learn-more {
+    p {
+      font-size: clamp(.875rem, 2vw, 1.125rem);
+      text-align: center;
+
+      span {
+        display: block;
+        font-size: clamp(1.375rem, 3vw, 2rem);
+        font-weight: 700;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .split {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    h1 {
+      text-align: left;
+      align-self: end;
+      margin: 0;
+    }
+
+    .hero {
+      grid-template:
+    "h1     img" 50%
+    "text   img" 50% / 1fr 1fr;
+
+      img {
+        height: 150%;
+      }
+
+      .text {
+        display: block;
+        text-align: left;
+      }
+    }
+
+    .affiliate-marketing {
+      .affiliate-cards {
+        justify-content: space-evenly;
+      }
+    }
+
+    .learn-more {
+      p {
+        text-align: right;
+
+        span {
+        }
+      }
+    }
+  }
+}

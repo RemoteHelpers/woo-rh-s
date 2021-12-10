@@ -1,0 +1,150 @@
+.affiliate-page {
+  margin: calc((100vw - var(--scrollbar-width)) / 20);
+}
+.affiliate-page .slick-list .card {
+  border-radius: 15px;
+  margin-inline: 2% !important;
+  margin-block: 1rem 8vw !important;
+}
+.affiliate-page .slick-next,
+.affiliate-page .slick-prev {
+  position: absolute;
+  bottom: -7vw;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--rh-accent-color);
+  cursor: pointer;
+  width: 9vw;
+  height: 9vw;
+  font-size: 0px;
+}
+.affiliate-page .slick-prev:after,
+.affiliate-page .slick-next:after {
+  font-family: "Font Awesome 5 Free", "sans-serif";
+  -webkit-font-smoothing: antialiased;
+  font-size: 20px;
+  color: white;
+  font-weight: 900;
+}
+.affiliate-page .slick-prev {
+  left: 35%;
+}
+.affiliate-page .slick-prev:after {
+  content: "\f053";
+}
+.affiliate-page .slick-next {
+  right: 35%;
+}
+.affiliate-page .slick-next:after {
+  content: "\f054";
+}
+.affiliate-page .bold-text {
+  font-weight: 900;
+}
+.affiliate-page .split {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  gap: 2rem;
+}
+.affiliate-page h1 {
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  grid-area: h1;
+  text-align: center;
+}
+.affiliate-page h2 {
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  text-align: center;
+}
+.affiliate-page .hero {
+  display: grid;
+  grid-template: "h1" auto "img" auto "text" auto/1fr;
+  justify-items: center;
+}
+.affiliate-page .hero .img {
+  grid-area: img;
+}
+.affiliate-page .hero .text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-area: text;
+  text-align: center;
+}
+.affiliate-page .hero .rh-button {
+  display: flex;
+  gap: 0.5rem;
+}
+.affiliate-page .affiliate-marketing {
+  text-align: center;
+}
+.affiliate-page .affiliate-marketing .affiliate-cards {
+  display: flex;
+  align-items: center;
+  gap: 4vw;
+  margin-inline: auto;
+}
+.affiliate-page .affiliate-marketing .affiliate-cards .card {
+  border-radius: 1rem;
+  box-shadow: 2px 3px 20px 0px rgba(0, 0, 0, 0.3);
+  padding: 2rem 1rem 1rem;
+  position: relative;
+  width: min(90%, 400px);
+}
+.affiliate-page .affiliate-marketing .affiliate-cards .card img {
+  display: block;
+  margin-inline: auto;
+}
+.affiliate-page .affiliate-marketing .affiliate-cards .card .age {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.affiliate-page .affiliate-marketing .affiliate-cards .card .header {
+  background-color: var(--rh-green-color);
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  color: white;
+  font-weight: 700;
+  padding: 0.5em 1em;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.affiliate-page .learn-more p {
+  font-size: clamp(0.875rem, 2vw, 1.125rem);
+  text-align: center;
+}
+.affiliate-page .learn-more p span {
+  display: block;
+  font-size: clamp(1.375rem, 3vw, 2rem);
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  .affiliate-page .split {
+    grid-template-columns: 1fr 1fr;
+  }
+  .affiliate-page h1 {
+    text-align: left;
+    align-self: end;
+    margin: 0;
+  }
+  .affiliate-page .hero {
+    grid-template: "h1     img" 50% "text   img" 50%/1fr 1fr;
+  }
+  .affiliate-page .hero img {
+    height: 150%;
+  }
+  .affiliate-page .hero .text {
+    display: block;
+    text-align: left;
+  }
+  .affiliate-page .affiliate-marketing .affiliate-cards {
+    justify-content: space-evenly;
+  }
+  .affiliate-page .learn-more p {
+    text-align: right;
+  }
+}
+
+/*# sourceMappingURL=affiliate-page.css.map */

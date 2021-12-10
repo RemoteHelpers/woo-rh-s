@@ -4,10 +4,16 @@
   --rh-green-color: #2ecc71;
 }
 
+.home-page {
+  display: grid;
+  justify-items: center;
+}
 .home-page .first-section {
-  display: flex;
+  display: grid;
+  align-content: center;
   justify-content: center;
   height: 90vh;
+  width: 100%;
   position: relative;
 }
 .home-page .first-section #backgroundVideo {
@@ -20,13 +26,323 @@
 .home-page .first-section H1 {
   position: relative;
   margin: 0;
-  top: 25%;
+  text-align: center;
   text-transform: uppercase;
   color: #FFFFFF;
   font-weight: 800;
-  font-size: 3.5rem;
+  font-size: 5.4vw;
   font-family: "Montserrat", sans-serif;
   text-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
+}
+.home-page .first-section .slider-text-cont {
+  display: flex;
+  justify-content: center;
+}
+.home-page .first-section .slider-text-cont H2 {
+  height: 70pt;
+  line-height: 70pt;
+  font-size: 3.4vw;
+  font-weight: 400;
+  font-family: "montserrat", sans-serif;
+  color: #FFFFFF;
+  margin: 0;
+  z-index: 2;
+}
+.home-page .first-section .slider-text-cont .scroller {
+  height: 70pt;
+  line-height: 70pt;
+  overflow: hidden;
+  padding: 0 1rem;
+}
+.home-page .first-section .slider-text-cont .scroller .inner {
+  position: relative;
+  z-index: 3;
+}
+.home-page .first-section .slider-text-cont .scroller .inner p {
+  font-weight: 800;
+  font-size: 3.4vw;
+  font-family: "montserrat", sans-serif;
+  color: #FF5252;
+  margin: 0;
+}
+.home-page .first-section .slider-text-cont .scroller .inner {
+  animation: 10s normal infinite running scroll;
+}
+@keyframes scroll {
+  0% {
+    margin-top: 0px;
+  }
+  10% {
+    margin-top: 0px;
+  }
+  20% {
+    margin-top: -70pt;
+  }
+  35% {
+    margin-top: -70pt;
+  }
+  40% {
+    margin-top: -140pt;
+  }
+  55% {
+    margin-top: -140pt;
+  }
+  60% {
+    margin-top: -210pt;
+  }
+  75% {
+    margin-top: -210pt;
+  }
+  80% {
+    margin-top: -280pt;
+  }
+  95% {
+    margin-top: -280pt;
+  }
+  100% {
+    margin-top: 0px;
+  }
+  110% {
+    margin-top: 0px;
+  }
+}
+.home-page .first-section .first-button-cont {
+  display: flex;
+  justify-content: center;
+  z-index: 4;
+  padding-top: 2rem;
+}
+.home-page .first-section .first-button-cont a {
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  color: #FFFFFF;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FF5252;
+  border-radius: 4px;
+  height: 57px;
+  width: 220px;
+  margin: 0 2.5%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.home-page .first-section .first-button-cont a:hover {
+  background-color: #61CE70;
+}
+.home-page .first-section .first-button-cont i {
+  padding-right: 1rem;
+}
+.home-page .first-section .no-taxes {
+  text-align: center;
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: #FFFFFF;
+  z-index: 3;
+  margin: 0;
+  line-height: 2em;
+  padding-top: 2rem;
+}
+.home-page .employee-counter {
+  width: 100%;
+  height: 270px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+  background-color: #FF5252;
+}
+.home-page .employee-counter div {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+.home-page .employee-counter div div {
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+}
+.home-page .employee-counter div .counter-numb {
+  font-size: 5vw;
+  font-weight: 800;
+  text-shadow: 2px 15px 20px rgba(0, 0, 0, 0.1);
+  animation-iteration-count: 1;
+}
+.home-page .employee-counter div .counter-text {
+  font-size: 1.1vw;
+  font-weight: 600;
+  line-height: 1rem;
+}
+.home-page .short-description {
+  padding: 3rem 5% 0;
+}
+.home-page .short-description p {
+  color: #54595F;
+  font-size: 1.3vw;
+  font-weight: 400;
+  text-align: center;
+}
+.home-page .special-offer {
+  width: clamp(1150px, 1250px, 1300px);
+  height: 250px;
+  padding: 1rem 3%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url(https://new.rh-s.com/wp-content/uploads/2021/11/SWIEJKO_watercolorpaper_59_42.png);
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+.home-page .special-offer .sale-descr {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  width: 45%;
+}
+.home-page .special-offer .sale-descr H1 {
+  color: #ffffff;
+  font-weight: 800;
+  margin: 0;
+  font-size: 3rem;
+}
+.home-page .special-offer .sale-descr p {
+  color: #FF5252;
+  font-weight: 700;
+  margin: 0;
+  font-size: 3rem;
+}
+.home-page .special-offer .divider {
+  height: 6rem;
+  width: 5px;
+  background: #FF5252;
+  z-index: 3;
+  position: relative;
+}
+.home-page .special-offer .sale-counter {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  display: grid;
+  justify-content: center;
+  width: 45%;
+}
+.home-page .special-offer .sale-counter p {
+  font-weight: 800;
+  font-size: 2.5rem;
+  margin: 0;
+}
+.home-page .special-offer .sale-counter .sale-link {
+  text-transform: uppercase;
+  color: #FFFFFF;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  background-color: #FF5252;
+  border-radius: 4px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 220px;
+  transition: 0.3s;
+}
+.home-page .special-offer .sale-counter .sale-link:hover {
+  background-color: #61CE70;
+}
+.home-page .employees-card {
+  padding-top: 3rem;
+}
+.home-page .employees-card .products {
+  margin: 0;
+  padding: 0;
+}
+.home-page .price-card-section {
+  width: 100%;
+  padding: 3rem 5%;
+  display: flex;
+  flex-flow: column;
+}
+.home-page .price-card-section H1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.6vw;
+  font-weight: 900;
+  color: #54595F;
+  margin: 0;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+.home-page .price-card-section H1 span {
+  color: #FF5252;
+}
+.home-page .price-card-section .cards {
+  display: flex;
+  justify-content: space-between;
+}
+.home-page .price-card-section .cards .pricing-card-home {
+  height: 408px;
+  width: clamp(250px, 300px, 330px);
+  display: flex;
+  flex-flow: column;
+  border-radius: 8px;
+  box-shadow: 1px 2px 7px 0 rgba(0, 0, 0, 0.15);
+  background-color: #F7F7F7;
+}
+.home-page .price-card-section .cards .pricing-card-home span {
+  margin: 0;
+  text-align: center;
+}
+.home-page .price-card-section .cards .pricing-card-home H3 {
+  margin: 0;
+  text-align: center;
+}
+.home-page .price-card-section .cards .pricing-card-home .pricing-card-header {
+  background-color: #54595F;
+  width: 100%;
+  height: 50px;
+  border-radius: 8px 8px 0 0;
+  display: grid;
+  align-content: center;
+}
+.home-page .price-card-section .cards .pricing-card-home .pricing-card-header H3 {
+  color: #ffffff;
+  font-weight: 700;
+}
+.home-page .price-card-section .cards .pricing-card-home main {
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+}
+.home-page .price-card-section .cards .pricing-card-home main .card-price {
+  font-size: 3rem;
+  font-weight: 800;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.home-page .price-card-section .cards .pricing-card-home main .card-positions {
+  flex-grow: 1.2;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
+  column-gap: 1rem;
+}
+.home-page .price-card-section .cards .pricing-card-home main .card-positions span {
+  font-size: 1.2rem;
+  line-height: 1;
+  font-weight: 400;
+}
+.home-page .price-card-section .cards .pricing-card-home .pricing-card-footer {
+  text-align: center;
+}
+.home-page .price-card-section .cards .pricing-card-home .pricing-card-footer .work-hours {
+  color: #FF5252;
+  font-weight: 300;
 }
 
 /*# sourceMappingURL=home-style.css.map */

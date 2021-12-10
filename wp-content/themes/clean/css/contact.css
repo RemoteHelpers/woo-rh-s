@@ -78,6 +78,7 @@
   width: 100%;
   max-width: 100%;
   border: 1px solid #818a91;
+  background-color: #fffff;
   color: #373a3c;
   vertical-align: middle;
   -webkit-box-flex: 1;
@@ -125,6 +126,7 @@
   margin: 0;
   line-height: 1;
 }
+
 
 .category {
   padding: 0 5%;
@@ -449,6 +451,7 @@
   background: url("http://new.rh-s.com/wp-content/uploads/2021/12/Subtract.png");
 }
 
+
 .category__related_title {
   font-family: Montserrat;
   font-style: normal;
@@ -460,6 +463,10 @@
   /* Text/Grey */
   color: #54595F;
   margin-top: 113px;
+
+.related products .slick-arrow {
+  display: none !important;
+
 }
 
 .thanks__page {

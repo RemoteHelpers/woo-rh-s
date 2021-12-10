@@ -1,13 +1,13 @@
 @import "variables";
 
-*
-{
+* {
   --footer-bg: #212121;
 }
 
 .site-footer {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: 1rem;
   min-height: 280px;
   padding: 1rem 5%;
   background-color: var(--footer-bg);
@@ -16,7 +16,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 5% 0;
+    padding-block: 5%;
 
     a {
       img {
@@ -44,12 +44,13 @@
           align-items: center;
           justify-content: center;
           font-size: 16px;
+          font-weight: 600;
           margin: 3.5rem 0;
           padding: 0;
+          list-style: none;
 
           li {
             a {
-              font-weight: 500;
               color: #FFFFFF;
               text-decoration: none;
               transition: 0.3s;
@@ -95,7 +96,7 @@
     justify-content: flex-end;
     align-items: center;
     gap: 1rem;
-    padding: 5% 0;
+    padding-block: 5%;
 
     p {
       color: white;
@@ -103,7 +104,7 @@
     }
 
     a {
-      .fab {
+      i {
         font-size: 28px;
         color: #ffffff;
         transition: 0.3s;
@@ -116,17 +117,9 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media (min-width: 768px) {
   .site-footer {
-    grid-template-columns: 1fr;
-    .footer-logo {
-      justify-content: center;
-    }
-    .bottom-menu .menu .menu-footer-menu-container .footer-menu {
-      flex-direction: column;
-    }
-    .footer-icon {
-      justify-content: center;
-    }
+    grid-template-columns: 1fr 2fr 1fr;
+    justify-items: unset;
   }
 }
