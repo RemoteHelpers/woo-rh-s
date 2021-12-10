@@ -407,7 +407,8 @@ function rh_open_sidebar_div()
 { ?>
     <div class="archive-page">
     <div class="archive-sidebar">
-        <!--            --><?php //dynamic_sidebar( 'filter-sidebar' ); ?>
+        <!--            --><?php //dynamic_sidebar( 'filter-sidebar' );
+        ?>
         <?php echo do_shortcode('[pwf_filter id="323"]') ?>
     </div>
 <?php } ?>
@@ -426,7 +427,8 @@ function rh_open_sidebar1_div()
 { ?>
     <div class="main-page">
     <div class="main-sidebar">
-        <!--            --><?php //dynamic_sidebar( 'filter-sidebar' ); ?>
+        <!--            --><?php //dynamic_sidebar( 'filter-sidebar' );
+        ?>
         <?php echo do_shortcode('[pwf_filter id="326"]') ?>
     </div>
 <?php } ?>
@@ -436,7 +438,40 @@ add_action('rh_main_page_closing_div', 'rh_close_sidebar1_div', 10);
 function rh_close_sidebar1_div()
 { ?>
     </div>
-<?php }
+<?php } ?>
+
+<?php
+
+/**
+ * Function to draw stars from numbers.
+ */
+function inactiveStar(): string
+{
+    return '<i class="fas fa-star"></i>';
+}
+
+function activeStar() : string
+{
+    return '<i class="fas fa-star score"></i>';
+}
+
+function printStars($quantity, $max) : string
+{
+    $activeStars = $quantity;
+    $inactiveStars = $max - $quantity;
+    $stars = '';
+
+    while ($activeStars > 0) {
+        $stars .= activeStar();
+        $activeStars--;
+    }
+    while ($inactiveStars > 0) {
+        $stars .= inactiveStar();
+        $inactiveStars--;
+    }
+    return $stars;
+}
+?>
 
 
 
