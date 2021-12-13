@@ -206,7 +206,7 @@ function clean_scripts()
 {
     wp_enqueue_style('variables', get_template_directory_uri() . '/css/variables.css', false, '1.1', 'all');
     wp_enqueue_style('clean-style', get_stylesheet_uri(), array(), _S_VERSION);
-    wp_enqueue_style('single-product', get_template_directory_uri() . '/css/single-product.css', false, '1.1', 'all');
+
     wp_enqueue_style('archive-product', get_template_directory_uri() . '/css/archive-product.css', false, '1.1', 'all');
     wp_enqueue_style('employee-card', get_template_directory_uri() . '/css/employee-card.css', false, '1.1', 'all');
     wp_enqueue_style('slick-styles', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', false, '1.1', 'all');
@@ -215,6 +215,13 @@ function clean_scripts()
 
     if (is_front_page()) {
         wp_enqueue_style('home-style', get_template_directory_uri() . '/css/home-style.css', false, '1.1', 'all');
+    }
+
+    if (is_product()) {
+        wp_enqueue_style('single-product', get_template_directory_uri() . '/css/single-product.css', false, '1.1', 'all');
+        wp_enqueue_style('roboto', 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap', false, '1.1', 'all');
+        wp_enqueue_style('roboto-condensed', get_template_directory_uri() . 'https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap>', false, '1.1', 'all');
+        wp_enqueue_style('slick-styles', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', false, '1.1', 'all');
     }
 
     wp_enqueue_style('form-style', get_template_directory_uri() . '/css/contact.css', false, '1.1', 'all');
@@ -258,7 +265,8 @@ function clean_scripts()
     wp_style_add_data('clean-style', 'rtl', 'replace');
 
 
-    wp_enqueue_script('clean-script', get_template_directory_uri() . '/js/index.js', array('jquery'), _S_VERSION, true);
+    wp_enqueue_script('clean-script', get_template_directory_uri() . '/js/index.js', array('jquery', 'acf-input'), _S_VERSION, true);
+    acf_enqueue_script('clean-script');
     wp_enqueue_script('clean-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
 
     wp_enqueue_script('home-page', get_template_directory_uri() . '/js/home-page.js', array(), _S_VERSION, true);
@@ -494,7 +502,7 @@ function printStars($quantity, $max) : string
 
 
 
-
+<?php
 //------------- Related Cards
 
 function getProductsByAcf($key, $value) {
