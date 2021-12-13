@@ -25,6 +25,16 @@ if (post_password_required()) {
 }
 
 ?>
+<div class="gallery-backdrop">
+    <i class="fas fa-times gallery-close"></i>
+    <i class="fas fa-arrow-left gallery-prev"></i>
+    <i class="fas fa-arrow-right gallery-next"></i>
+    <div class="gallery-container">
+        <img class="gallery-image" src="">
+    </div>
+    <div class="gallery-thumbnails"></div>
+</div>
+
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class('', $product); ?>>
 
     <?php get_template_part('template-parts/rh/single-product-sidebar'); ?>

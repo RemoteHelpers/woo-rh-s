@@ -1,4 +1,4 @@
-const singleProductPage = document.querySelector('.single-product')
+const singleProductPage = document.querySelector('.rh-single-product')
 const faqPage = document.querySelector('.faq')
 const privacyPage = document.querySelector('.privacy')
 const pricingPage = document.querySelector('.pricing')
@@ -14,7 +14,11 @@ let imgIndex = 0
 onload = () => {
 
     if (singleProductPage) {
+        const loader = document.querySelector('.loader')
         console.log('CV page')
+        loader.style.display = 'none'
+        singleProductPage.classList.remove('preload-fader')
+        console.log('showing content on load...')
         // autoFontScale()
         coverIframe()
         startSlick()
@@ -122,7 +126,7 @@ function autoFontScale() {
 
 /* PORTFOLIO GALLERY */
 function portfolioGallery() {
-    const portfolioItem = document.querySelectorAll('.designer-portfolio-item')
+    const portfolioItem = document.querySelectorAll('.portfolio-thumbnails figure')
 
     portfolioItem.forEach((item, index) => {
         item.addEventListener('click', (e) => {
@@ -175,14 +179,24 @@ function portfolioGallery() {
 }
 
 function handleTouchStart(e) {
-    image.touchStart = e.changedTouches[0].screenX
+    image.touchStartX = e.changedTouches[0].screenX
+    image.touchStartY = e.changedTouches[0].screenY
 }
 
 function handleTouchEnd(e) {
-    image.touchEnd = e.changedTouches[0].screenX
-    if ((image.touchStart - image.touchEnd) > 0) {
+    image.touchEndX = e.changedTouches[0].screenX
+    image.touchEndY = e.changedTouches[0].screenY
+    const diffX = image.touchEndX - image.touchStartX
+    const diffY = image.touchEndY - image.touchStartY
+    const modalDiffX = Math.abs(diffX)
+    const modalDiffY = Math.abs(diffY)
+    if (modalDiffX < modalDiffY) {
+        closeGallery()
+        return
+    }
+    if (diffX > 0) {
         prevSlide()
-    } else if ((image.touchStart - image.touchEnd) < 0) {
+    } else if (diffX < 0) {
         nextSlide()
     }
 }
@@ -248,33 +262,36 @@ function selectThumbnail(nextThumbnail) {
 
 function fadeToImg(src) {
 
-    img.classList.toggle('fade')
+    img.classList.add('fade')
     setTimeout(() => {
         img.setAttribute('src', src)
-        setTimeout(() => {
-            img.classList.toggle('fade')
-        }, 150)
-
-    }, 100)
+        img.onload = () => {
+            img.classList.remove('fade')
+        }
+    }, 200)
 }
 
 function openGallery() {
     const scrollY = window.scrollY
-    document.body.classList.toggle('modal-gallery-open')
+    document.body.classList.add('modal-gallery-open')
     backdrop.style.top = scrollY + 'px'
     backdrop.style.display = 'grid'
 }
 
 function closeGallery() {
-    backdrop.style.display = 'none'
-    document.body.classList.toggle('modal-gallery-open')
-    document.removeEventListener('wheel', preventScroll, {passive: false})
-    document.removeEventListener('keydown', handleKeypress, {passive: false})
-    document.removeEventListener('touchstart', handleTouchStart)
-    document.removeEventListener('touchend', handleTouchEnd)
-    // arrowBack.removeEventListener('click', prevSlide)
-    // arrowNext.removeEventListener('click', nextSlide)
-    thumbnailGallery.innerHTML = ''
+    img.classList.add('fade')
+    setTimeout(() => {
+        backdrop.style.display = 'none'
+        document.body.classList.remove('modal-gallery-open')
+        document.removeEventListener('wheel', preventScroll, {passive: false})
+        document.removeEventListener('keydown', handleKeypress, {passive: false})
+        document.removeEventListener('touchstart', handleTouchStart)
+        document.removeEventListener('touchend', handleTouchEnd)
+        // arrowBack.removeEventListener('click', prevSlide)
+        // arrowNext.removeEventListener('click', nextSlide)
+        thumbnailGallery.innerHTML = ''
+    }, 150)
+
 }
 
 function preventScroll(e) {

@@ -43,7 +43,7 @@ global $product;
                         echo printStars($rating, 5);
                         ?>
                         <p><?php echo $product->get_rating_count(); ?> customer <a href="#"
-                                                                                   style="text-decoration: underline;">reviews</a>
+                            ">reviews</a>
                         </p>
                     </div>
                 </div>

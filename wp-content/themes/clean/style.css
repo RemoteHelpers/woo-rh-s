@@ -966,6 +966,7 @@ textarea {
 
 .container {
   margin-inline: var(--zen-padding);
+  position: relative;
 }
 
 .accent-highlight {

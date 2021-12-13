@@ -22,7 +22,10 @@ get_header();
 ?>
 
     <div class="container">
-        <div class="single-product">
+        <div class="loader">
+            <div class="spinner"></div>
+        </div>
+        <div class="rh-single-product preload-fader">
 
 
 <!--            --><?php
