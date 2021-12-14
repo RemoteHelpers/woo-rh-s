@@ -10,7 +10,7 @@ get_header(); ?>
         <h1>Frequently Asked Questions</h1>
         <p class="subtitle">Have a query? Please check these questions and answers</p>
 
-        <section class="split">
+        <section class="split padding-3">
             <img src="<?php the_field('faq_hiring_process'); ?>">
             <div class="faq-block">
                 <h2 class="block-title">Hiring process & further work</h2>
@@ -22,7 +22,7 @@ get_header(); ?>
             </div>
         </section>
 
-        <section>
+        <section class="padding-3">
             <ul class="faq-accordion">
                 <li>
                     <div class="accordion-header">
@@ -95,7 +95,7 @@ get_header(); ?>
             </ul>
         </section>
 
-        <section class="split">
+        <section class="split padding-3">
             <img class="reverse" src="<?php the_field('faq_staff_management'); ?>">
             <div class="faq-block">
                 <h2 class="block-title">Staff management</h2>
@@ -109,7 +109,7 @@ get_header(); ?>
             </div>
         </section>
 
-        <section class="split">
+        <section class="split padding-3">
             <img src="<?php the_field('faq_billing_&_invoicing'); ?>">
             <div class="faq-block">
                 <h2 class="block-title">Billing & Invoicing</h2>
@@ -128,7 +128,8 @@ get_header(); ?>
             </div>
         </section>
 
-        <section>
+        <section class="padding-3">
+
             <ul class="faq-accordion">
                 <li>
                     <div class="accordion-header">
