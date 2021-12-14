@@ -134,6 +134,7 @@
   }
   .about-us-page .gallery-viewport img {
     object-fit: contain;
+    height: 35rem;
   }
   .about-us-page .about-gallery {
     margin-block: 3rem;

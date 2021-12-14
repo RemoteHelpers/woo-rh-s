@@ -7,7 +7,8 @@ get_header(); ?>
 
     <div class="pricing">
 
-        <section>
+        <section class="padding-3">
+
             <div class="pricing-switch">
                 <span class="active" data-switch="fullTime">FULL TIME EMPLOYEES</span>
                 <input class="switch" data-switch="fullTime" type="checkbox">
@@ -71,7 +72,8 @@ get_header(); ?>
             </div>
         </section>
 
-        <section>
+        <section class="padding-3">
+
             <h2>Special offers</h2>
             <div class="offer-cards">
                 <div class="card">
@@ -108,7 +110,8 @@ get_header(); ?>
             </div>
         </section>
 
-        <section>
+        <section class="padding-3">
+
             <div class="table-wrap">
                 <table>
                     <tr>

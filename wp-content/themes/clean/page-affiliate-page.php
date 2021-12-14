@@ -10,6 +10,7 @@ $affiliate_img = get_field('affiliate_images');
 ?>
 
     <div class="affiliate-page">
+
         <section class="hero">
             <h1>Join our <span class="bold-text">affiliate marketing program</span> and start <span class="bold-text">getting incomes</span>
             </h1>
@@ -79,7 +80,7 @@ $affiliate_img = get_field('affiliate_images');
             </div>
         </section>
 
-        <section class="learn-more">
+        <section class="padding-3 learn-more">
             <h2>Learn more about our company
                 and the offer for <span class="bold-text">affiliate partners</span></h2>
             <div class="split">

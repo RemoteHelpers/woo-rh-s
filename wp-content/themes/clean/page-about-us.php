@@ -45,8 +45,11 @@ $hr = array_filter($rows, 'get_hr');
 ?>
 
     <div class="about-us-page">
+
         <h1 class="logo-img"><?php echo wp_get_attachment_image('418'); ?></h1>
-        <section>
+
+        <section class="padding-3">
+
             <h2>Company Founders</h2>
             <p> Our company was founded in 2018 to create working places for Ukrainian specialists on a remote basis.
                 We’re grateful to our employees and clients for their cooperation. It’s a big pleasure to work with such
@@ -67,7 +70,8 @@ $hr = array_filter($rows, 'get_hr');
             </div>
         </section>
 
-        <section>
+        <section class="padding-3">
+
             <h2>Managing Team</h2>
             <p>Hi, let us introduce you to a small part of the large Remote Helpers mechanism. We are very proud of the
                 team we have created. It is a collaboration of talented people with multiple skills and experience. All
@@ -121,7 +125,8 @@ $hr = array_filter($rows, 'get_hr');
             </div>
         </section>
 
-        <section>
+        <section class="padding-3">
+
             <h2>About Us</h2>
             <p>Our mission is to provide working places in conflict-affected areas of Eastern Ukraine. We’re a
                 goal-oriented company that builds long-term relationships with our clients. All the candidates were
@@ -145,7 +150,8 @@ $hr = array_filter($rows, 'get_hr');
             </div>
         </section>
 
-        <section>
+        <section class="padding-3">
+
             <h2>Some Photos from our office life</h2>
 
             <?php
@@ -173,7 +179,7 @@ $hr = array_filter($rows, 'get_hr');
             <?php endif; ?>
         </section>
 
-        <section>
+        <section class="padding-3">
             <?php get_template_part('template-parts/contact-us-form'); ?>
         </section>
 
