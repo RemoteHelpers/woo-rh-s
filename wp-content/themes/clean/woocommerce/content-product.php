@@ -25,8 +25,9 @@ if (empty($product) || !$product->is_visible()) {
 }
 ?>
 <?php
-    add_action("related_cards", "cards", 20 );
-    function cards () { ?>
+
+//    add_action("related_cards", "cards", 20 );
+//    function cards () { ?>
 
 <li>
     <div class="card" id="card">
@@ -63,19 +64,16 @@ if (empty($product) || !$product->is_visible()) {
             <?php the_title( '<h3 class="product__first_name" >', '</h3>' ); ?>
 
             <div class="product__position"><?php the_field('current_position') ?></div>
-            <!--//TODO: change h5 to div and insert blocks-->
             <div class="skill-items">
                 <?php echo wc_get_product_tag_list($product->get_id(), ' ') ?>
-                <!--                <a href="">CSS</a>-->
             </div>
         </main>
         <footer>
             <a href="<?php echo get_post_permalink() ?>">View Profile</a>
-            <!--FIXME: add link to post-->
         </footer>
         </a>
     </div>
 </li>
 
-<?php } ?>
+<?php //} ?>
 
