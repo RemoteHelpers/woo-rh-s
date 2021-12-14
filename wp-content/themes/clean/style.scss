@@ -989,8 +989,53 @@ $text-color: #54595F;
   color: var(--rh-accent-color);
 }
 
-section {
+//section {
+//  padding-block: 3vw;
+//}
+
+.padding-3 {
   padding-block: 3vw;
+}
+
+.font-1-18 {
+  font-size: var(--font-size-1-18);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.margin-auto {
+  margin-inline: auto;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.section-title-box {
+  margin-bottom: 2rem;
+  text-align: center;
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+
+    font-size: clamp(1.2rem, 3vw, 1.625rem);
+    font-weight: 300;
+  }
+}
+
+.only-mobile {
+  display: block;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 }
 
 /* Custom elements
@@ -1020,6 +1065,8 @@ section {
 /* RH RED BUTTON */
 
 .rh-button {
+  display: flex;
+  gap: 1rem;
   background-color: var(--rh-accent-color);
   border: none;
   color: white;
@@ -1027,7 +1074,8 @@ section {
   font-size: 1.125rem;
   font-weight: 700;
   padding: .8em 2em;
-  margin-top: 1rem;
+  margin-block: 1rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .3);
   transition: background-color .3s ease, color .3s ease;
 
   &:hover {

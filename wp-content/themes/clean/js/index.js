@@ -1,3 +1,4 @@
+const homePage = document.querySelector('.home-page')
 const singleProductPage = document.querySelector('.rh-single-product')
 const faqPage = document.querySelector('.faq')
 const privacyPage = document.querySelector('.privacy')
@@ -12,6 +13,10 @@ const thumbnailGallery = document.querySelector('.gallery-thumbnails')
 let imgIndex = 0
 
 onload = () => {
+
+    if (homePage) {
+        heroScroller()
+    }
 
     if (singleProductPage) {
         const loader = document.querySelector('.loader')
@@ -55,6 +60,20 @@ onresize = () => {
     if (affiliatePage) {
         affiliateSlider()
     }
+}
+
+/* HERO SCROLLER */
+function heroScroller() {
+    const scroller = document.querySelector('.scroller')
+    const words = ['Designers', 'Developers', 'Managers', 'Employees', 'Assistants']
+    let counter = 1
+    setInterval(() => {
+        if (counter > words.length - 1) {
+            counter = 0
+        }
+        scroller.textContent = words[counter]
+        counter++
+    }, 3000)
 }
 
 /* COVER IFRAME */
