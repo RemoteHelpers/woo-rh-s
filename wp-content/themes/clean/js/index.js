@@ -16,6 +16,8 @@ onload = () => {
 
     if (homePage) {
         heroScroller()
+        clientsScroller()
+        testimonialsScroller()
     }
 
     if (singleProductPage) {
@@ -74,6 +76,49 @@ function heroScroller() {
         scroller.textContent = words[counter]
         counter++
     }, 3000)
+}
+
+/* CLIENTS SCROLLER */
+function clientsScroller() {
+    jQuery('.clients-slider').slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        draggable: true,
+        infinite: true,
+        swipeToSlide: true,
+        responsive: [
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 450,
+                settings: {
+                    slidesToShow: 2,
+                }
+            }
+        ]
+    });
+}
+
+/* TESTIMONIALS SCROLLER */
+function testimonialsScroller() {
+    jQuery('.testimonials-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: true,
+        draggable: true,
+        infinite: true,
+        swipeToSlide: true,
+        adaptiveHeight: true,
+    })
 }
 
 /* COVER IFRAME */

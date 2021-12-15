@@ -3,16 +3,37 @@
   --rh-accent-color: #FF5252;
   --rh-accent-color-lighten: #ff8080;
   --rh-green-color: #2ecc71;
+  --rh-grey-d8: #d8d8d8;
   --rh-grey-text: #7a7a7a;
   --scrollbar-width: 8px;
   --zen-padding: calc((100vw - var(--scrollbar-width)) / 20);
   --rh-box-shadow: 6px 4px 10px rgb(0 0 0 / 10%);
+  --font-size-1-2: 1.2rem;
   --font-size-1-5: 1.5rem;
   --font-size-1-18: 1.18rem;
 }
 
 .home-page {
   background-image: linear-gradient(180deg, #FAFAFA 55%, #F1F1F1 100%);
+}
+.home-page .slick-dots {
+  display: flex;
+  gap: 6px;
+  position: absolute;
+  bottom: 0;
+}
+.home-page .slick-dots li.slick-active button {
+  background-color: black;
+}
+.home-page .slick-dots button {
+  font-size: 0;
+  background-color: var(--rh-grey-d8);
+  border: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 .home-page .hero-section {
   display: grid;
@@ -218,6 +239,56 @@
 .home-page .hiring-process p {
   max-width: 20rem;
   margin-inline: auto;
+}
+.home-page .clients-slider {
+  display: flex;
+  justify-content: center;
+}
+.home-page .clients-slider img {
+  height: 12rem;
+  object-fit: contain;
+}
+.home-page .clients-slider .slick-slide {
+  margin-inline: 2rem;
+}
+.home-page .testimonials-slider {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: var(--font-size-1-2);
+}
+.home-page .testimonials-slider p {
+  margin: 0;
+}
+.home-page .testimonials-slider .testimonial-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+.home-page .testimonials-slider .client-name {
+  font-weight: 600;
+}
+.home-page .testimonials-slider .client-position {
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  color: var(--rh-accent-color);
+}
+.home-page .testimonials-slider .slick-dots {
+  bottom: -3rem;
+}
+.home-page .testimonials-slider img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+@media (min-width: 500px) {
+  .home-page .clients-slider img {
+    height: 15rem;
+  }
 }
 @media (min-width: 768px) {
   .home-page .hero-section .hero-image {

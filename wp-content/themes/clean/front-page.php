@@ -251,8 +251,71 @@ get_header();
 
         <section class="padding-3">
 
+            <div class="section-title-box">
+                <h2 class="section-title">Our clients</h2>
+            </div>
+
+            <ul class="clients-slider">
+                <?php
+                $logos = get_field('home_page_clients');
+                foreach ($logos as $logo) { ?>
+                    <li>
+                        <img src="<?php echo esc_url($logo['sizes']['medium']); ?>" alt="company-logo">
+                    </li>
+                    <?php
+                }
+                ?>
+            </ul>
+
         </section>
 
+        <!--=============
+        // Testimonials
+        //=============-->
+
+        <div class="container">
+
+            <section class="padding-3">
+
+                <div class="section-title-box">
+                    <h2 class="section-title">Testimonials</h2>
+                </div>
+
+                <ul class="testimonials-slider">
+
+                    <?php
+                    if (have_rows('home_page_client_reviews')) :
+                        while (have_rows('home_page_client_reviews')) : the_row(); ?>
+                            <li>
+                                <?php the_sub_field('client_message'); ?>
+                                <div class="testimonial-footer">
+                                    <img src="<?php the_sub_field('client_image'); ?>">
+                                    <div class="footer-text">
+                                        <p class="client-name"><?php the_sub_field('client_name'); ?></p>
+                                        <p class="client-position"><?php the_sub_field('client_pos'); ?></p>
+                                    </div>
+                                </div>
+                            </li>
+                        <?php
+                        endwhile;
+                    endif;
+                    ?>
+
+                </ul>
+
+            </section>
+
+        </div>
+
+        <!--=============
+        // Contact form
+        //=============-->
+
+        <section class="padding-4r">
+
+            <?php get_template_part('/template-parts/contact-us-form') ?>
+
+        </section>
 
     </main>
 

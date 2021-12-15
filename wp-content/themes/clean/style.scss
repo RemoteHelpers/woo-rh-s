@@ -997,6 +997,10 @@ $text-color: #54595F;
   padding-block: 3vw;
 }
 
+.padding-4r {
+  padding-block: 4rem;
+}
+
 .font-1-18 {
   font-size: var(--font-size-1-18);
 }
@@ -1066,6 +1070,7 @@ $text-color: #54595F;
 
 .rh-button {
   display: flex;
+  justify-content: center;
   gap: 1rem;
   background-color: var(--rh-accent-color);
   border: none;
