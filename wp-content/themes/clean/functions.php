@@ -215,6 +215,9 @@ function clean_scripts()
 
     if (is_front_page()) {
         wp_enqueue_style('home-style', get_template_directory_uri() . '/css/home-style.css', false, '1.1', 'all');
+        wp_enqueue_style('contact-form-component', get_template_directory_uri() . '/css/contact-form-component.css', false, '1.1', 'all');
+        wp_enqueue_style('slick-styles', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', false, '1.1', 'all');
+        wp_enqueue_script('slick-script', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array(), _S_VERSION, true);
     }
 
     if (is_product()) {
