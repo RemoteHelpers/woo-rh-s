@@ -7,6 +7,7 @@ const affiliatePage = document.querySelector('.affiliate-page')
 const aboutPage = document.querySelector('.about-us-page')
 
 const backdrop = document.querySelector('.gallery-backdrop')
+const body = document.body
 const img = document.querySelector('.gallery-image')
 const thumbnailGallery = document.querySelector('.gallery-thumbnails')
 
@@ -30,6 +31,7 @@ onload = () => {
         coverIframe()
         startSlick()
         portfolioGallery()
+        ratingHover()
     }
 
     if (faqPage) {
@@ -62,6 +64,43 @@ onresize = () => {
     if (affiliatePage) {
         affiliateSlider()
     }
+}
+
+/* RATING HOVER */
+function ratingHover() {
+    const stars = document.querySelectorAll('.comment-form-rating i')
+    const container = document.querySelector('.comment-form-rating')
+
+    stars.forEach((star, index) => {
+        star.addEventListener('mouseover', function() {
+            addStars(stars, index)
+        })
+        star.addEventListener('click', function() {
+            freezeStars(container)
+        })
+        container.addEventListener('mouseout', removeAllStars, false)
+    })
+}
+
+function addStars(stars, index) {
+    Array.from(stars).forEach((item, idx) => {
+        if (idx <= index) {
+            item.classList.add('yellow')
+        } else {
+            item.classList.remove('yellow')
+        }
+    })
+}
+
+function removeAllStars() {
+    const stars = document.querySelectorAll('.comment-form-rating i')
+    stars.forEach(star => {
+        star.classList.remove('yellow')
+    })
+}
+
+function freezeStars(container) {
+    container.removeEventListener('mouseout', removeAllStars, false)
 }
 
 /* HERO SCROLLER */
@@ -336,9 +375,11 @@ function fadeToImg(src) {
 }
 
 function openGallery() {
-    const scrollY = window.scrollY
-    document.body.classList.add('modal-gallery-open')
-    backdrop.style.top = scrollY + 'px'
+    body.classList.add('modal-gallery-open')
+    if (backdrop.parentElement !== body) {
+        body.insertBefore(backdrop, document.body.firstChild)
+    }
+    backdrop.style.top = window.scrollY + 'px'
     backdrop.style.display = 'grid'
 }
 
@@ -346,7 +387,7 @@ function closeGallery() {
     img.classList.add('fade')
     setTimeout(() => {
         backdrop.style.display = 'none'
-        document.body.classList.remove('modal-gallery-open')
+        body.classList.remove('modal-gallery-open')
         document.removeEventListener('wheel', preventScroll, {passive: false})
         document.removeEventListener('keydown', handleKeypress, {passive: false})
         document.removeEventListener('touchstart', handleTouchStart)
@@ -388,7 +429,6 @@ function handleKeypress(e) {
 
 function closeOnClick(e) {
     if (e.target.classList.contains('gallery-backdrop')) {
-        // console.log(e.target)
         closeGallery()
         document.removeEventListener('click', closeOnClick)
     }

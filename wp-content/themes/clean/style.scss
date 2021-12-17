@@ -397,6 +397,8 @@ textarea {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -970,10 +972,9 @@ textarea {
 $accent-color: #FF5252;
 $text-color: #54595F;
 
-//.main-page {
-//  display: grid;
-//  grid-template-columns: 1fr 4fr;
-//}
+html {
+  scroll-behavior: smooth;
+}
 
 .post,
 .page {
@@ -982,16 +983,12 @@ $text-color: #54595F;
 
 .container {
   margin-inline: var(--zen-padding);
-  position: relative;
+  //position: relative; - breaks the gallery
 }
 
 .accent-highlight {
   color: var(--rh-accent-color);
 }
-
-//section {
-//  padding-block: 3vw;
-//}
 
 .padding-3 {
   padding-block: 3vw;
@@ -1009,8 +1006,16 @@ $text-color: #54595F;
   text-align: center;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .margin-auto {
   margin-inline: auto;
+}
+
+.margin-block-5 {
+  margin-block: 5rem;
 }
 
 .bg-white {
@@ -1028,7 +1033,6 @@ $text-color: #54595F;
   }
 
   .section-subtitle {
-
     font-size: clamp(1.2rem, 3vw, 1.625rem);
     font-weight: 300;
   }

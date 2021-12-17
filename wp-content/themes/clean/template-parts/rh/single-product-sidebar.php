@@ -42,7 +42,7 @@ global $product;
                         $rating = round($average_rating);
                         echo printStars($rating, 5);
                         ?>
-                        <p><?php echo $product->get_rating_count(); ?> customer <a href="#"
+                        <p><?php echo $product->get_rating_count(); ?> customer <a href="#reviews"
                             ">reviews</a>
                         </p>
                     </div>

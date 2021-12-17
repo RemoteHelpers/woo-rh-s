@@ -225,6 +225,9 @@ function clean_scripts()
         wp_enqueue_style('roboto', 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap', false, '1.1', 'all');
         wp_enqueue_style('roboto-condensed', get_template_directory_uri() . 'https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap>', false, '1.1', 'all');
         wp_enqueue_style('slick-styles', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', false, '1.1', 'all');
+//        overriding the woocommerce single-product.js file
+        global $wp_scripts;
+        $wp_scripts->registered[ 'wc-single-product' ]->src = get_template_directory_uri() . '/woocommerce/js/single-product.min.js';
     }
 
     wp_enqueue_style('form-style', get_template_directory_uri() . '/css/contact.css', false, '1.1', 'all');
@@ -502,8 +505,6 @@ function printStars($quantity, $max) : string
     return $stars;
 }
 ?>
-
-
 
 <?php
 //------------- Related Cards

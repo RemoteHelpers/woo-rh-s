@@ -20,6 +20,11 @@
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
+
+global $comment;
+$verified = wc_review_is_from_verified_owner($comment->comment_ID);
+$rating = intval(get_comment_meta($comment->comment_ID, 'rating', true));
+
 ?>
 <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 
@@ -27,7 +32,6 @@ if (!defined('ABSPATH')) {
 
         <div class="comment-info">
 
-            <div class="avatar-and-meta">
             <?php
             /**
              * The woocommerce_review_before hook
@@ -36,26 +40,44 @@ if (!defined('ABSPATH')) {
              */
             do_action('woocommerce_review_before', $comment);
 
-            /**
-             * The woocommerce_review_meta hook.
-             *
-             * @hooked woocommerce_review_display_meta - 10
-             */
-            do_action('woocommerce_review_meta', $comment);
             ?>
+
+            <div class="meta-and-rating">
+                <?php
+                if ('0' === $comment->comment_approved) { ?>
+                    <p class="meta">
+                        <em class="woocommerce-review__awaiting-approval">
+                            <?php esc_html_e('Your review is awaiting approval', 'woocommerce'); ?>
+                        </em>
+                    </p>
+                <?php } else { ?>
+
+                    <span class="author">
+                        <strong class="woo-review-author"><?php comment_author(); ?> </strong>
+                        <?php
+
+                        if ('yes' === get_option('woocommerce_review_rating_verification_label') && $verified) {
+                            echo '<em class="woocommerce-review__verified verified">(' . esc_attr__('verified owner', 'woocommerce') . ')</em> ';
+                        }
+
+                        if ($rating && wc_review_ratings_enabled()) { ?>
+                            <!--    echo wc_get_rating_html( $rating ); // WPCS: XSS ok.-->
+                            <div class="rating">
+                                <?php echo printStars($rating, 5); ?>
+                            </div>
+                        <?php } ?>
+
+                    </span>
+
+                    <time class="woo-review-date"
+                          datetime="<?php echo esc_attr(get_comment_date('c')); ?>"><?php echo esc_html(get_comment_date(wc_date_format())); ?>
+                    </time>
+
+                    <?php
+                }
+                ?>
 
             </div>
-
-            <?php
-            /**
-             * The woocommerce_review_before_comment_meta hook.
-             *
-             * @hooked woocommerce_review_display_rating - 10
-             */
-            do_action('woocommerce_review_before_comment_meta', $comment);
-
-            ?>
-
         </div>
         <div class="comment-text">
 

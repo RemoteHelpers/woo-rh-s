@@ -395,6 +395,8 @@ textarea {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -959,6 +961,10 @@ textarea {
 --------------------------------------------------------------*/
 /* Custom styles
 --------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+
 .post,
 .page {
   margin: 0;
@@ -966,7 +972,6 @@ textarea {
 
 .container {
   margin-inline: var(--zen-padding);
-  position: relative;
 }
 
 .accent-highlight {
@@ -989,8 +994,16 @@ textarea {
   text-align: center;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .margin-auto {
   margin-inline: auto;
+}
+
+.margin-block-5 {
+  margin-block: 5rem;
 }
 
 .bg-white {
