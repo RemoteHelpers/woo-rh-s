@@ -21,15 +21,17 @@ if (!defined('ABSPATH')) {
 get_header();
 ?>
 
+    <div class="loader">
+        <div class="spinner"></div>
+    </div>
 
-
-    <div class="container">
-
-        <div class="loader">
-            <div class="spinner"></div>
+    <div class="rh-single-product preload-fader">
+        <div class="circles">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
         </div>
-
-        <div class="rh-single-product preload-fader">
+        <div class="blur">
 
 
             <!--            --><?php
@@ -68,6 +70,7 @@ get_header();
             //	?>
 
         </div>
+
     </div>
 
 <?php
