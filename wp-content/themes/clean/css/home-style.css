@@ -3,6 +3,7 @@
   --rh-accent-color: #FF5252;
   --rh-accent-color-lighten: #ff8080;
   --rh-green-color: #2ecc71;
+
   --rh-grey-d8: #d8d8d8;
   --rh-grey-text: #7a7a7a;
   --scrollbar-width: 8px;
@@ -12,6 +13,7 @@
   --font-size-1-2: 1.2rem;
   --font-size-1-5: 1.5rem;
   --font-size-1-18: 1.18rem;
+
 }
 
 .home-page {
@@ -132,6 +134,7 @@
   margin: 0;
 }
 .home-page .special-offer {
+
   display: grid;
   grid-template-columns: 1fr;
   place-items: center;
@@ -213,9 +216,11 @@
 .home-page .hiring-process li {
   position: relative;
 }
+
 .home-page .hiring-process li:last-child span {
   font-size: var(--font-size-1-5);
   font-weight: 800;
+
 }
 .home-page .hiring-process li:last-child i {
   color: var(--rh-accent-color);

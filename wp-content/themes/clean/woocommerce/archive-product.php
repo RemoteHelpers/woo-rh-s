@@ -73,42 +73,103 @@ do_action('woocommerce_before_main_content');
                 echo $main_text
                 ?>
             </div>
+
+
+         
+            <?php
+                                            // name of repeater field
+                                            $repeater = 'block_content';
+
+                                            // get taxonomy id
+                                            $taxonomy_id = get_queried_object_id();
+
+                                            // get repeater data from term meta
+                                            $post_meta = get_term_meta($taxonomy_id, $repeater, true);
+
+                                            // count items in repeater
+                                            $count = intval(get_term_meta($taxonomy_id, $repeater, true));
+
+                                            // loop + apply filter the_content to preserve html formatting
+                                            for ($i=0; $i<$count; $i++) {?>
+
             <div class="category__section first__block">
                 <div class="category__block category__text">
                     <div class="text__title">
-                        <img src="<?php
-                        $term = get_queried_object();
-                        $block_image = get_field('block_image', $term);
-                        echo $block_image
-                        ?>" alt="">
+                        <img src="
+                        <?php
+
+                             echo apply_filters('block_image', get_term_meta($taxonomy_id, $repeater.'_'.$i.'_'.'block_image', true));
+                        ?>
+                        " alt="">
                         <p>
                             <?php
-                            $term = get_queried_object();
-                            $block_title = get_field('block_title', $term);
-                            echo $block_title
+
+                            echo apply_filters('block_title', get_term_meta($taxonomy_id, $repeater.'_'.$i.'_'.'block_title', true));
+
                             ?>
+
                         </p>
                     </div>
                     <div class="text__subtitle">
                         <?php
-                        $term = get_queried_object();
-                        $block_subtitle = get_field('block_subtitle', $term);
-                        echo $block_subtitle
+                        echo apply_filters('block_subtitle', get_term_meta($taxonomy_id, $repeater.'_'.$i.'_'.'block_subtitle', true));
                         ?>
                     </div>
                     <div class="text__btn_grey">Choose available {Employee}</div>
                 </div>
                 <div class="category__block category__slider_block">
                     <div class="category__slider">
-                        <img src="<?php
+                        <img src="
+
+                        <?php
                         $term = get_queried_object();
-                        $img_slider = get_field('img_slider', $term);
-                        echo $img_slider
-                        ?>" alt="">
+                        $img_slider_1 = get_field('img_slider_1', $term);
+                        echo $img_slider_1
+                        ?>
+
+                        " alt="">
+                        <img src="
+
+                            <?php
+                            $term = get_queried_object();
+                            $img_slider_2 = get_field('img_slider_2', $term);
+                            echo $img_slider_2
+                            ?>
+
+                        " alt="">
+                        <img src="
+
+                            <?php
+                            $term = get_queried_object();
+                            $img_slider_3 = get_field('img_slider_3', $term);
+                            echo $img_slider_3
+                            ?>
+
+                        " alt="">
+                        <img src="
+
+                            <?php
+                            $term = get_queried_object();
+                            $img_slider_4 = get_field('img_slider_4', $term);
+                            echo $img_slider_4
+                            ?>
+
+                        " alt="">
+                        <img src="
+
+                            <?php
+                            $term = get_queried_object();
+                            $img_slider_5 = get_field('img_slider_5', $term);
+                            echo $img_slider_5
+                            ?>
+
+                        " alt="">
                     </div>
                 </div>
-
             </div>
+
+
+
             <div class="category__section first__block reverce__block">
                 <div class="category__block category__text">
                     <div class="text__title">
@@ -119,17 +180,14 @@ do_action('woocommerce_before_main_content');
                         ?>" alt="">
                         <p>
                             <?php
-                            $term = get_queried_object();
-                            $block_title_copy = get_field('block_title_copy', $term);
-                            echo $block_title_copy
+
+                                 echo apply_filters('block_title_right', get_term_meta($taxonomy_id, $repeater.'_'.$i.'_'.'block_title_right', true));
                             ?>
                         </p>
                     </div>
                     <div class="text__subtitle">
                         <?php
-                        $term = get_queried_object();
-                        $block_subtitle_copy = get_field('block_subtitle_copy', $term);
-                        echo $block_subtitle_copy
+                             echo apply_filters('block_subtitle_copy', get_term_meta($taxonomy_id, $repeater.'_'.$i.'_'.'block_subtitle_copy', true));
                         ?>
                     </div>
                     <div class="text__btn_red">Choose available {Employee}</div>
@@ -138,14 +196,38 @@ do_action('woocommerce_before_main_content');
                     <div class="category__slider">
                         <?php
                         $term = get_queried_object();
-                        $img_slider_copy = get_field('img_slider_copy', $term);
+                        $img_slider_left_1 = get_field('img_slider_left_1', $term);
 
-                        echo '<img src="'.$img_slider_copy.'">';
+                        echo '<img src="'.$img_slider_left_1.'">';
+                        ?>
+                        <?php
+                        $term = get_queried_object();
+                        $img_slider_left_2 = get_field('img_slider_left_2', $term);
+
+                        echo '<img src="'.$img_slider_left_2.'">';
+                        ?>
+                        <?php
+                        $term = get_queried_object();
+                        $img_slider_left_2 = get_field('img_slider_left_2', $term);
+
+                        echo '<img src="'.$img_slider_left_2.'">';
+                        ?>
+                        <?php
+                        $term = get_queried_object();
+                        $img_slider_left_2 = get_field('img_slider_left_2', $term);
+
+                        echo '<img src="'.$img_slider_left_2.'">';
                         ?>
                     </div>
                 </div>
 
             </div>
+            <?php   } ?>
+
+            <?php
+            if( get_field('cards_show') ) { ?>
+
+
             <div class="category__related">
                 <div class="category__related_title">
                     <?php
@@ -156,12 +238,11 @@ do_action('woocommerce_before_main_content');
                 </div>
                 <div class="category__related_cards">
                     <?php
-                      echo getProductsByAcf("Analyst");
+                      getProductsByAcf("current_position", "Video editor");
                     ?>
                 </div>
             </div>
-
-
+  <?php } ?>
 
         </section>
         <?php do_action('rh_archive_filter'); ?>
