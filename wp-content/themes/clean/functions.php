@@ -227,7 +227,7 @@ function clean_scripts()
         wp_enqueue_style('slick-styles', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', false, '1.1', 'all');
 //        overriding the woocommerce single-product.js file
         global $wp_scripts;
-        $wp_scripts->registered[ 'wc-single-product' ]->src = get_template_directory_uri() . '/woocommerce/js/single-product.min.js';
+        $wp_scripts->registered['wc-single-product']->src = get_template_directory_uri() . '/woocommerce/js/single-product.min.js';
     }
 
     wp_enqueue_style('form-style', get_template_directory_uri() . '/css/contact.css', false, '1.1', 'all');
@@ -344,7 +344,6 @@ add_action('woocommerce_sale_flash', 'pancode_echo_sale_percent');
 
 
 /**
-
  * Echo discount percent badge html.
  *
  * @param string $html Default sale html.
@@ -483,12 +482,12 @@ function inactiveStar(): string
     return '<i class="fas fa-star"></i>';
 }
 
-function activeStar() : string
+function activeStar(): string
 {
     return '<i class="fas fa-star score"></i>';
 }
 
-function printStars($quantity, $max) : string
+function printStars($quantity, $max): string
 {
     $activeStars = $quantity;
     $inactiveStars = $max - $quantity;
@@ -504,62 +503,103 @@ function printStars($quantity, $max) : string
     }
     return $stars;
 }
+
 ?>
 
+<?php
+function drawCards($query) { ?>
+    <?php if ($query->have_posts()): ?>
+    <ul>
+        <?php while ($query->have_posts()) : $query->the_post();
+            global $product ?>
+            <li>
+                <div class="card" id="card">
 
+                    <header>
+                        <div style="background-color: <?php echo get_field('current_work_status') ?>">
+                            <i class="<?php echo get_field('shifts') ?>"></i>
+
+                        </div>
+
+                    </header>
+                    <main>
+                        <img src="<?php echo wp_get_attachment_url($product->get_image_id()); ?>"
+                             alt="Product image">
+                        <?php the_field('last_name'); ?>
+                        <H3><?php the_field('first_name'); ?>.</H3>
+                        <div><?php the_field('current_position'); ?> </div>
+                        <!--//TODO: change h5 to div and insert blocks-->
+                        <hr>
+                        <div class="skill-items">
+                            <?php echo wc_get_product_tag_list($product->get_id(), ' ') ?>
+                            <!--                <a href="">CSS</a>-->
+                        </div>
+                    </main>
+                    <footer>
+                        <a href="<?php echo get_post_permalink() ?>">Watch Employee cv</a>
+                        <!--FIXME: add link to post-->
+                    </footer>
+                </div>
+            </li>
+        <?php endwhile; ?>
+    </ul>
+    <?php else : ?>
+
+        <h3>No products in category :(</h3>
+
+    <?php endif; } ?>
 
 <?php
 //------------- Related Cards
-function getProductsByAcf($key, $value) {
+
+function getProductsByAcf($key, $value)
+{
     $args = array(
-        'numberposts'	=> -1,
-        'post_type'		=> 'product',
-        'meta_query' => [ [
-        'key' => $key,
-        'value' => $value
-] ],
+        'numberposts' => -1,
+        'post_type' => 'product',
+        'meta_query' => [[
+            'key' => $key,
+            'value' => $value
+        ]],
     );
 
-    $the_query = new WP_Query( $args );
+    $the_query = new WP_Query($args);
 
-?>
-<?php if( $the_query->have_posts() ): ?>
-	<ul>
-	<?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+    drawCards($the_query);
 
-		<li>
-            <div class="card" id="card">
+} ?>
 
-                <header>
-                    <div style="background-color: <?php echo get_field('current_work_status') ?>">
-                        <i class="<?php echo get_field('shifts') ?>"></i>
+<?php
+function getRandomCategory($number)
+{
 
-                    </div>
+    $field = get_field_object('field_61766d92e2c3f');
+    $choices = $field['choices'];
+    $positionArr = [];
 
-                </header>
-                <main>
-                    <img src="<?php echo wp_get_attachment_url($product->get_image_id()); ?>"
-                         alt="Product image">
-                    <?php the_field('last_name'); ?>
-                    <H3><?php the_field('first_name'); ?>.</H3>
-                    <div><?php the_field('current_position'); ?> </div>
-                    <!--//TODO: change h5 to div and insert blocks-->
-                    <hr>
-                    <div class="skill-items">
-                        <?php echo wc_get_product_tag_list($product->get_id(), ' ') ?>
-                        <!--                <a href="">CSS</a>-->
-                    </div>
-                </main>
-                <footer>
-                    <a href="<?php echo get_post_permalink() ?>">Watch Employee cv</a>
-                    <!--FIXME: add link to post-->
-                </footer>
-            </div>
-        </li>
-	<?php endwhile; ?>
-	</ul>
-<?php endif; ?>
+    foreach ($choices as $c) {
+        $positionArr[] = $c;
+    }
 
+    $random = array_rand($positionArr, 1);
 
+    $random_pos = $positionArr[$random];
 
-      <?php  } ?>
+    $args = array(
+        'numberposts' => $number,
+        'post_type' => 'product',
+        'meta_query' => [[
+            'key' => 'current_position',
+            'value' => $random_pos
+        ]],
+    );
+
+    $the_query = new WP_Query($args);
+
+    ?>
+    <h3>Showing cards from category: <?php echo $random_pos; ?></h3>
+<?php
+
+    drawCards($the_query);
+
+} ?>
