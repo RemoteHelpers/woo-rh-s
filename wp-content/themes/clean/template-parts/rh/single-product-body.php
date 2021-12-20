@@ -10,8 +10,18 @@ global $product;
 ?>
 
 <div class="product-body">
+
+    <!--=======================
+    // Video interview section
+    //========================-->
+
     <section>
-        <h3>Hire a <span class="accent-highlight">lead generation specialist</span> to expand the client base</h3>
+
+        <div class="section-title-box">
+            <h2 class="section-title text-left">Hire a <span class="accent-highlight">lead generation specialist</span>
+                to expand the client base</h2>
+        </div>
+
         <?php
 
         /**
@@ -35,9 +45,23 @@ global $product;
                 <div class="iframe-cover"><i class="fab fa-youtube"></i></div>
             </div>
         <?php } ?>
+
     </section>
-    <section class="portfolios">
-        <h3>Work experience</h3>
+
+    <!--==================
+    // Portfolios section
+    //===================-->
+
+    <section class="portfolios padding-3">
+
+        <!--===============
+        // Work experience
+        //================-->
+
+        <div class="product-body-section-title">
+            <h3>Work experience</h3>
+        </div>
+
         <ul class="portfolio-list">
             <?php
             if (have_rows('work_experience')) : ?>
@@ -46,10 +70,11 @@ global $product;
                 while (have_rows('work_experience')) : the_row(); ?>
                     <li>
                         <ul>
-                            <li><?php echo get_sub_field('organization_name') . ' (';
-                                echo get_sub_field('work_position'); ?>)
+                            <li>
+                                <span class="portfolio-title"><?php echo get_sub_field('organization_name'); ?></span>
+                                <?php echo " (" . get_sub_field('work_position'); ?>)
                             </li>
-                            <li><?php the_sub_field('years_of_work'); ?></li>
+                            <li class="years"><?php the_sub_field('years_of_work'); ?></li>
                             <li><?php the_sub_field('short_description'); ?></li>
                         </ul>
                     </li>
@@ -58,7 +83,14 @@ global $product;
             <?php endif; ?>
         </ul>
 
-        <h3>Education</h3>
+        <!--=========
+        // Education
+        //==========-->
+
+        <div class="product-body-section-title">
+            <h3>Education</h3>
+        </div>
+
         <ul class="portfolio-list">
             <?php
             if (have_rows('education')) : ?>
@@ -67,10 +99,11 @@ global $product;
                 while (have_rows('education')) : the_row(); ?>
                     <li>
                         <ul>
-                            <li><?php echo get_sub_field('institution_name') . ' (';
-                                echo get_sub_field('specialization'); ?>)
+                            <li>
+                                <span class="portfolio-title"><?php echo get_sub_field('institution_name'); ?></span>
+                                <?php echo " (" . get_sub_field('specialization'); ?>)
                             </li>
-                            <li><?php the_sub_field('years_of_education'); ?></li>
+                            <li class="years"><?php the_sub_field('years_of_education'); ?></li>
                             <li><?php the_sub_field('degree'); ?></li>
                         </ul>
                     </li>
@@ -79,9 +112,19 @@ global $product;
             <?php endif; ?>
         </ul>
 
-        <h3>Portfolio</h3>
+        <!--==================
+        // Designer portfolio
+        //===================-->
+
+        <div class="product-body-section-title red">
+            <h3>Portfolio</h3>
+        </div>
+
         <?php
-        if (have_rows('designer_portfolio')) : ?>
+        if (have_rows('designer_portfolio')) :
+        $designer_portfolio = get_field('designer_portfolio');
+        acf_localize_data(array('designerPortfolio' => $designer_portfolio));
+        ?>
         <ul class="portfolio portfolio-thumbnails">
             <?php
             while (have_rows('designer_portfolio')) : the_row(); ?>
@@ -96,7 +139,12 @@ global $product;
             endif; ?>
         </ul>
 
+        <!--==================
+        // Developer portfolio
+        //===================-->
+
         <h4>Optional (developers)</h4>
+
         <?php
         if (have_rows('developer_portfolio')) : ?>
         <ul class="portfolio portfolio-pills">
@@ -110,7 +158,12 @@ global $product;
             endif; ?>
         </ul>
 
+        <!--==================
+        // Video portfolio
+        //===================-->
+
         <h4>Optional (video)</h4>
+
         <?php
         if (have_rows('videograph_portfolio')) : ?>
         <ul class="portfolio portfolio-video">
@@ -123,5 +176,27 @@ global $product;
             endwhile;
             endif; ?>
         </ul>
+
     </section>
+
+    <!--===============
+    // Comment section
+    //================-->
+
+    <section id="reviews">
+
+        <div class="product-body-section-title red">
+            <h3>Reviews</h3>
+        </div>
+
+        <?php
+//        global $product;
+//        $args = array ('post_id' => $product->get_id());
+//        $comments = get_comments( $args );
+//        wp_list_comments( array( 'callback' => 'woocommerce_comments' ), $comments);
+        comments_template('CV-comments.php');
+        ?>
+
+    </section>
+
 </div>

@@ -2,8 +2,15 @@
   --rh-accent-color: #FF5252;
   --rh-accent-color-lighten: #ff8080;
   --rh-green-color: #2ecc71;
+  --rh-grey-d8: #d8d8d8;
+  --rh-grey-text: #7a7a7a;
   --scrollbar-width: 8px;
   --zen-padding: calc((100vw - var(--scrollbar-width)) / 20);
+  --rh-box-shadow: 6px 4px 10px rgb(0 0 0 / 10%);
+  --font-size-1-125: 1.125rem;
+  --font-size-1-2: 1.2rem;
+  --font-size-1-5: 1.5rem;
+  --font-size-1-18: 1.18rem;
 }
 
 .pricing {

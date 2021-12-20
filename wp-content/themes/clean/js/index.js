@@ -1,4 +1,5 @@
-const singleProductPage = document.querySelector('.single-product')
+const homePage = document.querySelector('.home-page')
+const singleProductPage = document.querySelector('.rh-single-product')
 const faqPage = document.querySelector('.faq')
 const privacyPage = document.querySelector('.privacy')
 const pricingPage = document.querySelector('.pricing')
@@ -6,6 +7,7 @@ const affiliatePage = document.querySelector('.affiliate-page')
 const aboutPage = document.querySelector('.about-us-page')
 
 const backdrop = document.querySelector('.gallery-backdrop')
+const body = document.body
 const img = document.querySelector('.gallery-image')
 const thumbnailGallery = document.querySelector('.gallery-thumbnails')
 
@@ -13,12 +15,23 @@ let imgIndex = 0
 
 onload = () => {
 
+    if (homePage) {
+        heroScroller()
+        clientsScroller()
+        testimonialsScroller()
+    }
+
     if (singleProductPage) {
+        const loader = document.querySelector('.loader')
         console.log('CV page')
+        loader.style.display = 'none'
+        singleProductPage.classList.remove('preload-fader')
+        console.log('showing content on load...')
         // autoFontScale()
         coverIframe()
         startSlick()
         portfolioGallery()
+        ratingHover()
     }
 
     if (faqPage) {
@@ -51,6 +64,100 @@ onresize = () => {
     if (affiliatePage) {
         affiliateSlider()
     }
+}
+
+/* RATING HOVER */
+function ratingHover() {
+    const stars = document.querySelectorAll('.comment-form-rating i')
+    const container = document.querySelector('.comment-form-rating')
+
+    stars.forEach((star, index) => {
+        star.addEventListener('mouseover', function() {
+            addStars(stars, index)
+        })
+        star.addEventListener('click', function() {
+            freezeStars(container)
+        })
+        container.addEventListener('mouseout', removeAllStars, false)
+    })
+}
+
+function addStars(stars, index) {
+    Array.from(stars).forEach((item, idx) => {
+        if (idx <= index) {
+            item.classList.add('yellow')
+        } else {
+            item.classList.remove('yellow')
+        }
+    })
+}
+
+function removeAllStars() {
+    const stars = document.querySelectorAll('.comment-form-rating i')
+    stars.forEach(star => {
+        star.classList.remove('yellow')
+    })
+}
+
+function freezeStars(container) {
+    container.removeEventListener('mouseout', removeAllStars, false)
+}
+
+/* HERO SCROLLER */
+function heroScroller() {
+    const scroller = document.querySelector('.scroller')
+    const words = ['Designers', 'Developers', 'Managers', 'Employees', 'Assistants']
+    let counter = 1
+    setInterval(() => {
+        if (counter > words.length - 1) {
+            counter = 0
+        }
+        scroller.textContent = words[counter]
+        counter++
+    }, 3000)
+}
+
+/* CLIENTS SCROLLER */
+function clientsScroller() {
+    jQuery('.clients-slider').slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        draggable: true,
+        infinite: true,
+        swipeToSlide: true,
+        responsive: [
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 450,
+                settings: {
+                    slidesToShow: 2,
+                }
+            }
+        ]
+    });
+}
+
+/* TESTIMONIALS SCROLLER */
+function testimonialsScroller() {
+    jQuery('.testimonials-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: true,
+        draggable: true,
+        infinite: true,
+        swipeToSlide: true,
+        adaptiveHeight: true,
+    })
 }
 
 /* COVER IFRAME */
@@ -122,7 +229,7 @@ function autoFontScale() {
 
 /* PORTFOLIO GALLERY */
 function portfolioGallery() {
-    const portfolioItem = document.querySelectorAll('.designer-portfolio-item')
+    const portfolioItem = document.querySelectorAll('.portfolio-thumbnails figure')
 
     portfolioItem.forEach((item, index) => {
         item.addEventListener('click', (e) => {
@@ -175,14 +282,24 @@ function portfolioGallery() {
 }
 
 function handleTouchStart(e) {
-    image.touchStart = e.changedTouches[0].screenX
+    image.touchStartX = e.changedTouches[0].screenX
+    image.touchStartY = e.changedTouches[0].screenY
 }
 
 function handleTouchEnd(e) {
-    image.touchEnd = e.changedTouches[0].screenX
-    if ((image.touchStart - image.touchEnd) > 0) {
+    image.touchEndX = e.changedTouches[0].screenX
+    image.touchEndY = e.changedTouches[0].screenY
+    const diffX = image.touchEndX - image.touchStartX
+    const diffY = image.touchEndY - image.touchStartY
+    const modalDiffX = Math.abs(diffX)
+    const modalDiffY = Math.abs(diffY)
+    if (modalDiffX < modalDiffY) {
+        closeGallery()
+        return
+    }
+    if (diffX > 0) {
         prevSlide()
-    } else if ((image.touchStart - image.touchEnd) < 0) {
+    } else if (diffX < 0) {
         nextSlide()
     }
 }
@@ -248,33 +365,38 @@ function selectThumbnail(nextThumbnail) {
 
 function fadeToImg(src) {
 
-    img.classList.toggle('fade')
+    img.classList.add('fade')
     setTimeout(() => {
         img.setAttribute('src', src)
-        setTimeout(() => {
-            img.classList.toggle('fade')
-        }, 150)
-
-    }, 100)
+        img.onload = () => {
+            img.classList.remove('fade')
+        }
+    }, 200)
 }
 
 function openGallery() {
-    const scrollY = window.scrollY
-    document.body.classList.toggle('modal-gallery-open')
-    backdrop.style.top = scrollY + 'px'
+    body.classList.add('modal-gallery-open')
+    if (backdrop.parentElement !== body) {
+        body.insertBefore(backdrop, document.body.firstChild)
+    }
+    backdrop.style.top = window.scrollY + 'px'
     backdrop.style.display = 'grid'
 }
 
 function closeGallery() {
-    backdrop.style.display = 'none'
-    document.body.classList.toggle('modal-gallery-open')
-    document.removeEventListener('wheel', preventScroll, {passive: false})
-    document.removeEventListener('keydown', handleKeypress, {passive: false})
-    document.removeEventListener('touchstart', handleTouchStart)
-    document.removeEventListener('touchend', handleTouchEnd)
-    // arrowBack.removeEventListener('click', prevSlide)
-    // arrowNext.removeEventListener('click', nextSlide)
-    thumbnailGallery.innerHTML = ''
+    img.classList.add('fade')
+    setTimeout(() => {
+        backdrop.style.display = 'none'
+        body.classList.remove('modal-gallery-open')
+        document.removeEventListener('wheel', preventScroll, {passive: false})
+        document.removeEventListener('keydown', handleKeypress, {passive: false})
+        document.removeEventListener('touchstart', handleTouchStart)
+        document.removeEventListener('touchend', handleTouchEnd)
+        // arrowBack.removeEventListener('click', prevSlide)
+        // arrowNext.removeEventListener('click', nextSlide)
+        thumbnailGallery.innerHTML = ''
+    }, 150)
+
 }
 
 function preventScroll(e) {
@@ -307,7 +429,6 @@ function handleKeypress(e) {
 
 function closeOnClick(e) {
     if (e.target.classList.contains('gallery-backdrop')) {
-        // console.log(e.target)
         closeGallery()
         document.removeEventListener('click', closeOnClick)
     }

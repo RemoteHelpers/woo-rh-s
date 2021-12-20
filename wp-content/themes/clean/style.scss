@@ -397,6 +397,8 @@ textarea {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -970,10 +972,9 @@ textarea {
 $accent-color: #FF5252;
 $text-color: #54595F;
 
-//.main-page {
-//  display: grid;
-//  grid-template-columns: 1fr 4fr;
-//}
+html {
+  scroll-behavior: smooth;
+}
 
 .post,
 .page {
@@ -982,14 +983,67 @@ $text-color: #54595F;
 
 .container {
   margin-inline: var(--zen-padding);
+  //position: relative; - breaks the gallery
 }
 
 .accent-highlight {
   color: var(--rh-accent-color);
 }
 
-section {
+.padding-3 {
   padding-block: 3vw;
+}
+
+.padding-4r {
+  padding-block: 4rem;
+}
+
+.font-1-18 {
+  font-size: var(--font-size-1-18);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.margin-auto {
+  margin-inline: auto;
+}
+
+.margin-block-5 {
+  margin-block: 5rem;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.section-title-box {
+  margin-bottom: 2rem;
+  text-align: center;
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1.2rem, 3vw, 1.625rem);
+    font-weight: 300;
+  }
+}
+
+.only-mobile {
+  display: block;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 }
 
 /* Custom elements
@@ -1019,6 +1073,9 @@ section {
 /* RH RED BUTTON */
 
 .rh-button {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
   background-color: var(--rh-accent-color);
   border: none;
   color: white;
@@ -1026,7 +1083,8 @@ section {
   font-size: 1.125rem;
   font-weight: 700;
   padding: .8em 2em;
-  margin-top: 1rem;
+  margin-block: 1rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .3);
   transition: background-color .3s ease, color .3s ease;
 
   &:hover {

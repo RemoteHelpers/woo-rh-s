@@ -25,11 +25,35 @@ if (post_password_required()) {
 }
 
 ?>
-<div id="product-<?php the_ID(); ?>" <?php wc_product_class('', $product); ?>>
+<div class="gallery-backdrop">
+    <i class="fas fa-times gallery-close"></i>
+    <i class="fas fa-arrow-left gallery-prev"></i>
+    <i class="fas fa-arrow-right gallery-next"></i>
+    <div class="gallery-container">
+        <img class="gallery-image" src="">
+    </div>
+    <div class="gallery-thumbnails"></div>
+</div>
 
-    <?php get_template_part('template-parts/rh/single-product-sidebar'); ?>
+<div class="container">
 
-    <?php get_template_part('template-parts/rh/single-product-body'); ?>
+    <div id="product-<?php the_ID(); ?>" <?php wc_product_class('', $product); ?>>
+
+        <?php get_template_part('template-parts/rh/single-product-sidebar'); ?>
+
+        <?php get_template_part('template-parts/rh/single-product-body'); ?>
+
+    </div>
+
+    <?php
+        /** Hook: woocommerce_after_single_product_summary.
+         *
+         * @hooked woocommerce_output_product_data_tabs - 10
+         * @hooked woocommerce_upsell_display - 15
+         * @hooked woocommerce_output_related_products - 20
+         */
+        do_action( 'woocommerce_after_single_product_summary' );
+    ?>
 
 </div>
 
