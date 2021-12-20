@@ -495,8 +495,9 @@ function printStars($quantity, $max) : string
 
 
 
-//------------- Related Cards
 
+<?php
+//------------- Related Cards
 function getProductsByAcf($key, $value) {
     $args = array(
         'numberposts'	=> -1,
@@ -513,16 +514,16 @@ function getProductsByAcf($key, $value) {
 <?php if( $the_query->have_posts() ): ?>
 	<ul>
 	<?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-		<li><?php the_field('first_name'); ?></li>
-		<li><?php the_field('last_name'); ?></li>
-		<li><?php the_field('current_position'); ?></li>
+
 		<li>
             <div class="card" id="card">
+
                 <header>
                     <div style="background-color: <?php echo get_field('current_work_status') ?>">
                         <i class="<?php echo get_field('shifts') ?>"></i>
 
                     </div>
+
                 </header>
                 <main>
                     <img src="<?php echo wp_get_attachment_url($product->get_image_id()); ?>"

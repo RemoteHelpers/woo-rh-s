@@ -78,7 +78,6 @@
   width: 100%;
   max-width: 100%;
   border: 1px solid #818a91;
-  background-color: #fffff;
   color: #373a3c;
   vertical-align: middle;
   -webkit-box-flex: 1;
@@ -126,7 +125,6 @@
   margin: 0;
   line-height: 1;
 }
-
 
 .category {
   padding: 0 5%;
