@@ -11,6 +11,12 @@ global $product;
 
 <div class="product-sidebar">
 
+<!--    <div class="circles">-->
+<!--        <div class="circle1"></div>-->
+<!--        <div class="circle2"></div>-->
+<!--        <div class="circle3"></div>-->
+<!--    </div>-->
+
     <div class="sticky-sidebar">
 
         <?php
@@ -78,7 +84,7 @@ global $product;
                         <span class="price-comment">/month</span>
                     </div>
                     <div class="cart-btn-group">
-                        <button>Setup an interview</button>
+                        <button class="setup-interview">Setup an interview</button>
                         <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>"
                                 class="single_add_to_cart_button button alt">Hire Immediately!
                         </button>

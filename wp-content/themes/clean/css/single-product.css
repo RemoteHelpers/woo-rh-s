@@ -115,14 +115,44 @@
   background: rgba(251, 251, 252, 0.9);
   transition: opacity 0.5s ease;
 }
+.rh-single-product .white-backdrop {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  z-index: 15;
+}
+.rh-single-product .white-backdrop .backdrop-center {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.rh-single-product .white-backdrop iframe html {
+  overflow: hidden;
+}
+.rh-single-product .white-backdrop i {
+  font-size: 3rem;
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  cursor: pointer;
+  z-index: 15;
+}
+.rh-single-product .white-backdrop i:hover {
+  color: black;
+}
 .rh-single-product .circles {
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
+  overflow: hidden;
 }
-.rh-single-product .circle1 {
+.rh-single-product .circles .circle1 {
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -131,7 +161,7 @@
   position: absolute;
   animation: circle1-travel 200s ease;
 }
-.rh-single-product .circle2 {
+.rh-single-product .circles .circle2 {
   width: 600px;
   height: 600px;
   border-radius: 50%;
@@ -140,7 +170,7 @@
   position: absolute;
   animation: circle2-travel 200s ease;
 }
-.rh-single-product .circle3 {
+.rh-single-product .circles .circle3 {
   width: 200px;
   height: 200px;
   background-color: #19FF14;
@@ -149,9 +179,6 @@
   top: 2252px;
   left: 173px;
   animation: circle3-travel 20s linear infinite;
-}
-.rh-single-product .blur {
-  backdrop-filter: blur(7px);
 }
 @keyframes circle1-travel {
   0% {
@@ -534,6 +561,7 @@
 }
 .rh-single-product .product-body .review-form .comment-form-rating a {
   outline: none;
+  display: inline;
 }
 .rh-single-product .product-body .review-form .comment-form-rating i {
   font-size: 1rem;
@@ -618,6 +646,14 @@
   }
 }
 @media (min-width: 900px) {
+  .rh-single-product .white-backdrop {
+    background-color: rgba(255, 255, 255, 0.9);
+    place-items: center;
+  }
+  .rh-single-product .white-backdrop i {
+    top: 8%;
+    left: 90%;
+  }
   .rh-single-product .product-body .CV-page-review li {
     padding: 3rem 5rem;
     margin-left: 43px;

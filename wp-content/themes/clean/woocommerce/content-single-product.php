@@ -35,6 +35,25 @@ if (post_password_required()) {
     <div class="gallery-thumbnails"></div>
 </div>
 
+<div class="white-backdrop">
+
+    <<i class="fas fa-times"></i>
+
+    <div class="backdrop-center">
+
+        <div class="popup-calendar">
+            <!-- Calendly inline widget begin -->
+            <div class="calendly-inline-widget"
+                 data-url="https://calendly.com/gagarinbrood/book-a-meeting?primary_color=ff5252"
+                 style="min-width:320px;height:650px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <!-- Calendly inline widget end -->
+        </div>
+
+    </div>
+
+</div>
+
 <div class="container">
 
     <div id="product-<?php the_ID(); ?>" <?php wc_product_class('', $product); ?>>
@@ -51,15 +70,15 @@ if (post_password_required()) {
 
     ?>
 
-<!--    --><?php
-//        /** Hook: woocommerce_after_single_product_summary.
-//         *
-//         * @hooked woocommerce_output_product_data_tabs - 10
-//         * @hooked woocommerce_upsell_display - 15
-//         * @hooked woocommerce_output_related_products - 20
-//         */
-//        do_action( 'woocommerce_after_single_product_summary' );
-//    ?>
+    <!--    --><?php
+    //        /** Hook: woocommerce_after_single_product_summary.
+    //         *
+    //         * @hooked woocommerce_output_product_data_tabs - 10
+    //         * @hooked woocommerce_upsell_display - 15
+    //         * @hooked woocommerce_output_related_products - 20
+    //         */
+    //        do_action( 'woocommerce_after_single_product_summary' );
+    //    ?>
 
 </div>
 
