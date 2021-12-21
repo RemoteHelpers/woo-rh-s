@@ -976,6 +976,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.stop-scroll {
+  overflow: hidden!important;
+}
+
 .post,
 .page {
   margin: 0;

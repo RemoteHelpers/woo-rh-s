@@ -1,3 +1,5 @@
+const isAdmin = document.querySelector('#wpadminbar')
+
 const homePage = document.querySelector('.home-page')
 const singleProductPage = document.querySelector('.rh-single-product')
 const faqPage = document.querySelector('.faq')
@@ -32,6 +34,7 @@ onload = () => {
         startSlick()
         portfolioGallery()
         ratingHover()
+        bookMeeting()
     }
 
     if (faqPage) {
@@ -66,16 +69,56 @@ onresize = () => {
     }
 }
 
+function noScroll() {
+    body.classList.add('stop-scroll')
+}
+
+function addScroll() {
+    body.classList.remove('stop-scroll')
+}
+
+// function stopAllScroll(pos) {
+//     window.scrollTop
+// }
+
+
+/* POPUP CALENDAR */
+
+function bookMeeting() {
+    const interviewButton = document.querySelector('.setup-interview')
+    const whiteBackdrop = document.querySelector('.white-backdrop')
+    const close = document.querySelector('.white-backdrop > i')
+
+
+    interviewButton.addEventListener('click', (e) => {
+        e.preventDefault()
+        body.style.position = 'relative'
+        if (isAdmin) {
+            whiteBackdrop.style.top = (window.scrollY - 32) + 'px'
+        } else {
+            whiteBackdrop.style.top = window.scrollY + 'px'
+        }
+        noScroll()
+        whiteBackdrop.style.display = 'grid'
+    })
+
+    close.addEventListener('click', () => {
+        addScroll()
+        whiteBackdrop.style.display = 'none'
+    })
+
+}
+
 /* RATING HOVER */
 function ratingHover() {
     const stars = document.querySelectorAll('.comment-form-rating i')
     const container = document.querySelector('.comment-form-rating')
 
     stars.forEach((star, index) => {
-        star.addEventListener('mouseover', function() {
+        star.addEventListener('mouseover', function () {
             addStars(stars, index)
         })
-        star.addEventListener('click', function() {
+        star.addEventListener('click', function () {
             freezeStars(container)
         })
         container.addEventListener('mouseout', removeAllStars, false)
@@ -208,24 +251,24 @@ function startSlick() {
 }
 
 /* AUTO SCALE CARD TITLE FONT */
-function autoFontScale() {
-    const max = 32
-    const min = 18
-    const k = 270
-    const title = document.querySelector('.single-product-sidebar .product_title')
-
-    const titleText = title.innerText
-    const titleLength = titleText.length
-    const newSize = k / titleLength
-
-    if (newSize > max) {
-        title.style.fontSize = max + 'px'
-    } else if (newSize < min) {
-        title.style.fontSize = min + 'px'
-    } else {
-        title.style.fontSize = newSize + 'px'
-    }
-}
+// function autoFontScale() {
+//     const max = 32
+//     const min = 18
+//     const k = 270
+//     const title = document.querySelector('.single-product-sidebar .product_title')
+//
+//     const titleText = title.innerText
+//     const titleLength = titleText.length
+//     const newSize = k / titleLength
+//
+//     if (newSize > max) {
+//         title.style.fontSize = max + 'px'
+//     } else if (newSize < min) {
+//         title.style.fontSize = min + 'px'
+//     } else {
+//         title.style.fontSize = newSize + 'px'
+//     }
+// }
 
 /* PORTFOLIO GALLERY */
 function portfolioGallery() {
@@ -379,7 +422,11 @@ function openGallery() {
     if (backdrop.parentElement !== body) {
         body.insertBefore(backdrop, document.body.firstChild)
     }
-    backdrop.style.top = window.scrollY + 'px'
+    if (isAdmin) {
+        backdrop.style.top = (window.scrollY - 32) + 'px'
+    } else {
+        backdrop.style.top = window.scrollY + 'px'
+    }
     backdrop.style.display = 'grid'
 }
 

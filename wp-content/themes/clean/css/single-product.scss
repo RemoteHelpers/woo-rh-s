@@ -1,3 +1,7 @@
+//==================
+// Gallery backdrop
+//==================
+
 .modal-gallery-open {
   position: relative;
   overflow-y: hidden !important;
@@ -97,6 +101,10 @@
   }
 }
 
+//===============
+// Loading fader
+//===============
+
 .preload-fader {
   opacity: 0 !important;
 }
@@ -127,9 +135,58 @@
   }
 }
 
+//=======================
+// Single product styles
+//=======================
+
 .rh-single-product {
+  //position: relative;
   background: rgba(251, 251, 252, 0.9);
   transition: opacity .5s ease;
+
+  //================
+  // White backdrop
+  //================
+
+  .white-backdrop {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    z-index: 15;
+
+    .backdrop-center {
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
+
+    iframe {
+      html {
+        overflow: hidden;
+      }
+    }
+
+    i {
+      font-size: 3rem;
+      position: absolute;
+      left: 1rem;
+      top: 0;
+      cursor: pointer;
+      z-index: 15;
+
+      &:hover {
+        color: black;
+      }
+    }
+  }
+
+  //================
+  // Moving circles
+  //================
 
   .circles {
     position: absolute;
@@ -137,43 +194,44 @@
     right: 0;
     left: 0;
     bottom: 0;
+    overflow: hidden;
+
+    .circle1 {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: var(--rh-accent-color);
+      opacity: .15;
+      position: absolute;
+      animation: circle1-travel 200s ease;
+    }
+
+    .circle2 {
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background-color: var(--rh-accent-color);
+      opacity: .15;
+      position: absolute;
+      animation: circle2-travel 200s ease;
+    }
+
+    .circle3 {
+      width: 200px;
+      height: 200px;
+      //border-radius: 50%;
+      background-color: #19FF14;
+      opacity: .15;
+      position: absolute;
+      top: 2252px;
+      left: 173px;
+      animation: circle3-travel 20s linear infinite;
+    }
   }
 
-  .circle1 {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: var(--rh-accent-color);
-    opacity: .15;
-    position: absolute;
-    animation: circle1-travel 200s ease;
-  }
-
-  .circle2 {
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    background-color: var(--rh-accent-color);
-    opacity: .15;
-    position: absolute;
-    animation: circle2-travel 200s ease;
-  }
-
-  .circle3 {
-    width: 200px;
-    height: 200px;
-    //border-radius: 50%;
-    background-color: #19FF14;
-    opacity: .15;
-    position: absolute;
-    top: 2252px;
-    left: 173px;
-    animation: circle3-travel 20s linear infinite;
-  }
-
-  .blur {
-    backdrop-filter: blur(7px);
-  }
+  //.blur {
+  //  backdrop-filter: blur(7px);
+  //}
 
   @keyframes circle1-travel {
     0% {
@@ -215,6 +273,10 @@
     grid-template-columns: 1fr;
   }
 
+  //=============
+  // Breadcrumbs
+  //=============
+
   .woocommerce-breadcrumb {
     border: 1px solid #d5d5d5;
     border-radius: 1.5rem;
@@ -231,6 +293,10 @@
       }
     }
   }
+
+  //=================
+  // Product sidebar
+  //=================
 
   .product-sidebar {
     font-family: Roboto, sans-serif;
@@ -426,6 +492,10 @@
       }
     }
   }
+
+  //==============
+  // Product body
+  //==============
 
   .product-body {
 
@@ -659,6 +729,8 @@
 
         a {
           outline: none;
+          // overriding woocommerce styles
+          display: inline;
         }
 
         i {
@@ -729,6 +801,10 @@
     }
   }
 
+  //========
+  // Media
+  //========
+
   @media (min-width: 450px) {
     .product-sidebar {
 
@@ -766,6 +842,16 @@
   }
 
   @media (min-width: 900px) {
+    .white-backdrop {
+      background-color: rgba(255, 255, 255, 0.9);
+      place-items: center;
+
+      i {
+        top: 8%;
+        left: 90%;
+      }
+    }
+
     .product-body {
       .CV-page-review {
 
