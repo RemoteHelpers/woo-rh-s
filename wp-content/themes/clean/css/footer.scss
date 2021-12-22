@@ -8,9 +8,10 @@
   display: grid;
   justify-items: center;
   gap: 1rem;
-  min-height: 280px;
+  min-height: 200px;
   padding: 1rem 5%;
   background-color: var(--footer-bg);
+  position: relative;
 
   .footer-logo {
     display: flex;
@@ -28,12 +29,10 @@
   .bottom-menu {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
 
     .menu {
-      display: flex;
-      justify-content: center;
-      align-items: center;
 
       .menu-footer-menu-container {
         .footer-menu {
@@ -45,7 +44,6 @@
           justify-content: center;
           font-size: 16px;
           font-weight: 600;
-          margin: 3.5rem 0;
           padding: 0;
           list-style: none;
 
@@ -66,18 +64,17 @@
     }
 
     .privacy-policy {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      position: absolute;
+      bottom: 0;
+      text-align: center;
 
-      p, a {
+      span, a {
         color: #7A7A7A;
-        font-size: 1rem;
+        font-size: 15px;
         text-align: center;
       }
 
-      p {
+      span {
         font-weight: 200;
         margin-bottom: .8rem;
       }

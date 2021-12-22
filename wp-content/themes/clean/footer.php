@@ -23,16 +23,16 @@
             ) ?>
         </div>
         <div class="privacy-policy">
-            <p>2018-<?php echo date("Y"); ?>
-                © All rights reserved</p>
             <a href="<?php echo get_permalink(3) ?>" class="privacy-page">Privacy Policy</a>
+            <span>2018-<?php echo date("Y"); ?>
+                © All rights reserved</span>
         </div>
     </div>
 
     <div class="footer-icon">
 
         <?php
-        if (have_rows('soc_media', 'option')):
+        if (have_rows('soc_media', 'option')) :
             while (have_rows('soc_media', 'option')) : the_row(); ?>
                 <a href='<?php the_sub_field('contact_link') ?>' class="icon-link"><i
                             class='<?php the_sub_field('icon') ?>'></i></a>
