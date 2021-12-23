@@ -183,6 +183,19 @@
 .home-page .category-pills a:hover {
   color: var(--rh-accent-color);
 }
+.home-page .card-container {
+  position: relative;
+}
+.home-page .canvas-bg {
+  width: 100%;
+  height: 100%;
+  filter: blur(5px);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 .home-page .hiring-process {
   display: flex;
   flex-direction: column;
