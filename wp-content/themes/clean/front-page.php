@@ -13,6 +13,9 @@
  */
 
 get_header();
+$circle_bg = get_field('circle_background');
+//pprint_r($circle_bg['circle_number']);
+acf_localize_data(array('circleQuantity' => $circle_bg));
 ?>
 
     <main class="home-page">
@@ -154,7 +157,8 @@ get_header();
                 </ul>
 
                 <!-- the cards loop -->
-                <div class="padding-3">
+                <div class="card-container padding-3">
+                    <canvas class="canvas-bg"></canvas>
                     <?php
 
                     $args = array(
@@ -178,6 +182,7 @@ get_header();
                     woocommerce_product_loop_end(); ?>
 
                 </div>
+
 
                 <button class="rh-button margin-auto">See All CV's</button>
 
