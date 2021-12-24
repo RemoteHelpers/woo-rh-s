@@ -6,10 +6,11 @@
 
 .site-footer {
   display: grid;
+  grid-template-columns: 1fr;
   justify-items: center;
   gap: 1rem;
-  min-height: 200px;
-  padding: 1rem 5%;
+  //min-height: 200px;
+  padding: 1rem 5% 0;
   background-color: var(--footer-bg);
   position: relative;
 
@@ -62,30 +63,6 @@
         }
       }
     }
-
-    .privacy-policy {
-      position: absolute;
-      bottom: 0;
-      text-align: center;
-
-      span, a {
-        color: #7A7A7A;
-        font-size: 15px;
-        text-align: center;
-      }
-
-      span {
-        font-weight: 200;
-        margin-bottom: .8rem;
-      }
-
-      a {
-        font-family: 'Roboto', serif;
-        font-size: 15px;
-        font-weight: 500;
-        text-decoration: none;
-      }
-    }
   }
 
   .footer-icon {
@@ -112,11 +89,43 @@
       }
     }
   }
+
+  .privacy-policy {
+    display: flex;
+    justify-content: center;
+    align-self: end;
+    gap: 1vw;
+    flex-wrap: wrap;
+
+    span, a {
+      color: #7A7A7A;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    span {
+      font-weight: 200;
+      //margin-bottom: .8rem;
+    }
+
+    a {
+      font-family: 'Roboto', serif;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+  }
 }
 
 @media (min-width: 768px) {
   .site-footer {
     grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: repeat(2, min-content);
     justify-items: unset;
+
+    .privacy-policy {
+      grid-column: 1/4;
+      justify-content: space-between;
+    }
   }
 }

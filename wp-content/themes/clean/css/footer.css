@@ -19,10 +19,10 @@
 
 .site-footer {
   display: grid;
+  grid-template-columns: 1fr;
   justify-items: center;
   gap: 1rem;
-  min-height: 200px;
-  padding: 1rem 5%;
+  padding: 1rem 5% 0;
   background-color: var(--footer-bg);
   position: relative;
 }
@@ -62,26 +62,6 @@
 .site-footer .bottom-menu .menu .menu-footer-menu-container .footer-menu li a:hover {
   color: #FF5252;
 }
-.site-footer .bottom-menu .privacy-policy {
-  position: absolute;
-  bottom: 0;
-  text-align: center;
-}
-.site-footer .bottom-menu .privacy-policy span, .site-footer .bottom-menu .privacy-policy a {
-  color: #7A7A7A;
-  font-size: 15px;
-  text-align: center;
-}
-.site-footer .bottom-menu .privacy-policy span {
-  font-weight: 200;
-  margin-bottom: 0.8rem;
-}
-.site-footer .bottom-menu .privacy-policy a {
-  font-family: "Roboto", serif;
-  font-size: 15px;
-  font-weight: 500;
-  text-decoration: none;
-}
 .site-footer .footer-icon {
   display: flex;
   justify-content: flex-end;
@@ -101,11 +81,37 @@
 .site-footer .footer-icon a i:hover {
   color: #FF5252;
 }
+.site-footer .privacy-policy {
+  display: flex;
+  justify-content: center;
+  align-self: end;
+  gap: 1vw;
+  flex-wrap: wrap;
+}
+.site-footer .privacy-policy span, .site-footer .privacy-policy a {
+  color: #7A7A7A;
+  font-size: 15px;
+  text-align: center;
+}
+.site-footer .privacy-policy span {
+  font-weight: 200;
+}
+.site-footer .privacy-policy a {
+  font-family: "Roboto", serif;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
 
 @media (min-width: 768px) {
   .site-footer {
     grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: repeat(2, min-content);
     justify-items: unset;
+  }
+  .site-footer .privacy-policy {
+    grid-column: 1/4;
+    justify-content: space-between;
   }
 }
 

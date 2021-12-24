@@ -22,13 +22,7 @@
                 )
             ) ?>
         </div>
-        <div class="privacy-policy">
-            <a href="<?php echo get_permalink(3) ?>" class="privacy-page">Privacy Policy</a>
-            <span>2018-<?php echo date("Y"); ?>
-                © All rights reserved</span>
-        </div>
     </div>
-
     <div class="footer-icon">
 
         <?php
@@ -41,7 +35,11 @@
         endif; ?>
 
     </div>
-
+    <div class="privacy-policy">
+        <a href="<?php echo get_permalink(3) ?>" class="privacy-page">Privacy Policy</a>
+        <span>2018-<?php echo date("Y"); ?>
+                © All rights reserved</span>
+    </div>
 </footer><!-- #colophon -->
 </div><!-- #page -->
 
