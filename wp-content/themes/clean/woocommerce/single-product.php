@@ -19,6 +19,11 @@ if (!defined('ABSPATH')) {
 }
 
 get_header();
+
+echo '<div class="rh-notices-wrapper">';
+wc_print_notices();
+echo '</div>';
+
 ?>
 
     <div class="loader">

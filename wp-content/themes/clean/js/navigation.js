@@ -99,6 +99,15 @@
         })
     }
 
+    // Toggle mini cart on cart icon (main menu)
+    const menuCartBtn = document.querySelector('#menu-cart-btn')
+    menuCartBtn.addEventListener('click', openMiniCart, false)
+
+    function openMiniCart() {
+        const miniCart = document.querySelector('.widget_shopping_cart_content')
+        miniCart.classList.toggle('open')
+    }
+
     /**
      * Sets or removes .focus class on an element.
      */
