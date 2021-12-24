@@ -28,6 +28,9 @@
 <div id="page" class="site">
     <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'clean'); ?></a>
     <div class="background-header <?php if (is_front_page()) echo 'black-header'; ?>">
+        <div class="widget_shopping_cart_content" id="mini-cart">
+            <?php woocommerce_mini_cart(); ?>
+        </div>
         <header id="masthead" class="site-header">
             <div class="site-branding">
                 <div class="site-logo">
@@ -82,6 +85,7 @@
             </div><!-- .site-branding -->
 
             <nav id="site-navigation" class="main-navigation">
+                <div class="menu-cart-btn" id="menu-cart-btn"><i class="fas fa-shopping-cart"></i></div>
                 <button class="menu-toggle" aria-controls="primary-menu"
                         aria-expanded="false"><i class="fas fa-bars"></i></button>
                 <?php

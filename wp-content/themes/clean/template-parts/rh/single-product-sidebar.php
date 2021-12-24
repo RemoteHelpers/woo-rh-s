@@ -16,8 +16,8 @@ global $product;
 <!--        <div class="circle2"></div>-->
 <!--        <div class="circle3"></div>-->
 <!--    </div>-->
-
-    <div class="sticky-sidebar">
+<!--    --><?php //woocommerce_mini_cart( [ 'list_class' => 'my-css-class' ] ); ?>
+    <div classS="sticky-sidebar">
 
         <?php
         /**

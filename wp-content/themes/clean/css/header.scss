@@ -68,6 +68,8 @@
     }
 
     .main-navigation {
+      display: flex;
+      align-items: center;
       width: auto;
 
       .menu-toggle {
@@ -239,13 +241,11 @@
   .main-menu {
     position: absolute;
     top: 72px;
-    //bottom: 0;
     left: 0;
     right: 0;
     z-index: 15;
     padding-block: 3rem;
     background-color: white;
-    //width: calc(100vw - 8px);
     height: calc(100vh - 72px);
 
     .menu-item {

@@ -77,6 +77,8 @@
   align-items: center;
 }
 .background-header .site-header .main-navigation {
+  display: flex;
+  align-items: center;
   width: auto;
 }
 .background-header .site-header .main-navigation .menu-toggle {

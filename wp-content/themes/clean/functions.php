@@ -211,6 +211,7 @@ function clean_scripts()
     wp_enqueue_style('employee-card', get_template_directory_uri() . '/css/employee-card.css', false, '1.1', 'all');
     wp_enqueue_style('slick-styles', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', false, '1.1', 'all');
     wp_enqueue_style('header-style', get_template_directory_uri() . '/css/header.css', false, '1.1', 'all');
+    wp_enqueue_style('mini-cart-style', get_template_directory_uri() . '/css/mini-cart.css', false, '1.1', 'all');
     wp_enqueue_style('footer-style', get_template_directory_uri() . '/css/footer.css', false, '1.1', 'all');
 
     if (is_front_page()) {
@@ -433,7 +434,7 @@ function remove_stuff_from_shop()
 add_action('rh_archive_filter', 'rh_open_sidebar_div', 10);
 function rh_open_sidebar_div()
 { ?>
-    <div class="archive-page">
+<div class="archive-page">
     <div class="archive-sidebar">
 
         <!--            --><?php //dynamic_sidebar( 'filter-sidebar' );
@@ -441,13 +442,13 @@ function rh_open_sidebar_div()
 
         <?php echo do_shortcode('[pwf_filter id="323"]') ?>
     </div>
-<?php } ?>
+    <?php } ?>
 
-<?php
-add_action('rh_add_closing_div', 'rh_close_sidebar_div', 10);
-function rh_close_sidebar_div()
-{ ?>
-    </div>
+    <?php
+    add_action('rh_add_closing_div', 'rh_close_sidebar_div', 10);
+    function rh_close_sidebar_div()
+    { ?>
+</div>
 <?php }
 
 //--------------------
@@ -457,19 +458,19 @@ add_action('rh_main_page_filter', 'rh_open_sidebar1_div', 10);
 function rh_open_sidebar1_div()
 { ?>
 
-    <div class="main-page">
+<div class="main-page">
     <div class="main-sidebar">
         <!--            --><?php //dynamic_sidebar( 'filter-sidebar' );
         ?>
         <?php echo do_shortcode('[pwf_filter id="326"]') ?>
     </div>
-<?php } ?>
+    <?php } ?>
 
-<?php
-add_action('rh_main_page_closing_div', 'rh_close_sidebar1_div', 10);
-function rh_close_sidebar1_div()
-{ ?>
-    </div>
+    <?php
+    add_action('rh_main_page_closing_div', 'rh_close_sidebar1_div', 10);
+    function rh_close_sidebar1_div()
+    { ?>
+</div>
 <?php } ?>
 
 <?php
@@ -507,7 +508,8 @@ function printStars($quantity, $max): string
 ?>
 
 <?php
-function drawCards($query) { ?>
+function drawCards($query)
+{ ?>
     <?php if ($query->have_posts()): ?>
     <ul>
         <?php while ($query->have_posts()) : $query->the_post();
@@ -543,11 +545,12 @@ function drawCards($query) { ?>
             </li>
         <?php endwhile; ?>
     </ul>
-    <?php else : ?>
+<?php else : ?>
 
-        <h3>No products in category :(</h3>
+    <h3>No products in category :(</h3>
 
-    <?php endif; } ?>
+<?php endif;
+} ?>
 
 <?php
 //------------- Related Cards
@@ -598,7 +601,7 @@ function getRandomCategory($number)
 
     ?>
     <h3>Showing cards from category: <?php echo $random_pos; ?></h3>
-<?php
+    <?php
 
     drawCards($the_query);
 
@@ -611,17 +614,19 @@ function getRandomCategory($number)
 /**
  * Remove fields from checkout page.
  */
-add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
-function custom_override_checkout_fields( $fields ) {
-    unset( $fields['billing']['billing_phone'] );
-    unset( $fields['billing']['billing_state'] );
-    unset( $fields['billing']['billing_address_1'] );
-    unset( $fields['billing']['billing_address_2'] );
-    unset( $fields['billing']['billing_city'] );
-    unset( $fields['billing']['billing_postcode'] );
+add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
+function custom_override_checkout_fields($fields)
+{
+    unset($fields['billing']['billing_phone']);
+    unset($fields['billing']['billing_state']);
+    unset($fields['billing']['billing_address_1']);
+    unset($fields['billing']['billing_address_2']);
+    unset($fields['billing']['billing_city']);
+    unset($fields['billing']['billing_postcode']);
 
     return $fields;
 }
+
 ?>
 
 <?php
@@ -629,9 +634,35 @@ function custom_override_checkout_fields( $fields ) {
 /**
  * Redirect at add to cart.
  */
-function rh_redirect_to_checkout() {
-    $url = wc_get_checkout_url();
-    return $url;
-}
-add_filter('woocommerce_add_to_cart_redirect', 'rh_redirect_to_checkout');
+//function rh_redirect_to_checkout() {
+//    $url = wc_get_checkout_url();
+//    return $url;
+//}
+//add_filter('woocommerce_add_to_cart_redirect', 'rh_redirect_to_checkout');
+?>
+
+<?php
+
+/**
+ * Add cart icon to top meny.
+ */
+//function rh_add_cart_icon_to_top_menu($items, $args)
+//{
+//    if (WC()->cart->get_cart_contents_count() === 0) {
+//        $items .= '<li class="menu-cart-list-item"><div class="menu-cart-btn-empty" id="menu-cart-btn"><i class="fas fa-shopping-cart"></i></div></li>';
+//    } else {
+//        $items .= '<li class="menu-cart-list-item"><div class="menu-cart-btn-full" id="menu-cart-btn"><i class="fas fa-shopping-cart"></i></div></li>';
+//    }
+//    return $items;
+//}
+//
+//add_filter('wp_nav_menu_items', 'rh_add_cart_icon_to_top_menu', 10, 2);
+?>
+
+<?php
+//add_filter('wc_add_to_cart_message_html', function($message){
+//    $no_tags = strip_tags($message);
+//    return str_replace('View cart', '', $no_tags);
+//});
+
 ?>
