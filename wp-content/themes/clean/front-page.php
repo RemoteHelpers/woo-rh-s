@@ -29,7 +29,7 @@ acf_localize_data(array('circleQuantity' => $circle_bg));
             <img class="hero-image" src="<?php the_field('home_page_hero_background_image'); ?>">
 
             <video class="hero-video" autoplay muted loop id="backgroundVideo">
-                <source src="https://new.rh-s.com/wp-content/uploads/2021/11/Offices-Tour-Remote-helpers-short.mp4"
+                <source src="http://new.rh-s.com/wp-content/uploads/2022/01/Offices_Tour_Remote_helpers_small_size.mp4"
                         type="video/mp4">
             </video>
 
