@@ -14,7 +14,14 @@ get_header(); ?>
                     <div class="book-meeting">
                         <div class="book-inner">
                             <h2>Please book an online meeting here</h2>
-                            <div class="calendar-placeholder"></div>
+                            <div class="calendar-placeholder">
+                                <!-- Calendly inline widget begin -->
+            <div class="calendly-inline-widget"
+                 data-url="https://calendly.com/gagarinbrood/book-a-meeting?primary_color=ff5252"
+                 style="min-width:320px;height:600px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <!-- Calendly inline widget end -->
+                            </div>
                         </div>
                     </div>
                     <div class="global-contacts">

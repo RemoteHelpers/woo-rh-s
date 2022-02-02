@@ -93,7 +93,7 @@
   }
 }
 .form .form__cf7 input[type=text], .form .form__cf7 input[type=email], .form .form__cf7 input[type=url], .form .form__cf7 input[type=password], .form .form__cf7 input[type=search], .form .form__cf7 input[type=number], .form .form__cf7 input[type=tel], .form .form__cf7 input[type=range], .form .form__cf7 input[type=date], .form .form__cf7 input[type=month], .form .form__cf7 input[type=week], .form .form__cf7 input[type=time], .form .form__cf7 input[type=datetime], .form .form__cf7 input[type=datetime-local], .form .form__cf7 input[type=color], .form .form__cf7 textarea {
-  background: #fffff;
+  background: #fff;
 }
 .form .form__cf7 .wpcf7-submit {
   width: 600px;
@@ -258,6 +258,7 @@
 
 .first__block {
   height: 582px;
+  margin-bottom: 100px;
 }
 
 .text__title {
@@ -315,8 +316,12 @@
   line-height: 170.9%;
   /* or 43px */
   color: #C4C4C4;
+  cursor: pointer;
+  transition-duration: .2s;
 }
-
+.text__btn_grey:hover{
+  color: #FF5252;
+}
 .category__slider_block {
   width: 50%;
 }
@@ -400,6 +405,7 @@
   line-height: 170.9%;
   /* or 27px */
   color: #FFFFFF;
+
 }
 
 .category__slider_block img {
@@ -411,6 +417,7 @@
   width: 100%;
   height: auto;
   margin: 0 auto;
+  filter: drop-shadow(0px 28.0712px 38.7189px rgba(0, 0, 0, 0.15));
 }
 .category__slider .slick-arrow {
   position: absolute;
@@ -461,7 +468,7 @@
   /* Text/Grey */
   color: #54595F;
   margin-top: 113px;
-
+}
 .related products .slick-arrow {
   display: none !important;
 
@@ -514,5 +521,33 @@
 .thanks__btn:hover {
   background: #61CE70;
 }
-
+.category__section:nth-child(even){
+  flex-direction: row-reverse;
+}
+.category__section:nth-child(even) .category__text{
+  padding-right: 0;
+  padding-left: 50px;
+}
+.category__section:nth-child(even) .text__btn_grey{
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  background: #FF5252;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  padding: 16px 20px;
+  max-width: 289px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 170.9%;
+  /* or 27px */
+  color: #FFFFFF;
+}
+.category__section:nth-child(even) .text__btn_grey:hover{
+  background: #fff;
+  color: #5A5A5A;
+}
 /*# sourceMappingURL=contact.css.map */
