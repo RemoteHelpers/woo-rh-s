@@ -653,10 +653,12 @@ textarea {
 }
 
 .main-navigation ul {
-  display: none;
+  display: block;
   list-style: none;
   margin: 0;
   padding-left: 0;
+  transition: transform 0.3s ease;
+  transform: translateX(100%);
 }
 
 .main-navigation ul ul {
@@ -689,16 +691,17 @@ textarea {
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
-  display: block;
+  transform: translateX(0);
 }
 
-@media screen and (min-width: 981px) {
+@media screen and (min-width: 980px) {
   .menu-toggle {
     display: none;
   }
 
   .main-navigation ul {
     display: flex;
+    transform: initial;
   }
 
   .main-navigation ul ul li:hover > ul,
