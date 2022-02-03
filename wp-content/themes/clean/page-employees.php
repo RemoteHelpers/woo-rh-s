@@ -1,30 +1,15 @@
 <?php
 /**
- * The Template for displaying employees page
+ * The template for displaying employees page
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/archive-product.php.
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @see https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce\Templates
- * @version 3.4.0
+ * @package clean
  */
-
-defined('ABSPATH') || exit;
 
 get_header();
-
-/**
- * Hook: woocommerce_before_main_content.
- *
- * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
- * @hooked woocommerce_breadcrumb - 20
- * @hooked WC_Structured_Data::generate_website_data() - 30
- */
-do_action('woocommerce_before_main_content');
-
-
 ?>
-<?php // echo get_the_title( get_option( 'woocommerce_shop_page_id' ) ); ?>
+
 
     <div class="section-title-box">
         <h1 class="section-title text-center">Find and Hire Remote Employee Here!</h1>
@@ -90,14 +75,5 @@ do_action('woocommerce_before_main_content');
 
 
 <?php
-
-/**
- * Hook: woocommerce_after_main_content.
- *
- * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
- */
-do_action('woocommerce_after_main_content');
-
-get_template_part('template-parts/contact-us-form');
 
 get_footer();

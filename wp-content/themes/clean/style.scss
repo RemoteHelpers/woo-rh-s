@@ -972,6 +972,10 @@ textarea {
 /* Custom styles
 --------------------------------------------- */
 
+.site {
+  padding-top: 70px;
+}
+
 $accent-color: #FF5252;
 $text-color: #54595F;
 
@@ -986,6 +990,10 @@ html {
 .post,
 .page {
   margin: 0;
+}
+
+.section {
+  padding-block: 3vw;
 }
 
 .container {
@@ -1030,7 +1038,7 @@ html {
 }
 
 .section-title-box {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   text-align: center;
 
   .section-title {
@@ -1041,7 +1049,8 @@ html {
 
   .section-subtitle {
     font-size: clamp(1.2rem, 3vw, 1.625rem);
-    font-weight: 300;
+    font-weight: 400;
+    margin: 0;
   }
 }
 
@@ -1051,6 +1060,11 @@ html {
   @media (min-width: 768px) {
     display: none;
   }
+}
+
+.content-with-sidebar {
+  display: grid;
+  grid-template-columns: 25% 75%;
 }
 
 /* Custom elements

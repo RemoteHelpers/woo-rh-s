@@ -254,6 +254,10 @@ function clean_scripts()
         wp_enqueue_style('contact-form-component', get_template_directory_uri() . '/css/contact-form-component.css', false, '1.1', 'all');
     }
 
+    if (is_archive()) {
+        wp_enqueue_style('contact-form-component', get_template_directory_uri() . '/css/contact-form-component.css', false, '1.1', 'all');
+    }
+
 
     if (is_page('about-us')) {
         wp_enqueue_style('about-us-style', get_template_directory_uri() . '/css/about-us.css', false, '1.1', 'all');
@@ -434,7 +438,7 @@ function remove_stuff_from_shop()
 add_action('rh_archive_filter', 'rh_open_sidebar_div', 10);
 function rh_open_sidebar_div()
 { ?>
-<div class="archive-page">
+    <div class="archive-page">
     <div class="archive-sidebar">
 
         <!--            --><?php //dynamic_sidebar( 'filter-sidebar' );
@@ -442,13 +446,13 @@ function rh_open_sidebar_div()
 
         <?php echo do_shortcode('[pwf_filter id="323"]') ?>
     </div>
-    <?php } ?>
+<?php } ?>
 
-    <?php
-    add_action('rh_add_closing_div', 'rh_close_sidebar_div', 10);
-    function rh_close_sidebar_div()
-    { ?>
-</div>
+<?php
+add_action('rh_add_closing_div', 'rh_close_sidebar_div', 10);
+function rh_close_sidebar_div()
+{ ?>
+    </div>
 <?php }
 
 //--------------------
@@ -458,19 +462,19 @@ add_action('rh_main_page_filter', 'rh_open_sidebar1_div', 10);
 function rh_open_sidebar1_div()
 { ?>
 
-<div class="main-page">
+    <div class="main-page">
     <div class="main-sidebar">
         <!--            --><?php //dynamic_sidebar( 'filter-sidebar' );
         ?>
         <?php echo do_shortcode('[pwf_filter id="326"]') ?>
     </div>
-    <?php } ?>
+<?php } ?>
 
-    <?php
-    add_action('rh_main_page_closing_div', 'rh_close_sidebar1_div', 10);
-    function rh_close_sidebar1_div()
-    { ?>
-</div>
+<?php
+add_action('rh_main_page_closing_div', 'rh_close_sidebar1_div', 10);
+function rh_close_sidebar1_div()
+{ ?>
+    </div>
 <?php } ?>
 
 <?php
