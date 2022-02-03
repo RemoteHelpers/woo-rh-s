@@ -37,7 +37,7 @@
   height: 70px;
   background-color: var(--menu-bg);
   top: 0;
-  position: sticky;
+  position: fixed;
   width: 100%;
   z-index: 10;
   box-shadow: 2px 0 12px 0 rgb(0 0 0 / 30%);
@@ -71,13 +71,6 @@
       display: flex;
       align-items: center;
       width: auto;
-
-      .menu-toggle {
-        background-color: transparent;
-        border: none;
-        font-size: 20px;
-        cursor: pointer;
-      }
     }
   }
 }
@@ -238,15 +231,31 @@
 /* MEDIA */
 
 @media screen and (max-width: 980px) {
+  .main-navigation {
+    &.toggled .menu-toggle {
+      background-color: var(--rh-grey-d8);
+    }
+  }
+
+  .menu-toggle {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 3vw;
+    padding: 0.5em 0.6em 0.4em;
+    transition: background-color .3s ease;
+  }
+
   .main-menu {
     position: absolute;
-    top: 72px;
+    top: 70px;
     left: 0;
     right: 0;
     z-index: 15;
     padding-block: 3rem;
     background-color: white;
-    height: calc(100vh - 72px);
+    height: calc(100vh - 70px);
 
     .menu-item {
       > a {
@@ -255,14 +264,13 @@
       }
 
       &:hover {
-
         > a::before {
           animation: none;
         }
       }
 
       > .sub-menu {
-        display: none;
+        display: block;
         position: static;
         float: unset;
         box-shadow: none;
@@ -270,6 +278,9 @@
         text-align: center;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .3s ease;
 
         li {
           width: 100%;
@@ -286,6 +297,12 @@
             font-size: 1.25rem;
           }
         }
+      }
+    }
+
+    .menu-item-has-children {
+      &.focus > a:after {
+        content: "\f0d8";
       }
     }
   }
