@@ -55,7 +55,7 @@ if (empty($product) || !$product->is_visible()) {
             <img src="<?php echo wp_get_attachment_url($product->get_image_id()); ?>"
                  alt="Product image">
             <div class="product__id">
-                <div class="product__id_name">ID: <?php echo $product->get_sku(); ?></div>
+                <div class="product__id_name">ID: <?php echo $product->get_id(); ?></div>
                 <div class="product__id_time"><span class="tooltip" data-title="Employee Work Shift"><i class="<?php echo get_field('shifts') ?>" > </i></span>
 
                 </div>
@@ -64,8 +64,11 @@ if (empty($product) || !$product->is_visible()) {
             <?php the_title( '<h3 class="product__first_name" >', '</h3>' ); ?>
 
             <div class="product__position"><?php the_field('current_position') ?></div>
-            <div class="skill-items">
+            <div class="skill-items" id="skillCount">
+                
                 <?php echo wc_get_product_tag_list($product->get_id(), ' ') ?>
+                
+                <span class="count"></span>
             </div>
         </main>
         <footer>
@@ -73,7 +76,20 @@ if (empty($product) || !$product->is_visible()) {
         </footer>
         </a>
     </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script>
+        	$(function(){
+                $(".skill-items").each(function(indx, el){
+                    $(".count",el).text($('a',el).length - 4)
+                
+                });
+            });
+    </script>
+
+
 </li>
+
 
 <?php //} ?>
 

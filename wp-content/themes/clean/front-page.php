@@ -180,7 +180,22 @@ acf_localize_data(array('circleQuantity' => $circle_bg));
                     wp_reset_query();
 
                     woocommerce_product_loop_end(); ?>
-
+                <script>
+                    let skills = Array.from(document.querySelectorAll(".skill-items"));
+                    skills.forEach((skillBox,i)=>{
+                        skillBox.querySelectorAll('a').forEach((skill,j)=>{
+                            if (j>3) {
+                                skill.setAttribute('style', "display: none;")
+                            }
+                        })
+                    })
+                    
+                    let countBoxes = Array.from(document.querySelectorAll(".count"));
+                    countBoxes.forEach((box)=>{
+                     
+                      
+                    })
+                </script>
                 </div>
 
 
