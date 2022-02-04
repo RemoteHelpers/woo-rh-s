@@ -35,7 +35,7 @@ do_action('woocommerce_before_main_content');
         <div class="sidebar">
             <?php echo do_shortcode('[pwf_filter id="323"]'); ?>
         </div>
-        <div class="content ass">
+        <div class="content">
             <?php
             if (woocommerce_product_loop()) {
 

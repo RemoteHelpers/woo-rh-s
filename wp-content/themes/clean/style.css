@@ -1051,7 +1051,7 @@ html {
 
 .content-with-sidebar {
   display: grid;
-  grid-template-columns: 25% 75%;
+  grid-template-columns: 1fr;
 }
 
 /* Custom elements
@@ -1103,6 +1103,12 @@ html {
   src: url("fonts/star.eot?#iefix") format("embedded-opentype"), url("fonts/star.woff") format("woff"), url("fonts/star.ttf") format("truetype"), url("fonts/star.svg#star") format("svg");
   font-weight: normal;
   font-style: normal;
+}
+@media (min-width: 980px) {
+  .content-with-sidebar {
+    display: grid;
+    grid-template-columns: 25% 75%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
