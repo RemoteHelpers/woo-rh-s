@@ -200,7 +200,7 @@ add_theme_support('woocommerce');
 /**
  * Disable all Woocommerce (three) stylesheets.
  */
-//add_filter('woocommerce_enqueue_styles', '__return_empty_array');
+add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 
 function clean_scripts()
 {

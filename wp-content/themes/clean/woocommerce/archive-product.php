@@ -51,7 +51,7 @@ do_action('woocommerce_before_main_content');
                 ?>
 
                 <?php
-                woocommerce_product_loop_start();
+//                woocommerce_product_loop_start();
 
                 if (wc_get_loop_prop('total')) {
                     while (have_posts()) {
@@ -67,7 +67,7 @@ do_action('woocommerce_before_main_content');
                     }
                 }
 
-                woocommerce_product_loop_end();
+//                woocommerce_product_loop_end();
 
                 /**
                  * Hook: woocommerce_after_shop_loop.
