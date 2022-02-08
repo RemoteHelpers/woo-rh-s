@@ -1,6 +1,6 @@
 <?php ?>
 
-<div class="contact-form section">
+<div class="contact-form">
     <div class="social">
         <h3>Contact us</h3>
         <ul>
