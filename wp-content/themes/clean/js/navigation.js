@@ -76,28 +76,29 @@
         link.addEventListener('touchstart', toggleFocus, false);
     }
 
-    // Toggle accordeon on mobile
-    for (const parentLink of linksWithChildren) {
-        parentLink.addEventListener('click', (e) => {
-            if (window.innerWidth > 980) return
-            e.preventDefault()
-
-            // close all other submenus
-            const submenus = menu.querySelectorAll('.sub-menu')
-            submenus.forEach(item => {
-                jQuery(item).slideUp()
-            })
-
-            // if class 'sub-menu' is present - toggle submenu
-            const submenu = e.target.nextElementSibling
-            if (submenu.classList.contains('sub-menu')) {
-                if (submenu.style.display === 'block') return
-                jQuery(submenu).slideToggle()
-            } else {
-                console.error(`Element has no submenu`)
-            }
-        })
-    }
+    // Toggle accordeon on mobile (old - worked only on click, not touch
+    // for (const parentLink of linksWithChildren) {
+    //     parentLink.addEventListener('click', (e) => {
+    //         if (window.innerWidth > 980) return
+    //         e.preventDefault()
+    //         console.log('opa')
+    //
+    //         // close all other submenus
+    //         const submenus = menu.querySelectorAll('.sub-menu')
+    //         submenus.forEach(item => {
+    //             jQuery(item).slideUp()
+    //         })
+    //
+    //         // if class 'sub-menu' is present - toggle submenu
+    //         const submenu = e.target.nextElementSibling
+    //         if (submenu.classList.contains('sub-menu')) {
+    //             if (submenu.style.display === 'block') return
+    //             jQuery(submenu).slideToggle()
+    //         } else {
+    //             console.error(`Element has no submenu`)
+    //         }
+    //     })
+    // }
 
     // Toggle mini cart on cart icon (main menu)
     const menuCartBtn = document.querySelector('#menu-cart-btn')
@@ -128,11 +129,21 @@
             const menuItem = this.parentNode;
             event.preventDefault();
             for (const link of menuItem.parentNode.children) {
-                if (menuItem !== link) {
+                if (menuItem !== link && link.id !== 'header-social-icons') {
                     link.classList.remove('focus');
+                    const subMenu = link.querySelector('.sub-menu')
+                    // close submenu
+                    subMenu.style.maxHeight = 0
                 }
             }
+            const subMenu = menuItem.querySelector('.sub-menu')
             menuItem.classList.toggle('focus');
+            // open submenu to calculated max-height if focused or close if not
+            if (menuItem.classList.contains('focus')) {
+                subMenu.style.maxHeight = subMenu.scrollHeight + 'px'
+            } else {
+                subMenu.style.maxHeight = 0
+            }
         }
     }
 
