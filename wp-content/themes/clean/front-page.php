@@ -180,7 +180,7 @@ acf_localize_data(array('circleQuantity' => $circle_bg));
                     wp_reset_query();
 
                     woocommerce_product_loop_end(); ?>
-
+                
                 </div>
 
 

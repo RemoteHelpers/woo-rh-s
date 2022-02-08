@@ -29,51 +29,65 @@ if (empty($product) || !$product->is_visible()) {
 //    add_action("related_cards", "cards", 20 );
 //    function cards () { ?>
 
-<li>
-    <div class="card" id="card">
+    <article class="card" id="card">
         <a href="<?php echo get_post_permalink() ?>">
-        <header>
-            <?php if ( $product->is_on_sale() ) : ?>
-                <div style="background-color: <?php echo get_field('current_work_status') ?>">
+            <header class="card_top">
+                <?php if ( $product->is_on_sale() ) : ?>
+                    <div style="background-color: <?php echo get_field('current_work_status') ?>">
 
 
-                    <?php echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( '%', 'woocommerce' ) . '</span>', $post, $product ); ?>
+                        <?php echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( '%', 'woocommerce' ) . '</span>', $post, $product ); ?>
 
 
-                </div>
-            <?php
-            endif;
-            ?>
-            <div class="woocommerce-product-rating">
+                    </div>
                 <?php
-
+                endif;
                 ?>
-            </div>
+                <div class="woocommerce-product-rating">
+                    <?php
 
-        </header>
-        <main>
-            <img src="<?php echo wp_get_attachment_url($product->get_image_id()); ?>"
-                 alt="Product image">
-            <div class="product__id">
-                <div class="product__id_name">ID: <?php echo $product->get_sku(); ?></div>
-                <div class="product__id_time"><span class="tooltip" data-title="Employee Work Shift"><i class="<?php echo get_field('shifts') ?>" > </i></span>
+                    ?>
+                </div>
 
+            </header>
+            <div class="card_content">
+                <img src="<?php echo wp_get_attachment_url($product->get_image_id()); ?>"
+                    alt="Product image">
+                <div class="product__id">
+                    <span class="product__id_name">ID: <?php echo $product->get_id(); ?></span>
+                    <span class="tooltip product__id_time" data-title="Employee Work Shift"><i class="<?php echo get_field('shifts') ?>" > </i></span>
+
+               
+                </div>
+
+                <?php the_title( '<h3 class="product__first_name" >', '</h3>' ); ?>
+
+                <div class="product__position"><?php the_field('current_position') ?></div>
+                <div class="skill-items" id="skillCount">
+                    
+                    <?php echo wc_get_product_tag_list($product->get_id(), ' ') ?>
+                    
+                    <span class="count"></span>
                 </div>
             </div>
-
-            <?php the_title( '<h3 class="product__first_name" >', '</h3>' ); ?>
-
-            <div class="product__position"><?php the_field('current_position') ?></div>
-            <div class="skill-items">
-                <?php echo wc_get_product_tag_list($product->get_id(), ' ') ?>
-            </div>
-        </main>
-        <footer>
-            <a href="<?php echo get_post_permalink() ?>">View Profile</a>
-        </footer>
+            <footer class="card_bottom">
+                <a href="<?php echo get_post_permalink() ?>">View Profile</a>
+            </footer>
         </a>
-    </div>
-</li>
+    </article>
+   
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script>
+        	$(function(){
+                $(".skill-items").each(function(indx, el){
+                    $(".count",el).text($('a',el).length - 4)
+                });
+            });
+    </script>
+
+
+
 
 <?php //} ?>
 
