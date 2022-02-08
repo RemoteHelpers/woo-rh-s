@@ -1051,9 +1051,41 @@ html {
 
 .content-with-sidebar {
   display: grid;
-  grid-template-columns: 25% 75%;
+  grid-template-columns: 1fr;
+}
+.content-with-sidebar .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 1.5rem;
 }
 
+.woocommerce-pagination {
+  margin-top: 3rem;
+  flex-basis: 100%;
+}
+.woocommerce-pagination .page-numbers {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.woocommerce-pagination .page-numbers li > * {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.woocommerce-pagination .page-numbers li > *:hover {
+  background-color: var(--rh-accent-color);
+  color: white;
+}
+.woocommerce-pagination .page-numbers li > *.current {
+  color: var(--rh-light-grey-text);
+  background-color: var(--rh-light-grey);
+}
 /* Custom elements
 --------------------------------------------- */
 /* SCROLLBAR */
@@ -1103,6 +1135,12 @@ html {
   src: url("fonts/star.eot?#iefix") format("embedded-opentype"), url("fonts/star.woff") format("woff"), url("fonts/star.ttf") format("truetype"), url("fonts/star.svg#star") format("svg");
   font-weight: normal;
   font-style: normal;
+}
+@media (min-width: 980px) {
+  .content-with-sidebar {
+    display: grid;
+    grid-template-columns: 25% 75%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
