@@ -16,7 +16,7 @@
   gap: 5rem;
 }
 
-li .card {
+ .card {
   cursor: pointer;
   width: 20rem;
   height: 29rem;
@@ -28,16 +28,16 @@ li .card {
   background: RGBA(255, 255, 255, 0.9);
   backdrop-filter: blur(15px);
 }
-li .card:hover footer a {
+ .card:hover .card_bottom a {
   color: #FF5252;
 }
-li .card header {
-  width: 100%;
+ .card .card_top {
+
   display: flex;
   justify-content: space-between;
   position: absolute;
 }
-li .card header div {
+ .card .card_top div {
   border-radius: 8px 0 8px 0;
   padding: 0.5rem 1rem 0.5rem 1rem;
   display: flex;
@@ -45,13 +45,13 @@ li .card header div {
   align-items: center;
   column-gap: 0.5rem;
 }
-li .card header div i {
+ .card .card_top div i {
   color: #ffffff;
 }
-li .card header div span {
+ .card .card_top div span {
   color: #ffffff;
 }
-li .card main {
+ .card .card_content {
   padding: 3rem 1rem 0 1rem;
   display: flex;
   flex-flow: column;
@@ -60,34 +60,34 @@ li .card main {
   row-gap: 1rem;
   flex-grow: 1;
 }
-li .card main img {
+ .card .card_content img {
   height: 150px;
   width: 150px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #FFFFFF;
 }
-li .card main H3 {
+ .card .card_content H3 {
   margin: 0;
   color: #54595F;
   font-size: 1.5rem;
   font-weight: 700;
 }
-li .card main div {
+ .card .card_content div {
   font-size: 1.1rem;
   font-weight: 300;
   margin: 0;
   color: #5A5A5A;
   text-align: center;
 }
-li .card main hr {
+ .card .card_content hr {
   width: 100%;
   margin: 0;
   border: none;
   height: 1px;
   background-color: #FF5252;
 }
-li .card main .skill-items {
+ .card .card_content .skill-items {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -97,7 +97,7 @@ li .card main .skill-items {
   font-family: "Montserrat", sans-serif;
 
 }
-li .card main .skill-items a {
+ .card .card_content .skill-items a {
   font-family: 'Roboto Condensed', sans-serif;
   font-style: normal;
   max-height: 29px;
@@ -109,10 +109,11 @@ li .card main .skill-items a {
   transition: 0.3s;
   background-color: #F7F7F7;
   border-radius: 2rem;
-  padding: 0.1rem 1rem;
+  padding: 0.4rem 1rem;
   font-size: 15px;
+  line-height: 1;
 }
-li .card main .skill-items .count{
+ .card .card_content .skill-items .count{
   font-family: 'Roboto Condensed', sans-serif;
   font-style: normal;
   max-height: 29px;
@@ -128,17 +129,17 @@ li .card main .skill-items .count{
   font-size: 15px;
   
 }
-li .card main .skill-items .count::before{
+ .card .card_content .skill-items .count::before{
   content: "+";
 }
-li .card main .skill-items a:hover {
+ .card .card_content .skill-items a:hover {
   color: #FF5252;
 }
-li .card footer {
+ .card .card_bottom {
   text-align: center;
   padding: 23px 0;
 }
-li .card footer a {
+ .card .card_bottom a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -152,7 +153,7 @@ li .card footer a {
   font-weight: 500;
   transition: all 0.3s ease-in-out;
 }
-li .card footer a::before {
+ .card .card_bottom a::before {
   content: "";
   display: block;
   width: 68px;
@@ -161,7 +162,7 @@ li .card footer a::before {
   margin-right: 13px;
   transition-duration: 0.3s;
 }
-li .card footer a::after {
+ .card .card_bottom a::after {
   content: "";
   display: block;
   width: 68px;
@@ -190,7 +191,6 @@ li .card footer a::after {
   line-height: 19px;
   text-align: center !important;
   text-transform: lowercase;
-  margin-bottom: 29px !important;
 }
 
 .product__id {
@@ -198,7 +198,7 @@ li .card footer a::after {
   align-items: center;
   text-align: center;
   justify-content: space-evenly;
-  width: 138px;
+  width: 120px;
   height: 32px;
   background: #FBFBFC;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
@@ -247,11 +247,11 @@ li .card footer a::after {
   flex-flow: row wrap;
   align-items: stretch;
 }
-.product__id_time.product__id_alert::after li {
+.product__id_time.product__id_alert::after  {
   width: 20rem;
   height: 29rem;
 }
-.product__id_time.product__id_alert::after li .card {
+.product__id_time.product__id_alert::after  .card {
   width: 20rem;
   border-radius: 8px;
   box-shadow: 1px 2px 7px 0 rgba(0, 0, 0, 0.15);
@@ -260,24 +260,24 @@ li .card footer a::after {
   flex-flow: column;
   margin: 0 auto;
 }
-.product__id_time.product__id_alert::after li .card:hover footer a {
+.product__id_time.product__id_alert::after  .card:hover .card_bottom a {
   background-color: #FF5252;
 }
-.product__id_time.product__id_alert::after li .card:hover footer a::before {
+.product__id_time.product__id_alert::after  .card:hover .card_bottom a::before {
   background-color: #FF5252;
 }
 
-.product__id_time.product__id_alert::after li .card:hover footer a::after {
+.product__id_time.product__id_alert::after  .card:hover .card_bottom a::after {
   background-color: #FF5252;
 }
-.product__id_time.product__id_alert::after li .card header {
+.product__id_time.product__id_alert::after  .card .card_top {
 
   width: 100%;
   display: flex;
   justify-content: flex-start;
 }
 
-.product__id_time.product__id_alert::after li .card header div {
+.product__id_time.product__id_alert::after  .card .card_top div {
   border-radius: 8px 0 8px 0;
 
   padding: 0.5rem 2rem 0.5rem 2rem;
@@ -287,14 +287,14 @@ li .card footer a::after {
   column-gap: 0.5rem;
 }
 
-.product__id_time.product__id_alert::after li .card header div i {
+.product__id_time.product__id_alert::after  .card .card_top div i {
   color: #ffffff;
 }
-.product__id_time.product__id_alert::after li .card header div span {
+.product__id_time.product__id_alert::after  .card .card_top div span {
 
   color: #ffffff;
 }
-.product__id_time.product__id_alert::after li .card main {
+.product__id_time.product__id_alert::after  .card .card_content {
   padding: 1rem 2rem 0 2rem;
   display: flex;
   flex-flow: column;
@@ -303,33 +303,33 @@ li .card footer a::after {
   row-gap: 1rem;
   flex-grow: 1;
 }
-.product__id_time.product__id_alert::after li .card main img {
+.product__id_time.product__id_alert::after  .card .card_content img {
   height: 150px;
   width: 150px;
   border-radius: 50%;
   object-fit: cover;
 }
-.product__id_time.product__id_alert::after li .card main H3 {
+.product__id_time.product__id_alert::after  .card .card_content H3 {
   margin: 0;
   color: #54595F;
   font-size: 1.5rem;
   font-weight: 700;
 }
-.product__id_time.product__id_alert::after li .card main div {
+.product__id_time.product__id_alert::after  .card .card_content div {
   font-size: 1.1rem;
   font-weight: 400;
   margin: 0;
   color: #54595F;
   text-align: center;
 }
-.product__id_time.product__id_alert::after li .card main hr {
+.product__id_time.product__id_alert::after  .card .card_content hr {
   width: 100%;
   margin: 0;
   border: none;
   height: 1px;
   background-color: #FF5252;
 }
-.product__id_time.product__id_alert::after li .card main .skill-items {
+.product__id_time.product__id_alert::after  .card .card_content .skill-items {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -340,7 +340,7 @@ li .card footer a::after {
   height: 120px !important;
   overflow-y: hidden;
 }
-.product__id_time.product__id_alert::after li .card main .skill-items a {
+.product__id_time.product__id_alert::after  .card .card_content .skill-items a {
   max-height: 40px;
   align-items: center;
   display: flex;
@@ -353,11 +353,11 @@ li .card footer a::after {
   padding: 0.4rem;
   font-size: 0.9rem;
 }
-.product__id_time.product__id_alert::after li .card main .skill-items a:hover {
+.product__id_time.product__id_alert::after  .card .card_content .skill-items a:hover {
   color: #FF5252;
 }
 
-.product__id_time.product__id_alert::after li .card footer {
+.product__id_time.product__id_alert::after  .card .card_bottom {
 
   padding-top: 1rem;
   display: flex;
@@ -365,7 +365,7 @@ li .card footer a::after {
   background-color: transparent;
 }
 
-.product__id_time.product__id_alert::after li .card footer a {
+.product__id_time.product__id_alert::after  .card .card_bottom a {
 
   font-family: "Roboto", sans-serif;
   transition: 0.3s;
@@ -481,8 +481,6 @@ li .card footer a::after {
   font-size: 24px !important;
   line-height: 28px;
   text-align: center;
-  margin-top: 16px !important;
-  margin-bottom: 4px !important;
   color: #5A5A5A !important;
   white-space: nowrap;
   overflow: hidden;
@@ -499,10 +497,8 @@ li .card footer a::after {
   color: #5A5A5A;
 }
 
-body li .card main .skill-items {
-  height: 63px !important;
-}
-body li .card main .skill-items a:first-child {
+
+body  .card .card_content .skill-items a:first-child {
   display: none;
 }
 
@@ -511,27 +507,27 @@ body li .card main .skill-items a:first-child {
   width: 18px;
 }
 
-.single-product .product .related .slick-dots li button {
+.single-product .product .related .slick-dots  button {
   transition: all 0.3s ease;
 }
 
-.single-product .product .related .slick-dots li {
+.single-product .product .related .slick-dots  {
   height: 20px;
   line-height: 1;
   display: flex;
   align-items: center;
 }
 
-li .card main .skill-items a:hover {
+ .card .card_content .skill-items a:hover {
   background: #FF5252;
   color: #FFFFFF;
 }
 
-li .card:hover a::after {
+ .card:hover a::after {
   background-color: #FF5252;
 }
 
-li .card:hover a::before {
+ .card:hover a::before {
   background-color: #FF5252;
 }
 
@@ -544,7 +540,7 @@ li .card:hover a::before {
   color: #1607a3;
 }
 
-li .card main .skill-items a {
+ .card .card_content .skill-items a {
   border: 1px solid #D8DEE8;
   background: #FFFFFF;
   color: #7A7A7A;
@@ -574,10 +570,11 @@ li .card main .skill-items a {
   visibility: visible;
 }
 
-.card main a {
+.card .card_content a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  row-gap: 8px;
 }
 
 .slick-list .card {

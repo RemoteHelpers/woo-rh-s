@@ -281,6 +281,7 @@ function clean_scripts()
     wp_enqueue_script('clean-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
 
     wp_enqueue_script('home-page', get_template_directory_uri() . '/js/home-page.js', array(), _S_VERSION, true);
+    wp_enqueue_script('cards', get_template_directory_uri() . '/js/cards.js', array(), _S_VERSION, true);
     wp_enqueue_script('slick-script', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array(), _S_VERSION, true);
 
 //    add_action( 'wp_enqueue_scripts', 'myajax_data', 99 );
