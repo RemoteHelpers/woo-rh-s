@@ -13,6 +13,8 @@ const body = document.body
 const img = document.querySelector('.gallery-image')
 const thumbnailGallery = document.querySelector('.gallery-thumbnails')
 
+const breadcrumbs = document.querySelector('.breadcrumb-container');
+
 let imgIndex = 0
 
 onload = () => {
@@ -61,6 +63,26 @@ onload = () => {
     if (aboutPage) {
         console.log('about us page')
         aboutSlider()
+    }
+
+    if (breadcrumbs) {
+        const arrowLeft = breadcrumbs.querySelector('.breadcrumb-arrow-left')
+        const arrowRight = breadcrumbs.querySelector('.breadcrumb-arrow-right')
+
+        const breadcrumbWindow = breadcrumbs.querySelector('.breadcrumb-window')
+        const breadcrumbText = breadcrumbs.querySelector('.woocommerce-breadcrumb')
+
+        arrowLeft.addEventListener('click', breadcrumbArrowHandler.bind(null, 'left'), false)
+        arrowRight.addEventListener('click', breadcrumbArrowHandler.bind(null, 'right'), false)
+
+        function breadcrumbArrowHandler(param) {
+            const coords = breadcrumbText.offsetWidth - breadcrumbWindow.offsetWidth
+            if (param === 'left') {
+                breadcrumbText.style.transform = 'translateX(0)'
+            } else if (param === 'right') {
+                breadcrumbText.style.transform = 'translateX(-' + coords + 'px)'
+            }
+        }
     }
 }
 
@@ -111,6 +133,7 @@ function canvasBackground() {
             this.diameter = diameter
             this.color = color
         }
+
         drawSelf() {
             ctx.beginPath()
             ctx.fillStyle = this.color
@@ -119,6 +142,7 @@ function canvasBackground() {
             ctx.stroke()
             ctx.fill()
         }
+
         moveSelf() {
             if (this.x > (w + this.diameter) || this.x < (this.diameter * -1)) {
                 this.vx *= -1
@@ -293,12 +317,14 @@ function testimonialsScroller() {
 function coverIframe() {
     const cover = document.querySelector('.iframe-cover')
     const iframe = document.querySelector('.iframe-container > iframe')
-    cover.addEventListener('click', () => {
-        iframe.src += '?autoplay=1'
-        setTimeout(() => {
-            cover.classList.add('hide')
-        }, 1000)
-    })
+    if (cover) {
+        cover.addEventListener('click', () => {
+            iframe.src += '?autoplay=1'
+            setTimeout(() => {
+                cover.classList.add('hide')
+            }, 1000)
+        })
+    }
 }
 
 /* RELATED PRODUCTS SLIDER */
