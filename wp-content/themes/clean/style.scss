@@ -984,7 +984,7 @@ html {
 }
 
 .stop-scroll {
-  overflow: hidden!important;
+  overflow: hidden !important;
 }
 
 .post,
@@ -1052,6 +1052,15 @@ html {
     font-weight: 400;
     margin: 0;
   }
+}
+
+//query results (employee cards)
+.rh-query-results {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  align-items: stretch;
+  gap: 5rem;
 }
 
 .only-mobile {

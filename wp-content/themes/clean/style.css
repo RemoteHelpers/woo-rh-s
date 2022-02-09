@@ -1040,6 +1040,14 @@ html {
   margin: 0;
 }
 
+.rh-query-results {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  align-items: stretch;
+  gap: 5rem;
+}
+
 .only-mobile {
   display: block;
 }
