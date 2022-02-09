@@ -383,13 +383,14 @@ do_action('woocommerce_before_main_content');
                         " alt="">
                         </div>
                     </div>
+                    123
                 </div>
 
 
                 <?php
                 woocommerce_product_loop_start('div');
 
-
+                ?>
                 <div class="category__section first__block reverce__block">
                     <div class="category__block category__text">
                         <div class="text__title">
