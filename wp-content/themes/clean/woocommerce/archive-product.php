@@ -25,68 +25,26 @@ do_action('woocommerce_before_main_content');
 
 ?>
 <?php // echo get_the_title( get_option( 'woocommerce_shop_page_id' ) ); ?>
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="slick/slick.min.js"></script>
-    <div class="wrapper">
-        <section class="category">
-            <div class="category__section header_block">
-                <div class="category__block category__text">
-                    <div class="category__title">
-                        <?php
-                        $term = get_queried_object();
-                        $heading = get_field('heading', $term);
-                        echo $heading
-                        ?>
-                    </div>
-                    <div class="category__subtitle">
-                        <?php
-                        $term = get_queried_object();
-                        $description = get_field('description', $term);
-                        echo $description
-                        ?>
-                    </div>
-                    <div class="category__btn">
-                        Download presentation
-                    </div>
-                </div>
-                <div class="category__block category__video">
-                    <iframe src="
-                    <?php
-                    $term = get_queried_object();
-                    $heading_video = get_field('heading_video', $term);
-                    echo $heading_video
-                    ?>
-                    ">
-                    </iframe>
-
-                </div>
-            </div>
-            <div class="category__main_text">
-                <?php
-                $term = get_queried_object();
-                $main_text = get_field('main_text', $term);
-                echo $main_text
-                ?>
-            </div>
-
-
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<div class="wrapper">
     <section class="category">
         <div class="category__section header_block">
             <div class="category__block category__text">
                 <div class="category__title">
                     <?php
-                    $term = get_queried_object();
-                    $heading = get_field('heading', $term);
-                    echo $heading
-                    ?>
+                        $term = get_queried_object();
+                        $heading = get_field('heading', $term);
+                        echo $heading
+                        ?>
                 </div>
                 <div class="category__subtitle">
                     <?php
-                    $term = get_queried_object();
-                    $description = get_field('description', $term);
-                    echo $description
-                    ?>
+                        $term = get_queried_object();
+                        $description = get_field('description', $term);
+                        echo $description
+                        ?>
                 </div>
                 <div class="category__btn">
                     Download presentation
@@ -95,10 +53,10 @@ do_action('woocommerce_before_main_content');
             <div class="category__block category__video">
                 <iframe src="
                     <?php
-                $term = get_queried_object();
-                $heading_video = get_field('heading_video', $term);
-                echo $heading_video
-                ?>
+                    $term = get_queried_object();
+                    $heading_video = get_field('heading_video', $term);
+                    echo $heading_video
+                    ?>
                     ">
                 </iframe>
 
@@ -106,14 +64,56 @@ do_action('woocommerce_before_main_content');
         </div>
         <div class="category__main_text">
             <?php
+                $term = get_queried_object();
+                $main_text = get_field('main_text', $term);
+                echo $main_text
+                ?>
+        </div>
+
+
+        <section class="category">
+            <div class="category__section header_block">
+                <div class="category__block category__text">
+                    <div class="category__title">
+                        <?php
+                    $term = get_queried_object();
+                    $heading = get_field('heading', $term);
+                    echo $heading
+                    ?>
+                    </div>
+                    <div class="category__subtitle">
+                        <?php
+                    $term = get_queried_object();
+                    $description = get_field('description', $term);
+                    echo $description
+                    ?>
+                    </div>
+                    <div class="category__btn">
+                        Download presentation
+                    </div>
+                </div>
+                <div class="category__block category__video">
+                    <iframe src="
+                    <?php
+                $term = get_queried_object();
+                $heading_video = get_field('heading_video', $term);
+                echo $heading_video
+                ?>
+                    ">
+                    </iframe>
+
+                </div>
+            </div>
+            <div class="category__main_text">
+                <?php
             $term = get_queried_object();
             $main_text = get_field('main_text', $term);
             echo $main_text
             ?>
-        </div>
+            </div>
 
 
-        <?php
+            <?php
         // name of repeater field
         $repeater = 'block_content';
 
@@ -258,9 +258,9 @@ do_action('woocommerce_before_main_content');
                 </div>
 
             </div>
-        <?php } ?>
+            <?php } ?>
 
-        <?php
+            <?php
         if (get_field('cards_show')) { ?>
 
 
@@ -278,20 +278,20 @@ do_action('woocommerce_before_main_content');
                     ?>
                 </div>
             </div>
-        <?php } ?>
+            <?php } ?>
 
-    </section>
+        </section>
 
-    <div class="section-title-box">
-        <h1 class="section-title text-center">Find and Hire Remote Employee Here!</h1>
-        <p class="section-subtitle">Watch Video Interviews with Candidates inside each Profile</p>
-    </div>
-
-    <section class="content-with-sidebar">
-        <div class="sidebar">
-            <?php echo do_shortcode('[pwf_filter id="323"]'); ?>
+        <div class="section-title-box">
+            <h1 class="section-title text-center">Find and Hire Remote Employee Here!</h1>
+            <p class="section-subtitle">Watch Video Interviews with Candidates inside each Profile</p>
         </div>
-        <div class="content">
+
+        <section class="content-with-sidebar">
+            <div class="sidebar">
+                <?php echo do_shortcode('[pwf_filter id="323"]'); ?>
+            </div>
+            <div class="content">
 
             <?php
             // name of repeater field
@@ -383,13 +383,14 @@ do_action('woocommerce_before_main_content');
                         " alt="">
                         </div>
                     </div>
+
                 </div>
 
 
                 <?php
                 woocommerce_product_loop_start('div');
 
-
+                ?>
                 <div class="category__section first__block reverce__block">
                     <div class="category__block category__text">
                         <div class="text__title">
@@ -440,29 +441,32 @@ do_action('woocommerce_before_main_content');
                             ?>
                         </div>
                     </div>
-
                 </div>
-            <?php } ?>
-
-            <?php
-            if (get_field('cards_show')) { ?>
-
-
-                <div class="category__related">
-                    <div class="category__related_title">
-                        <?php
-                        $term = get_queried_object();
-                        $main_text_related = get_field('main_text_related', $term);
-                        echo $main_text_related
-                        ?>
+                
+                <?php $show_desktop = get_sub_field ('cards_show');
+                    if ($show_desktop == 'yes'){ 
+                ?>
+                    <div class="category__related">
+                        <div class="category__related_title">
+                            <?php
+                            $term = get_queried_object();
+                            $main_text_related = get_field('main_text_related', $term);
+                            echo $main_text_related
+                            ?>
+                        </div>
+                        <div class="category__related_cards">
+                            <?php
+                            getProductsByAcf("current_position", "Video editor");
+                            ?>
+                        </div>
                     </div>
-                    <div class="category__related_cards">
-                        <?php
-                        getProductsByAcf("current_position", "Video editor");
-                        ?>
-                    </div>
-                </div>
-            <?php } ?>
+                   
+                   
+                    <?php } ?>
+                <?php } ?>
+
+               
+           
 
         </section>
         <?php do_action('rh_archive_filter'); ?>
@@ -543,29 +547,29 @@ do_action('woocommerce_before_main_content');
 
             if (have_rows('block_content', $term)) :
                 ?>
-                <ul>
-                    <?php
+            <ul>
+                <?php
                     while (have_rows('block_content', $term)) : the_row(); ?>
-                        <li>
-                            <img src="<?php the_sub_field('block_image', $term); ?>">
-                            <h2><?php the_sub_field('block_title', $term); ?></h2>
-                            <p><?php the_sub_field('block_subtitle', $term); ?></p>
-                        </li>
-                    <?php endwhile; ?>
-                </ul>
+                <li>
+                    <img src="<?php the_sub_field('block_image', $term); ?>">
+                    <h2><?php the_sub_field('block_title', $term); ?></h2>
+                    <p><?php the_sub_field('block_subtitle', $term); ?></p>
+                </li>
+                <?php endwhile; ?>
+            </ul>
             <?php endif; ?>
         </div>
 
 
-    </div>
-    <script>
-        jQuery(document).ready(function () {
-            jQuery('.category__slider').slick({
-                dots: true,
-                arrows: true,
-            });
-        });
-    </script>
+</div>
+<script>
+jQuery(document).ready(function() {
+    jQuery('.category__slider').slick({
+        dots: true,
+        arrows: true,
+    });
+});
+</script>
 
 
 
