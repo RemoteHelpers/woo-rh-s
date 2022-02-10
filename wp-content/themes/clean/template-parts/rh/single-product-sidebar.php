@@ -11,27 +11,22 @@ global $product;
 
 <div class="product-sidebar">
 
-    <!--    <div class="circles">-->
-    <!--        <div class="circle1"></div>-->
-    <!--        <div class="circle2"></div>-->
-    <!--        <div class="circle3"></div>-->
-    <!--    </div>-->
-    <!--    --><?php //woocommerce_mini_cart( [ 'list_class' => 'my-css-class' ] ); ?>
-    <div class="sticky-sidebar">
-        <div class="breadcrumb-container">
-            <div class="breadcrumb-arrow-left"><i class="fas fa-chevron-left"></i></div>
-            <div class="breadcrumb-window">
-                <?php
-                /**
-                 * Hook: rh_before_product_meta
-                 *
-                 * @hooked woocommerce_breadcrumb - 20
-                 */
-                do_action('rh_before_product_meta');
-                ?>
-            </div>
-            <div class="breadcrumb-arrow-right"><i class="fas fa-chevron-right"></i></div>
-        </div>
+<!--    <div class="circles">-->
+<!--        <div class="circle1"></div>-->
+<!--        <div class="circle2"></div>-->
+<!--        <div class="circle3"></div>-->
+<!--    </div>-->
+<!--    --><?php //woocommerce_mini_cart( [ 'list_class' => 'my-css-class' ] ); ?>
+    <div classS="sticky-sidebar">
+
+        <?php
+        /**
+         * Hook: rh_before_product_meta
+         *
+         * @hooked woocommerce_breadcrumb - 20
+         */
+        do_action('rh_before_product_meta');
+        ?>
 
         <div class="product-meta">
             <div class="avatar">

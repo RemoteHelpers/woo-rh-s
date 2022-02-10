@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
 
-    <?php wp_head(); ?>
+<?php wp_head(); ?>
 
 </head>
 
@@ -85,17 +85,7 @@
             </div><!-- .site-branding -->
 
             <nav id="site-navigation" class="main-navigation">
-                <div class="menu-cart-btn
-<?php
-                $cart_contents = WC()->cart->get_cart_contents_count();
-                if (is_front_page()) echo 'cart-dark-theme ';
-                if (!$cart_contents == 0) echo 'cart-not-empty'
-                ?>
-" id="menu-cart-btn"><i class="fas fa-shopping-cart"></i>
-                    <?php if (!$cart_contents == 0) : ?>
-                        <span class="counter"><?php echo $cart_contents; ?></span>
-                    <?php endif; ?>
-                </div>
+                <div class="menu-cart-btn" id="menu-cart-btn"><i class="fas fa-shopping-cart"></i></div>
                 <button class="menu-toggle" aria-controls="primary-menu"
                         aria-expanded="false"><i class="fas fa-bars"></i></button>
                 <?php
