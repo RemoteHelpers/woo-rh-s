@@ -1039,9 +1039,18 @@ html {
 .only-mobile {
   display: block;
 }
-@media (min-width: 768px) {
+@media (min-width: 980px) {
   .only-mobile {
     display: none;
+  }
+}
+
+.only-desktop {
+  display: none;
+}
+@media (min-width: 980px) {
+  .only-desktop {
+    display: block;
   }
 }
 
@@ -1109,44 +1118,31 @@ html {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  font-family: "Roboto Condensed", sans-serif;
   column-gap: 0.5rem;
   row-gap: 5px;
-  font-size: 1rem;
-  font-family: "Montserrat", sans-serif;
+  font-size: 0.938rem;
+  font-weight: 400;
 }
 .skill-items a {
-  font-family: "Roboto Condensed", sans-serif;
-  font-style: normal;
-  max-height: 1.875rem;
-  align-items: center;
-  display: flex;
-  font-weight: normal;
-  text-decoration: none;
-  color: #54595F;
   transition: 0.3s;
-  background-color: #F7F7F7;
   border-radius: 2rem;
   padding: 0.4rem 1rem;
-  font-size: 0.938rem;
   line-height: 1;
+  border: 1px solid #D8DEE8;
+  background-color: #FFFFFF;
+  color: #7A7A7A;
 }
 .skill-items a:hover {
-  color: #FF5252;
+  background-color: #FF5252;
+  color: #FFFFFF;
 }
 .skill-items .count {
-  font-family: "Roboto Condensed", sans-serif;
-  font-style: normal;
-  max-height: 29px;
-  align-items: center;
-  display: flex;
-  font-weight: normal;
-  text-decoration: none;
   color: #fff;
   transition: 0.3s;
   background: #FF5252;
   border-radius: 2rem;
   padding: 0.1rem 1rem;
-  font-size: 0.938rem;
 }
 .skill-items .count:before {
   content: "+";

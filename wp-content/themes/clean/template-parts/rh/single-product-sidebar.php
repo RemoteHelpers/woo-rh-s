@@ -1,6 +1,6 @@
 <?php
 /**
- * Templat part for displaying sidebar in single product page
+ * Template part for displaying sidebar in single product page
  */
 
 defined('ABSPATH') || exit;
@@ -18,19 +18,22 @@ global $product;
     <!--    </div>-->
     <!--    --><?php //woocommerce_mini_cart( [ 'list_class' => 'my-css-class' ] ); ?>
     <div class="sticky-sidebar">
-        <div class="breadcrumb-container">
-            <div class="breadcrumb-arrow-left"><i class="fas fa-chevron-left"></i></div>
-            <div class="breadcrumb-window">
-                <?php
-                /**
-                 * Hook: rh_before_product_meta
-                 *
-                 * @hooked woocommerce_breadcrumb - 20
-                 */
-                do_action('rh_before_product_meta');
-                ?>
+
+        <div class="only-mobile">
+            <div class="breadcrumb-container">
+                <div class="breadcrumb-arrow-left"><i class="fas fa-chevron-left"></i></div>
+                <div class="breadcrumb-window">
+                    <?php
+                    /**
+                     * Hook: rh_before_product_meta
+                     *
+                     * @hooked woocommerce_breadcrumb - 20
+                     */
+                    do_action('rh_before_product_meta');
+                    ?>
+                </div>
+                <div class="breadcrumb-arrow-right"><i class="fas fa-chevron-right"></i></div>
             </div>
-            <div class="breadcrumb-arrow-right"><i class="fas fa-chevron-right"></i></div>
         </div>
 
         <div class="product-meta">
@@ -66,8 +69,8 @@ global $product;
         </div>
 
         <div class="product-skillset">
-            <h4>Professional <span class="accent-highlight">skillset</span></h4>
-            <div class="skillset-grid">
+            <div class="accordion-title"><h4>Professional <span class="accent-highlight">skillset</span></h4><h4 class="close-skills">−</h4></div>
+            <div class="employee-skills skill-items">
                 <?php
                 $id = $product->get_id();
                 echo wc_get_product_tag_list($id, " "); ?>
