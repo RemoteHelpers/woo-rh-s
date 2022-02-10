@@ -1144,3 +1144,54 @@ html {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+
+/* CARDS SKILLS */
+.card .card_content .skill-items {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  column-gap: 0.5rem;
+  row-gap: 5px;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+
+}
+ .card .card_content .skill-items a {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: normal;
+  max-height: 1.875rem;
+  align-items: center;
+  display: flex;
+  font-weight: normal;
+  text-decoration: none;
+  color: #54595F;
+  transition: 0.3s;
+  background-color: #F7F7F7;
+  border-radius: 2rem;
+  padding: 0.4rem 1rem;
+  font-size: 0.938rem;
+  line-height: 1;
+}
+ .card .card_content .skill-items .count{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: normal;
+  max-height: 29px;
+  align-items: center;
+  display: flex;
+  font-weight: normal;
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+  background: #FF5252;
+  border-radius: 2rem;
+  padding: 0.1rem 1rem;
+  font-size: 0.938rem;
+  
+}
+ .card .card_content .skill-items .count::before{
+  content: "+";
+}
+ .card .card_content .skill-items a:hover {
+  color: #FF5252;
+}

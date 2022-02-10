@@ -293,7 +293,7 @@ do_action('woocommerce_before_main_content');
             </div>
             <div class="content">
 
-                <?php
+            <?php
             // name of repeater field
             $repeater = 'block_content';
 
@@ -442,29 +442,31 @@ do_action('woocommerce_before_main_content');
                         </div>
                     </div>
                 </div>
+                
+                <?php $show_desktop = get_sub_field ('cards_show');
+                    if ($show_desktop == 'yes'){ 
+                ?>
+                    <div class="category__related">
+                        <div class="category__related_title">
+                            <?php
+                            $term = get_queried_object();
+                            $main_text_related = get_field('main_text_related', $term);
+                            echo $main_text_related
+                            ?>
+                        </div>
+                        <div class="category__related_cards">
+                            <?php
+                            getProductsByAcf("current_position", "Video editor");
+                            ?>
+                        </div>
+                    </div>
+                   
+                   
+                    <?php } ?>
                 <?php } ?>
 
                
-           <?php if ( get_field( 'featured_post' ) ): ?>
-
-
-                <div class="category__related">
-                    <div class="category__related_title">
-                        <?php
-                        $term = get_queried_object();
-                        $main_text_related = get_field('main_text_related', $term);
-                        echo $main_text_related
-                        ?>
-                    </div>
-                    <div class="category__related_cards">
-                        <?php
-                        getProductsByAcf("current_position", "Video editor");
-                        ?>
-                    </div>
-                </div>
-            <?php else: // field_name returned false ?>
-                <div class="category__related"></div>
-            <?php endif; // end of if field_name logic ?>
+           
 
         </section>
         <?php do_action('rh_archive_filter'); ?>
