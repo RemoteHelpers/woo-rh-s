@@ -1062,12 +1062,14 @@ html {
 .content-with-sidebar {
   display: grid;
   grid-template-columns: 1fr;
+  margin-bottom: 3rem;
 
   .content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 1.5rem;
+
   }
 }
 

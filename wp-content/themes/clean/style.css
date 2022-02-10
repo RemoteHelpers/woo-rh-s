@@ -1048,6 +1048,7 @@ html {
 .content-with-sidebar {
   display: grid;
   grid-template-columns: 1fr;
+  margin-bottom: 3rem;
 }
 .content-with-sidebar .content {
   display: flex;
