@@ -77,15 +77,6 @@ if (empty($product) || !$product->is_visible()) {
     </a>
 </article>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-<script>
-    $(function () {
-        $(".skill-items").each(function (indx, el) {
-            $(".count", el).text($('a', el).length - 4)
-        });
-    });
-</script>
 
 
 <?php //} ?>

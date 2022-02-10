@@ -120,6 +120,9 @@
   background: #FFFFFF;
   color: #7A7A7A;
 }
+.card .card_content .skill-items a:nth-child(n + 7) {
+  display: none;
+}
 .card .card_content .skill-items a:hover {
   color: #FF5252;
   background: #FF5252;
@@ -140,9 +143,7 @@
   padding: 0.1rem 1rem;
   font-size: 0.938rem;
 }
-.card .card_content .skill-items .count::before {
-  content: "+";
-}
+
 .card .card_content a {
   display: flex;
   flex-direction: column;

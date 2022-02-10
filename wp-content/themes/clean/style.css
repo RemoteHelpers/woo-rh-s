@@ -1148,9 +1148,7 @@ html {
   padding: 0.1rem 1rem;
   font-size: 0.938rem;
 }
-.skill-items .count:before {
-  content: "+";
-}
+
 
 /* RH RED BUTTON */
 .rh-button {
