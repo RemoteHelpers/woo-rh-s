@@ -977,7 +977,7 @@ html {
 }
 
 .stop-scroll {
-  overflow: hidden!important;
+  overflow: hidden !important;
 }
 
 .post,
@@ -1042,6 +1042,15 @@ html {
   }
 }
 
+//query results (employee cards)
+.rh-query-results {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  align-items: stretch;
+  gap: 5rem;
+}
+
 .only-mobile {
   display: block;
 
@@ -1049,6 +1058,55 @@ html {
     display: none;
   }
 }
+
+.content-with-sidebar {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1.5rem;
+  }
+}
+
+.woocommerce-pagination {
+  margin-top: 3rem;
+  flex-basis: 100%;
+
+  .page-numbers {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    li > * {
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .3s ease;
+
+      &:hover {
+        background-color: var(--rh-accent-color);
+        color: white;
+      }
+
+      &.current {
+        color: var(--rh-light-grey-text);
+        background-color: var(--rh-light-grey);
+
+        &:hover {
+          //background-color: none;
+          //color: initial;
+        }
+      }
+    }
+  }
+}
+
 
 /* Custom elements
 --------------------------------------------- */
@@ -1073,6 +1131,59 @@ html {
     background-color: rgb(23, 23, 23);
   }
 }
+
+/* CARDS SKILLS */
+.skill-items {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  column-gap: 0.5rem;
+  row-gap: 5px;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+
+  a {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-style: normal;
+    max-height: 1.875rem;
+    align-items: center;
+    display: flex;
+    font-weight: normal;
+    text-decoration: none;
+    color: #54595F;
+    transition: 0.3s;
+    background-color: #F7F7F7;
+    border-radius: 2rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.938rem;
+    line-height: 1;
+
+    &:hover {
+      color: #FF5252;
+    }
+  }
+
+  .count {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-style: normal;
+    max-height: 29px;
+    align-items: center;
+    display: flex;
+    font-weight: normal;
+    text-decoration: none;
+    color: #fff;
+    transition: 0.3s;
+    background: #FF5252;
+    border-radius: 2rem;
+    padding: 0.1rem 1rem;
+    font-size: 0.938rem;
+
+    &:before {
+      content: "+";
+    }
+  }
+}
+
 
 /* RH RED BUTTON */
 
@@ -1110,10 +1221,9 @@ html {
   font-style: normal;
 }
 
-
-
-
-
-
-
-
+@media (min-width: 980px) {
+  .content-with-sidebar {
+    display: grid;
+    grid-template-columns: 25% 75%;
+  }
+}

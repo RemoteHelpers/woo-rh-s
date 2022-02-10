@@ -1028,6 +1028,14 @@ html {
   font-weight: 300;
 }
 
+.rh-query-results {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  align-items: stretch;
+  gap: 5rem;
+}
+
 .only-mobile {
   display: block;
 }
@@ -1035,6 +1043,44 @@ html {
   .only-mobile {
     display: none;
   }
+}
+
+.content-with-sidebar {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.content-with-sidebar .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 1.5rem;
+}
+
+.woocommerce-pagination {
+  margin-top: 3rem;
+  flex-basis: 100%;
+}
+.woocommerce-pagination .page-numbers {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.woocommerce-pagination .page-numbers li > * {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.woocommerce-pagination .page-numbers li > *:hover {
+  background-color: var(--rh-accent-color);
+  color: white;
+}
+.woocommerce-pagination .page-numbers li > *.current {
+  color: var(--rh-light-grey-text);
+  background-color: var(--rh-light-grey);
 }
 
 /* Custom elements
@@ -1056,6 +1102,54 @@ html {
 }
 ::-webkit-scrollbar-thumb:active {
   background-color: #171717;
+}
+
+/* CARDS SKILLS */
+.skill-items {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  column-gap: 0.5rem;
+  row-gap: 5px;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+}
+.skill-items a {
+  font-family: "Roboto Condensed", sans-serif;
+  font-style: normal;
+  max-height: 1.875rem;
+  align-items: center;
+  display: flex;
+  font-weight: normal;
+  text-decoration: none;
+  color: #54595F;
+  transition: 0.3s;
+  background-color: #F7F7F7;
+  border-radius: 2rem;
+  padding: 0.4rem 1rem;
+  font-size: 0.938rem;
+  line-height: 1;
+}
+.skill-items a:hover {
+  color: #FF5252;
+}
+.skill-items .count {
+  font-family: "Roboto Condensed", sans-serif;
+  font-style: normal;
+  max-height: 29px;
+  align-items: center;
+  display: flex;
+  font-weight: normal;
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+  background: #FF5252;
+  border-radius: 2rem;
+  padding: 0.1rem 1rem;
+  font-size: 0.938rem;
+}
+.skill-items .count:before {
+  content: "+";
 }
 
 /* RH RED BUTTON */
@@ -1086,6 +1180,12 @@ html {
   src: url("fonts/star.eot?#iefix") format("embedded-opentype"), url("fonts/star.woff") format("woff"), url("fonts/star.ttf") format("truetype"), url("fonts/star.svg#star") format("svg");
   font-weight: normal;
   font-style: normal;
+}
+@media (min-width: 980px) {
+  .content-with-sidebar {
+    display: grid;
+    grid-template-columns: 25% 75%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
