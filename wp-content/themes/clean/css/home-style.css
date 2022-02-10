@@ -188,7 +188,6 @@
 }
 .home-page .card-container {
   position: relative;
-  z-index: 1;
 }
 .home-page .canvas-bg {
   width: 100%;
@@ -199,7 +198,6 @@
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: -1;
 }
 .home-page .hiring-process {
   display: flex;

@@ -653,12 +653,10 @@ textarea {
 }
 
 .main-navigation ul {
-  display: block;
+  display: none;
   list-style: none;
   margin: 0;
   padding-left: 0;
-  transition: transform 0.3s ease;
-  transform: translateX(100%);
 }
 
 .main-navigation ul ul {
@@ -691,17 +689,16 @@ textarea {
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
-  transform: translateX(0);
+  display: block;
 }
 
-@media screen and (min-width: 980px) {
+@media screen and (min-width: 981px) {
   .menu-toggle {
     display: none;
   }
 
   .main-navigation ul {
     display: flex;
-    transform: initial;
   }
 
   .main-navigation ul ul li:hover > ul,
@@ -964,10 +961,6 @@ textarea {
 --------------------------------------------------------------*/
 /* Custom styles
 --------------------------------------------- */
-.site {
-  padding-top: 70px;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -979,10 +972,6 @@ html {
 .post,
 .page {
   margin: 0;
-}
-
-.section {
-  padding-block: 3vw;
 }
 
 .container {
@@ -1026,7 +1015,7 @@ html {
 }
 
 .section-title-box {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 .section-title-box .section-title {
@@ -1036,8 +1025,7 @@ html {
 }
 .section-title-box .section-subtitle {
   font-size: clamp(1.2rem, 3vw, 1.625rem);
-  font-weight: 400;
-  margin: 0;
+  font-weight: 300;
 }
 
 .rh-query-results {
@@ -1094,6 +1082,7 @@ html {
   color: var(--rh-light-grey-text);
   background-color: var(--rh-light-grey);
 }
+
 /* Custom elements
 --------------------------------------------- */
 /* SCROLLBAR */
