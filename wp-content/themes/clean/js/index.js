@@ -14,6 +14,7 @@ const img = document.querySelector('.gallery-image')
 const thumbnailGallery = document.querySelector('.gallery-thumbnails')
 
 const breadcrumbs = document.querySelector('.breadcrumb-container');
+const skillset = document.querySelector('.product-skillset');
 
 let imgIndex = 0
 
@@ -82,6 +83,36 @@ onload = () => {
             } else if (param === 'right') {
                 breadcrumbText.style.transform = 'translateX(-' + coords + 'px)'
             }
+        }
+    }
+
+    if (skillset) {
+        const toggleCollapse = skillset.querySelector('.close-skills')
+        const skills = skillset.querySelector('.employee-skills')
+        // set initial scrollHeight for element
+        skills.style.maxHeight = skills.scrollHeight + 'px'
+
+        toggleCollapse.addEventListener('click', handleCollapse, false)
+        document.addEventListener('scroll', handleScroll, false)
+
+        function handleCollapse() {
+            if (this.classList.contains('collapsed')) {
+                this.innerText = '−'
+                skills.style.maxHeight = skills.scrollHeight + 'px'
+                skills.style.marginBlock = '1rem 2rem'
+            } else {
+                this.innerText = '+'
+                skills.style.maxHeight = 0
+                skills.style.marginBlock = '1rem 0'
+            }
+            this.classList.toggle('collapsed')
+        }
+
+        function handleScroll() {
+            toggleCollapse.classList.toggle('collapsed')
+            toggleCollapse.innerText = '+'
+            skills.style.maxHeight = 0
+            skills.style.marginBlock = '1rem 0'
         }
     }
 }

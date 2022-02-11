@@ -435,7 +435,7 @@
 
     .product-skillset {
       border-bottom: 1px solid #dbdbdb;
-      padding-bottom: 2rem;
+      //padding-bottom: 2rem;
 
       .accordion-title {
         display: flex;
@@ -449,10 +449,14 @@
 
       .employee-skills {
         justify-content: flex-start;
-        margin-top: 1rem;
+        margin-block: 1rem 2rem;
+        overflow: hidden;
+        transition: .3s ease;
       }
 
       .close-skills {
+        font-size: 1.125rem;
+        font-weight: 600;
         cursor: pointer;
         text-align: right;
       }
