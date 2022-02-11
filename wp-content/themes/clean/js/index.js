@@ -722,3 +722,26 @@ function aboutSlider() {
         adaptiveHeight: true
     });
 }
+
+//CARDS
+const cards = document.querySelectorAll('.card');
+console.log(cards);
+for (let i = 0; i < cards.length; i++) {
+  const skillContainer = cards[i]
+    .querySelector('.card_content')
+    .querySelector('.skill-items');
+  console.log(skillContainer);
+  const counterFunction = () => {
+    // console.log(skillContainer.childElementCount);
+    console.log(skillContainer.querySelectorAll('a').length);
+    tagNum = skillContainer.querySelectorAll('a').length;
+    if (tagNum > 6) {
+      console.log('+');
+      skillContainer.querySelector('.count').textContent += `+${tagNum - 6}`;
+    } else {
+      console.log('-');
+      skillContainer.querySelector('.count').style = 'display: none';
+    }
+  };
+  counterFunction();
+}

@@ -1048,6 +1048,7 @@ html {
 .content-with-sidebar {
   display: grid;
   grid-template-columns: 1fr;
+  margin-bottom: 3rem;
 }
 .content-with-sidebar .content {
   display: flex;
@@ -1082,7 +1083,6 @@ html {
   color: var(--rh-light-grey-text);
   background-color: var(--rh-light-grey);
 }
-
 /* Custom elements
 --------------------------------------------- */
 /* SCROLLBAR */
@@ -1148,9 +1148,7 @@ html {
   padding: 0.1rem 1rem;
   font-size: 0.938rem;
 }
-.skill-items .count:before {
-  content: "+";
-}
+
 
 /* RH RED BUTTON */
 .rh-button {

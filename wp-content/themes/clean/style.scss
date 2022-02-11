@@ -1062,12 +1062,14 @@ html {
 .content-with-sidebar {
   display: grid;
   grid-template-columns: 1fr;
+  margin-bottom: 3rem;
 
   .content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 1.5rem;
+
   }
 }
 
@@ -1098,10 +1100,7 @@ html {
         color: var(--rh-light-grey-text);
         background-color: var(--rh-light-grey);
 
-        &:hover {
-          //background-color: none;
-          //color: initial;
-        }
+  
       }
     }
   }
@@ -1177,10 +1176,6 @@ html {
     border-radius: 2rem;
     padding: 0.1rem 1rem;
     font-size: 0.938rem;
-
-    &:before {
-      content: "+";
-    }
   }
 }
 
