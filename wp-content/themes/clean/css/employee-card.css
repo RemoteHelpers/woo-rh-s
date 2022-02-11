@@ -62,7 +62,7 @@
   flex-flow: column;
   align-items: center;
   justify-content: flex-start;
-  row-gap: 1rem;
+  row-gap: 1.5rem;
   flex-grow: 1;
 }
 .card .card_content img {
@@ -148,7 +148,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 8px;
+  row-gap: 10px;
 }
 .card .card_bottom {
   text-align: center;
@@ -212,6 +212,7 @@
   line-height: 19px;
   text-align: center !important;
   text-transform: lowercase;
+
 }
 
 .product__id {
@@ -224,7 +225,7 @@
   background: #FBFBFC;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
   border-radius: 40px;
-  margin-top: -22px !important;
+  margin-top: -40px !important;
 }
 
 .product__id_time {
@@ -237,7 +238,7 @@
 }
 .product__id_time .fa-sun {
   color: #fbc444;
-  font-size: 0.875rem;
+  font-size: 1.1rem;
 }
 .product__id_time .fa-moon {
   color: #1607a3;
