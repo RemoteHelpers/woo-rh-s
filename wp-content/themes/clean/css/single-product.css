@@ -343,7 +343,6 @@
 }
 .rh-single-product .product-sidebar .product-skillset {
   border-bottom: 1px solid #dbdbdb;
-  padding-bottom: 2rem;
 }
 .rh-single-product .product-sidebar .product-skillset .accordion-title {
   display: flex;
@@ -355,9 +354,13 @@
 }
 .rh-single-product .product-sidebar .product-skillset .employee-skills {
   justify-content: flex-start;
-  margin-top: 1rem;
+  margin-block: 1rem 2rem;
+  overflow: hidden;
+  transition: 0.3s ease;
 }
 .rh-single-product .product-sidebar .product-skillset .close-skills {
+  font-size: 1.125rem;
+  font-weight: 600;
   cursor: pointer;
   text-align: right;
 }
