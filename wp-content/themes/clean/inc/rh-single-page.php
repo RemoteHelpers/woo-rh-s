@@ -3,6 +3,7 @@
 /**
  * Add breadcrumbs
  */
+add_action('rh_before_product_body', 'woocommerce_breadcrumb', 20);
 add_action('rh_before_product_meta', 'woocommerce_breadcrumb', 20);
 
 /**
