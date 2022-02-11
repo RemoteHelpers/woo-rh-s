@@ -1144,9 +1144,7 @@ html {
   border-radius: 2rem;
   padding: 0.1rem 1rem;
 }
-.skill-items .count:before {
-  content: "+";
-}
+
 
 /* RH RED BUTTON */
 .rh-button {

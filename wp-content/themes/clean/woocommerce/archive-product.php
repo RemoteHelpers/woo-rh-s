@@ -90,7 +90,7 @@ get_header();
         // loop + apply filter the_content to preserve html formatting
         for ($i = 0; $i < $count; $i++) { ?>
 
-            <div class="category__section first__block">
+            <!-- <div class="category__section first__block">
                 <div class="category__block category__text">
                     <div class="text__title">
                         <img src="
@@ -218,7 +218,7 @@ get_header();
                     </div>
                 </div>
 
-            </div>
+            </div> -->
         <?php } ?>
 
         <?php
@@ -227,7 +227,7 @@ get_header();
 
             <div class="category__related">
                 <div class="category__related_title">
-                    <?php
+                    <?php@media only screen and (max-width: 767px)
                     $term = get_queried_object();
                     $main_text_related = get_field('main_text_related', $term);
                     echo $main_text_related
