@@ -122,11 +122,14 @@ onload = () => {
         const btn = sidebarContent.querySelector('.hide-btn')
         const sidebar = sidebarContent.querySelector('.sidebar')
         const filter = sidebarContent.querySelector('.sticky-filter')
+
         btn.addEventListener('click', hideSidebar, false)
 
         function hideSidebar() {
+            // gsap.to(sidebarContent, {duration: .3, gridTemplateColumns: '0px auto'})
+
             this.classList.toggle('hidden')
-            filter.classList.toggle('hidden')
+            // filter.classList.toggle('hidden')
             sidebar.classList.toggle('closed')
         }
     }

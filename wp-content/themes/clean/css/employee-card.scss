@@ -6,16 +6,16 @@
   --rh-green-color: #2ecc71;
 }
 
-.products {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  row-gap: 2rem;
-  column-gap: 2rem;
-  flex-flow: row wrap;
-  align-items: stretch;
-  gap: 5rem;
-}
+//.products {
+//  list-style: none;
+//  display: flex;
+//  justify-content: center;
+//  row-gap: 2rem;
+//  column-gap: 2rem;
+//  flex-flow: row wrap;
+//  align-items: stretch;
+//  gap: 5rem;
+//}
 
 .card {
   cursor: pointer;
@@ -110,57 +110,57 @@
       background-color: #FF5252;
     }
 
-    .skill-items {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: center;
-      column-gap: 0.5rem;
-      row-gap: 5px;
-      font-size: 1rem;
-      font-family: "Montserrat", sans-serif;
-
-      a {
-        font-family: 'Roboto Condensed', sans-serif;
-        font-style: normal;
-        max-height: 1.875rem;
-        align-items: center;
-        display: flex;
-        font-weight: normal;
-        text-decoration: none;
-        color: #54595F;
-        transition: 0.3s;
-        background-color: #F7F7F7;
-        border-radius: 2rem;
-        padding: 0.4rem 1rem;
-        font-size: 0.938rem;
-        line-height: 1;
-        border: 1px solid #D8DEE8;
-        background: #FFFFFF;
-        color: #7A7A7A;
-
-        &:hover {
-          color: #FF5252;
-          background: #FF5252;
-          color: #FFFFFF;
-        }
-      }
-
-      .count {
-        font-family: 'Roboto Condensed', sans-serif;
-        font-style: normal;
-        max-height: 29px;
-        align-items: center;
-        display: flex;
-        font-weight: normal;
-        text-decoration: none;
-        color: #fff;
-        transition: 0.3s;
-        background: #FF5252;
-        border-radius: 2rem;
-        padding: 0.1rem 1rem;
-        font-size: 0.938rem;
-      }
-    }
+    //.skill-items {
+    //  display: flex;
+    //  flex-flow: row wrap;
+    //  justify-content: center;
+    //  column-gap: 0.5rem;
+    //  row-gap: 5px;
+    //  font-size: 1rem;
+    //  font-family: "Montserrat", sans-serif;
+    //
+    //  a {
+    //    font-family: 'Roboto Condensed', sans-serif;
+    //    font-style: normal;
+    //    max-height: 1.875rem;
+    //    align-items: center;
+    //    display: flex;
+    //    font-weight: normal;
+    //    text-decoration: none;
+    //    color: #54595F;
+    //    transition: 0.3s;
+    //    background-color: #F7F7F7;
+    //    border-radius: 2rem;
+    //    padding: 0.4rem 1rem;
+    //    font-size: 0.938rem;
+    //    line-height: 1;
+    //    border: 1px solid #D8DEE8;
+    //    background: #FFFFFF;
+    //    color: #7A7A7A;
+    //
+    //    &:hover {
+    //      color: #FF5252;
+    //      background: #FF5252;
+    //      color: #FFFFFF;
+    //    }
+    //  }
+    //
+    //  .count {
+    //    font-family: 'Roboto Condensed', sans-serif;
+    //    font-style: normal;
+    //    max-height: 29px;
+    //    align-items: center;
+    //    display: flex;
+    //    font-weight: normal;
+    //    text-decoration: none;
+    //    color: #fff;
+    //    transition: 0.3s;
+    //    background: #FF5252;
+    //    border-radius: 2rem;
+    //    padding: 0.1rem 1rem;
+    //    font-size: 0.938rem;
+    //  }
+    //}
 
     a {
       display: flex;

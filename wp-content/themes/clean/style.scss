@@ -1113,6 +1113,15 @@ html {
   }
 }
 
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 1rem;
+  row-gap: 3rem;
+  padding-inline: 1rem;
+}
+
 
 /* Custom elements
 --------------------------------------------- */
@@ -1146,7 +1155,6 @@ html {
   font-family: 'Roboto Condensed', sans-serif;
   column-gap: 0.5rem;
   row-gap: 5px;
-  font-size: 0.938rem;
   font-weight: 400;
 
   a {
@@ -1156,7 +1164,8 @@ html {
     line-height: 1;
     border: 1px solid #D8DEE8;
     background-color: #FFFFFF;
-    color: #7A7A7A;
+    color: var(--rh-dark-grey);
+    font-size: 0.938rem;
 
     &:hover {
       background-color: #FF5252;
@@ -1165,13 +1174,15 @@ html {
   }
 
   .count {
+    font-family: 'Roboto Condensed', sans-serif;
+    align-items: center;
+    display: flex;
+    font-weight: normal;
     color: #fff;
-    transition: 0.3s;
     background: #FF5252;
     border-radius: 2rem;
     padding: 0.1rem 1rem;
     font-size: 0.938rem;
-
   }
 }
 
@@ -1218,15 +1229,14 @@ html {
     grid-template-columns: auto auto;
 
     .sidebar {
-      height: max-content;
-      top: 0;
-      left: 0;
-      transition: left .3s ease;
       display: flex;
+      height: max-content;
+      transition: transform .3s ease;
 
       &.closed {
         height: initial;
         min-height: min-content;
+        transform: translateX(-288px);
       }
 
       .sticky-filter {
@@ -1234,10 +1244,6 @@ html {
         border-radius: var(--border-radius);
         padding: 1rem;
         width: var(--sidebar-width);
-
-        &.hidden {
-          display: none;
-        }
       }
 
       .btn-container {
@@ -1245,34 +1251,30 @@ html {
       }
 
       .hide-btn {
-        position: sticky;
-        left: var(--sidebar-width);
-        top: 50vh;
-        transform: translateY(-50%);
-        background-color: var(--rh-grey-d8);
-        width: 35px;
-        height: 50px;
         display: flex;
-        box-shadow: 0px 1px 20px rgb(0 0 0 / 15%);
         align-items: center;
         justify-content: center;
+        position: sticky;
+        left: var(--sidebar-width);
+        top: 12rem;
+        width: 35px;
+        height: 50px;
+        box-shadow: 0 1px 20px rgb(0 0 0 / 15%);
+        text-shadow: 1px 2px 3px #0606064f;
         border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        background-color: var(--rh-grey-d8);
         cursor: pointer;
         transition: all .3s ease;
 
         &:hover {
           color: var(--rh-black);
+          background-color: var(--rh-grey-c8);
         }
 
         &.hidden {
           left: 0;
         }
       }
-    }
-
-    .content {
-      //margin-left: calc(var(--sidebar-width) + 3rem);
-      transition: margin-left .3s ease;
     }
   }
 }
