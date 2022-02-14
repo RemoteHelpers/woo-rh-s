@@ -6,6 +6,7 @@
   --rh-grey-d8: #d8d8d8;
   --rh-dark-grey: #54595f;
   --rh-light-grey: #ececec;
+  --rh-black: #222;
   --rh-grey-text: #7a7a7a;
   --rh-light-grey-text: #bcbcbc;
   --scrollbar-width: 8px;
@@ -15,6 +16,7 @@
   --font-size-1-2: 1.2rem;
   --font-size-1-5: 1.5rem;
   --font-size-1-18: 1.18rem;
+  --border-radius: 8px;
 }
 
 .home-page {

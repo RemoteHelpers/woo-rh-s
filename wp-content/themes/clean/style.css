@@ -1055,11 +1055,12 @@ html {
 }
 
 .content-with-sidebar {
-  display: grid;
-  grid-template-columns: 1fr;
+  --sidebar-width: 18rem;
   margin-bottom: 3rem;
+  position: relative;
 }
-.content-with-sidebar .content {
+
+.content {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -1092,6 +1093,7 @@ html {
   color: var(--rh-light-grey-text);
   background-color: var(--rh-light-grey);
 }
+
 /* Custom elements
 --------------------------------------------- */
 /* SCROLLBAR */
@@ -1143,8 +1145,8 @@ html {
   background: #FF5252;
   border-radius: 2rem;
   padding: 0.1rem 1rem;
+  font-size: 0.938rem;
 }
-
 
 /* RH RED BUTTON */
 .rh-button {
@@ -1178,7 +1180,55 @@ html {
 @media (min-width: 980px) {
   .content-with-sidebar {
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: auto auto;
+  }
+  .content-with-sidebar .sidebar {
+    height: max-content;
+    top: 0;
+    left: 0;
+    transition: left 0.3s ease;
+    display: flex;
+  }
+  .content-with-sidebar .sidebar.closed {
+    height: initial;
+    min-height: min-content;
+  }
+  .content-with-sidebar .sidebar .sticky-filter {
+    box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.15);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    width: var(--sidebar-width);
+  }
+  .content-with-sidebar .sidebar .sticky-filter.hidden {
+    display: none;
+  }
+  .content-with-sidebar .sidebar .btn-container {
+    padding-block: 3rem;
+  }
+  .content-with-sidebar .sidebar .hide-btn {
+    position: sticky;
+    left: var(--sidebar-width);
+    top: 50vh;
+    transform: translateY(-50%);
+    background-color: var(--rh-grey-d8);
+    width: 35px;
+    height: 50px;
+    display: flex;
+    box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.15);
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .content-with-sidebar .sidebar .hide-btn:hover {
+    color: var(--rh-black);
+  }
+  .content-with-sidebar .sidebar .hide-btn.hidden {
+    left: 0;
+  }
+  .content-with-sidebar .content {
+    transition: margin-left 0.3s ease;
   }
 }
 
