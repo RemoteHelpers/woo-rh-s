@@ -5,17 +5,6 @@
   --rh-green-color: #2ecc71;
 }
 
-.products {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  row-gap: 2rem;
-  column-gap: 2rem;
-  flex-flow: row wrap;
-  align-items: stretch;
-  gap: 5rem;
-}
-
 .card {
   cursor: pointer;
   width: 20rem;
@@ -62,7 +51,7 @@
   flex-flow: column;
   align-items: center;
   justify-content: flex-start;
-  row-gap: 1.5rem;
+  row-gap: 1rem;
   flex-grow: 1;
 }
 .card .card_content img {
@@ -92,63 +81,11 @@
   height: 1px;
   background-color: #FF5252;
 }
-.card .card_content .skill-items {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  column-gap: 0.5rem;
-  row-gap: 5px;
-  font-size: 1rem;
-  font-family: "Montserrat", sans-serif;
-}
-.card .card_content .skill-items a {
-  font-family: "Roboto Condensed", sans-serif;
-  font-style: normal;
-  max-height: 1.875rem;
-  align-items: center;
-  display: flex;
-  font-weight: normal;
-  text-decoration: none;
-  color: #54595F;
-  transition: 0.3s;
-  background-color: #F7F7F7;
-  border-radius: 2rem;
-  padding: 0.4rem 1rem;
-  font-size: 0.938rem;
-  line-height: 1;
-  border: 1px solid #D8DEE8;
-  background: #FFFFFF;
-  color: #7A7A7A;
-}
-.card .card_content .skill-items a:nth-child(n + 7) {
-  display: none;
-}
-.card .card_content .skill-items a:hover {
-  color: #FF5252;
-  background: #FF5252;
-  color: #FFFFFF;
-}
-.card .card_content .skill-items .count {
-  font-family: "Roboto Condensed", sans-serif;
-  font-style: normal;
-  max-height: 29px;
-  align-items: center;
-  display: flex;
-  font-weight: normal;
-  text-decoration: none;
-  color: #fff;
-  transition: 0.3s;
-  background: #FF5252;
-  border-radius: 2rem;
-  padding: 0.1rem 1rem;
-  font-size: 0.938rem;
-}
-
 .card .card_content a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 10px;
+  row-gap: 8px;
 }
 .card .card_bottom {
   text-align: center;
@@ -212,7 +149,6 @@
   line-height: 19px;
   text-align: center !important;
   text-transform: lowercase;
-
 }
 
 .product__id {
@@ -225,7 +161,7 @@
   background: #FBFBFC;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
   border-radius: 40px;
-  margin-top: -40px !important;
+  margin-top: -22px !important;
 }
 
 .product__id_time {
@@ -238,7 +174,7 @@
 }
 .product__id_time .fa-sun {
   color: #fbc444;
-  font-size: 1.1rem;
+  font-size: 0.875rem;
 }
 .product__id_time .fa-moon {
   color: #1607a3;
