@@ -121,16 +121,24 @@ onload = () => {
     if (sidebarContent) {
         const btn = sidebarContent.querySelector('.hide-btn')
         const sidebar = sidebarContent.querySelector('.sidebar')
-        const filter = sidebarContent.querySelector('.sticky-filter')
+        const cards = sidebarContent.querySelector('.products')
+        // const filter = sidebarContent.querySelector('.sticky-filter')
 
         btn.addEventListener('click', hideSidebar, false)
 
         function hideSidebar() {
-            // gsap.to(sidebarContent, {duration: .3, gridTemplateColumns: '0px auto'})
 
-            this.classList.toggle('hidden')
-            // filter.classList.toggle('hidden')
-            sidebar.classList.toggle('closed')
+            gsap.to(cards, {duration: .2, opacity: 0, onComplete: gsapComplete})
+
+            function gsapComplete() {
+                btn.classList.toggle('hidden');
+                sidebarContent.classList.toggle('fullSize');
+                sidebar.classList.toggle('closed');
+
+                setTimeout(() => {
+                    gsap.to(cards, {duration: .2, opacity: 1});
+                }, 200)
+            }
         }
     }
 }

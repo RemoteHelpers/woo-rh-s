@@ -1191,18 +1191,22 @@ html {
 }
 @media (min-width: 980px) {
   .content-with-sidebar {
+    --transform-time: .2s;
     display: grid;
     grid-template-columns: auto auto;
+  }
+  .content-with-sidebar.fullSize {
+    grid-template-columns: 0 auto;
   }
   .content-with-sidebar .sidebar {
     display: flex;
     height: max-content;
-    transition: transform 0.3s ease;
+    transition: transform var(--transform-time) ease;
   }
   .content-with-sidebar .sidebar.closed {
     height: initial;
     min-height: min-content;
-    transform: translateX(-288px);
+    transform: translateX(-177px);
   }
   .content-with-sidebar .sidebar .sticky-filter {
     box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.15);
@@ -1218,16 +1222,13 @@ html {
     align-items: center;
     justify-content: center;
     position: sticky;
-    left: var(--sidebar-width);
     top: 12rem;
     width: 35px;
     height: 50px;
-    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.15);
-    text-shadow: 1px 2px 3px #0606064f;
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
     background-color: var(--rh-grey-d8);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all var(--transform-time) ease;
   }
   .content-with-sidebar .sidebar .hide-btn:hover {
     color: var(--rh-black);
