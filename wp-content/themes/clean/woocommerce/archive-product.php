@@ -19,14 +19,14 @@ defined('ABSPATH') || exit;
 
 get_header();
 
-/**
- * Hook: woocommerce_before_main_content.
- *
- * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
- * @hooked woocommerce_breadcrumb - 20
- * @hooked WC_Structured_Data::generate_website_data() - 30
- */
-do_action('woocommerce_before_main_content');
+///**
+// * Hook: woocommerce_before_main_content.
+// *
+// * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+// * @hooked woocommerce_breadcrumb - 20
+// * @hooked WC_Structured_Data::generate_website_data() - 30
+// */
+//do_action('woocommerce_before_main_content');
 
 ?>
 
@@ -89,145 +89,14 @@ do_action('woocommerce_before_main_content');
 
         // loop + apply filter the_content to preserve html formatting
         for ($i = 0; $i < $count; $i++) { ?>
+            
 
-            <!-- <div class="category__section first__block">
-                <div class="category__block category__text">
-                    <div class="text__title">
-                        <img src="
-                        <?php
-
-                        echo apply_filters('block_image', get_term_meta($taxonomy_id, $repeater . '_' . $i . '_' . 'block_image', true));
-                        ?>
-                        " alt="">
-                        <p>
-                            <?php
-
-                            echo apply_filters('block_title', get_term_meta($taxonomy_id, $repeater . '_' . $i . '_' . 'block_title', true));
-
-                            ?>
-
-                        </p>
-                    </div>
-                    <div class="text__subtitle">
-                        <?php
-                        echo apply_filters('block_subtitle', get_term_meta($taxonomy_id, $repeater . '_' . $i . '_' . 'block_subtitle', true));
-                        ?>
-                    </div>
-                    <div class="text__btn_grey">Choose available {Employee}</div>
-                </div>
-                <div class="category__block category__slider_block">
-                    <div class="category__slider">
-                        <img src="
-
-                        <?php
-                        $term = get_queried_object();
-                        $img_slider_1 = get_field('img_slider_1', $term);
-                        echo $img_slider_1
-                        ?>
-
-                        " alt="">
-                        <img src="
-
-                            <?php
-                        $term = get_queried_object();
-                        $img_slider_2 = get_field('img_slider_2', $term);
-                        echo $img_slider_2
-                        ?>
-
-                        " alt="">
-                        <img src="
-
-                            <?php
-                        $term = get_queried_object();
-                        $img_slider_3 = get_field('img_slider_3', $term);
-                        echo $img_slider_3
-                        ?>
-
-                        " alt="">
-                        <img src="
-
-                            <?php
-                        $term = get_queried_object();
-                        $img_slider_4 = get_field('img_slider_4', $term);
-                        echo $img_slider_4
-                        ?>
-
-                        " alt="">
-                        <img src="
-
-                            <?php
-                        $term = get_queried_object();
-                        $img_slider_5 = get_field('img_slider_5', $term);
-                        echo $img_slider_5
-                        ?>
-
-                        " alt="">
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="category__section first__block reverce__block">
-                <div class="category__block category__text">
-                    <div class="text__title">
-                        <img src="<?php
-                        $term = get_queried_object();
-                        $block_image_copy = get_field('block_image_copy', $term);
-                        echo $block_image_copy
-                        ?>" alt="">
-                        <p>
-                            <?php
-
-                            echo apply_filters('block_title_right', get_term_meta($taxonomy_id, $repeater . '_' . $i . '_' . 'block_title_right', true));
-                            ?>
-                        </p>
-                    </div>
-                    <div class="text__subtitle">
-                        <?php
-                        echo apply_filters('block_subtitle_copy', get_term_meta($taxonomy_id, $repeater . '_' . $i . '_' . 'block_subtitle_copy', true));
-                        ?>
-                    </div>
-                    <div class="text__btn_red">Choose available {Employee}</div>
-                </div>
-                <div class="category__block category__slider_block">
-                    <div class="category__slider">
-                        <?php
-                        $term = get_queried_object();
-                        $img_slider_left_1 = get_field('img_slider_left_1', $term);
-
-                        echo '<img src="' . $img_slider_left_1 . '">';
-                        ?>
-                        <?php
-                        $term = get_queried_object();
-                        $img_slider_left_2 = get_field('img_slider_left_2', $term);
-
-                        echo '<img src="' . $img_slider_left_2 . '">';
-                        ?>
-                        <?php
-                        $term = get_queried_object();
-                        $img_slider_left_2 = get_field('img_slider_left_2', $term);
-
-                        echo '<img src="' . $img_slider_left_2 . '">';
-                        ?>
-                        <?php
-                        $term = get_queried_object();
-                        $img_slider_left_2 = get_field('img_slider_left_2', $term);
-
-                        echo '<img src="' . $img_slider_left_2 . '">';
-                        ?>
-                    </div>
-                </div>
-
-            </div> -->
+            
         <?php } ?>
-
-        <?php
-        if (get_field('cards_show')) { ?>
-
 
             <div class="category__related">
                 <div class="category__related_title">
-                    <?php@media only screen and (max-width: 767px)
+                    <?php@media only screen and (max - width: 767px)
                     $term = get_queried_object();
                     $main_text_related = get_field('main_text_related', $term);
                     echo $main_text_related
@@ -239,8 +108,6 @@ do_action('woocommerce_before_main_content');
                     ?>
                 </div>
             </div>
-        <?php } ?>
-
     </section>
 
     <div class="section-title-box">
@@ -250,25 +117,32 @@ do_action('woocommerce_before_main_content');
 
     <div class="content-with-sidebar">
         <div class="sidebar">
-            <?php echo do_shortcode('[pwf_filter id="323"]'); ?>
+            <div class="sticky-filter">
+                <?php echo do_shortcode('[pwf_filter id="323"]'); ?>
+            </div>
+            <div class="btn-container">
+                <div class="hide-btn only-desktop">
+                    <i class="fa fa-filter"></i>
+                </div>
+            </div>
         </div>
         <div class="content">
             <?php
             if (woocommerce_product_loop()) {
 
-                /**
-                 * Hook: woocommerce_before_shop_loop.
-                 *
-                 * @hooked woocommerce_output_all_notices - 10
-                 * @hooked woocommerce_result_count - 20
-                 * @hooked woocommerce_catalog_ordering - 30
-                 */
-                do_action('woocommerce_before_shop_loop');
+//                /**
+//                 * Hook: woocommerce_before_shop_loop.
+//                 *
+//                 * @hooked woocommerce_output_all_notices - 10
+//                 * @hooked woocommerce_result_count - 20
+//                 * @hooked woocommerce_catalog_ordering - 30
+//                 */
+//                do_action('woocommerce_before_shop_loop');
 
                 ?>
 
                 <?php
-//                woocommerce_product_loop_start();
+                woocommerce_product_loop_start();
 
                 if (wc_get_loop_prop('total')) {
                     while (have_posts()) {
@@ -284,7 +158,7 @@ do_action('woocommerce_before_main_content');
                     }
                 }
 
-//                woocommerce_product_loop_end();
+                woocommerce_product_loop_end();
 
                 /**
                  * Hook: woocommerce_after_shop_loop.
@@ -315,12 +189,12 @@ do_action('woocommerce_before_main_content');
  */
 do_action('woocommerce_after_main_content');
 
-/**
- * Hook: woocommerce_sidebar.
- *
- * @hooked woocommerce_get_sidebar - 10
- */
-do_action('woocommerce_sidebar');
+///**
+// * Hook: woocommerce_sidebar.
+// *
+// * @hooked woocommerce_get_sidebar - 10
+// */
+//do_action('woocommerce_sidebar');
 
 
 get_footer();
