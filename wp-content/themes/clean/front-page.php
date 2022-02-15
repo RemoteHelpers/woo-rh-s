@@ -108,29 +108,25 @@ acf_localize_data(array('circleQuantity' => $circle_bg));
             // Special offer banner
             //======================-->
 
-            <?php $offer = get_field('toggle_offer');
-            if ($offer) : ?>
+            <section class="padding-3 special-offer"
+                     style="background-image: url('<?php the_field('home_page_special_offer_bg') ?>')">
 
-                <section class="padding-3 special-offer"
-                         style="background-image: url('<?php the_field('home_page_special_offer_bg') ?>')">
+                <div class="sale-desc">
+                    <h2>Christmas Sale!</h2>
+                    <p>up to 5-20% OFF</p>
+                    <p>Special Offer</p>
+                </div>
 
-                    <div class="sale-desc">
-                        <h2>Christmas Sale!</h2>
-                        <p>up to 5-20% OFF</p>
-                        <p>Special Offer</p>
-                    </div>
+                <span class="divider"></span>
 
-                    <span class="divider"></span>
+                <div class="sale-counter">
+                    <p>Off ends:</p>
+                    <div class="sale-counter-date"></div>
+                    <button href="#" class="rh-button sale-link">Watch here!</button>
+                </div>
 
-                    <div class="sale-counter">
-                        <p>Off ends:</p>
-                        <div class="sale-counter-date"></div>
-                        <button href="#" class="rh-button sale-link">Watch here!</button>
-                    </div>
+            </section>
 
-                </section>
-
-            <?php endif; ?>
             <!--================
             // Employee-cards
             //================-->

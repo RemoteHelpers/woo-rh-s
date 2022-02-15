@@ -14,9 +14,6 @@ const img = document.querySelector('.gallery-image')
 const thumbnailGallery = document.querySelector('.gallery-thumbnails')
 
 const breadcrumbs = document.querySelector('.breadcrumb-container');
-const skillset = document.querySelector('.product-skillset');
-
-const sidebarContent = document.querySelector('.content-with-sidebar')
 
 let imgIndex = 0
 
@@ -85,49 +82,6 @@ onload = () => {
             } else if (param === 'right') {
                 breadcrumbText.style.transform = 'translateX(-' + coords + 'px)'
             }
-        }
-    }
-
-    if (skillset) {
-        const toggleCollapse = skillset.querySelector('.close-skills')
-        const skills = skillset.querySelector('.employee-skills')
-        // set initial scrollHeight for element
-        skills.style.maxHeight = skills.scrollHeight + 'px'
-
-        toggleCollapse.addEventListener('click', handleCollapse, false)
-        document.addEventListener('scroll', handleScroll, false)
-
-        function handleCollapse() {
-            if (this.classList.contains('collapsed')) {
-                this.innerText = '−'
-                skills.style.maxHeight = skills.scrollHeight + 'px'
-                skills.style.marginBlock = '1rem 2rem'
-            } else {
-                this.innerText = '+'
-                skills.style.maxHeight = 0
-                skills.style.marginBlock = '1rem 0'
-            }
-            this.classList.toggle('collapsed')
-        }
-
-        function handleScroll() {
-            toggleCollapse.classList.toggle('collapsed')
-            toggleCollapse.innerText = '+'
-            skills.style.maxHeight = 0
-            skills.style.marginBlock = '1rem 0'
-        }
-    }
-
-    if (sidebarContent) {
-        const btn = sidebarContent.querySelector('.hide-btn')
-        const sidebar = sidebarContent.querySelector('.sidebar')
-        const filter = sidebarContent.querySelector('.sticky-filter')
-        btn.addEventListener('click', hideSidebar, false)
-
-        function hideSidebar() {
-            this.classList.toggle('hidden')
-            filter.classList.toggle('hidden')
-            sidebar.classList.toggle('closed')
         }
     }
 }
@@ -773,21 +727,21 @@ function aboutSlider() {
 const cards = document.querySelectorAll('.card');
 console.log(cards);
 for (let i = 0; i < cards.length; i++) {
-    const skillContainer = cards[i]
-        .querySelector('.card_content')
-        .querySelector('.skill-items');
-    console.log(skillContainer);
-    const counterFunction = () => {
-        // console.log(skillContainer.childElementCount);
-        console.log(skillContainer.querySelectorAll('a').length);
-        tagNum = skillContainer.querySelectorAll('a').length;
-        if (tagNum > 6) {
-            console.log('+');
-            skillContainer.querySelector('.count').textContent += `+${tagNum - 6}`;
-        } else {
-            console.log('-');
-            skillContainer.querySelector('.count').style = 'display: none';
-        }
-    };
-    counterFunction();
+  const skillContainer = cards[i]
+    .querySelector('.card_content')
+    .querySelector('.skill-items');
+  console.log(skillContainer);
+  const counterFunction = () => {
+    // console.log(skillContainer.childElementCount);
+    console.log(skillContainer.querySelectorAll('a').length);
+    tagNum = skillContainer.querySelectorAll('a').length;
+    if (tagNum > 6) {
+      console.log('+');
+      skillContainer.querySelector('.count').textContent += `+${tagNum - 6}`;
+    } else {
+      console.log('-');
+      skillContainer.querySelector('.count').style = 'display: none';
+    }
+  };
+  counterFunction();
 }

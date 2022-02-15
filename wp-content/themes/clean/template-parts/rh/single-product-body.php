@@ -11,23 +11,6 @@ global $product;
 
 <div class="product-body">
 
-    <div class="only-desktop">
-        <div class="breadcrumb-container">
-            <div class="breadcrumb-arrow-left"><i class="fas fa-chevron-left"></i></div>
-            <div class="breadcrumb-window">
-                <?php
-                /**
-                 * Hook: rh_before_product_body
-                 *
-                 * @hooked woocommerce_breadcrumb - 20
-                 */
-                do_action('rh_before_product_body');
-                ?>
-            </div>
-            <div class="breadcrumb-arrow-right"><i class="fas fa-chevron-right"></i></div>
-        </div>
-    </div>
-
     <!--=======================
     // Video interview section
     //========================-->
@@ -207,10 +190,10 @@ global $product;
         </div>
 
         <?php
-        //        global $product;
-        //        $args = array ('post_id' => $product->get_id());
-        //        $comments = get_comments( $args );
-        //        wp_list_comments( array( 'callback' => 'woocommerce_comments' ), $comments);
+//        global $product;
+//        $args = array ('post_id' => $product->get_id());
+//        $comments = get_comments( $args );
+//        wp_list_comments( array( 'callback' => 'woocommerce_comments' ), $comments);
         comments_template('CV-comments.php');
         ?>
 

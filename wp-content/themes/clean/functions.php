@@ -209,7 +209,6 @@ function clean_scripts()
 
     wp_enqueue_style('archive-product', get_template_directory_uri() . '/css/archive-product.css', false, '1.1', 'all');
     wp_enqueue_style('employee-card', get_template_directory_uri() . '/css/employee-card.css', false, '1.1', 'all');
-    wp_enqueue_style('employee-card', get_template_directory_uri() . '/css/category.css', false, '1.1', 'all');
     wp_enqueue_style('slick-styles', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', false, '1.1', 'all');
     wp_enqueue_style('header-style', get_template_directory_uri() . '/css/header.css', false, '1.1', 'all');
     wp_enqueue_style('mini-cart-style', get_template_directory_uri() . '/css/mini-cart.css', false, '1.1', 'all');
