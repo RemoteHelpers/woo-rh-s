@@ -130,7 +130,7 @@ global $product;
         </ul>
 
         <!--==================
-        // Designer portfolio
+        // Portfolio
         //===================-->
 
         <div class="product-body-section-title red">
@@ -138,61 +138,76 @@ global $product;
         </div>
 
         <?php
-        if (have_rows('designer_portfolio')) :
-        $designer_portfolio = get_field('designer_portfolio');
-        acf_localize_data(array('designerPortfolio' => $designer_portfolio));
-        ?>
-        <ul class="portfolio portfolio-thumbnails">
+        if (have_rows('default_portfolio')) : ?>
+        <ul class="project-accordion">
             <?php
-            while (have_rows('designer_portfolio')) : the_row(); ?>
+            while (have_rows('default_portfolio')) : the_row(); ?>
                 <li>
-                    <figure>
-                        <img src="<?php the_sub_field('cover_image'); ?>">
-                        <figcaption><?php the_sub_field('designer_project_name'); ?></figcaption>
-                    </figure>
+                    <h4 class="project-accordion-title"><?php the_sub_field('project_name'); ?></h4>
+                    <div class="project-accordion-content">
+                        <?php the_sub_field('project_description'); ?>
+                    </div>
                 </li>
             <?php
             endwhile;
-            endif; ?>
+            endif;
+            ?>
         </ul>
 
-        <!--==================
-        // Developer portfolio
-        //===================-->
-
-        <h4>Optional (developers)</h4>
-
-        <?php
-        if (have_rows('developer_portfolio')) : ?>
-        <ul class="portfolio portfolio-pills">
-            <?php
-            while (have_rows('developer_portfolio')) : the_row(); ?>
-                <li>
-                    <a href="<?php the_sub_field('project_link'); ?>"><?php the_sub_field('project_name'); ?></a>
-                </li>
-            <?php
-            endwhile;
-            endif; ?>
-        </ul>
-
-        <!--==================
-        // Video portfolio
-        //===================-->
-
-        <h4>Optional (video)</h4>
-
-        <?php
-        if (have_rows('videograph_portfolio')) : ?>
-        <ul class="portfolio portfolio-video">
-            <?php
-            while (have_rows('videograph_portfolio')) : the_row(); ?>
-                <li>
-                    <img src="<?php the_sub_field('video_image'); ?>">
-                </li>
-            <?php
-            endwhile;
-            endif; ?>
-        </ul>
+        <!--        --><?php
+        //        if (have_rows('designer_portfolio')) :
+        //        $designer_portfolio = get_field('designer_portfolio');
+        //        acf_localize_data(array('designerPortfolio' => $designer_portfolio));
+        //        ?>
+        <!--        <ul class="portfolio portfolio-thumbnails">-->
+        <!--            --><?php
+        //            while (have_rows('designer_portfolio')) : the_row(); ?>
+        <!--                <li>-->
+        <!--                    <figure>-->
+        <!--                        <img src="--><?php //the_sub_field('cover_image'); ?><!--">-->
+        <!--                        <figcaption>-->
+        <?php //the_sub_field('designer_project_name'); ?><!--</figcaption>-->
+        <!--                    </figure>-->
+        <!--                </li>-->
+        <!--            --><?php
+        //            endwhile;
+        //            endif; ?>
+        <!--        </ul>-->
+        <!---->
+        <!--        // Developer portfolio-->
+        <!---->
+        <!--        <h4>Optional (developers)</h4>-->
+        <!---->
+        <!--        --><?php
+        //        if (have_rows('developer_portfolio')) : ?>
+        <!--        <ul class="portfolio portfolio-pills">-->
+        <!--            --><?php
+        //            while (have_rows('developer_portfolio')) : the_row(); ?>
+        <!--                <li>-->
+        <!--                    <a href="--><?php //the_sub_field('project_link'); ?><!--">-->
+        <?php //the_sub_field('project_name'); ?><!--</a>-->
+        <!--                </li>-->
+        <!--            --><?php
+        //            endwhile;
+        //            endif; ?>
+        <!--        </ul>-->
+        <!---->
+        <!--        // Video portfolio-->
+        <!---->
+        <!--        <h4>Optional (video)</h4>-->
+        <!---->
+        <!--        --><?php
+        //        if (have_rows('videograph_portfolio')) : ?>
+        <!--        <ul class="portfolio portfolio-video">-->
+        <!--            --><?php
+        //            while (have_rows('videograph_portfolio')) : the_row(); ?>
+        <!--                <li>-->
+        <!--                    <img src="--><?php //the_sub_field('video_image'); ?><!--">-->
+        <!--                </li>-->
+        <!--            --><?php
+        //            endwhile;
+        //            endif; ?>
+        <!--        </ul>-->
 
     </section>
 

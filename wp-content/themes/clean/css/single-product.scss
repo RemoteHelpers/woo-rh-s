@@ -683,6 +683,31 @@
           }
         }
       }
+
+      .project-accordion {
+        .project-accordion-title {
+          background-color: var(--rh-accent-color);
+          margin: 0.5rem 0 0;
+          padding: 1rem;
+          color: white;
+          border-radius: var(--border-radius);
+          cursor: pointer;
+          transition: background-color .3s ease;
+
+          &:hover {
+            background-color: var(--rh-accent-color-darken);
+          }
+        }
+
+        .project-accordion-content {
+          max-height: 0;
+          overflow: hidden;
+          transition: all .3s ease;
+          background-color: var(--rh-light-grey);
+          margin-inline: 5px;
+          padding-inline: 1rem;
+        }
+      }
     }
 
     //=========

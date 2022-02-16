@@ -18,6 +18,8 @@ const skillset = document.querySelector('.product-skillset');
 
 const sidebarContent = document.querySelector('.content-with-sidebar')
 
+const projectAccordion = document.querySelector('.project-accordion')
+
 let imgIndex = 0
 
 onload = () => {
@@ -139,6 +141,27 @@ onload = () => {
                     gsap.to(cards, {duration: .2, opacity: 1});
                 }, 200)
             }
+        }
+    }
+
+    if (projectAccordion) {
+        const titles = projectAccordion.querySelectorAll('.project-accordion-title')
+        const contents = projectAccordion.querySelectorAll('.project-accordion-content')
+
+        titles.forEach(title => {
+            title.addEventListener('click', handleProjectAccordion, false)
+        })
+
+        function handleProjectAccordion() {
+            const content = this.nextElementSibling
+            if (content.classList.contains('open')) {
+                content.style.maxHeight = 0
+                content.style.paddingBlock = 0
+            } else {
+                content.style.maxHeight = content.scrollHeight + 16 + 'px'
+                content.style.paddingBlock = '1rem'
+            }
+            content.classList.toggle('open')
         }
     }
 }

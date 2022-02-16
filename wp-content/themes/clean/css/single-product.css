@@ -535,6 +535,26 @@
   height: 8rem;
   object-fit: cover;
 }
+.rh-single-product .product-body .portfolios .project-accordion .project-accordion-title {
+  background-color: var(--rh-accent-color);
+  margin: 0.5rem 0 0;
+  padding: 1rem;
+  color: white;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.rh-single-product .product-body .portfolios .project-accordion .project-accordion-title:hover {
+  background-color: var(--rh-accent-color-darken);
+}
+.rh-single-product .product-body .portfolios .project-accordion .project-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background-color: var(--rh-light-grey);
+  margin-inline: 5px;
+  padding-inline: 1rem;
+}
 .rh-single-product .product-body .CV-page-review {
   gap: 1rem;
 }
