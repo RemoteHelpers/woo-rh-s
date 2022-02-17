@@ -1,6 +1,7 @@
 const isAdmin = document.querySelector('#wpadminbar')
 
 const homePage = document.querySelector('.home-page')
+const archivePage = document.querySelector('.category')
 const singleProductPage = document.querySelector('.rh-single-product')
 const faqPage = document.querySelector('.faq')
 const privacyPage = document.querySelector('.privacy')
@@ -41,6 +42,9 @@ onload = () => {
         portfolioGallery()
         ratingHover()
         bookMeeting()
+    }
+    if (archivePage) {
+        componentSlider()
     }
 
     if (faqPage) {
@@ -741,6 +745,8 @@ function affiliateSlider() {
     });
 }
 
+
+
 /* ABOUT US SLIDER */
 function aboutSlider() {
     jQuery('.gallery-viewport').slick({
@@ -782,7 +788,7 @@ function aboutSlider() {
 
 //CARDS
 const cards = document.querySelectorAll('.card');
-console.log(cards);
+
 for (let i = 0; i < cards.length; i++) {
     const skillContainer = cards[i]
         .querySelector('.card_content')
@@ -793,12 +799,22 @@ for (let i = 0; i < cards.length; i++) {
         console.log(skillContainer.querySelectorAll('a').length);
         tagNum = skillContainer.querySelectorAll('a').length;
         if (tagNum > 6) {
-            console.log('+');
+           
             skillContainer.querySelector('.count').textContent += `+${tagNum - 6}`;
         } else {
-            console.log('-');
+      
             skillContainer.querySelector('.count').style = 'display: none';
         }
     };
     counterFunction();
+}
+
+// COMPONENT CATEGORY SLIDER
+function componentSlider() {
+    jQuery('.component__slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+        arrows: true,
+    });
 }
