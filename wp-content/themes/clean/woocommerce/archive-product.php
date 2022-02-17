@@ -49,9 +49,9 @@ get_header();
                     echo $description
                     ?>
                 </div>
-                <div class="category__btn">
+                <a href="#" class="category__btn">
                     Download presentation
-                </div>
+                </a>
             </div>
             <div class="category__block category__video">
                 <iframe src="
@@ -74,26 +74,44 @@ get_header();
         </div>
 
 
-        <?php
-        // name of repeater field
-        $repeater = 'block_content';
-
-        // get taxonomy id
-        $taxonomy_id = get_queried_object_id();
-
-        // get repeater data from term meta
-        $post_meta = get_term_meta($taxonomy_id, $repeater, true);
-
-        // count items in repeater
-        $count = intval(get_term_meta($taxonomy_id, $repeater, true));
-
-        // loop + apply filter the_content to preserve html formatting
-        for ($i = 0; $i < $count; $i++) { ?>
-            
-
-            
-        <?php } ?>
-
+        <?php 
+                $term = get_queried_object();
+                $taxonomy = $term->taxonomy;
+                $term_id = $term->term_id;  
+                if( have_rows('block_content', $taxonomy . '_' . $term_id) ):
+                while(have_rows('block_content', $taxonomy . '_' . $term_id)): 
+                the_row(); 
+            ?> 
+            <div class="category__reverce">
+            <div class="category__component category">
+                <div class="component__block">
+                    <div class="component__text">
+                        <div class="component__icon">
+                            <img src="<?php the_sub_field('component_icon', $taxonomy . '_' . $term_id) ?>" alt="">
+                        </div>
+                        <div class="component__title"><?php the_sub_field('component_title', $taxonomy . '_' . $term_id) ?></div>
+                    </div>
+                    <div class="component__subtitle"><?php the_sub_field('component_subtitle', $taxonomy . '_' . $term_id) ?></div>
+                    <a href="#" class="component__btn"> <div><?php the_sub_field('component_button', $taxonomy . '_' . $term_id) ?></div></a>
+                </div>
+                <div class="component__block">
+                    <div class="component__slider">
+                        <?php 
+                            $term = get_queried_object();
+                            $taxonomy = $term->taxonomy;
+                            $term_id = $term->term_id;  
+                            if( have_rows('component_slider', $taxonomy . '_' . $term_id) ):
+                            while(have_rows('component_slider', $taxonomy . '_' . $term_id)): 
+                            the_row(); 
+                        ?> 
+                        <div class="component__slide">
+                          <img src="<?php the_sub_field('slider_image', $taxonomy . '_' . $term_id) ?>" alt="">
+                        </div>
+                        <?php endwhile; endif; ?>  
+                    </div>
+                </div>
+            </div> 
+             
             <div class="category__related">
                 <div class="category__related_title">
                     <?php@media only screen and (max - width: 767px)
@@ -108,13 +126,9 @@ get_header();
                     ?>
                 </div>
             </div>
+            </div>
+        <?php endwhile; endif; ?>  
     </section>
-
-    <div class="section-title-box">
-        <h1 class="section-title text-center">Find and Hire Remote Employee Here!</h1>
-        <p class="section-subtitle">Watch Video Interviews with Candidates inside each Profile</p>
-    </div>
-
     <div class="content-with-sidebar">
         <div class="sidebar">
             <div class="sticky-filter">
@@ -178,8 +192,6 @@ get_header();
 
         </div>
     </div>
-
-
 <?php
 
 /**
