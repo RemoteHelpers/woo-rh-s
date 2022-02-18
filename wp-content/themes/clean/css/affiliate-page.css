@@ -1,7 +1,7 @@
 .affiliate-page {
   margin: calc((100vw - var(--scrollbar-width)) / 20);
 }
-.affiliate-page .slick-list .card {
+.affiliate-page .slick-list .affiliate-card {
   border-radius: 15px;
   margin-inline: 2% !important;
   margin-block: 1rem 8vw !important;
@@ -84,23 +84,23 @@
   gap: 4vw;
   margin-inline: auto;
 }
-.affiliate-page .affiliate-marketing .affiliate-cards .card {
+.affiliate-page .affiliate-marketing .affiliate-cards .affiliate-card {
   border-radius: 1rem;
   box-shadow: 2px 3px 20px 0px rgba(0, 0, 0, 0.3);
   padding: 2rem 1rem 1rem;
   position: relative;
   width: min(90%, 400px);
 }
-.affiliate-page .affiliate-marketing .affiliate-cards .card img {
+.affiliate-page .affiliate-marketing .affiliate-cards .affiliate-card img {
   display: block;
   margin-inline: auto;
 }
-.affiliate-page .affiliate-marketing .affiliate-cards .card .age {
+.affiliate-page .affiliate-marketing .affiliate-cards .affiliate-card .age {
   display: flex;
   justify-content: center;
   gap: 1rem;
 }
-.affiliate-page .affiliate-marketing .affiliate-cards .card .header {
+.affiliate-page .affiliate-marketing .affiliate-cards .affiliate-card .header {
   background-color: var(--rh-green-color);
   border-top-right-radius: 1rem;
   border-bottom-left-radius: 1rem;

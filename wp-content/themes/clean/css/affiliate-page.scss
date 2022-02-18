@@ -2,7 +2,7 @@
   margin: calc((100vw - var(--scrollbar-width)) / 20);
 
   // margins around a slide (top, bottom and sides)
-  .slick-list .card {
+  .slick-list .affiliate-card {
     border-radius: 15px;
     margin-inline: 2% !important;
     margin-block: 1rem 8vw !important;
@@ -110,7 +110,7 @@
       //width: max(80%, 300px);
       margin-inline: auto;
 
-      .card {
+      .affiliate-card {
         border-radius: 1rem;
         box-shadow: 2px 3px 20px 0px rgb(0 0 0 / 30%);
         padding: 2rem 1rem 1rem;

@@ -34,7 +34,7 @@ $affiliate_img = get_field('affiliate_images');
                 <?php if (have_rows('affiliate_card')) :
                     while (have_rows('affiliate_card')) : the_row();
                         ?>
-                        <div class="card">
+                        <div class="affiliate-card">
                             <div class="header">
                                 <span>Model: <?php the_sub_field('model'); ?></span>
                             </div>
