@@ -435,15 +435,29 @@
 
     .product-skillset {
       border-bottom: 1px solid #dbdbdb;
-      //padding-bottom: 2rem;
 
       .accordion-title {
         display: flex;
         justify-content: space-between;
+        cursor: pointer;
+        font-size: 1.125rem;
+        position: relative;
+
+        &:after {
+          content: '–';
+          position: absolute;
+          right: 0;
+          font-weight: 600;
+          transition: transform .3s ease;
+        }
+
+        &.collapsed:after {
+          content: '+';
+          transform: rotate(360deg);
+        }
       }
 
       h4 {
-        font-size: 1.125rem;
         margin-block: 0;
       }
 
@@ -452,13 +466,6 @@
         margin-block: 1rem 2rem;
         overflow: hidden;
         transition: .3s ease;
-      }
-
-      .close-skills {
-        font-size: 1.125rem;
-        font-weight: 600;
-        cursor: pointer;
-        text-align: right;
       }
     }
 
