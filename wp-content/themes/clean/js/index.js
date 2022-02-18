@@ -158,14 +158,15 @@ onload = () => {
 
         function handleProjectAccordion() {
             const content = this.nextElementSibling
-            if (content.classList.contains('open')) {
+            const verticalPadding = 8
+            if (this.classList.contains('open')) {
                 content.style.maxHeight = 0
                 content.style.paddingBlock = 0
             } else {
-                content.style.maxHeight = content.scrollHeight + 16 + 'px'
+                content.style.maxHeight = content.scrollHeight + (verticalPadding*2) + 'px'
                 content.style.paddingBlock = '1rem'
             }
-            content.classList.toggle('open')
+            this.classList.toggle('open')
         }
     }
 }

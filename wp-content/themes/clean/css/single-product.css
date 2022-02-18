@@ -542,15 +542,32 @@
   color: white;
   border-radius: var(--border-radius);
   cursor: pointer;
+  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: background-color 0.3s ease;
 }
 .rh-single-product .product-body .portfolios .project-accordion .project-accordion-title:hover {
   background-color: var(--rh-accent-color-darken);
 }
+.rh-single-product .product-body .portfolios .project-accordion .project-accordion-title:after {
+  content: "\f0d7";
+  font-family: "Font Awesome 5 Free", "sans-serif";
+  color: white;
+  font-size: 1.5rem;
+  position: absolute;
+  right: 1rem;
+  transition: transform 0.2s ease;
+}
+.rh-single-product .product-body .portfolios .project-accordion .project-accordion-title.open:after {
+  transform: rotate(180deg);
+}
 .rh-single-product .product-body .portfolios .project-accordion .project-accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.3s;
   background-color: var(--rh-light-grey);
   margin-inline: 5px;
   padding-inline: 1rem;
