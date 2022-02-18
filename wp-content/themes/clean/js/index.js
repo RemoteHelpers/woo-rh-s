@@ -95,21 +95,20 @@ onload = () => {
     }
 
     if (skillset) {
-        const toggleCollapse = skillset.querySelector('.close-skills')
+        const title = skillset.querySelector('.accordion-title')
         const skills = skillset.querySelector('.employee-skills')
+
         // set initial scrollHeight for element
         skills.style.maxHeight = skills.scrollHeight + 'px'
 
-        toggleCollapse.addEventListener('click', handleCollapse, false)
+        title.addEventListener('click', handleCollapse, false)
         document.addEventListener('scroll', handleScroll, false)
 
         function handleCollapse() {
             if (this.classList.contains('collapsed')) {
-                this.innerText = '−'
                 skills.style.maxHeight = skills.scrollHeight + 'px'
                 skills.style.marginBlock = '1rem 2rem'
             } else {
-                this.innerText = '+'
                 skills.style.maxHeight = 0
                 skills.style.marginBlock = '1rem 0'
             }
@@ -117,10 +116,11 @@ onload = () => {
         }
 
         function handleScroll() {
-            toggleCollapse.classList.toggle('collapsed')
-            toggleCollapse.innerText = '+'
-            skills.style.maxHeight = 0
-            skills.style.marginBlock = '1rem 0'
+            if (!title.classList.contains('collapsed')) {
+                title.classList.add('collapsed')
+                skills.style.maxHeight = 0
+                skills.style.marginBlock = '1rem 0'
+            }
         }
     }
 
@@ -163,7 +163,7 @@ onload = () => {
                 content.style.maxHeight = 0
                 content.style.paddingBlock = 0
             } else {
-                content.style.maxHeight = content.scrollHeight + (verticalPadding*2) + 'px'
+                content.style.maxHeight = content.scrollHeight + (verticalPadding * 2) + 'px'
                 content.style.paddingBlock = '1rem'
             }
             this.classList.toggle('open')
@@ -770,7 +770,6 @@ function affiliateSlider() {
 }
 
 
-
 /* ABOUT US SLIDER */
 function aboutSlider() {
     jQuery('.gallery-viewport').slick({
@@ -823,10 +822,10 @@ for (let i = 0; i < cards.length; i++) {
         console.log(skillContainer.querySelectorAll('a').length);
         tagNum = skillContainer.querySelectorAll('a').length;
         if (tagNum > 6) {
-           
+
             skillContainer.querySelector('.count').textContent += `+${tagNum - 6}`;
         } else {
-      
+
             skillContainer.querySelector('.count').style = 'display: none';
         }
     };

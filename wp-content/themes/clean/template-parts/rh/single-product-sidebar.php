@@ -69,7 +69,7 @@ global $product;
         </div>
 
         <div class="product-skillset">
-            <div class="accordion-title"><h4>Professional <span class="accent-highlight">skillset</span></h4><span class="close-skills">−</span></div>
+            <div class="accordion-title"><h4>Professional <span class="accent-highlight">skillset</span></h4></div>
             <div class="employee-skills skill-items">
                 <?php
                 $id = $product->get_id();
