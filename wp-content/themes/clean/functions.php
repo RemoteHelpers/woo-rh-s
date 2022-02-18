@@ -204,7 +204,7 @@ add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 
 function clean_scripts()
 {
-    
+
     wp_enqueue_style('variables', get_template_directory_uri() . '/css/variables.css', false, '1.1', 'all');
     wp_enqueue_style('clean-style', get_stylesheet_uri(), array(), _S_VERSION);
 
@@ -353,6 +353,23 @@ function pprint_r($a)
 }
 
 /**
+ * Products can only be individually sold.
+ */
+add_filter('woocommerce_add_to_cart_validation', 'wc_limit_one_per_order', 10, 2);
+function wc_limit_one_per_order($passed, $product_id)
+{
+    foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+//        if product by id is already in cart - error
+        if ($cart_item['data']->get_id() === $product_id) {
+            wc_add_notice(__('Only individually sold', 'woocommerce'), 'error');
+            $passed = false;
+            break;
+        }
+    }
+    return $passed;
+}
+
+/**
  * Function for changing woocommerce loop open/close tags.
  */
 function woocommerce_product_loop_start()
@@ -459,7 +476,7 @@ function remove_stuff_from_shop()
 add_action('rh_archive_filter', 'rh_open_sidebar_div', 10);
 function rh_open_sidebar_div()
 { ?>
-<div class="archive-page">
+    <div class="archive-page">
     <div class="archive-sidebar">
 
         <!--            --><?php //dynamic_sidebar( 'filter-sidebar' );
@@ -467,13 +484,13 @@ function rh_open_sidebar_div()
 
         <?php echo do_shortcode('[pwf_filter id="323"]') ?>
     </div>
-    <?php } ?>
+<?php } ?>
 
-    <?php
-    add_action('rh_add_closing_div', 'rh_close_sidebar_div', 10);
-    function rh_close_sidebar_div()
-    { ?>
-</div>
+<?php
+add_action('rh_add_closing_div', 'rh_close_sidebar_div', 10);
+function rh_close_sidebar_div()
+{ ?>
+    </div>
 <?php }
 
 //--------------------
@@ -483,19 +500,19 @@ add_action('rh_main_page_filter', 'rh_open_sidebar1_div', 10);
 function rh_open_sidebar1_div()
 { ?>
 
-<div class="main-page">
+    <div class="main-page">
     <div class="main-sidebar">
         <!--            --><?php //dynamic_sidebar( 'filter-sidebar' );
         ?>
         <?php echo do_shortcode('[pwf_filter id="326"]') ?>
     </div>
-    <?php } ?>
+<?php } ?>
 
-    <?php
-    add_action('rh_main_page_closing_div', 'rh_close_sidebar1_div', 10);
-    function rh_close_sidebar1_div()
-    { ?>
-</div>
+<?php
+add_action('rh_main_page_closing_div', 'rh_close_sidebar1_div', 10);
+function rh_close_sidebar1_div()
+{ ?>
+    </div>
 <?php } ?>
 
 <?php
