@@ -1,0 +1,57 @@
+.woocommerce table.shop_table {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0 -1px 24px 0;
+  text-align: left;
+  width: 100%;
+  border-collapse: separate;
+  border-radius: 5px;
+}
+.woocommerce table.shop_table th {
+  font-weight: 700;
+  padding: 9px 12px;
+  line-height: 1.5em;
+}
+.woocommerce table.shop_table td {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 9px 12px;
+  vertical-align: middle;
+  line-height: 1.5em;
+}
+.woocommerce table.shop_table td small {
+  font-weight: normal;
+}
+.woocommerce table.shop_table td del {
+  font-weight: normal;
+}
+.woocommerce table.shop_table tbody:first-child tr:first-child th,
+.woocommerce table.shop_table tbody:first-child tr:first-child td {
+  border-top: 0;
+}
+.woocommerce table.shop_table tfoot td,
+.woocommerce table.shop_table tfoot th,
+.woocommerce table.shop_table tbody th {
+  font-weight: 700;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.woocommerce a.remove {
+  display: block;
+  font-size: 1.5em;
+  height: 1em;
+  width: 1em;
+  text-align: center;
+  line-height: 1;
+  border-radius: 100%;
+  color: red !important;
+  text-decoration: none;
+  font-weight: 700;
+  border: 0;
+}
+.woocommerce a.remove:hover {
+  color: #fff !important;
+  background: red;
+}
+.woocommerce .wc-proceed-to-checkout a.checkout-button {
+  color: white;
+}
+
+/*# sourceMappingURL=cart.css.map */

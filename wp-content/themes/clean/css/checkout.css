@@ -1,0 +1,27 @@
+.checkout .woocommerce-billing-fields input {
+  width: 100%;
+}
+.checkout .required {
+  color: var(--rh-accent-color);
+  font-weight: 700;
+  border: 0 !important;
+  text-decoration: none;
+  visibility: hidden;
+}
+.checkout .form-row {
+  display: flex;
+  flex-direction: column;
+}
+.checkout .woocommerce-checkout-payment {
+  background-color: #ebe9eb;
+  padding: 1rem;
+}
+@media (min-width: 980px) {
+  .checkout .customer-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+  }
+}
+
+/*# sourceMappingURL=checkout.css.map */
