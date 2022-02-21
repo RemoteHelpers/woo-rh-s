@@ -68,6 +68,12 @@ global $product;
             </div>
         </div>
 
+        <div class="product-exerpt">
+            <?php
+            the_excerpt();
+            ?>
+        </div>
+
         <div class="product-skillset">
             <div class="accordion-title"><h4>Professional <span class="accent-highlight">skillset</span></h4></div>
             <div class="employee-skills skill-items">
