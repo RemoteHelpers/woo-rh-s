@@ -65,6 +65,14 @@ global $product;
 
     </section>
 
+    <!--=============
+    // About section
+    //==============-->
+
+    <section class="about">
+        <?php echo $product->get_description(); ?>
+    </section>
+
     <!--==================
     // Portfolios section
     //===================-->

@@ -342,6 +342,9 @@
 .rh-single-product .product-sidebar .summary .summary-links i {
   margin-right: 5px;
 }
+.rh-single-product .product-sidebar .exerpt {
+  grid-column: 1/4;
+}
 .rh-single-product .product-sidebar .product-skillset {
   border-bottom: 1px solid #dbdbdb;
 }
