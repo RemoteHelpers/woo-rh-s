@@ -1201,6 +1201,7 @@ html {
   .content-with-sidebar .sidebar {
     display: flex;
     height: max-content;
+    z-index: 1;
     transition: transform var(--transform-time) ease;
   }
   .content-with-sidebar .sidebar.closed {

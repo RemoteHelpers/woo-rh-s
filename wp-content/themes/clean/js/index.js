@@ -810,27 +810,27 @@ function aboutSlider() {
 }
 
 //CARDS
-const cards = document.querySelectorAll('.card');
-
-for (let i = 0; i < cards.length; i++) {
-    const skillContainer = cards[i]
-        .querySelector('.card_content')
-        .querySelector('.skill-items');
-    console.log(skillContainer);
-    const counterFunction = () => {
-        // console.log(skillContainer.childElementCount);
-        console.log(skillContainer.querySelectorAll('a').length);
-        tagNum = skillContainer.querySelectorAll('a').length;
-        if (tagNum > 6) {
-
-            skillContainer.querySelector('.count').textContent += `+${tagNum - 6}`;
-        } else {
-
-            skillContainer.querySelector('.count').style = 'display: none';
-        }
-    };
-    counterFunction();
-}
+// const cards = document.querySelectorAll('.card');
+//
+// for (let i = 0; i < cards.length; i++) {
+//     const skillContainer = cards[i]
+//         .querySelector('.card_content')
+//         .querySelector('.skill-items');
+//     console.log(skillContainer);
+//     const counterFunction = () => {
+//         // console.log(skillContainer.childElementCount);
+//         console.log(skillContainer.querySelectorAll('a').length);
+//         tagNum = skillContainer.querySelectorAll('a').length;
+//         if (tagNum > 6) {
+//
+//             skillContainer.querySelector('.count').textContent += `+${tagNum - 6}`;
+//         } else {
+//
+//             skillContainer.querySelector('.count').style = 'display: none';
+//         }
+//     };
+//     counterFunction();
+// }
 
 // COMPONENT CATEGORY SLIDER
 function componentSlider() {
