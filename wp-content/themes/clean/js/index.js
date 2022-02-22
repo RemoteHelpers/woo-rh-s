@@ -24,6 +24,7 @@ let imgIndex = 0
 onload = () => {
 
     if (homePage) {
+        componentCards()
         heroScroller()
         clientsScroller()
         testimonialsScroller()
@@ -42,6 +43,7 @@ onload = () => {
         portfolioGallery()
         ratingHover()
         bookMeeting()
+        
     }
     if (archivePage) {
         componentSlider()
@@ -815,6 +817,56 @@ function componentSlider() {
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: true,
-        arrows: true,
+        arrows: false,
+        fade: true,
+        cssEase: 'linear',
+        autoplay: true,
+        autoplaySpeed: 2000,
+    });
+    jQuery('.rh-query-results').slick({
+        responsive: [
+            {
+              breakpoint: 5000,
+              settings: "unslick"
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                variableWidth: true,
+                centerMode: true,
+                arrows: false,
+                autoplay: true,
+                autoplaySpeed: 2000,
+              }
+            }
+          ]
+    });
+        
+   
+      
+}
+
+function componentCards() {
+    jQuery('.employees').slick({
+        responsive: [
+            {
+              breakpoint: 5000,
+              settings: "unslick"
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                variableWidth: true,
+                centerMode: true,
+                arrows: false,
+                autoplay: true,
+                autoplaySpeed: 2000,
+              }
+            }
+          ]
     });
 }

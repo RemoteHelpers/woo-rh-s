@@ -54,13 +54,13 @@ get_header();
                 </a>
             </div>
             <div class="category__block category__video">
-                <iframe src="
+                <iframe  src="
                     <?php
                 $term = get_queried_object();
                 $heading_video = get_field('heading_video', $term);
                 echo $heading_video
                 ?>
-                    ">
+                    " >
                 </iframe>
 
             </div>
@@ -94,7 +94,7 @@ get_header();
                     <div class="component__subtitle"><?php the_sub_field('component_subtitle', $taxonomy . '_' . $term_id) ?></div>
                     <a href="#" class="component__btn"> <div><?php the_sub_field('component_button', $taxonomy . '_' . $term_id) ?></div></a>
                 </div>
-                <div class="component__block">
+                <div class="component__block slider__width">
                     <div class="component__slider">
                         <?php 
                             $term = get_queried_object();
@@ -111,7 +111,14 @@ get_header();
                     </div>
                 </div>
             </div> 
-             
+            
+            <?php
+            if( get_sub_field('component_cards') ) {
+                // Do something.
+            
+            ?>
+
+            <div class="category__main_text"><?php the_sub_field('cards_heading', $taxonomy . '_' . $term_id) ?></div>
             <div class="category__related">
                 <div class="category__related_title">
                     <?php@media only screen and (max - width: 767px)
@@ -121,14 +128,20 @@ get_header();
                     ?>
                 </div>
                 <div class="category__related_cards">
-                    <?php
-                    getProductsByAcf("current_position", "Video editor");
-                    ?>
+                    <div class="categoty__slider_cards">
+          
+                        <?php 
+                        $position = get_sub_field('cards_position', $taxonomy . '_' . $term_id)
+                        ?>
+                        <?php getProductsByAcf("current_position", "$position"); ?>
+                    </div>
                 </div>
             </div>
+            <?php } ?>
             </div>
         <?php endwhile; endif; ?>  
     </section>
+    
     <div class="content-with-sidebar">
         <div class="sidebar">
             <div class="sticky-filter">
