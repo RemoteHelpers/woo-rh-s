@@ -1236,6 +1236,7 @@ html {
     .sidebar {
       display: flex;
       height: max-content;
+      z-index: 1;
       transition: transform var(--transform-time) ease;
 
       &.closed {
