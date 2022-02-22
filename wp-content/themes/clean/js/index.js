@@ -2,6 +2,7 @@ const isAdmin = document.querySelector('#wpadminbar')
 
 const homePage = document.querySelector('.home-page')
 const archivePage = document.querySelector('.category')
+const singleProductAbout = document.querySelector('.single-product-about')
 const singleProductPage = document.querySelector('.rh-single-product')
 const faqPage = document.querySelector('.faq')
 const privacyPage = document.querySelector('.privacy')
@@ -45,7 +46,7 @@ onload = () => {
         portfolioGallery()
         ratingHover()
         bookMeeting()
-        
+
     }
     if (archivePage) {
         componentSlider()
@@ -169,6 +170,42 @@ onload = () => {
                 content.style.paddingBlock = '1rem'
             }
             this.classList.toggle('open')
+        }
+    }
+
+    if (singleProductAbout) {
+        const aboutText = singleProductAbout.querySelector('.about-text')
+        const showMoreBtn = singleProductAbout.querySelector('.show-more')
+
+        const maxHeight = aboutText.scrollHeight
+        const initialText = aboutText.innerText
+        const textArr = initialText.split('.')
+
+        const transitionTime = .5
+
+        if (textArr.length > 5) {
+            const introText = textArr.splice(1, 5).join('.') + '...'
+            const theRestText = textArr.splice(5).join('.')
+            aboutText.innerText = introText
+            const lesserHeight = aboutText.scrollHeight
+            aboutText.style.maxHeight = lesserHeight + 'px'
+
+            showMoreBtn.addEventListener('click', handleShowMoreBtn, false)
+
+            function handleShowMoreBtn() {
+                if (this.classList.contains('open')) {
+                    aboutText.style.maxHeight = lesserHeight + 'px'
+                    setTimeout(() => {
+                        aboutText.innerText = introText
+                    }, transitionTime * 1000)
+                    showMoreBtn.innerText = 'Show more'
+                } else {
+                    aboutText.innerText = introText.slice(0, -2) + theRestText
+                    aboutText.style.maxHeight = maxHeight + 'px'
+                    showMoreBtn.innerText = 'Show less'
+                }
+                this.classList.toggle('open')
+            }
         }
     }
 }
@@ -849,47 +886,46 @@ function componentSlider() {
     jQuery('.rh-query-results').slick({
         responsive: [
             {
-              breakpoint: 5000,
-              settings: "unslick"
+                breakpoint: 5000,
+                settings: "unslick"
             },
             {
-              breakpoint: 768,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                variableWidth: true,
-                centerMode: true,
-                arrows: false,
-                autoplay: true,
-                autoplaySpeed: 2000,
-              }
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    variableWidth: true,
+                    centerMode: true,
+                    arrows: false,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                }
             }
-          ]
+        ]
     });
-        
-   
-      
+
+
 }
 
 function componentCards() {
     jQuery('.employees').slick({
         responsive: [
             {
-              breakpoint: 5000,
-              settings: "unslick"
+                breakpoint: 5000,
+                settings: "unslick"
             },
             {
-              breakpoint: 768,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                variableWidth: true,
-                centerMode: true,
-                arrows: false,
-                autoplay: true,
-                autoplaySpeed: 2000,
-              }
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    variableWidth: true,
+                    centerMode: true,
+                    arrows: false,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                }
             }
-          ]
+        ]
     });
 }
