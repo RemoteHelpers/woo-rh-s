@@ -7,6 +7,7 @@
 
     justify-content: space-between;
 }
+
 .header_block {
 }
 .category__block {
@@ -61,6 +62,7 @@ background-color: #FF5252;
 .category__video {
     padding-left: 10px;
 }
+
 .category__video iframe{
     border: none;
     width: 908px;
@@ -93,29 +95,44 @@ background-color: #FF5252;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
+
 .category__reverce:nth-child(2n) .category__component{
 
     flex-direction: row-reverse;
 
 }
-.category__component:nth-child(even) .component__btn{
+
+.category__component:nth-child(2n) .component__btn{
     text-align: left;
+    color: red;
 }
 
 .component__block {
     /* display: flex;
     flex-direction: column; */
-    width: 840px;
+    max-width: 840px;
 }
+.slick-slide img{
+    margin: 0 auto;
+}
+
 .component__text {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
+.content-with-sidebar{
+    margin-top: 100px;
+}
 .component__icon {
     width: 200px;
     margin-right: 32px;
+}
+.component__icon img{
+    max-width: none;
 }
 .component__title {
     font-family: Montserrat;
@@ -130,6 +147,7 @@ align-items: center;
 
 color: #5A5A5A;
 }
+
 .component__subtitle {
     margin-top: 50px;
     margin-bottom: 64px;
@@ -160,5 +178,152 @@ color: #C4C4C4;
     color: #FF5252;
 }
 .component__slider {
-    max-width: 800px;
+    max-width: 100%;
+    margin: 0 20px;
+}
+
+.component__slider .slick-dots{
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform:translate(-50%);
+
+}
+.component__slider .slick-dots li button{
+    transition-duration: .3s;
+    background: #C4C4C4;
+    width: 13px;
+    height: 13px;
+    font-size: 0;
+    border-radius: 50%;
+    margin: 0 5px;
+    outline: none;
+}
+.component__slider .slick-dots .slick-active button{
+    transition-duration: .3s;
+    background: #FF5252;
+    width: 17px;
+    height: 17px;
+    outline: none;
+}
+
+
+
+
+
+
+@media (max-width: 768px){
+    .slick-list .card{
+        margin: 4rem 20px !important;
+    }
+}
+
+@media (max-width: 1715px){
+    .category__component {
+        flex-direction: column;
+    }
+    .category{
+        padding-top: 2%;
+    }
+    .component__btn div{
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 600px){
+    .category__title{
+        line-height: normal;
+        font-size: 2rem;
+    }
+    .category__subtitle{
+        font-size: 1rem;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+  
+    .category__btn{
+        font-size: 1rem;
+        padding: 10px;
+    }
+    .category__main_text{
+        font-size: 25px;
+    }
+    .component__title{
+        font-size: 1.7rem !important;
+    }
+    .component__icon{
+        width: auto;
+    }
+    .component__btn{
+        font-size: 1rem;
+        line-height: normal;
+    }
+      
+}
+@media (max-width: 1715px){
+    .component__slider{
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 700px){
+    .component__title{
+        text-align: center;
+    }
+    .component__subtitle{
+        text-align: center;
+    }
+    .component__btn{
+        text-align: center;
+    }
+}
+
+@media (max-width: 700px){
+    .component__text{
+        flex-direction: column;
+    } 
+    .component__icon{
+        margin-right: 0;
+    }
+    .category__main_text{
+        margin: 20px 0;
+        font-size: 34px;
+        line-height: normal;
+    }
+    .category__component{
+        padding-bottom: 70px;
+    }
+
+}
+@media (max-width: 1715px){
+    .slider__width{
+        max-width: 100%;
+    }
+}
+@media (max-width: 1715px){
+    .category__reverce:nth-child(2n) .category__component{
+        flex-direction: column;
+    }
+}
+@media (max-width: 1560px){
+    .category__text{
+        margin-bottom: 40px;
+    }
+    .category__section {
+        display: flex;
+    
+        flex-direction: column;
+    }   
+    .category__block {
+        max-width: none;
+       
+    }
+    .category__video {
+        padding-left: 0px !important;
+        height: 30vh;
+    }
+    .category__video iframe{
+        width: 100%;
+        height: 100%;
+    }
+    
 }
