@@ -1100,7 +1100,6 @@ html {
   justify-content: space-evenly;
   gap: 1rem;
   row-gap: 3rem;
-  padding-inline: 1rem;
 }
 
 /* Custom elements
