@@ -70,7 +70,7 @@ global $product;
 
         <div class="product-exerpt">
             <?php
-            the_excerpt();
+            echo $product->get_short_description();
             ?>
         </div>
 

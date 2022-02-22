@@ -609,6 +609,25 @@
       height: 100%;
     }
 
+    .single-product-about {
+      margin-top: 2rem;
+      position: relative;
+      padding-bottom: 2rem;
+
+      .about-text {
+        overflow: hidden;
+        transition: max-height .5s ease;
+      }
+
+      .show-more {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        color: red;
+        cursor: pointer;
+      }
+    }
+
     .portfolios {
 
       .portfolio {

@@ -69,15 +69,18 @@ global $product;
     // About section
     //==============-->
 
-    <section class="about">
-        <?php echo $product->get_description(); ?>
+    <section class="single-product-about">
+        <div class="about-text">
+            <?php echo $product->get_description(); ?>
+        </div>
+        <span class="show-more">Show more</span>
     </section>
 
     <!--==================
     // Portfolios section
     //===================-->
 
-    <section class="portfolios padding-3">
+    <section class="portfolios">
 
         <!--===============
         // Work experience
