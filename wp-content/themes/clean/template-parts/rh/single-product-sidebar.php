@@ -68,6 +68,14 @@ global $product;
             </div>
         </div>
 
+        <div class="product-gallery">
+            <?php $gallery = $product->get_gallery_image_ids();
+            foreach ($gallery as $image) :
+                $src = wp_get_attachment_image_src($image)[0]; ?>
+                <img src="<?php echo $src; ?>">
+            <?php endforeach; ?>
+        </div>
+
         <div class="product-exerpt">
             <?php
             echo $product->get_short_description();
