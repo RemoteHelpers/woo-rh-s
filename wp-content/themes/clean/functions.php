@@ -571,8 +571,31 @@ function drawCards($query)
 } ?>
 
 <?php
-//------------- Related Cards
 
+//------------- Get Cards by tag
+function getProductsByTag($tag)
+{
+    $args = array(
+        'numberposts' => -1,
+        'post_type' => 'product',
+        'tax_query' => array(
+         array(
+            'taxonomy' => 'product_tag',
+            'field' => 'slug',
+            'terms' => $tag,
+            'operator' => 'IN',
+         )
+      ),
+    );
+
+    $the_query = new WP_Query($args);
+
+    drawCards($the_query);
+} ?>
+
+<?php
+
+//------------- Related Cards
 function getProductsByAcf($key, $value)
 {
     $args = array(
