@@ -111,7 +111,9 @@ onload = () => {
             if (this.classList.contains('collapsed')) {
                 skills.style.maxHeight = skills.scrollHeight + 'px'
                 skills.style.marginBlock = '1rem 2rem'
+                skills.style.opacity = 1
             } else {
+                skills.style.opacity = 0
                 skills.style.maxHeight = 0
                 skills.style.marginBlock = '1rem 0'
             }
@@ -165,9 +167,11 @@ onload = () => {
             if (this.classList.contains('open')) {
                 content.style.maxHeight = 0
                 content.style.paddingBlock = 0
+                content.style.opacity = 0
             } else {
                 content.style.maxHeight = content.scrollHeight + (verticalPadding * 2) + 'px'
                 content.style.paddingBlock = '1rem'
+                content.style.opacity = 1
             }
             this.classList.toggle('open')
         }
