@@ -70,7 +70,7 @@ if (post_password_required()) {
     <div class="container">
         <?php
 
-//        getRandomCategory(4);
+        //        getRandomCategory(4);
         getProductsByAcf('current_position', 'Lead generation manager');
 
         ?>
